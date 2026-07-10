@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>Quality Commitment Icon</title>
+  <g stroke="#E50909" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 45L64 26L106 45L64 65L22 45Z"/>
+    <path d="M35 53V82L64 101L93 82V53"/>
+    <path d="M49 60V91"/>
+    <path d="M79 60V91"/>
+    <path d="M49 76H79"/>
+    <path d="M64 13L72 23H86L76 32L80 46L64 38L48 46L52 32L42 23H56L64 13Z"/>
+    <path d="M64 38V64"/>
+  </g>
+</svg>

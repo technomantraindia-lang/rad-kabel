@@ -1,0 +1,43 @@
+/* Full viewport width breakout */
+.precision-factory-bleed {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Factory hero — half page height, full width, cover */
+.precision-factory {
+  background-color: #0a0a0a;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.precision-factory::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Lighter overlay so the middle area stays visible */
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.45) 100%),
+    radial-gradient(ellipse 90% 70% at 50% 55%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.12) 62%, rgba(0, 0, 0, 0.28) 100%);
+  pointer-events: none;
+}
+
+/* Test cards — gold border, red on hover / focus */
+.precision-test-card:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .precision-test-card img {
+    transition: none;
+  }
+
+  .precision-test-card:hover img,
+  .precision-test-card:focus-visible img {
+    transform: none;
+  }
+}

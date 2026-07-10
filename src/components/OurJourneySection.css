@@ -1,0 +1,193 @@
+.our-journey {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(3rem, 5vw, 4.5rem) clamp(1.25rem, 3.5vw, 4rem);
+}
+
+.our-journey__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.our-journey__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 0.78) 100%),
+    rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.our-journey__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+.our-journey__heading {
+  margin: 0 0 clamp(2rem, 3.5vw, 3rem);
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e50914;
+}
+
+.our-journey__timeline {
+  position: relative;
+  padding-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.our-journey__track {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0;
+  width: 100%;
+}
+
+.our-journey__track-group {
+  display: contents;
+}
+
+.our-journey__milestone {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.our-journey__connector {
+  flex: 0 0 clamp(56px, 7vw, 96px);
+  width: clamp(56px, 7vw, 96px);
+  height: clamp(96px, 10vw, 132px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding-inline: clamp(0.15rem, 0.4vw, 0.35rem);
+}
+
+.our-journey__arrow {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.our-journey__arrow-path {
+  fill: none;
+  stroke: #e50914;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.55));
+}
+
+.our-journey__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(96px, 10vw, 132px);
+  height: clamp(96px, 10vw, 132px);
+  flex-shrink: 0;
+}
+
+.our-journey__icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.our-journey__copy {
+  margin-top: clamp(1rem, 1.8vw, 1.5rem);
+  max-width: 12rem;
+}
+
+.our-journey__year,
+.our-journey__brand,
+.our-journey__title {
+  margin: 0;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.our-journey__year {
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+}
+
+.our-journey__brand {
+  margin-top: 0.2rem;
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+}
+
+.our-journey__title {
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  line-height: 1.35;
+}
+
+.our-journey__desc {
+  margin: clamp(0.45rem, 0.8vw, 0.65rem) 0 0;
+  font-family: Carlito, Calibri, "Segoe UI", Candara, sans-serif;
+  font-size: clamp(0.78rem, 0.92vw, 0.88rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 1100px) {
+  .our-journey__track {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .our-journey__track-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 calc(33.333% - 1rem);
+    min-width: 10rem;
+    max-width: 14rem;
+  }
+
+  .our-journey__connector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-journey {
+    padding-inline: 1.25rem;
+  }
+
+  .our-journey__track-group {
+    flex: 1 1 calc(50% - 1rem);
+  }
+
+  .our-journey__copy {
+    max-width: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .our-journey__track-group {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+}

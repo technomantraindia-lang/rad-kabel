@@ -1,0 +1,156 @@
+.mission-vision {
+  width: 100%;
+  background: #000;
+  padding: clamp(3rem, 5vw, 4.5rem) clamp(1.25rem, 3.5vw, 4rem);
+}
+
+.mission-vision__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+.mission-vision__panel {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.125rem;
+  overflow: hidden;
+}
+
+.mission-vision__panel--vision {
+  position: relative;
+  min-height: clamp(320px, 34vw, 420px);
+  isolation: isolate;
+}
+
+.mission-vision__vision-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mission-vision__vision-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+.mission-vision__vision-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: inherit;
+  padding-block: clamp(1.75rem, 3vw, 2.5rem);
+  padding-inline: clamp(0.85rem, 1.4vw, 1.15rem) clamp(1.5rem, 2.8vw, 2.25rem);
+}
+
+.mission-vision__panel--mission {
+  background: #0a0a0a;
+  padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.mission-vision__heading {
+  margin: 0;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e50914;
+}
+
+.mission-vision__rule {
+  width: 3.5rem;
+  height: 3px;
+  margin-top: 0.65rem;
+  background: #e50914;
+}
+
+.mission-vision__text {
+  margin: clamp(1rem, 1.8vw, 1.35rem) 0 0;
+  max-width: 28rem;
+  font-family: Carlito, Calibri, "Segoe UI", Candara, sans-serif;
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mission-vision__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.4vw, 1rem);
+  margin: clamp(1.25rem, 2vw, 1.75rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mission-vision__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: clamp(280px, 28vw, 340px);
+  padding: clamp(1.25rem, 2vw, 1.75rem) clamp(0.85rem, 1.4vw, 1.1rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.875rem;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.mission-vision__card-icon {
+  display: block;
+  width: clamp(80px, 8vw, 104px);
+  height: clamp(80px, 8vw, 104px);
+  object-fit: contain;
+}
+
+.mission-vision__card-title {
+  margin: clamp(0.85rem, 1.4vw, 1.1rem) 0 0;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.mission-vision__card-desc {
+  margin: clamp(0.65rem, 1vw, 0.85rem) 0 0;
+  font-family: Carlito, Calibri, "Segoe UI", Candara, sans-serif;
+  font-size: clamp(0.8rem, 0.92vw, 0.9rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 1100px) {
+  .mission-vision__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-vision__panel--vision {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-vision {
+    padding-inline: 1.25rem;
+  }
+
+  .mission-vision__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-vision__card {
+    min-height: auto;
+  }
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>Fast and Safe Dispatch</title>
+  <g stroke="#E50909" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 76H72V44H20V76Z"/>
+    <path d="M72 56H94L108 70V76H72V56Z"/>
+    <path d="M94 58V70H107"/>
+    <circle cx="38" cy="82" r="9"/>
+    <circle cx="90" cy="82" r="9"/>
+    <path d="M13 48H31"/>
+    <path d="M10 58H28"/>
+    <path d="M16 68H32"/>
+    <path d="M50 37L64 30L78 37V50C78 60 72 67 64 71C56 67 50 60 50 50V37Z"/>
+    <path d="M58 50L63 55L72 45"/>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>Quality Checks Icon</title>
+  <g stroke="#E50909" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M44 24L64 14L84 24L64 35L44 24Z"/>
+    <path d="M44 24V45L64 56L84 45V24"/>
+    <path d="M56 26L64 30L72 26"/>
+    <path d="M18 73L38 62L58 73L38 84L18 73Z"/>
+    <path d="M18 73V94L38 105L58 94V73"/>
+    <path d="M30 75L38 79L46 75"/>
+    <path d="M70 73L90 62L110 73L90 84L70 73Z"/>
+    <path d="M70 73V94L90 105L110 94V73"/>
+    <path d="M82 75L90 79L98 75"/>
+  </g>
+</svg>

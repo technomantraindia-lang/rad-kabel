@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>PAN India Delivery</title>
+  <g stroke="#E50909" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 18C50 18 39 29 39 43C39 62 64 88 64 88C64 88 89 62 89 43C89 29 78 18 64 18Z"/>
+    <circle cx="64" cy="43" r="9"/>
+    <path d="M33 88H95"/>
+    <circle cx="43" cy="94" r="8"/>
+    <circle cx="85" cy="94" r="8"/>
+    <path d="M45 88L55 72"/>
+    <path d="M83 88L73 72"/>
+    <path d="M24 56C28 50 33 47 39 45"/>
+    <path d="M104 56C100 50 95 47 89 45"/>
+    <path d="M28 68C35 64 42 62 49 64"/>
+    <path d="M100 68C93 64 86 62 79 64"/>
+  </g>
+</svg>

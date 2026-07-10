@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>Pan India Supply Network Icon</title>
+  <g stroke="#E50909" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 70H66V92H18V70Z"/>
+    <path d="M66 70H88L103 84V92H66V70Z"/>
+    <path d="M88 74V84H100"/>
+    <circle cx="34" cy="98" r="8"/>
+    <circle cx="84" cy="98" r="8"/>
+    <path d="M28 70V59H50V70"/>
+    <circle cx="31" cy="38" r="13"/>
+    <path d="M31 20V26M31 50V56M13 38H19M43 38H49"/>
+    <path d="M18 25L23 30M44 51L39 46M44 25L39 30M18 51L23 46"/>
+    <circle cx="87" cy="35" r="15"/>
+    <path d="M87 14V21M87 49V56M66 35H73M101 35H108"/>
+    <path d="M72 20L77 25M102 50L97 45M102 20L97 25M72 50L77 45"/>
+    <path d="M49 38C59 38 67 37 74 35"/>
+    <path d="M45 51C55 57 64 62 76 66"/>
+  </g>
+</svg>

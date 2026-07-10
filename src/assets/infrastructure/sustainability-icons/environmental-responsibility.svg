@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>Environmental Responsibility</title>
+  <g stroke="#8DFF00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 14C77 25 84 38 84 52C84 68 75 80 64 88C53 80 44 68 44 52C44 38 51 25 64 14Z"/>
+    <path d="M64 30V104"/>
+    <path d="M64 46C57 46 52 42 48 36"/>
+    <path d="M64 56C72 56 78 51 82 44"/>
+    <path d="M30 74C42 74 52 84 52 96V106H30C18 106 8 96 8 84V74H30Z"/>
+    <path d="M98 74C86 74 76 84 76 96V106H98C110 106 120 96 120 84V74H98Z"/>
+    <path d="M18 88H48"/>
+    <path d="M80 88H110"/>
+    <path d="M52 100H76"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>Worker Safety Our Priority</title>
+  <g stroke="#8DFF00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 54H98V98H30V54Z"/>
+    <path d="M40 44H88V54H40V44Z"/>
+    <path d="M50 32H78V44H50V32Z"/>
+    <path d="M48 66H62V82H48V66Z"/>
+    <path d="M70 66H84V82H70V66Z"/>
+    <path d="M42 90H86"/>
+    <path d="M52 98V108"/>
+    <path d="M76 98V108"/>
+    <path d="M22 108H106"/>
+    <path d="M64 14L72 25H56L64 14Z"/>
+    <path d="M64 25V32"/>
+    <circle cx="64" cy="22" r="3"/>
+  </g>
+</svg>

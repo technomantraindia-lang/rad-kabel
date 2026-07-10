@@ -1,0 +1,208 @@
+.who-we-are {
+  width: 100%;
+  background: #000;
+  padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1.25rem, 3.5vw, 4rem);
+}
+
+.who-we-are__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.2fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+.who-we-are__media {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: clamp(280px, 30vw, 480px);
+  overflow: hidden;
+  border-radius: 1.5rem;
+  isolation: isolate;
+}
+
+.who-we-are__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.who-we-are__copy {
+  min-width: 0;
+  padding-right: clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.who-we-are__kicker {
+  margin: 0;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #e50914;
+}
+
+.who-we-are__title {
+  margin: clamp(0.85rem, 1.6vw, 1.25rem) 0 0;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(1.85rem, 3.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+
+.who-we-are__title span {
+  display: block;
+  white-space: nowrap;
+}
+
+.who-we-are__body {
+  margin-top: clamp(1.15rem, 2vw, 1.75rem);
+}
+
+.who-we-are__body p {
+  margin: 0 0 clamp(1rem, 1.6vw, 1.25rem);
+  font-family: Carlito, Calibri, "Segoe UI", Candara, sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.who-we-are__body p:last-child {
+  margin-bottom: 0;
+}
+
+.who-we-are__highlights {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.who-we-are__highlight {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.85rem, 1.4vw, 1.15rem);
+  padding: clamp(1rem, 1.6vw, 1.35rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.who-we-are__highlight--first {
+  border-top: none;
+  padding-top: 0;
+}
+
+.who-we-are__highlight-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+}
+
+.who-we-are__highlight-icon-img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.who-we-are__highlight-label {
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+}
+
+@media (min-width: 1536px) {
+  .who-we-are {
+    padding-inline: clamp(2rem, 4vw, 5rem);
+  }
+
+  .who-we-are__highlight-icon,
+  .who-we-are__highlight-icon-img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .who-we-are__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .who-we-are__highlights {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 2rem;
+  }
+
+  .who-we-are__highlight--first {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    padding-top: clamp(1rem, 1.6vw, 1.35rem);
+  }
+
+  .who-we-are__highlights .who-we-are__highlight:nth-child(-n + 2) {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .who-we-are {
+    padding-inline: 1.25rem;
+  }
+
+  .who-we-are__title {
+    font-size: clamp(1.5rem, 6.5vw, 2rem);
+  }
+
+  .who-we-are__title span {
+    white-space: normal;
+  }
+
+  .who-we-are__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .who-we-are__copy {
+    padding-right: 0;
+  }
+
+  .who-we-are__media {
+    min-height: 240px;
+    aspect-ratio: 16 / 10;
+    border-radius: 1.25rem;
+  }
+
+  .who-we-are__highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .who-we-are__highlights .who-we-are__highlight:nth-child(-n + 2) {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    padding-top: clamp(1rem, 1.6vw, 1.35rem);
+  }
+
+  .who-we-are__highlight--first {
+    border-top: none;
+    padding-top: 0;
+  }
+}

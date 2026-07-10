@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <style>
+    .s{stroke:#FFFFFF;stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+  <rect x="10" y="10" width="44" height="44" rx="8" class="s"/>
+  <path d="M19 21v22" class="s"/>
+  <path d="M28 21h-5v22h5" class="s"/>
+  <path d="M28 43h8c4 0 7-3 7-7V28c0-4-3-7-7-7h-8" class="s"/>
+  <path d="M45 21v22" class="s"/>
+</svg>

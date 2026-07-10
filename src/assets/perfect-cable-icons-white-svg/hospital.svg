@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Hospital icon">
+  <path d="M17 19h30a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H17a6 6 0 0 1-6-6V25a6 6 0 0 1 6-6Z"/>
+  <path d="M32 27v20"/>
+  <path d="M22 37h20"/>
+  <path d="M24 19v-5h16v5"/>
+</svg>

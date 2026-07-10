@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <g fill="none" stroke="#E8E8E8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="64" cy="64" r="44"/>
+    <path d="M35 85 88 34"/>
+    <path d="M44 80c10-16 21-28 39-37"/>
+    <path d="M49 58c6 2 12 2 18-1M60 48c2 6 6 11 11 15"/>
+  </g>
+  <text x="64" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-style="italic" fill="#E8E8E8">REACH</text>
+</svg>

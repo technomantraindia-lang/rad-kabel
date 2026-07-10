@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>Electrolytic Copper Icon</title>
+  <g stroke="#E50909" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="64" cy="58" r="38"/>
+    <path d="M64 14C72 22 82 24 96 24C96 38 100 48 108 56C100 64 96 74 96 88C82 88 72 92 64 100C56 92 46 88 32 88C32 74 28 64 20 56C28 48 32 38 32 24C46 24 56 22 64 14Z"/>
+    <circle cx="64" cy="46" r="11"/>
+    <path d="M47 78C50 66 57 60 64 60C71 60 78 66 81 78"/>
+    <path d="M50 38C42 42 37 50 37 59"/>
+    <path d="M78 38C86 42 91 50 91 59"/>
+    <path d="M43 84C50 90 57 93 64 93C71 93 78 90 85 84"/>
+    <path d="M91 21L101 16"/>
+    <path d="M27 95L17 101"/>
+  </g>
+</svg>

@@ -1,0 +1,989 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-sans antialiased;
+  }
+
+  body {
+    @apply min-h-screen bg-black font-sans text-white;
+  }
+
+  #root {
+    @apply min-h-screen overflow-x-clip;
+  }
+
+  .site-container {
+    width: 100%;
+    max-width: var(--site-max, 1920px);
+    margin-inline: auto;
+    padding-inline: var(--site-edge, clamp(1.25rem, 3.5vw, 4rem));
+  }
+
+  .site-main {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .site-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 200;
+    background-color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .site-header nav a {
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Centered section titles — always Montserrat */
+  .site-kicker {
+    @apply font-heading text-xs font-bold uppercase tracking-[0.34em] text-zinc-400 sm:text-sm;
+  }
+
+  .site-heading {
+    @apply font-heading font-black uppercase leading-[1.05] tracking-tight text-white;
+    font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  }
+
+  .site-section-title {
+    @apply site-heading;
+    word-spacing: 0.1em;
+    letter-spacing: 0.04em;
+  }
+
+  .site-section-title--xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl;
+  }
+
+  .site-section-title--lg {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  .site-section-title--md {
+    @apply text-2xl sm:text-3xl lg:text-[2.1rem];
+  }
+
+  .site-section-desc {
+    @apply mt-5 max-w-2xl font-medium leading-relaxed text-white sm:mt-6;
+    font-size: var(--site-body-mobile, 15px);
+    word-spacing: 0.06em;
+    letter-spacing: 0.03em;
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .site-section-desc {
+      font-size: var(--site-body-tablet, 23px);
+      line-height: 1.45;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .site-section-desc {
+      font-size: var(--site-body-desktop, 25px);
+      line-height: 1.42;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .site-section-desc {
+      font-size: var(--site-body-wide, 27px);
+      line-height: 1.38;
+    }
+  }
+
+  .site-section-desc--center {
+    @apply mx-auto max-w-3xl text-center;
+  }
+
+  .site-kicker {
+    font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  }
+
+  /* Certification marks — flat gold, no glow */
+  .isi-cert-logo {
+    display: block;
+    width: auto;
+    max-width: min(180px, 100%);
+    height: 104px;
+    margin-inline: auto;
+    object-fit: contain;
+    object-position: center;
+    filter: none;
+    mix-blend-mode: normal;
+  }
+
+  @media (min-width: 640px) {
+    .isi-cert-logo {
+      height: 112px;
+      max-width: min(190px, 100%);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .isi-cert-logo {
+      height: 118px;
+      max-width: min(200px, 100%);
+    }
+  }
+
+  .cert-banner-cell--tagline p {
+    color: #e50914;
+    text-shadow: none;
+  }
+
+  .isi-cert-logo--wide {
+    width: 100%;
+    max-width: min(360px, 100%);
+    height: 118px;
+    min-width: 0;
+    margin-inline: auto;
+    object-fit: contain;
+    object-position: center center;
+    filter: none;
+    mix-blend-mode: normal;
+  }
+
+  @media (min-width: 640px) {
+    .isi-cert-logo--wide {
+      max-width: min(400px, 100%);
+      height: 126px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .isi-cert-logo--wide {
+      max-width: min(440px, 100%);
+      height: 132px;
+    }
+  }
+
+  .cert-banner-cell--mark-wide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    flex: 1.55;
+    padding-inline: 0.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    .cert-banner-cell--mark-wide {
+      min-width: 280px;
+      flex: 1.65;
+      padding-inline: 1rem;
+    }
+  }
+
+  .cert-banner-cell--tagline:hover,
+  .cert-banner-cell--tagline:focus-visible {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .cert-banner-cell--mark {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 148px;
+    min-height: 132px;
+  }
+
+  .cert-banner-shell {
+    @apply w-full bg-black;
+  }
+
+  .cert-banner-cell {
+    @apply relative flex shrink-0 flex-col items-center justify-center px-4 py-5 text-center outline-none md:flex-1 md:px-4 lg:px-6;
+    @apply min-h-[120px] md:min-h-[128px];
+    @apply focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]/60;
+  }
+
+  .cert-banner-cell::after {
+    content: none;
+  }
+
+  /* Why Rad Kabel — header + cards use full left column beside cable */
+  .why-rad-header {
+    width: 100%;
+    max-width: min(52rem, calc(100% - min(40vw, 560px)));
+  }
+
+  .why-rad-header-desc {
+    max-width: min(44rem, 100%);
+    margin-top: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .why-rad-header-desc {
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .why-rad-header {
+      max-width: min(56rem, calc(100% - min(44vw, 620px)));
+    }
+  }
+
+  .why-rad-cards-desktop {
+    width: 100%;
+    max-width: min(100%, calc(100% - min(40vw, 560px)));
+  }
+
+  @media (min-width: 1536px) {
+    .why-rad-cards-desktop {
+      max-width: min(100%, calc(100% - min(42vw, 600px)));
+    }
+  }
+
+  .why-rad-feature-card {
+    @apply relative flex w-full min-w-0 flex-col items-center self-start rounded-2xl border border-[#d4af37]/55 bg-[#101010] px-4 py-5 text-center outline-none transition-all duration-300 sm:px-4 sm:py-5 xl:rounded-[1.125rem] xl:px-4 xl:py-5;
+    height: auto;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 8px 24px rgba(0, 0, 0, 0.55);
+  }
+
+  .why-rad-card-heading {
+    width: 100%;
+    font-size: clamp(0.9375rem, 1.15vw, 1.1875rem);
+    line-height: 1.35;
+    color: #fff;
+    word-spacing: 0.04em;
+  }
+
+  .why-rad-card-heading-short {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .why-rad-card-heading-full {
+    display: none;
+    overflow: visible;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .why-rad-card-desc {
+    @apply text-zinc-200;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: clamp(0.875rem, 1.05vw, 1.0625rem);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    word-spacing: 0.05em;
+  }
+
+  .why-rad-feature-card:hover .why-rad-card-heading-short,
+  .why-rad-feature-card:focus-visible .why-rad-card-heading-short {
+    display: none;
+  }
+
+  .why-rad-feature-card:hover .why-rad-card-heading-full,
+  .why-rad-feature-card:focus-visible .why-rad-card-heading-full {
+    display: block;
+  }
+
+  .why-rad-feature-card:hover .why-rad-card-desc,
+  .why-rad-feature-card:focus-visible .why-rad-card-desc {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    -webkit-box-orient: unset;
+  }
+
+  .why-rad-feature-card:hover,
+  .why-rad-feature-card:focus-visible {
+    @apply z-10 border-2 border-[#e50914] bg-[#140a0a] px-4 py-6 sm:px-5 sm:py-7 xl:px-5 xl:py-8;
+    box-shadow:
+      0 0 28px rgba(229, 9, 20, 0.28),
+      inset 0 0 20px rgba(229, 9, 20, 0.06);
+  }
+
+  .why-rad-feature-card:hover .why-rad-icon-wrap,
+  .why-rad-feature-card:focus-visible .why-rad-icon-wrap {
+    margin-bottom: 1.125rem;
+  }
+
+  .why-rad-feature-card:hover .why-rad-card-desc,
+  .why-rad-feature-card:focus-visible .why-rad-card-desc {
+    margin-top: 0.875rem;
+  }
+
+  @media (min-width: 1280px) {
+    .why-rad-cards-desktop .why-rad-card-heading {
+      font-size: clamp(1rem, 1.05vw, 1.25rem);
+    }
+
+    .why-rad-cards-desktop .why-rad-card-desc {
+      font-size: clamp(0.9375rem, 0.95vw, 1.125rem);
+      line-height: 1.5;
+    }
+  }
+
+  .why-rad-section {
+    --why-rad-cable-w: min(46vw, 780px);
+    --why-rad-cable-h: min(68vh, 640px);
+  }
+
+  .why-rad-cable-fixed {
+    pointer-events: none;
+    overflow: visible;
+    top: calc(38% - 0.42 * var(--why-rad-cable-h, 640px));
+    right: 0;
+    width: var(--why-rad-cable-w);
+    height: var(--why-rad-cable-h);
+  }
+
+  @media (min-width: 1280px) {
+    .why-rad-cable-fixed {
+      right: -4rem;
+      width: min(48vw, 820px);
+      height: min(72vh, 680px);
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .why-rad-cable-fixed {
+      right: -5rem;
+      width: min(46vw, 860px);
+      height: min(74vh, 720px);
+    }
+  }
+
+  /* Cable bleeds in from the right screen edge */
+  .why-rad-cable-bleed {
+    pointer-events: none;
+    overflow: visible;
+    height: 100%;
+    width: 100%;
+  }
+
+  .why-rad-cable-img--desktop {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    object-fit: contain;
+    object-position: right center;
+    mix-blend-mode: normal;
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .why-rad-cable-img--mobile {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(100%, 428px);
+    margin-inline: auto;
+    object-fit: contain;
+    object-position: center center;
+    mix-blend-mode: normal;
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .why-rad-cable-stack {
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
+    height: 100%;
+    width: 100%;
+    background: #000;
+  }
+
+  .why-rad-cable-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        ellipse 55% 50% at 90% 76%,
+        rgba(255, 120, 50, 0.38) 0%,
+        rgba(255, 85, 30, 0.16) 42%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 72% 58% at 94% 82%,
+        rgba(255, 100, 42, 0.18) 0%,
+        transparent 58%
+      );
+  }
+
+  .why-rad-cable-rings-layer {
+    pointer-events: none;
+    overflow: visible;
+    z-index: 0;
+  }
+
+  .why-rad-cable-stack img {
+    position: relative;
+    z-index: 2;
+    mix-blend-mode: normal;
+  }
+
+  /* Why Rad Kabel — orbit rings behind cable at the lower-right end */
+  .why-rad-orbit-rings {
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: drop-shadow(0 0 32px rgba(255, 110, 45, 0.55));
+  }
+
+  .why-rad-orbit-rings--fixed {
+    left: 90%;
+    top: 76%;
+    --ring-base: min(520px, calc(var(--why-rad-cable-h, 640px) * 0.88));
+  }
+
+  .why-rad-orbit-rings--mobile {
+    left: 78%;
+    top: 74%;
+    --ring-base: min(380px, 78vw);
+  }
+
+  .why-rad-orbit-track {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(var(--ring-base) * var(--ring-scale));
+    height: calc(var(--ring-base) * var(--ring-scale));
+    transform: translate(-50%, -50%) rotate(0deg);
+    transform-origin: center center;
+    animation-name: why-rad-orbit-spin;
+    animation-duration: var(--orbit-duration, 24s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+
+  .why-rad-orbit-track.is-reverse {
+    animation-direction: reverse;
+  }
+
+  .why-rad-orbit-ring {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: var(--ring-opacity);
+    border: 2px solid rgba(255, 145, 65, 0.95);
+    background: transparent;
+    box-shadow:
+      0 0 20px rgba(255, 120, 50, 0.55),
+      0 0 40px rgba(255, 95, 35, 0.32),
+      0 0 64px rgba(255, 75, 28, 0.16);
+  }
+
+  .why-rad-orbit-ring::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    border: 2.5px solid transparent;
+    border-top-color: rgba(255, 195, 110, 1);
+    border-right-color: rgba(255, 150, 65, 0.65);
+    border-bottom-color: rgba(255, 120, 50, 0.2);
+    border-left-color: rgba(255, 135, 58, 0.38);
+  }
+
+  .why-rad-orbit-ring.is-hero {
+    border: 3px solid rgba(255, 170, 85, 1);
+    opacity: 1;
+    box-shadow:
+      0 0 28px rgba(255, 135, 55, 1),
+      0 0 56px rgba(255, 105, 40, 0.72),
+      0 0 100px rgba(255, 80, 30, 0.42);
+  }
+
+  .why-rad-orbit-ring.is-hero::after {
+    border-top-color: #ffd48a;
+    border-right-color: rgba(255, 165, 80, 0.88);
+    border-width: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .why-rad-orbit-track {
+      animation: none;
+      will-change: auto;
+    }
+  }
+
+  .why-rad-card-title {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    background: none;
+    background-image: none;
+    text-shadow: none;
+  }
+
+  .why-rad-icon-wrap {
+    filter: none;
+  }
+
+  .why-rad-icon {
+    display: block;
+    flex-shrink: 0;
+    filter: none;
+  }
+
+  .why-rad-feature-card:hover .why-rad-icon,
+  .why-rad-feature-card:focus-visible .why-rad-icon {
+    filter: none;
+    transform: none;
+  }
+
+  .why-rad-feature-card:hover .why-rad-icon-wrap,
+  .why-rad-feature-card:focus-visible .why-rad-icon-wrap {
+    @apply border-[#e50914] bg-black;
+    box-shadow: 0 0 16px rgba(229, 9, 20, 0.35);
+  }
+
+  /* RAD Identity — readable copy + hover zoom on letter inside card */
+  .rad-identity-copy {
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    word-spacing: 0.06em;
+  }
+
+  .rad-identity-intro {
+    line-height: 1.85;
+    letter-spacing: 0.025em;
+    word-spacing: 0.05em;
+  }
+
+  .rad-identity-letter {
+    display: inline-block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-out;
+  }
+
+  .rad-identity-pillar:hover .rad-identity-letter,
+  .rad-identity-pillar:focus-within .rad-identity-letter {
+    transform: scale(1.1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rad-identity-letter {
+      transition: none;
+    }
+
+    .rad-identity-pillar:hover .rad-identity-letter,
+    .rad-identity-pillar:focus-within .rad-identity-letter {
+      transform: none;
+    }
+  }
+
+  /* Flat gold — no gradient, shadow, or metallic clip on identity header */
+  .rad-identity-gold {
+    color: #d4af37;
+    -webkit-text-fill-color: #d4af37;
+    background: none;
+    background-image: none;
+    text-shadow: none;
+    filter: none;
+  }
+
+  /* Site-wide red hover for CTA buttons and button-style links */
+  button:not(:disabled)[class*="uppercase"]:hover,
+  [type="button"]:not(:disabled)[class*="uppercase"]:hover,
+  [type="submit"]:not(:disabled):hover,
+  a[class*="rounded-md"][class*="border"][class*="uppercase"]:hover,
+  a[class*="rounded-md"][class*="border"][class*="font-bold"]:hover,
+  .primary-btn:hover,
+  .more-btn:hover,
+  .contact-form button:hover {
+    border-color: #e50914 !important;
+    background-color: #e50914 !important;
+    color: #fff !important;
+    box-shadow: 0 0 24px rgba(229, 9, 20, 0.45);
+  }
+
+  button:not(:disabled)[class*="uppercase"]:focus-visible,
+  [type="button"]:not(:disabled)[class*="uppercase"]:focus-visible,
+  [type="submit"]:not(:disabled):focus-visible,
+  a[class*="rounded-md"][class*="border"][class*="uppercase"]:focus-visible,
+  a[class*="rounded-md"][class*="border"][class*="font-bold"]:focus-visible,
+  .primary-btn:focus-visible,
+  .more-btn:focus-visible,
+  .contact-form button:focus-visible {
+    outline: 2px solid #e50914;
+    outline-offset: 2px;
+  }
+
+  /* Science of Safety — premium cable technology section */
+  .science-of-safety-section {
+    @apply bg-black font-sans p-0 m-0;
+  }
+
+  .science-of-safety-frame {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    background: #000;
+    box-shadow:
+      0 0 40px rgba(229, 9, 20, 0.08),
+      inset 0 0 80px rgba(255, 120, 40, 0.03);
+  }
+
+  .science-of-safety-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, transparent 42%);
+    z-index: 1;
+  }
+
+  .science-of-safety-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 480px;
+  }
+
+  @media (min-width: 1024px) {
+    .science-of-safety-grid {
+      grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+      min-height: 580px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .science-of-safety-grid {
+      min-height: 640px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .science-of-safety-grid {
+      min-height: 680px;
+    }
+  }
+
+  .science-of-safety-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem 1.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .science-of-safety-copy {
+      padding: 3rem 2.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .science-of-safety-copy {
+      padding: 3.5rem 2.5rem 3.5rem 3.5rem;
+    }
+  }
+
+  .science-of-safety-title {
+    margin: 0;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: 0.04em;
+    word-spacing: 0.1em;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+  }
+
+  .science-of-safety-title-accent {
+    color: #e50914;
+  }
+
+  .science-of-safety-desc {
+    margin: 1rem 0 0;
+    max-width: 24rem;
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    font-weight: 400;
+    line-height: 1.55;
+    word-spacing: 0.06em;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
+
+  .science-of-safety-cta {
+    margin-top: 1.75rem;
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(229, 9, 20, 0.8);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.8rem 1.8rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fff;
+    backdrop-filter: blur(6px);
+  }
+
+  .science-of-safety-cta:hover,
+  .science-of-safety-cta:focus-visible {
+    border-color: #ff4520;
+    background: rgba(229, 9, 20, 0.18);
+    outline: none;
+  }
+
+  .science-of-safety-cta:focus-visible {
+    outline: 2px solid #e50914;
+    outline-offset: 3px;
+  }
+
+  .science-of-safety-visual {
+    position: relative;
+    min-height: 420px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  @media (min-width: 640px) {
+    .science-of-safety-visual {
+      min-height: 460px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .science-of-safety-visual {
+      min-height: 100%;
+    }
+  }
+
+  .science-cable-glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 65% 55% at 50% 48%, rgba(255, 130, 45, 0.28) 0%, transparent 68%),
+      radial-gradient(ellipse 50% 45% at 44% 52%, rgba(212, 175, 55, 0.16) 0%, transparent 72%),
+      radial-gradient(ellipse 30% 25% at 38% 58%, rgba(229, 9, 20, 0.12) 0%, transparent 80%);
+    pointer-events: none;
+  }
+
+  .science-cable-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .science-connector-line {
+    fill: none;
+    stroke: #e50914;
+    stroke-width: 0.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .science-connector-dot {
+    fill: #e50914;
+    opacity: 0.9;
+  }
+
+  .science-cable-image {
+    position: absolute;
+    top: 0;
+    right: -2%;
+    bottom: 5rem;
+    left: -6%;
+    z-index: 10;
+    width: 110%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center right;
+    transform: scale(1.24);
+    transform-origin: 78% 46%;
+    filter: drop-shadow(0 8px 32px rgba(255, 120, 40, 0.15));
+  }
+
+  @media (min-width: 640px) {
+    .science-cable-image {
+      transform: scale(1.3);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .science-cable-image {
+      left: -10%;
+      transform: scale(1.36);
+      transform-origin: 80% 44%;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .science-cable-image {
+      transform: scale(1.42);
+    }
+  }
+
+  .science-layer-row {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 6%;
+    z-index: 30;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 0.35rem 0.55rem;
+    padding: 1.35rem 0.75rem 1.6rem 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.99) 0%, rgba(0, 0, 0, 0.85) 40%, transparent 100%);
+  }
+
+  @media (min-width: 640px) {
+    .science-layer-row {
+      left: 8%;
+      gap: 0.4rem 0.75rem;
+      padding: 1.5rem 1rem 1.85rem 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .science-layer-row {
+      left: 10%;
+      gap: 0.45rem 0.9rem;
+      padding: 1.4rem 1.25rem 1.75rem 0;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .science-layer-row {
+      left: 12%;
+      gap: 0.5rem 1rem;
+    }
+  }
+
+  .science-layer-callout {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+    padding: 0.2rem 0;
+    border-radius: 6px;
+  }
+
+  .science-layer-badge {
+    display: flex;
+    width: 2.2rem;
+    height: 2.2rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: linear-gradient(145deg, #ff1a24, #c00810);
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #fff;
+    box-shadow: 0 0 16px rgba(229, 9, 20, 0.6);
+  }
+
+  @media (min-width: 640px) {
+    .science-layer-badge {
+      width: 2.2rem;
+      height: 2.2rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  .science-layer-text {
+    margin: 0;
+    padding-top: 0;
+    font-size: clamp(0.68rem, 0.82vw, 0.8rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: #fff;
+    white-space: nowrap;
+  }
+}
+
+@keyframes why-rad-orbit-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Safe Wiring CTA — gold glow behind wire (not on top of cable) */
+.safe-wiring-cta__stage {
+  isolation: isolate;
+}
+
+.safe-wiring-cta__wire-glow {
+  background:
+    radial-gradient(
+      ellipse 58% 92% at 84% 50%,
+      rgba(245, 212, 123, 0.42) 0%,
+      rgba(212, 175, 55, 0.24) 42%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 38% 68% at 94% 48%,
+      rgba(212, 175, 55, 0.3) 0%,
+      rgba(245, 212, 123, 0.12) 45%,
+      transparent 62%
+    );
+}
+
+.safe-wiring-cta__wire-img {
+  mix-blend-mode: normal;
+}
+
+.safe-wiring-cta__text-shade {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.35) 38%,
+    transparent 58%
+  );
+}

@@ -1,0 +1,27 @@
+RAD KABEL - UPLOAD TO HOSTING (NO ZIP NEEDED)
+=============================================
+
+Your live website files are already built in this folder:
+
+  rad-kabel-vite-setup\dist\
+
+HOW TO UPLOAD
+-------------
+1. Open your hosting file manager (cPanel, Hostinger, etc.)
+2. Go to public_html (or www)
+3. Upload ALL files and folders from the "dist" folder
+4. Do NOT upload as zip - upload the files directly
+
+TO EDIT THE WEBSITE LATER
+-------------------------
+1. Open this folder in Cursor/VS Code
+2. Run: npm install
+3. Edit files in src\
+4. Run: npm run build
+5. Upload the new dist\ files to hosting again
+
+NOTES
+-----
+- Code and images are unchanged in src\
+- node_modules was removed to save space (run npm install when developing)
+- dist\ is the production website (~102 MB due to high-quality images)

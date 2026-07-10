@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Industrial icon">
+  <path d="M12 54V33l13 8V30l13 9V24l14 9v21"/>
+  <path d="M18 54V43h8v11"/>
+  <path d="M34 54V44h8v10"/>
+  <path d="M13 28h9"/>
+  <path d="M16 23h6"/>
+  <path d="M48 22c-4-4-4-7 0-11"/>
+  <path d="M52 24c4-4 4-8 0-12"/>
+  <path d="M9 54h48"/>
+</svg>

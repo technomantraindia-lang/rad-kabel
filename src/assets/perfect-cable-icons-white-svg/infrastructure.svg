@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Infrastructure icon">
+  <path d="M18 54l8-35 8 35"/>
+  <path d="M46 54l-8-35-8 35"/>
+  <path d="M25 19h14"/>
+  <path d="M22 31h20"/>
+  <path d="M20 43h24"/>
+  <path d="M8 30h14"/>
+  <path d="M42 30h14"/>
+  <path d="M13 25l9 5-9 5"/>
+  <path d="M51 25l-9 5 9 5"/>
+  <path d="M10 54h44"/>
+</svg>
