@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { useRef } from "react";
-import useMarketingPageAnimations from "../hooks/useMarketingPageAnimations.js";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Download,
@@ -10,7 +9,7 @@ import {
   HardHat,
 } from "lucide-react";
 import "./ElectricianProgramPage.css";
-import "../styles/marketing-pages-animations.css";
+import useElectricianPageAnimations from "../hooks/useElectricianPageAnimations.js";
 
 import heroBanner from "../assets/electrician-program/hero-banner.png";
 import whoCanJoinBg from "../assets/electrician-program/who-can-join-bg.png";
@@ -174,7 +173,7 @@ const STORIES = [
 
 export default function ElectricianProgramPage() {
   const pageRef = useRef(null);
-  useMarketingPageAnimations(pageRef);
+  useElectricianPageAnimations(pageRef);
 
   return (
     <main ref={pageRef} className="ep-page">
@@ -198,7 +197,10 @@ export default function ElectricianProgramPage() {
           <div className="ep-container ep-hero__inner">
             <div className="ep-hero__copy">
               <h1 id="ep-hero-heading" className="ep-hero__title">
-                THE POWER BEHIND EVERY CONNECTION IS <span className="ep-accent">YOU.</span>
+                <span className="ep-hero__title-line">THE POWER BEHIND EVERY CONNECTION IS</span>{" "}
+                <span className="ep-hero__title-line">
+                  <span className="ep-accent">YOU.</span>
+                </span>
               </h1>
               <p className="ep-hero__desc">
                 The RAD KABEL Electrician Program is our way of recognizing, rewarding and empowering the electricians
@@ -455,8 +457,8 @@ export default function ElectricianProgramPage() {
           <div className="ep-cta__spacer" aria-hidden />
           <div className="ep-cta__copy">
             <h2 id="ep-cta-heading" className="ep-cta__title">
-              <span>YOU POWER INDIA.</span>
-              <span className="ep-accent">WE POWER YOUR GROWTH.</span>
+              <span className="ep-cta__title-line">YOU POWER INDIA.</span>
+              <span className="ep-cta__title-line ep-accent">WE POWER YOUR GROWTH.</span>
             </h2>
             <p>
               Join the RAD KABEL Electrician Program today

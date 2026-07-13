@@ -44,6 +44,7 @@
 
 .pl-hero-band {
   width: 100%;
+  border-bottom: 1px solid var(--pl-border);
 }
 
 .pl-breadcrumb {
@@ -551,6 +552,7 @@
   z-index: 40;
   background: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--pl-border);
 }
 
 .pl-tabs {
@@ -611,6 +613,7 @@
   display: grid;
   gap: 2rem;
   padding: 2.5rem 0;
+  border-bottom: 1px solid var(--pl-border);
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -732,6 +735,7 @@
 /* Applications */
 .pl-applications {
   padding: 2.5rem 0;
+  border-bottom: 1px solid var(--pl-border);
 }
 
 .pl-app-grid {
@@ -818,6 +822,7 @@
   display: grid;
   gap: 2rem;
   padding: 2.5rem 0;
+  border-bottom: 1px solid var(--pl-border);
 }
 
 @media (min-width: 1024px) {

@@ -1,6 +1,5 @@
-import { useRef } from "react";
 import { Link } from "react-router-dom";
-import useMarketingPageAnimations from "../hooks/useMarketingPageAnimations.js";
+import { useRef } from "react";
 import InfrastructureHero from "../components/infrastructure/InfrastructureHero.jsx";
 import InfrastructureEcosystem from "../components/infrastructure/InfrastructureEcosystem.jsx";
 import InfrastructureInside from "../components/infrastructure/InfrastructureInside.jsx";
@@ -10,12 +9,12 @@ import InfrastructureQualityLab from "../components/infrastructure/Infrastructur
 import InfrastructureGallery from "../components/infrastructure/InfrastructureGallery.jsx";
 import InfrastructureDualSection from "../components/infrastructure/InfrastructureDualSection.jsx";
 import InfrastructureBottomCTA from "../components/infrastructure/InfrastructureBottomCTA.jsx";
+import useInfrastructurePageAnimations from "../hooks/useInfrastructurePageAnimations.js";
 import "./InfrastructurePage.css";
-import "../styles/marketing-pages-animations.css";
 
 export default function InfrastructurePage() {
   const pageRef = useRef(null);
-  useMarketingPageAnimations(pageRef);
+  useInfrastructurePageAnimations(pageRef);
 
   return (
     <main ref={pageRef} className="infrastructure-page site-main relative z-0 font-sans">

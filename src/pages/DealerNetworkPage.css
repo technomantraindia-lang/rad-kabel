@@ -1254,3 +1254,376 @@
     border-right: none;
   }
 }
+
+.dn-cta__title-line {
+  display: inline-block;
+}
+
+/* GSAP animation hovers — layout unchanged when inactive */
+.is-dealer-page .site-header nav a,
+.is-dealer-page .site-header nav button {
+  position: relative;
+}
+
+.is-dealer-page .site-header nav a:not(.au-nav-active)::after,
+.is-dealer-page .site-header nav button:not(.au-nav-active)::after {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  right: 0.35rem;
+  bottom: 0.35rem;
+  height: 2px;
+  background: #e50914;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  pointer-events: none;
+}
+
+.is-dealer-page .site-header nav a:not(.au-nav-active):hover::after,
+.is-dealer-page .site-header nav a:not(.au-nav-active):focus-visible::after,
+.is-dealer-page .site-header nav button:not(.au-nav-active):hover::after,
+.is-dealer-page .site-header nav button:not(.au-nav-active):focus-visible::after {
+  transform: scaleX(1);
+}
+
+.is-dealer-page .au-header-cta {
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.is-dealer-page .au-header-cta span:last-child {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.dealer-animated .au-header-cta:hover,
+.dealer-animated .au-header-cta:focus-visible {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 0 0 22px rgba(229, 9, 20, 0.38);
+}
+
+.dealer-animated .au-header-cta:hover span:last-child,
+.dealer-animated .au-header-cta:focus-visible span:last-child {
+  transform: translateX(4px);
+}
+
+.dealer-animated .dn-btn {
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.dealer-animated .dn-btn svg {
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.dealer-animated .dn-btn:hover,
+.dealer-animated .dn-btn:focus-visible {
+  transform: translateY(-2px) scale(1.015);
+}
+
+.dealer-animated .dn-btn--primary:hover,
+.dealer-animated .dn-btn--primary:focus-visible,
+.dealer-animated .dn-form__submit:hover,
+.dealer-animated .dn-form__submit:focus-visible {
+  box-shadow: 0 0 24px rgba(229, 9, 20, 0.45);
+}
+
+.dealer-animated .dn-btn--outline:hover,
+.dealer-animated .dn-btn--outline:focus-visible {
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+}
+
+.dealer-animated .dn-btn:hover svg,
+.dealer-animated .dn-btn:focus-visible svg {
+  transform: translateX(4px);
+}
+
+.dealer-animated .dn-btn:focus-visible {
+  outline: 2px solid rgba(229, 9, 20, 0.85);
+  outline-offset: 3px;
+}
+
+.dealer-animated .dn-why__card {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.dealer-animated .dn-why__icon-svg {
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.dealer-animated .dn-why__rule {
+  transition: width 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.dealer-animated .dn-why__card h3 {
+  transition: color 0.3s ease;
+}
+
+.dealer-animated .dn-why__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(229, 9, 20, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 16px rgba(229, 9, 20, 0.12);
+}
+
+.dealer-animated .dn-why__card:hover .dn-why__icon-svg {
+  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.5));
+}
+
+.dealer-animated .dn-why__card:hover h3 {
+  color: #fff;
+}
+
+.dealer-animated .dn-why__card:hover .dn-why__rule {
+  width: 52px;
+}
+
+.dealer-animated .dn-who__card {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.dealer-animated .dn-who__bg {
+  transition: transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.dealer-animated .dn-who__badge-icon {
+  transition: filter 0.35s ease;
+}
+
+.dealer-animated .dn-who__label span {
+  transition: color 0.3s ease;
+}
+
+.dealer-animated .dn-who__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(229, 9, 20, 0.4);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.dealer-animated .dn-who__card:hover .dn-who__bg {
+  transform: scale(1.04);
+}
+
+.dealer-animated .dn-who__card:hover .dn-who__badge-icon {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.45));
+}
+
+.dealer-animated .dn-who__card:hover .dn-who__label span {
+  color: #fff;
+}
+
+.dealer-animated .dn-network__cta {
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.dealer-animated .dn-network__cta:hover,
+.dealer-animated .dn-network__cta:focus-visible {
+  transform: translateY(-2px) scale(1.015);
+  border-color: #e50914;
+  box-shadow: 0 0 22px rgba(229, 9, 20, 0.38);
+}
+
+.dealer-animated .dn-benefits__media img {
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.dealer-animated .dn-benefits__media:hover img {
+  transform: scale(1.03);
+}
+
+.dealer-animated .dn-process__step {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.35s ease;
+}
+
+.dealer-animated .dn-process__icon {
+  transition: filter 0.35s ease;
+}
+
+.dealer-animated .dn-process__step h3 {
+  transition: color 0.3s ease;
+}
+
+.dealer-animated .dn-process__step:hover {
+  transform: translateY(-3px);
+}
+
+.dealer-animated .dn-process__step:hover .dn-process__icon {
+  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.45));
+}
+
+.dealer-animated .dn-process__step:hover h3 {
+  color: #fff;
+}
+
+.dealer-animated .dn-story {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.dealer-animated .dn-support__card {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.35s ease;
+}
+
+.dealer-animated .dn-support__bg {
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.dealer-animated .dn-support__card::before {
+  transition: opacity 0.35s ease;
+}
+
+.dealer-animated .dn-support__btn svg {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.dealer-animated .dn-support__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.dealer-animated .dn-support__card:hover .dn-support__bg {
+  transform: scale(1.04);
+}
+
+.dealer-animated .dn-support__card:hover::before {
+  opacity: 0.72;
+}
+
+.dealer-animated .dn-support__card:hover .dn-support__btn svg {
+  filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.45));
+}
+
+.dealer-animated .dn-faq__q svg {
+  transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.dealer-animated .dn-faq__list li.is-open .dn-faq__q svg {
+  transform: rotate(90deg);
+}
+
+.dealer-animated .dn-faq__a {
+  animation: dn-faq-reveal 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@keyframes dn-faq-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dealer-animated .dn-trust__item {
+  transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.dealer-animated .dn-trust__icon {
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.dealer-animated .dn-trust__copy strong {
+  transition: color 0.3s ease;
+}
+
+.dealer-animated .dn-trust__item:hover {
+  transform: translateY(-3px);
+}
+
+.dealer-animated .dn-trust__item:hover .dn-trust__icon {
+  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.45));
+}
+
+.dealer-animated .dn-trust__item:hover .dn-trust__copy strong {
+  color: #fff;
+}
+
+.is-dealer-page .site-footer__link {
+  display: inline-block;
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    color 0.25s ease;
+}
+
+.is-dealer-page .site-footer__link:hover,
+.is-dealer-page .site-footer__link:focus-visible {
+  transform: translateX(3px);
+  color: #e50914;
+}
+
+.is-dealer-page .site-footer__social {
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.is-dealer-page .site-footer__social:hover,
+.is-dealer-page .site-footer__social:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(229, 9, 20, 0.38);
+}
+
+.is-dealer-page footer .grid > div:last-child .grid > div {
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color 0.3s ease,
+    filter 0.3s ease;
+}
+
+.is-dealer-page footer .grid > div:last-child .grid > div:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.28);
+  filter: brightness(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dealer-animated .dn-btn:hover,
+  .dealer-animated .dn-btn:focus-visible,
+  .dealer-animated .au-header-cta:hover,
+  .dealer-animated .au-header-cta:focus-visible,
+  .dealer-animated .dn-why__card:hover,
+  .dealer-animated .dn-who__card:hover,
+  .dealer-animated .dn-process__step:hover,
+  .dealer-animated .dn-support__card:hover,
+  .dealer-animated .dn-trust__item:hover,
+  .dealer-animated .dn-network__cta:hover,
+  .dealer-animated .dn-network__cta:focus-visible {
+    transform: none;
+  }
+
+  .dealer-animated .dn-faq__a {
+    animation: none;
+  }
+
+  .dealer-animated .dn-who__card:hover .dn-who__bg,
+  .dealer-animated .dn-benefits__media:hover img,
+  .dealer-animated .dn-support__card:hover .dn-support__bg {
+    transform: none;
+  }
+}

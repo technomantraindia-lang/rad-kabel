@@ -10,7 +10,9 @@ export default function InfrastructureHero() {
       <div className="infra-container infra-hero__inner">
         <div className="infra-hero__copy">
           <h1 id="infra-hero-heading" className="infra-hero__title">
-            Built to <span className="infra-accent">Deliver.</span>
+            <span className="infra-hero__title-line">
+              Built to <span className="infra-accent">Deliver.</span>
+            </span>
             <span className="infra-hero__title-line">
               Engineered to <span className="infra-accent">Scale.</span>
             </span>

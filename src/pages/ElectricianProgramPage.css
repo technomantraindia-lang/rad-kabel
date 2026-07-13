@@ -85,6 +85,10 @@
 }
 
 /* Breadcrumb */
+.ep-page__top {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .ep-breadcrumb {
   display: flex;
   align-items: center;
@@ -115,6 +119,7 @@
 .ep-hero {
   width: 100%;
   background: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ep-hero__frame {
@@ -200,6 +205,7 @@
   --ep-why-word-spacing: 0.04em;
   --ep-why-accent: #e51e36;
   padding: clamp(3rem, 6vw, 5rem) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ep-why__grid {
@@ -272,6 +278,7 @@
   --ep-how-text-spacing: 0.02em;
   --ep-how-word-spacing: 0.04em;
   padding: clamp(3rem, 6vw, 5rem) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ep-how__layout {
@@ -435,6 +442,7 @@
 /* Rewards */
 .ep-rewards {
   padding: clamp(3rem, 6vw, 5rem) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ep-rewards__layout {
@@ -676,6 +684,7 @@
 /* Testimonials + Join */
 .ep-stories-join {
   padding: clamp(3rem, 6vw, 5rem) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ep-stories-join__layout {
@@ -1057,5 +1066,305 @@
   .ep-cta__actions {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+.ep-hero__title-line,
+.ep-cta__title-line {
+  display: inline-block;
+}
+
+/* GSAP animation hovers */
+.is-electrician-page .site-header nav a,
+.is-electrician-page .site-header nav button {
+  position: relative;
+}
+
+.is-electrician-page .site-header nav a:not(.au-nav-active)::after,
+.is-electrician-page .site-header nav button:not(.au-nav-active)::after {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  right: 0.35rem;
+  bottom: 0.35rem;
+  height: 2px;
+  background: #e50914;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  pointer-events: none;
+}
+
+.is-electrician-page .site-header nav a:not(.au-nav-active):hover::after,
+.is-electrician-page .site-header nav a:not(.au-nav-active):focus-visible::after,
+.is-electrician-page .site-header nav button:not(.au-nav-active):hover::after,
+.is-electrician-page .site-header nav button:not(.au-nav-active):focus-visible::after {
+  transform: scaleX(1);
+}
+
+.is-electrician-page .au-header-cta {
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.is-electrician-page .au-header-cta span:last-child {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.electrician-animated .au-header-cta:hover,
+.electrician-animated .au-header-cta:focus-visible {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 0 0 22px rgba(229, 9, 20, 0.38);
+}
+
+.electrician-animated .au-header-cta:hover span:last-child,
+.electrician-animated .au-header-cta:focus-visible span:last-child {
+  transform: translateX(4px);
+}
+
+.electrician-animated .ep-btn {
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.electrician-animated .ep-btn svg {
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.electrician-animated .ep-btn:hover,
+.electrician-animated .ep-btn:focus-visible {
+  transform: translateY(-2px) scale(1.015);
+}
+
+.electrician-animated .ep-btn--primary:hover,
+.electrician-animated .ep-btn--primary:focus-visible {
+  box-shadow: 0 0 24px rgba(229, 9, 20, 0.45);
+}
+
+.electrician-animated .ep-btn--outline:hover,
+.electrician-animated .ep-btn--outline:focus-visible {
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+}
+
+.electrician-animated .ep-btn--light:hover,
+.electrician-animated .ep-btn--light:focus-visible {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
+}
+
+.electrician-animated .ep-btn:hover svg,
+.electrician-animated .ep-btn:focus-visible svg {
+  transform: translateX(4px);
+}
+
+.electrician-animated .ep-btn:focus-visible {
+  outline: 2px solid rgba(229, 9, 20, 0.85);
+  outline-offset: 3px;
+}
+
+.electrician-animated .ep-why__card {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.electrician-animated .ep-why__icon {
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.electrician-animated .ep-why__accent {
+  transition: width 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.electrician-animated .ep-why__card h3 {
+  transition: color 0.3s ease;
+}
+
+.electrician-animated .ep-why__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(229, 9, 20, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 16px rgba(229, 9, 20, 0.12);
+}
+
+.electrician-animated .ep-why__card:hover .ep-why__icon {
+  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.5));
+}
+
+.electrician-animated .ep-why__card:hover h3 {
+  color: #fff;
+}
+
+.electrician-animated .ep-why__card:hover .ep-why__accent {
+  width: 3rem;
+}
+
+.electrician-animated .ep-how__step {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.35s ease;
+}
+
+.electrician-animated .ep-how__step-icon {
+  transition: filter 0.35s ease;
+}
+
+.electrician-animated .ep-how__step h3 {
+  transition: color 0.3s ease;
+}
+
+.electrician-animated .ep-how__step:hover {
+  transform: translateY(-3px);
+}
+
+.electrician-animated .ep-how__step:hover .ep-how__step-icon {
+  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.45));
+}
+
+.electrician-animated .ep-how__step:hover h3 {
+  color: #fff;
+}
+
+.electrician-animated .ep-how__aside-bg {
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.electrician-animated .ep-how__aside-panel:hover .ep-how__aside-bg {
+  transform: scale(1.03);
+}
+
+.electrician-animated .ep-rewards__card {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.electrician-animated .ep-rewards__image {
+  transition: transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.electrician-animated .ep-rewards__card span {
+  transition: color 0.3s ease;
+}
+
+.electrician-animated .ep-rewards__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px rgba(229, 9, 20, 0.2);
+}
+
+.electrician-animated .ep-rewards__card:hover .ep-rewards__image {
+  transform: scale(1.04);
+}
+
+.electrician-animated .ep-rewards__card:hover span {
+  color: #fff;
+}
+
+.electrician-animated .ep-support__cert-image {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    filter 0.35s ease;
+}
+
+.electrician-animated .ep-support__panel--cert:hover .ep-support__cert-image {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 14px rgba(229, 9, 20, 0.28));
+}
+
+.electrician-animated .ep-support__list-icon {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    filter 0.35s ease;
+}
+
+.electrician-animated .ep-support__list-label {
+  transition: color 0.3s ease;
+}
+
+.electrician-animated .ep-support__list li:hover .ep-support__list-icon {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.45));
+}
+
+.electrician-animated .ep-support__list li:hover .ep-support__list-label {
+  color: #fff;
+}
+
+.electrician-animated .ep-support__panel--icons h3 {
+  transition: color 0.3s ease;
+}
+
+.electrician-animated .ep-support__panel--icons:hover h3 {
+  color: #fff;
+}
+
+.electrician-animated .ep-story {
+  transition:
+    transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.is-electrician-page .site-footer__link {
+  display: inline-block;
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    color 0.25s ease;
+}
+
+.is-electrician-page .site-footer__link:hover,
+.is-electrician-page .site-footer__link:focus-visible {
+  transform: translateX(3px);
+  color: #e50914;
+}
+
+.is-electrician-page .site-footer__social {
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.is-electrician-page .site-footer__social:hover,
+.is-electrician-page .site-footer__social:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(229, 9, 20, 0.38);
+}
+
+.is-electrician-page footer .grid > div:last-child .grid > div {
+  transition:
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color 0.3s ease,
+    filter 0.3s ease;
+}
+
+.is-electrician-page footer .grid > div:last-child .grid > div:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.28);
+  filter: brightness(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .electrician-animated .ep-btn:hover,
+  .electrician-animated .ep-btn:focus-visible,
+  .electrician-animated .au-header-cta:hover,
+  .electrician-animated .au-header-cta:focus-visible,
+  .electrician-animated .ep-why__card:hover,
+  .electrician-animated .ep-how__step:hover,
+  .electrician-animated .ep-rewards__card:hover {
+    transform: none;
+  }
+
+  .electrician-animated .ep-how__aside-panel:hover .ep-how__aside-bg,
+  .electrician-animated .ep-rewards__card:hover .ep-rewards__image,
+  .electrician-animated .ep-support__panel--cert:hover .ep-support__cert-image {
+    transform: none;
   }
 }

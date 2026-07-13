@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import useMarketingPageAnimations from "../hooks/useMarketingPageAnimations.js";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -20,7 +19,6 @@ import {
   CheckCircle2
 } from "lucide-react";
 import "./CertificationsPage.css";
-import "../styles/marketing-pages-animations.css";
 
 // Assets
 import isiCertifiedLogo from "../assets/certifications/isi-certified.svg";
@@ -59,6 +57,7 @@ import certificationIcon from "../assets/journey/certification.svg";
 import dispatchIcon from "../assets/journey/dispatch.svg";
 
 import CertificationsHero from "../components/CertificationsHero.jsx";
+import useCertificationsPageAnimations from "../hooks/useCertificationsPageAnimations.js";
 import certBottomCtaBg from "../assets/cert-bottom-cta-bg.png";
 
 const OUR_CERTIFICATIONS = [
@@ -191,8 +190,6 @@ const DOWNLOADS = [
 
 export default function CertificationsPage() {
   const pageRef = useRef(null);
-  useMarketingPageAnimations(pageRef);
-
   const [labSlideIndex, setLabSlideIndex] = useState(0);
   const [batchNumber, setBatchNumber] = useState("");
   const [productCode, setProductCode] = useState("");
@@ -203,6 +200,8 @@ export default function CertificationsPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
+
+  useCertificationsPageAnimations(pageRef);
 
   const handleVerify = (e) => {
     e.preventDefault();
@@ -237,7 +236,7 @@ export default function CertificationsPage() {
   return (
     <main ref={pageRef} className="cert-page font-sans text-white bg-black min-h-screen">
       {/* Breadcrumb */}
-      <div className="border-b border-white/10 px-6 py-4 lg:px-16 lg:py-6 relative z-10">
+      <div className="px-6 py-4 lg:px-16 lg:py-6 relative z-10">
         <nav className="text-xs font-semibold tracking-wider text-gray-400 uppercase">
           <Link to="/" className="hover:text-red-600 transition">
             Home
@@ -408,13 +407,15 @@ export default function CertificationsPage() {
           <div className="cert-meanings">
             <header className="cert-meanings__head">
               <h2 className="cert-meanings__title">
-                WHAT THESE
+                <span className="cert-meanings__title-line">WHAT THESE</span>
                 <br />
-                <span className="cert-meanings__title-accent">
-                  CERTIFICATIONS
-                  <span className="cert-meanings__title-rule" aria-hidden />
-                </span>{" "}
-                MEAN
+                <span className="cert-meanings__title-line">
+                  <span className="cert-meanings__title-accent">
+                    CERTIFICATIONS
+                    <span className="cert-meanings__title-rule" aria-hidden />
+                  </span>{" "}
+                  MEAN
+                </span>
               </h2>
             </header>
 
@@ -520,7 +521,7 @@ export default function CertificationsPage() {
                   className="cert-download__card"
                 >
                   <div className="cert-download__card-icon" aria-hidden>
-                    <FileText strokeWidth={1.6} />
+                    <FileText size={28} strokeWidth={1.6} />
                   </div>
                   <div className="cert-download__card-copy">
                     <h3 className="cert-download__card-title">{doc.title}</h3>
@@ -529,9 +530,9 @@ export default function CertificationsPage() {
                   </div>
                   <span className="cert-download__card-action" aria-hidden>
                     {downloadingId === doc.id ? (
-                      <Loader2 size={18} className="cert-download__card-spinner" />
+                      <Loader2 size={22} className="cert-download__card-spinner" />
                     ) : (
-                      <Download size={18} strokeWidth={2.25} />
+                      <Download size={22} strokeWidth={2.25} />
                     )}
                   </span>
                 </button>
@@ -541,10 +542,10 @@ export default function CertificationsPage() {
             <button
               type="button"
               onClick={() => handleDownload("all", "All_Certifications")}
-              className="cert-download__all-btn"
+              className="cert-download__all-btn cert-btn"
             >
               VIEW ALL DOCUMENTS
-              <ArrowRight size={16} strokeWidth={2.25} />
+              <ArrowRight size={16} strokeWidth={2.25} className="cert-btn__icon" />
             </button>
           </div>
 
@@ -611,7 +612,7 @@ export default function CertificationsPage() {
                     <button
                       type="submit"
                       disabled={verificationState === "loading"}
-                      className="cert-verify__submit"
+                      className="cert-verify__submit cert-btn"
                     >
                       {verificationState === "loading" ? (
                         <>
@@ -619,7 +620,7 @@ export default function CertificationsPage() {
                         </>
                       ) : (
                         <>
-                          VERIFY NOW <ArrowRight size={16} strokeWidth={2.5} />
+                          VERIFY NOW <ArrowRight size={16} strokeWidth={2.5} className="cert-btn__icon" />
                         </>
                       )}
                     </button>
@@ -658,19 +659,22 @@ export default function CertificationsPage() {
               <ShieldCheck size={28} strokeWidth={1.75} />
             </div>
             <h2 id="cert-bottom-cta-heading" className="cert-bottom-cta__title">
-              QUALITY YOU CAN <span className="cert-bottom-cta__title-accent">VERIFY.</span>
+              <span className="cert-bottom-cta__title-line">QUALITY YOU CAN</span>{" "}
+              <span className="cert-bottom-cta__title-line">
+                <span className="cert-bottom-cta__title-accent cert-bottom-cta__accent">VERIFY.</span>
+              </span>
             </h2>
             <p className="cert-bottom-cta__desc">
               Every RAD KABEL product is backed by rigorous testing and verified quality standards.
             </p>
             <div className="cert-bottom-cta__actions">
-              <a href="#download-center" className="cert-bottom-cta__btn cert-bottom-cta__btn--primary">
-                <Download size={15} aria-hidden />
+              <a href="#download-center" className="cert-bottom-cta__btn cert-bottom-cta__btn--primary cert-btn">
+                <Download size={15} className="cert-btn__icon" aria-hidden />
                 DOWNLOAD CERTIFICATES
               </a>
-              <a href="#contact" className="cert-bottom-cta__btn cert-bottom-cta__btn--outline">
+              <a href="#contact" className="cert-bottom-cta__btn cert-bottom-cta__btn--outline cert-btn">
                 CONTACT TECHNICAL TEAM
-                <ArrowRight size={15} aria-hidden />
+                <ArrowRight size={15} className="cert-btn__icon" aria-hidden />
               </a>
             </div>
           </div>

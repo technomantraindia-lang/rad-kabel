@@ -121,6 +121,7 @@
 .pp-hero {
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid #1a1a1a;
 }
 
 .pp-hero__bg {
@@ -357,6 +358,8 @@
 .pp-features {
   --pp-features-edge: clamp(1.25rem, 5vw, 5rem);
   padding: clamp(2.5rem, 4.5vw, 3.75rem) 0;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
   background: #000;
 }
 
@@ -650,6 +653,7 @@
 /* Datasheet — specs, capacity, comparison */
 .pp-datasheet {
   padding: clamp(2.5rem, 5vw, 4rem) 0;
+  border-top: 1px solid #1a1a1a;
   background: #000;
 }
 
@@ -845,6 +849,7 @@
 /* Cert + Downloads */
 .pp-cert-dl {
   padding: clamp(2.5rem, 5vw, 4rem) 0;
+  border-top: 1px solid #1a1a1a;
   background: #000;
 }
 

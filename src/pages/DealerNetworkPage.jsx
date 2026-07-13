@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import useMarketingPageAnimations from "../hooks/useMarketingPageAnimations.js";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -38,7 +37,7 @@ import {
   Zap,
 } from "lucide-react";
 import "./DealerNetworkPage.css";
-import "../styles/marketing-pages-animations.css";
+import useDealerPageAnimations from "../hooks/useDealerPageAnimations.js";
 
 import heroBg from "../assets/dealer-network/dealer-hero-bg.png";
 import whoBgWholesalers from "../assets/dealer-network/who-bg-wholesalers.png";
@@ -216,11 +215,11 @@ const emptyForm = {
 
 export default function DealerNetworkPage() {
   const pageRef = useRef(null);
-  useMarketingPageAnimations(pageRef);
-
   const [openFaq, setOpenFaq] = useState(null);
   const [storyIndex, setStoryIndex] = useState(0);
   const [form, setForm] = useState(emptyForm);
+
+  useDealerPageAnimations(pageRef);
 
   const onField = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
@@ -670,7 +669,10 @@ export default function DealerNetworkPage() {
           <div className="dn-cta__shade" aria-hidden />
           <div className="dn-cta__inner">
             <h2 id="dn-cta-heading" className="dn-cta__title">
-              LET&apos;S GROW <span className="dn-accent">TOGETHER.</span>
+              <span className="dn-cta__title-line">LET&apos;S GROW</span>{" "}
+              <span className="dn-cta__title-line">
+                <span className="dn-accent dn-cta__accent">TOGETHER.</span>
+              </span>
             </h2>
             <p>
               Partner with RAD KABEL and become part of a growing network delivering quality electrical

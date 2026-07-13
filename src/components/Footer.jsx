@@ -40,14 +40,14 @@ const CERT_MARKS = [
 
 function FooterColumn({ title, links }) {
   return (
-    <div className="flex flex-col gap-6">
-      <h3 className="text-base font-bold uppercase tracking-[0.18em] [word-spacing:0.12em] text-white sm:text-lg">{title}</h3>
-      <ul className="flex flex-col gap-3.5">
+    <div className="flex flex-col gap-3.5">
+      <h3 className="text-sm font-bold uppercase tracking-[0.16em] [word-spacing:0.1em] text-white sm:text-base">{title}</h3>
+      <ul className="flex flex-col gap-2">
         {links.map((item) => (
           <li key={item.label}>
             <a
               href={item.href}
-              className="site-footer__link text-base leading-relaxed [word-spacing:0.08em] text-zinc-200 transition-colors hover:text-[#e50914] focus-visible:text-[#e50914] focus-visible:outline-none sm:text-lg sm:[word-spacing:0.1em]"
+              className="site-footer__link text-sm leading-snug [word-spacing:0.06em] text-zinc-200 transition-colors hover:text-[#e50914] focus-visible:text-[#e50914] focus-visible:outline-none sm:text-[0.95rem]"
             >
               {item.label}
             </a>
@@ -63,7 +63,7 @@ function SocialIcon({ href, label, children }) {
     <a
       href={href}
       aria-label={label}
-      className="site-footer__social inline-flex size-11 items-center justify-center rounded-full border border-white/20 bg-[#111] text-white/80 transition-all hover:border-[#e50914]/60 hover:text-white hover:shadow-[0_0_16px_rgba(229,9,20,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e50914] sm:size-12"
+      className="site-footer__social inline-flex size-9 items-center justify-center rounded-full border border-white/20 bg-[#111] text-white/80 transition-all hover:border-[#e50914]/60 hover:text-white hover:shadow-[0_0_16px_rgba(229,9,20,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e50914] sm:size-10"
     >
       {children}
     </a>
@@ -72,11 +72,11 @@ function SocialIcon({ href, label, children }) {
 
 function CertLogoBadge({ src, alt }) {
   return (
-    <div className="flex h-[72px] w-full items-center justify-center rounded border border-white/15 bg-black px-2.5 sm:h-20">
+    <div className="flex h-[58px] w-full items-center justify-center rounded border border-white/15 bg-black px-2 sm:h-16">
       <img
         src={src}
         alt={alt}
-        className="h-14 w-auto max-w-[118px] object-contain brightness-0 invert opacity-95 sm:h-16 sm:max-w-[132px]"
+        className="h-11 w-auto max-w-[100px] object-contain brightness-0 invert opacity-95 sm:h-12 sm:max-w-[112px]"
         decoding="async"
       />
     </div>
@@ -123,19 +123,19 @@ export default function Footer() {
       id="contact"
       className="relative z-30 mt-auto w-full shrink-0 border-t border-white/15 bg-black font-sans text-white"
     >
-      <div className="w-full px-0 py-16 sm:py-20 lg:py-20 xl:py-24">
-        <div className="grid grid-cols-1 gap-10 px-6 sm:grid-cols-2 sm:gap-10 sm:px-10 lg:grid-cols-5 lg:gap-10 lg:px-14 xl:gap-10">
+      <div className="w-full px-0 pt-10 pb-5 sm:pt-12 sm:pb-6 lg:pt-12 lg:pb-6">
+        <div className="grid grid-cols-1 gap-7 px-6 sm:grid-cols-2 sm:gap-8 sm:px-10 lg:grid-cols-5 lg:gap-8 lg:px-14">
           {/* Brand */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <a href="#" className="inline-block">
               <img
                 src={footerLogo}
                 alt="RAD Kabel"
-                className="h-14 w-auto max-w-[220px] object-contain object-left sm:h-16 sm:max-w-[260px] lg:h-[72px] lg:max-w-[300px]"
+                className="h-11 w-auto max-w-[190px] object-contain object-left sm:h-12 sm:max-w-[220px] lg:h-[3.25rem] lg:max-w-[250px]"
                 decoding="async"
               />
             </a>
-            <div className="flex gap-3">
+            <div className="flex gap-2.5">
               <SocialIcon href="#" label="Facebook">
                 <IconFacebook />
               </SocialIcon>
@@ -156,10 +156,10 @@ export default function Footer() {
           <FooterColumn title="Support" links={SUPPORT} />
 
           {/* Certifications — 3 top, 2 bottom (reference) */}
-          <div className="flex flex-col gap-6">
-            <h3 className="text-base font-bold uppercase tracking-[0.18em] [word-spacing:0.12em] text-white sm:text-lg">Certifications</h3>
-            <div className="max-w-[min(100%,400px)] sm:max-w-[400px]">
-              <div className="grid grid-cols-3 gap-4 sm:gap-5">
+          <div className="flex flex-col gap-3.5">
+            <h3 className="text-sm font-bold uppercase tracking-[0.16em] [word-spacing:0.1em] text-white sm:text-base">Certifications</h3>
+            <div className="max-w-[min(100%,360px)] sm:max-w-[360px]">
+              <div className="grid grid-cols-3 gap-3 sm:gap-3.5">
                 <CertLogoBadge src={CERT_MARKS[0].src} alt={CERT_MARKS[0].alt} />
                 <CertLogoBadge src={CERT_MARKS[1].src} alt={CERT_MARKS[1].alt} />
                 <CertLogoBadge src={CERT_MARKS[2].src} alt={CERT_MARKS[2].alt} />
@@ -171,7 +171,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="mt-10 border-t border-white/10 px-6 pt-10 text-center text-base text-zinc-400 sm:px-10 sm:text-lg lg:px-14">
+        <p className="mt-6 border-t border-white/10 px-6 pt-5 pb-1 text-center text-sm text-zinc-400 sm:px-10 sm:text-[0.95rem] lg:px-14">
           © {new Date().getFullYear()} RAD Kabel. All rights reserved.
         </p>
       </div>

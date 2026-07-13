@@ -10,7 +10,11 @@ export default function InfrastructureBottomCTA() {
       <div className="infra-container infra-bottom-cta__grid">
         <div className="infra-bottom-cta__copy">
           <h2 id="infra-bottom-cta-heading" className="infra-bottom-cta__title">
-            Precision. <span className="infra-accent">Quality.</span> Trust.
+            <span className="infra-bottom-cta__title-line">Precision.</span>{" "}
+            <span className="infra-bottom-cta__title-line">
+              <span className="infra-accent">Quality.</span>
+            </span>{" "}
+            <span className="infra-bottom-cta__title-line">Trust.</span>
           </h2>
           <div className="infra-bottom-cta__actions">
             <Link to="/#contact" className="infra-btn infra-btn--primary">
