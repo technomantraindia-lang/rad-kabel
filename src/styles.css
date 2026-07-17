@@ -50,3 +50,27 @@ img{max-width:100%;display:block}
 @media(min-width:640px) and (max-width:1023px){.home-full-width-image{--showcase-h:clamp(440px,52vw,580px)}.home-full-width-image img{height:var(--showcase-h);object-position:58% center}.home-full-width-image:before{background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.42) 38%,rgba(0,0,0,0) 58%)}.home-showcase-copy{left:clamp(24px,4vw,56px);top:50%;max-width:min(44vw,480px);transform:translateY(-50%) translateX(-0.5rem)}.home-showcase-copy h2{font-size:clamp(32px,5.5vw,52px);line-height:1.14}.home-showcase-copy p{font-size:var(--site-body-tablet);line-height:1.42;max-width:min(380px,100%)}.home-showcase-rings{left:68%;top:50%;--ring-base:min(clamp(280px,38vw,420px),calc(var(--showcase-h)/1.18),calc((100vw - 80px)*.36))}}
 @media(min-width:1024px) and (max-width:1279px){.home-showcase-copy p{font-size:var(--site-body-desktop);line-height:1.38}}
 @media(min-width:1280px){.home-showcase-copy p{font-size:var(--site-body-wide);line-height:1.35}}@keyframes home-showcase-orbit-spin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}@media (prefers-reduced-motion:reduce){.home-showcase-ring-orbit{animation:none;will-change:auto}}
+
+/* Home cable videos: hide burned-in title strip; keep video playing */
+.cable-video-wrap--clean {
+  position: relative;
+  overflow: hidden;
+}
+.cable-video-wrap--clean video {
+  transform: scale(1.12);
+  transform-origin: center 38%;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.cable-video-wrap--clean::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14%;
+  background: #000;
+  pointer-events: none;
+  z-index: 2;
+}

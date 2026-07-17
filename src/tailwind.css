@@ -351,14 +351,14 @@
   }
 
   .why-rad-section {
-    --why-rad-cable-w: min(46vw, 780px);
-    --why-rad-cable-h: min(68vh, 640px);
+    --why-rad-cable-w: min(50vw, 860px);
+    --why-rad-cable-h: min(70vh, 680px);
   }
 
   .why-rad-cable-fixed {
     pointer-events: none;
     overflow: visible;
-    top: calc(38% - 0.42 * var(--why-rad-cable-h, 640px));
+    top: calc(38% - 0.42 * var(--why-rad-cable-h, 680px));
     right: 0;
     width: var(--why-rad-cable-w);
     height: var(--why-rad-cable-h);
@@ -366,17 +366,17 @@
 
   @media (min-width: 1280px) {
     .why-rad-cable-fixed {
-      right: -4rem;
-      width: min(48vw, 820px);
-      height: min(72vh, 680px);
+      right: 0.5rem;
+      width: min(50vw, 880px);
+      height: min(72vh, 700px);
     }
   }
 
   @media (min-width: 1536px) {
     .why-rad-cable-fixed {
-      right: -5rem;
-      width: min(46vw, 860px);
-      height: min(74vh, 720px);
+      right: 1rem;
+      width: min(48vw, 920px);
+      height: min(74vh, 740px);
     }
   }
 
@@ -386,6 +386,9 @@
     overflow: visible;
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   .why-rad-cable-img--desktop {
@@ -396,7 +399,7 @@
     max-height: 100%;
     margin-left: auto;
     object-fit: contain;
-    object-position: right center;
+    object-position: center center;
     mix-blend-mode: normal;
     image-rendering: auto;
     -webkit-backface-visibility: hidden;
@@ -407,7 +410,7 @@
     display: block;
     width: auto;
     height: auto;
-    max-width: min(100%, 428px);
+    max-width: min(100%, 480px);
     margin-inline: auto;
     object-fit: contain;
     object-position: center center;
@@ -415,6 +418,27 @@
     image-rendering: auto;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+  }
+
+  .why-rad-box-img {
+    filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.85));
+  }
+
+  .why-rad-cable-img--desktop.why-rad-box-img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    margin-left: 0;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .why-rad-cable-img--mobile.why-rad-box-img {
+    max-width: min(100%, 520px);
+    width: 100%;
+    object-fit: contain;
+    object-position: center center;
   }
 
   .why-rad-cable-stack {

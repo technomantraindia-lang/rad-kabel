@@ -8,7 +8,7 @@ import footerLogo from "../assets/rad-footer-logo.png";
 const QUICK_LINKS = [
   { label: "Home", href: "#" },
   { label: "About Us", href: "/about-us" },
-  { label: "Products", href: "#products" },
+  { label: "Products", href: "/products" },
   { label: "Technology", href: "/technology" },
   { label: "Infrastructure", href: "/infrastructure" },
   { label: "Certifications", href: "/certifications" },
@@ -17,10 +17,11 @@ const QUICK_LINKS = [
 ];
 
 const PRODUCTS = [
+  { label: "All Products", href: "/products" },
   { label: "RAD Zero", href: "/products/rad-zero" },
-  { label: "RAD Power", href: "#products" },
-  { label: "RAD Flex", href: "#products" },
-  { label: "RAD Control", href: "#products" },
+  { label: "RAD Power", href: "/products" },
+  { label: "RAD Flex", href: "/products" },
+  { label: "RAD Tape Pro", href: "/products" },
 ];
 
 const SUPPORT = [

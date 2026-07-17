@@ -1,4 +1,4 @@
-import whyChooseUsCable from "../assets/why-choose-us-cable.png";
+import whyChooseUsBox from "../assets/why-choose-us-box-full.png";
 import {
   IconConductivity,
   IconEbeam,
@@ -88,7 +88,7 @@ function CableVisual({ fixed = false }) {
       className={
         fixed
           ? "why-rad-cable-bleed why-rad-cable-stack relative h-full w-full overflow-visible"
-          : "why-rad-cable-stack relative mx-auto w-full max-w-[440px] overflow-visible"
+          : "why-rad-cable-stack relative mx-auto w-full max-w-[520px] overflow-visible"
       }
     >
       <div className="why-rad-cable-bg" aria-hidden />
@@ -96,14 +96,14 @@ function CableVisual({ fixed = false }) {
         <CableOrbitRings variant={fixed ? "fixed" : "mobile"} />
       </div>
       <img
-        src={whyChooseUsCable}
-        alt="RAD Kabel cable with copper core and red insulation"
+        src={whyChooseUsBox}
+        alt="RAD ZERO flame retardant cable product boxes"
         width={1284}
         height={1140}
         className={
           fixed
-            ? "why-rad-cable-img--desktop relative z-[2] drop-shadow-[0_28px_56px_rgba(0,0,0,0.9)]"
-            : "why-rad-cable-img--mobile relative z-[2] drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
+            ? "why-rad-cable-img--desktop why-rad-box-img relative z-[2] drop-shadow-[0_28px_56px_rgba(0,0,0,0.9)]"
+            : "why-rad-cable-img--mobile why-rad-box-img relative z-[2] drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
         }
         decoding="async"
         fetchPriority="high"
@@ -115,7 +115,7 @@ function CableVisual({ fixed = false }) {
 function FeatureCard({ Icon, title, shortTitle, description }) {
   return (
     <article tabIndex={0} className="why-rad-feature-card group" aria-label={`${title}. ${description}`}>
-      <div className="why-rad-icon-wrap mb-4 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-[#e50914]/60 bg-black sm:h-16 sm:w-16 xl:mb-4 xl:h-[4.25rem] xl:w-[4.25rem]">
+      <div className="why-rad-icon-wrap mb-4 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#e50914] bg-transparent sm:h-16 sm:w-16 xl:mb-4 xl:h-[4.25rem] xl:w-[4.25rem]">
         <Icon className="why-rad-icon h-7 w-7 sm:h-8 sm:w-8 xl:h-9 xl:w-9" />
       </div>
       <h3 className="why-rad-card-heading font-heading w-full font-bold uppercase tracking-wide text-white">
@@ -134,7 +134,7 @@ function FeatureCard({ Icon, title, shortTitle, description }) {
 export default function WhyRadKabel() {
   return (
     <section
-      className="why-rad-section relative w-full overflow-x-clip overflow-y-visible bg-black px-5 py-16 font-sans sm:px-10 sm:py-20 lg:px-14 lg:py-24 xl:px-16 2xl:px-20"
+      className="why-rad-section relative w-full overflow-x-visible overflow-y-visible bg-black px-5 py-16 font-sans sm:px-10 sm:py-20 lg:px-14 lg:py-24 xl:px-16 2xl:px-20"
       aria-labelledby="why-rad-kabel-heading"
     >
       <div className="why-rad-cable-fixed pointer-events-none absolute z-0 hidden xl:block">

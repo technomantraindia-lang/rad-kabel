@@ -8,15 +8,17 @@ import logoImg from "../assets/rad-kabel-logo.png";
 const BROCHURE_URL = "/brochure.pdf";
 
 const PRODUCT_LINKS = [
+  { label: "All Products", href: "/products" },
   { label: "RAD ZERO (E-BEAM)", href: "/products/rad-zero" },
-  { label: "Multi Core Control Cable", href: "/products/multi-core-control-cable" },
-  { label: "All Products", href: "/#products" },
+  { label: "RAD POWER", href: "/products" },
+  { label: "RAD FLEX", href: "/products" },
+  { label: "RAD TAPE PRO", href: "/products" },
 ];
 
 const NAV = [
   { label: "HOME", href: "/" },
   { label: "ABOUT US", href: "/about-us" },
-  { label: "PRODUCTS", href: "/products/rad-zero", hasDropdown: true },
+  { label: "PRODUCTS", href: "/products", hasDropdown: true },
   { label: "TECHNOLOGY", href: "/technology" },
   { label: "INFRASTRUCTURE", href: "/infrastructure" },
   { label: "APPLICATIONS", href: "/applications" },

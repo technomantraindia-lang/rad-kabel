@@ -10,19 +10,18 @@ import ApplicationsSection from "../components/ApplicationsSection.jsx";
 import ElectricianProgramBanner from "../components/ElectricianProgramBanner.jsx";
 import PrecisionTestingSection from "../components/PrecisionTestingSection.jsx";
 import SafeWiringCTA from "../components/SafeWiringCTA.jsx";
-import FindYourPerfectCable from "../components/FindYourPerfectCable.jsx";
 
 /** Hero background — served from `public/videos/` */
 const HERO_BANNER_VIDEO = "banner.mp4";
 
 /** Served from `public/videos/` — copy your files with these exact filenames. */
 const cableVideos = [
-  { filename: "wq.mp4", caption: "Fire test" },
-  { filename: "th.mp4", caption: "Machine testing" },
+  { filename: "wq.mp4", name: "Wire Testing" },
+  { filename: "th.mp4", name: "Machine Testing" },
 ];
 
 /** Muted autoplay + loop satisfies browser policies; viewers can enable sound via the player. */
-function CableVideoTile({ filename, caption }) {
+function CableVideoTile({ filename, name }) {
   const src = `/videos/${encodeURIComponent(filename)}`;
   const videoRef = useRef(null);
 
@@ -39,7 +38,7 @@ function CableVideoTile({ filename, caption }) {
 
   return (
     <article className="cable-video-card">
-      <div className="cable-video-wrap">
+      <div className="cable-video-wrap cable-video-wrap--clean">
         <video
           ref={videoRef}
           autoPlay
@@ -47,13 +46,15 @@ function CableVideoTile({ filename, caption }) {
           loop
           playsInline
           preload="auto"
-          controls
+          controls={false}
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
           src={src}
         >
           Sorry — your browser can’t play this video.
         </video>
       </div>
-      <p className="cable-video-caption">{caption}</p>
+      <p className="cable-video-caption">{name}</p>
     </article>
   );
 }
@@ -178,8 +179,8 @@ function CableVideos() {
         </h2>
       </div>
       <div className="cable-video-grid mx-auto mt-10 max-w-[1920px] sm:mt-12">
-        {cableVideos.map(({ filename, caption }) => (
-          <CableVideoTile key={filename} filename={filename} caption={caption} />
+        {cableVideos.map(({ filename, name }) => (
+          <CableVideoTile key={filename} filename={filename} name={name} />
         ))}
       </div>
     </section>
@@ -197,7 +198,6 @@ export default function Home() {
       <ScienceOfSafety />
       <EBeamTechnology />
       <ProductsSection />
-      <FindYourPerfectCable />
       <ApplicationsSection />
       <PrecisionTestingSection />
       <ElectricianProgramBanner />

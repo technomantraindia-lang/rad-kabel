@@ -21,7 +21,7 @@ const PRODUCTS = [
     lines: ["Consistent performance for safe and stable connections."],
     image: productPower,
     imageAlt: "RAD Power house wire cable cross-section",
-    href: "/products/multi-core-control-cable",
+    href: "/products",
   },
   {
     id: "flex",
@@ -30,7 +30,7 @@ const PRODUCTS = [
     lines: ["High flexibility.", "High durability.", "Easy installation."],
     image: productFlex,
     imageAlt: "RAD Flex industrial cable",
-    href: "/products/multi-core-control-cable",
+    href: "/products",
   },
   {
     id: "control",
@@ -39,7 +39,7 @@ const PRODUCTS = [
     lines: ["Precise control.", "Reliable performance.", "Stable transmission."],
     image: productControl,
     imageAlt: "RAD Control signal cable",
-    href: "/products/multi-core-control-cable",
+    href: "/products",
   },
 ];
 

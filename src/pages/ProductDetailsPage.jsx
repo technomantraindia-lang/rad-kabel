@@ -10,7 +10,7 @@ import {
   Stamp,
   Zap,
 } from "lucide-react";
-import "./ProductPage.css";
+import "./ProductDetailsPage.css";
 
 import productBanner from "../assets/product-page/product-banner.png";
 import zeroCables from "../assets/product-page/zero-cables.png";
@@ -221,13 +221,13 @@ const RELATED = [
     image: relatedPower,
     suffix: "POWER",
     subtitle: "Premium House Wire",
-    href: "/products/multi-core-control-cable",
+    href: "/products",
   },
   {
     image: relatedFlex,
     suffix: "FLEX",
     subtitle: "Industrial Flexible Cable",
-    href: "/products/multi-core-control-cable",
+    href: "/products",
   },
 ];
 
@@ -266,7 +266,7 @@ function CompareNo() {
   );
 }
 
-export default function ProductPage() {
+export default function ProductDetailsPage() {
   return (
     <main className="pp-page">
       {/* Hero */}
@@ -280,7 +280,7 @@ export default function ProductPage() {
           <nav className="pp-breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
             <span className="pp-breadcrumb-sep">›</span>
-            <Link to="/#products">Products</Link>
+            <Link to="/products">Products</Link>
             <span className="pp-breadcrumb-sep">›</span>
             <span className="pp-breadcrumb-current">RAD ZERO (E-BEAM)</span>
           </nav>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none" aria-hidden="true">
+  <circle cx="128" cy="128" r="70" stroke="#FF1A1A" stroke-width="11"/>
+  <circle cx="128" cy="128" r="38" stroke="#FF1A1A" stroke-width="10"/>
+  <path d="M128 58V34M128 222V198M58 128H34M222 128H198" stroke="#FF1A1A" stroke-width="11" stroke-linecap="round"/>
+  <path d="M78 78L60 60M178 178L196 196M178 78L196 60M78 178L60 196" stroke="#FF1A1A" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="128" cy="34" r="8" fill="#FF1A1A"/>
+  <circle cx="128" cy="222" r="8" fill="#FF1A1A"/>
+  <circle cx="34" cy="128" r="8" fill="#FF1A1A"/>
+  <circle cx="222" cy="128" r="8" fill="#FF1A1A"/>
+  <circle cx="60" cy="60" r="7" fill="#FF1A1A"/>
+  <circle cx="196" cy="196" r="7" fill="#FF1A1A"/>
+  <circle cx="196" cy="60" r="7" fill="#FF1A1A"/>
+  <circle cx="60" cy="196" r="7" fill="#FF1A1A"/>
+  <path d="M138 96L112 136H132L118 168L156 124H134L146 96H138Z" stroke="#FF1A1A" stroke-width="9" stroke-linejoin="round"/>
+</svg>

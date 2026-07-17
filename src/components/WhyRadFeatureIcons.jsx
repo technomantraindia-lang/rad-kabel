@@ -1,12 +1,11 @@
+/** Red line-art icons for Why RAD Kabel — matches circular outline style. */
 const RED = "#e50914";
-const BLACK = "#0a0a0a";
-const DARK = "#1a1a1a";
 
 function SvgIcon({ className, children }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      viewBox="0 0 48 48"
       fill="none"
       className={className}
       aria-hidden
@@ -20,10 +19,26 @@ function SvgIcon({ className, children }) {
 export function IconEbeam({ className }) {
   return (
     <SvgIcon className={className}>
-      <circle cx="12" cy="12" r="2.25" fill={RED} stroke={BLACK} strokeWidth="0.75" />
-      <ellipse cx="12" cy="12" rx="10" ry="4" stroke={RED} strokeWidth="1.75" fill="none" />
-      <ellipse cx="12" cy="12" rx="10" ry="4" stroke={BLACK} strokeWidth="1.25" fill="none" transform="rotate(60 12 12)" />
-      <ellipse cx="12" cy="12" rx="10" ry="4" stroke={RED} strokeWidth="1.75" fill="none" transform="rotate(120 12 12)" />
+      <circle cx="24" cy="24" r="3.2" fill={RED} />
+      <ellipse cx="24" cy="24" rx="18" ry="7.5" stroke={RED} strokeWidth="2" />
+      <ellipse
+        cx="24"
+        cy="24"
+        rx="18"
+        ry="7.5"
+        stroke={RED}
+        strokeWidth="2"
+        transform="rotate(60 24 24)"
+      />
+      <ellipse
+        cx="24"
+        cy="24"
+        rx="18"
+        ry="7.5"
+        stroke={RED}
+        strokeWidth="2"
+        transform="rotate(120 24 24)"
+      />
     </SvgIcon>
   );
 }
@@ -33,11 +48,11 @@ export function IconConductivity({ className }) {
   return (
     <SvgIcon className={className}>
       <path
-        d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"
-        fill={RED}
-        stroke={BLACK}
-        strokeWidth="1.25"
+        d="M26 6 14 26h8l-2 16 14-22h-8l2-14z"
+        stroke={RED}
+        strokeWidth="2.25"
         strokeLinejoin="round"
+        strokeLinecap="round"
       />
     </SvgIcon>
   );
@@ -48,13 +63,17 @@ export function IconNoMeltDrip({ className }) {
   return (
     <SvgIcon className={className}>
       <path
-        d="M12 2.5c-3.5 4.5-5.5 7.5-5.5 10a5.5 5.5 0 0 0 11 0c0-2.5-2-5.5-5.5-10z"
-        fill={RED}
-        stroke={BLACK}
-        strokeWidth="1.25"
+        d="M24 6c-6.5 8-10.5 13.5-10.5 19a10.5 10.5 0 0 0 21 0c0-5.5-4-11-10.5-19z"
+        stroke={RED}
+        strokeWidth="2.25"
         strokeLinejoin="round"
       />
-      <path d="m4 4 16 16" stroke={BLACK} strokeWidth="2" strokeLinecap="round" />
+      <path
+        d="M12 12 36 36"
+        stroke={RED}
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
     </SvgIcon>
   );
 }
@@ -64,17 +83,15 @@ export function IconFireResistance({ className }) {
   return (
     <SvgIcon className={className}>
       <path
-        d="M12 3c1.5 2.5 4 4.5 4 7.5a4 4 0 0 1-8 0c0-1.5.5-2.5 1.5-4C8.5 8 9 6.5 10 5c.5 1 1 1.5 2 2 0-2 0-3.5-.5-4z"
-        fill={RED}
-        stroke={BLACK}
-        strokeWidth="1.1"
+        d="M24 6c2.5 4.5 7.5 8 7.5 14a7.5 7.5 0 0 1-15 0c0-2.8 1-5 3-7.5C21 15 22 12.5 24 10c1 2 2 3 3.5 4C27 10.5 26 8 24 6z"
+        stroke={RED}
+        strokeWidth="2.25"
         strokeLinejoin="round"
       />
       <path
-        d="M12 22c2.5 0 4.5-2 4.5-4.5S14 14 12 11s-4.5 1.5-4.5 4.5S9.5 22 12 22z"
-        fill={DARK}
-        stroke={BLACK}
-        strokeWidth="1.25"
+        d="M24 22c2.2 0 4 1.8 4 4.2 0 2.8-1.8 5-4 6.8-2.2-1.8-4-4-4-6.8 0-2.4 1.8-4.2 4-4.2z"
+        stroke={RED}
+        strokeWidth="2"
         strokeLinejoin="round"
       />
     </SvgIcon>
@@ -86,13 +103,13 @@ export function IconLowSmoke({ className }) {
   return (
     <SvgIcon className={className}>
       <path
-        d="M18 16H6a4 4 0 0 1 0-8 5.5 5.5 0 0 1 10.6-1.8A4.5 4.5 0 0 1 18 16z"
-        fill={RED}
-        stroke={BLACK}
-        strokeWidth="1.25"
+        d="M36 28H14a7 7 0 0 1 0-14 9.5 9.5 0 0 1 18.2-3.2A7.5 7.5 0 0 1 36 28z"
+        stroke={RED}
+        strokeWidth="2.25"
         strokeLinejoin="round"
       />
-      <path d="M8 19h8" stroke={BLACK} strokeWidth="1.75" strokeLinecap="round" />
+      <path d="M16 34h16" stroke={RED} strokeWidth="2.25" strokeLinecap="round" />
+      <path d="M20 38h8" stroke={RED} strokeWidth="2.25" strokeLinecap="round" />
     </SvgIcon>
   );
 }
@@ -101,10 +118,21 @@ export function IconLowSmoke({ className }) {
 export function IconLifeSpan({ className }) {
   return (
     <SvgIcon className={className}>
-      <circle cx="12" cy="12" r="9" fill={RED} stroke={BLACK} strokeWidth="1.5" />
-      <circle cx="12" cy="12" r="6.5" fill={BLACK} />
-      <path d="M12 7v5l3 2" stroke={RED} strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M16 3v3M20 7h-3" stroke={BLACK} strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="24" cy="25" r="14" stroke={RED} strokeWidth="2.25" />
+      <path
+        d="M24 17v9l6 3.5"
+        stroke={RED}
+        strokeWidth="2.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20 8h8M24 5v5"
+        stroke={RED}
+        strokeWidth="2.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </SvgIcon>
   );
 }

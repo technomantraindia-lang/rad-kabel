@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none" aria-hidden="true">
+  <!-- Shield -->
+  <path
+    d="M128 26L198 52V114C198 162 168 202 128 224C88 202 58 162 58 114V52L128 26Z"
+    stroke="#FF1A1A"
+    stroke-width="13"
+    stroke-linejoin="round"
+  />
+  <!-- Diagonal interlocking chain links -->
+  <g transform="rotate(-8 128 130)">
+    <path
+      d="M108 98L90 116C78 128 78 148 90 160C102 172 122 172 134 160L152 142"
+      stroke="#FF1A1A"
+      stroke-width="12"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M148 162L166 144C178 132 178 112 166 100C154 88 134 88 122 100L104 118"
+      stroke="#FF1A1A"
+      stroke-width="12"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M114 140L142 112"
+      stroke="#FF1A1A"
+      stroke-width="12"
+      stroke-linecap="round"
+    />
+  </g>
+</svg>
