@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import {
   ArrowRight,
   Cable,
@@ -11,6 +12,7 @@ import {
   Zap,
 } from "lucide-react";
 import "./ProductDetailsPage.css";
+import useProductDetailsPageAnimations from "../hooks/useProductDetailsPageAnimations.js";
 
 import productBanner from "../assets/product-page/product-banner.png";
 import zeroCables from "../assets/product-page/zero-cables.png";
@@ -267,8 +269,11 @@ function CompareNo() {
 }
 
 export default function ProductDetailsPage() {
+  const pageRef = useRef(null);
+  useProductDetailsPageAnimations(pageRef);
+
   return (
-    <main className="pp-page">
+    <main ref={pageRef} className="pp-page product-details-page">
       {/* Hero */}
       <section className="pp-hero" aria-labelledby="pp-hero-heading">
         <div className="pp-hero__bg" aria-hidden>

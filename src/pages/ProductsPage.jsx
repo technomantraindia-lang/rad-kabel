@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import {
   ArrowRight,
   Download,
@@ -25,6 +26,7 @@ import {
 } from "lucide-react";
 
 import "./ProductsPage.css";
+import useProductsPageAnimations from "../hooks/useProductsPageAnimations.js";
 import tapeBanner from "../assets/rad-tape-pro/tape-pro-banner.png";
 import visualZero from "../assets/rad-tape-pro/visual-zero.png";
 import visualPower from "../assets/rad-tape-pro/visual-power.png";
@@ -314,8 +316,11 @@ function ProductCard({
 }
 
 export default function ProductsPage() {
+  const pageRef = useRef(null);
+  useProductsPageAnimations(pageRef);
+
   return (
-    <main className="rtp-page">
+    <main ref={pageRef} className="rtp-page products-page">
       {/* Banner */}
       <section className="rtp-hero" aria-labelledby="rtp-hero-heading">
         <div className="rtp-hero__bg" aria-hidden>
