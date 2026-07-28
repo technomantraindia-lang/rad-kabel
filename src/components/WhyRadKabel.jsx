@@ -1,4 +1,4 @@
-import whyChooseUsBox from "../assets/why-choose-us-box-full.png";
+import whyChooseWireImage from "../assets/home-page-why-choose-image.png";
 import {
   IconConductivity,
   IconEbeam,
@@ -96,14 +96,14 @@ function CableVisual({ fixed = false }) {
         <CableOrbitRings variant={fixed ? "fixed" : "mobile"} />
       </div>
       <img
-        src={whyChooseUsBox}
-        alt="RAD ZERO flame retardant cable product boxes"
+        src={whyChooseWireImage}
+        alt="RAD cable visual with the conductor extending toward the edge"
         width={1284}
         height={1140}
         className={
           fixed
-            ? "why-rad-cable-img--desktop why-rad-box-img relative z-[2] drop-shadow-[0_28px_56px_rgba(0,0,0,0.9)]"
-            : "why-rad-cable-img--mobile why-rad-box-img relative z-[2] drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
+            ? "why-rad-cable-img--desktop why-rad-wire-img relative z-[2] drop-shadow-[0_28px_56px_rgba(0,0,0,0.9)]"
+            : "why-rad-cable-img--mobile why-rad-wire-img relative z-[2] drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
         }
         decoding="async"
         fetchPriority="high"
@@ -115,7 +115,7 @@ function CableVisual({ fixed = false }) {
 function FeatureCard({ Icon, title, shortTitle, description }) {
   return (
     <article tabIndex={0} className="why-rad-feature-card group" aria-label={`${title}. ${description}`}>
-      <div className="why-rad-icon-wrap mb-4 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#e50914] bg-transparent sm:h-16 sm:w-16 xl:mb-4 xl:h-[4.25rem] xl:w-[4.25rem]">
+      <div className="why-rad-icon-wrap mb-3 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#e01921] bg-transparent sm:h-16 sm:w-16 xl:mb-3 xl:h-[4.25rem] xl:w-[4.25rem]">
         <Icon className="why-rad-icon h-7 w-7 sm:h-8 sm:w-8 xl:h-9 xl:w-9" />
       </div>
       <h3 className="why-rad-card-heading font-heading w-full font-bold uppercase tracking-wide text-white">
@@ -124,7 +124,7 @@ function FeatureCard({ Icon, title, shortTitle, description }) {
           {title}
         </span>
       </h3>
-      <p className="why-rad-card-desc mt-2.5 w-full font-normal text-zinc-200 sm:mt-3">
+      <p className="why-rad-card-desc mt-2 w-full font-normal text-zinc-200 sm:mt-2.5">
         {description}
       </p>
     </article>
@@ -148,7 +148,7 @@ export default function WhyRadKabel() {
             className="site-section-title site-section-title--lg"
           >
             <span className="text-white">WHY </span>
-            <span className="text-[#e50914]">RAD KABEL?</span>
+            <span className="text-[#e01921]">RAD KABEL?</span>
           </h2>
           <p className="site-section-desc why-rad-header-desc">
             Engineered with advanced technology to deliver unmatched safety and performance.

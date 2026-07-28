@@ -19,7 +19,7 @@
 
 .manufacturing-excellence__media {
   position: relative;
-  min-height: clamp(280px, 32vw, 420px);
+  min-height: clamp(320px, 36vw, 480px);
   overflow: hidden;
   border-radius: 0.875rem;
   isolation: isolate;
@@ -62,7 +62,7 @@
   display: block;
   width: clamp(72px, 8vw, 96px);
   height: clamp(72px, 8vw, 96px);
-  border: 3px solid #e50914;
+  border: 3px solid #e01921;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.45);
 }
@@ -102,7 +102,7 @@
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #e50914;
+  color: #e01921;
 }
 
 .manufacturing-excellence__title {
@@ -131,6 +131,7 @@
   margin: clamp(1.5rem, 2.5vw, 2rem) 0 0;
   padding: 0;
   list-style: none;
+  align-items: stretch;
 }
 
 .manufacturing-excellence__stat {
@@ -138,8 +139,9 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-height: 100%;
   padding: 0 clamp(0.65rem, 1.2vw, 1rem);
-  border-right: 1px solid rgba(229, 9, 20, 0.55);
+  border-right: 1px solid rgba(224, 25, 33, 0.55);
 }
 
 .manufacturing-excellence__stat:last-child {
@@ -203,7 +205,7 @@
   }
 
   .manufacturing-excellence__media {
-    min-height: clamp(240px, 45vw, 360px);
+    min-height: clamp(260px, 45vw, 380px);
   }
 
   .manufacturing-excellence__stats {
@@ -223,21 +225,36 @@
 
 @media (max-width: 768px) {
   .manufacturing-excellence {
-    padding-inline: 1.25rem;
+    padding-inline: 1rem;
+  }
+
+  .manufacturing-excellence__panel {
+    padding: 1rem;
+    gap: 1rem;
   }
 
   .manufacturing-excellence__stats {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-top: 1.25rem;
   }
 
   .manufacturing-excellence__stat {
     border-right: 0;
-    border-bottom: 1px solid rgba(229, 9, 20, 0.55);
-    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(224, 25, 33, 0.55);
+    padding: 0 0 1rem;
   }
 
   .manufacturing-excellence__stat:last-child {
     border-bottom: 0;
     padding-bottom: 0;
+  }
+
+  .manufacturing-excellence__title {
+    font-size: clamp(1.55rem, 7.6vw, 2rem);
+  }
+
+  .manufacturing-excellence__text {
+    max-width: 30rem;
   }
 }

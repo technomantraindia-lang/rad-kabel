@@ -5,5 +5,5 @@
     <path d="M45 52h38M45 63h38M45 74h25"/>
     <path d="M57 105v10M49 111l8 8 8-8"/>
   </g>
-  <text x="81" y="91" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#E31B2B">PDF</text>
+  <text x="81" y="91" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#e01921">PDF</text>
 </svg>

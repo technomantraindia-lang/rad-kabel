@@ -127,8 +127,8 @@ body.wire-story-active {
   height: 100%;
   width: 0%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #d4af37, #e50914);
-  box-shadow: 0 0 14px rgba(229, 9, 20, 0.4);
+  background: linear-gradient(90deg, #d4af37, #e01921);
+  box-shadow: 0 0 14px rgba(224, 25, 33, 0.4);
 }
 
 .wire-story-dots {
@@ -156,9 +156,9 @@ body.wire-story-active {
 }
 
 .wire-dot--on {
-  background: linear-gradient(135deg, #f5d47b, #e50914);
+  background: linear-gradient(135deg, #f5d47b, #e01921);
   transform: scale(1.25);
-  box-shadow: 0 0 12px rgba(229, 9, 20, 0.45);
+  box-shadow: 0 0 12px rgba(224, 25, 33, 0.45);
 }
 
 .wire-story-hint {

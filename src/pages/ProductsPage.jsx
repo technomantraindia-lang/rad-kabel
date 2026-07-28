@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useRef, useEffect } from "react";
 import {
   ArrowRight,
   Download,
@@ -37,6 +37,7 @@ import iconReliable from "../assets/rad-tape-pro/why-icons/reliable.svg";
 import iconAdvanced from "../assets/rad-tape-pro/why-icons/advanced.svg";
 import iconDurable from "../assets/rad-tape-pro/why-icons/durable.svg";
 import iconSafe from "../assets/rad-tape-pro/why-icons/safe.svg";
+import { handleDownloadBrochure } from "../utils/downloadBrochure";
 
 const BROCHURE_URL = "/brochure.pdf";
 
@@ -147,7 +148,7 @@ const PRODUCT_CARDS = [
     tagline: "Built For Everyday Power.",
     image: visualPower,
     imageAlt: "RAD POWER yellow cable coil",
-    href: "/products",
+    href: "/products/rad-power",
     highlights: [
       { icon: Activity, label: "High Current Capacity" },
       { icon: Cable, label: "Smooth Pulling" },
@@ -175,7 +176,7 @@ const PRODUCT_CARDS = [
     tagline: "Flexibility Without Limits.",
     image: visualFlex,
     imageAlt: "RAD FLEX black cable coil",
-    href: "/products",
+    href: "/products/rad-flex",
     highlights: [
       { icon: Shield, label: "Heavy Duty Usage" },
       { icon: Factory, label: "Industrial Grade" },
@@ -203,7 +204,7 @@ const PRODUCT_CARDS = [
     tagline: "The Final Layer Of Protection.",
     image: visualTape,
     imageAlt: "RAD TAPE PRO premium insulation tape",
-    href: "#rtp-cta",
+    href: "/products/rad-tape-pro",
     highlights: [
       { icon: BicepsFlexed, label: "Strong Adhesion" },
       { icon: Flame, label: "Flame Retardant" },
@@ -317,7 +318,22 @@ function ProductCard({
 
 export default function ProductsPage() {
   const pageRef = useRef(null);
+  const location = useLocation();
   useProductsPageAnimations(pageRef);
+
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = location.hash.replace("#", "");
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        setTimeout(() => {
+          elem.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 150);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  }, [location.hash, location.pathname]);
 
   return (
     <main ref={pageRef} className="rtp-page products-page">
@@ -348,14 +364,6 @@ export default function ProductsPage() {
                 insulation tapes, RAD KABEL delivers solutions engineered for performance, safety,
                 and reliability.
               </p>
-              <div className="rtp-hero__actions">
-                <a href="#rtp-cards" className="rtp-btn rtp-btn--primary">
-                  Explore Products <ExternalLink size={15} aria-hidden />
-                </a>
-                <a href={BROCHURE_URL} download className="rtp-btn rtp-btn--outline">
-                  Download Catalogue <Download size={15} aria-hidden />
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -375,7 +383,7 @@ export default function ProductsPage() {
 
           <ul className="rtp-cards__grid">
             {PRODUCT_CARDS.map((card) => (
-              <li key={card.id} className="rtp-cards__item">
+              <li key={card.id} id={card.id} className="rtp-cards__item">
                 <ProductCard {...card} />
               </li>
             ))}
@@ -461,9 +469,9 @@ export default function ProductsPage() {
             </p>
 
             <div className="rtp-cta__actions">
-              <a href="/#contact" className="rtp-btn rtp-btn--primary">
+              <Link to="/contact-us" className="rtp-btn rtp-btn--primary">
                 Contact Sales <ArrowRight size={16} aria-hidden />
-              </a>
+              </Link>
               <Link to="/dealer-network" className="rtp-btn rtp-btn--outline">
                 Become a Dealer <ArrowRight size={16} aria-hidden />
               </Link>

@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import cableRender from "../assets/science-cable-render.png";
 
 const LAYER_CALLOUTS = [
@@ -58,7 +59,30 @@ function LayerCallout({ id, label, badgeRef }) {
   );
 }
 
-export default function ScienceOfSafety() {
+/**
+ * Shared cable-layers section used on Home and Technology.
+ * @param {object} props
+ * @param {string} [props.headingId]
+ * @param {import("react").ReactNode} [props.title]
+ * @param {string} [props.description]
+ * @param {string} [props.ctaHref]
+ * @param {string} [props.ctaLabel]
+ * @param {boolean} [props.showCta]
+ * @param {string} [props.className]
+ */
+export default function ScienceOfSafety({
+  headingId = "science-of-safety-heading",
+  title = (
+    <>
+      The Science of <span className="science-of-safety-title-accent">Safety</span>
+    </>
+  ),
+  description = "Every layer is engineered for maximum protection and performance.",
+  ctaHref = "/technology",
+  ctaLabel = "Explore Technology",
+  showCta = true,
+  className = "",
+}) {
   const visualRef = useRef(null);
   const badgeRefs = useRef([]);
   const [connectorPaths, setConnectorPaths] = useState(
@@ -120,20 +144,28 @@ export default function ScienceOfSafety() {
   }, []);
 
   return (
-    <section className="science-of-safety-section" aria-labelledby="science-of-safety-heading">
+    <section
+      className={`science-of-safety-section${className ? ` ${className}` : ""}`}
+      aria-labelledby={headingId}
+    >
       <div className="science-of-safety-frame">
         <div className="science-of-safety-grid">
           <div className="science-of-safety-copy">
-            <h2 id="science-of-safety-heading" className="science-of-safety-title">
-              The Science of{" "}
-              <span className="science-of-safety-title-accent">Safety</span>
+            <h2 id={headingId} className="science-of-safety-title">
+              {title}
             </h2>
-            <p className="science-of-safety-desc">
-              Every layer is engineered for maximum protection and performance.
-            </p>
-            <a href="#technology" className="science-of-safety-cta">
-              Explore Technology
-            </a>
+            <p className="science-of-safety-desc">{description}</p>
+            {showCta ? (
+              ctaHref.startsWith("/") && !ctaHref.startsWith("/#") ? (
+                <Link to={ctaHref} className="science-of-safety-cta">
+                  {ctaLabel}
+                </Link>
+              ) : (
+                <a href={ctaHref} className="science-of-safety-cta">
+                  {ctaLabel}
+                </a>
+              )
+            ) : null}
           </div>
 
           <div ref={visualRef} className="science-of-safety-visual">

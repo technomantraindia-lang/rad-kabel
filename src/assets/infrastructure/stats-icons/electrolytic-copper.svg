@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
   <title>Electrolytic Copper Icon</title>
-  <g stroke="#E50909" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <g stroke="#e01921" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="64" cy="58" r="38"/>
     <path d="M64 14C72 22 82 24 96 24C96 38 100 48 108 56C100 64 96 74 96 88C82 88 72 92 64 100C56 92 46 88 32 88C32 74 28 64 20 56C28 48 32 38 32 24C46 24 56 22 64 14Z"/>
     <circle cx="64" cy="46" r="11"/>

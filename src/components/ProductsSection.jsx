@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import productZero from "../assets/products-2/1.png";
 import productPower from "../assets/products-2/2.png";
 import productFlex from "../assets/products-2/3.png";
-import productControl from "../assets/products-2/4.png";
+import productControl from "../assets/product-landing/product-4.png";
 
 const PRODUCTS = [
   {
@@ -45,15 +45,17 @@ const PRODUCTS = [
 
 function ProductCard({ title, subtitle, lines, image, imageAlt, href }) {
   return (
-    <article
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-800/90 bg-zinc-950/90 transition-all duration-300 hover:border-[#e50914] hover:bg-gradient-to-br hover:from-[#5a0008] hover:via-[#1a0508] hover:to-black hover:shadow-[0_0_48px_rgba(229,9,20,0.35)] sm:flex-row"
+    <Link
+      to={href}
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800/90 bg-zinc-950/90 no-underline transition-all duration-300 hover:border-[#e01921] hover:bg-gradient-to-br hover:from-[#5a0008] hover:via-[#1a0508] hover:to-black hover:shadow-[0_0_48px_rgba(224,25,33,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e01921] sm:flex-row"
+      aria-label={`View details for ${title}`}
     >
       <div className="flex min-w-0 flex-1 flex-col justify-between p-6 sm:p-7 lg:p-8">
         <div>
           <h3 className="whitespace-nowrap text-[clamp(1.125rem,2.4vw,1.65rem)] font-black uppercase leading-tight tracking-wide text-white">
             {title.startsWith("RAD ") ? (
               <>
-                <span className="text-white transition-colors duration-300 group-hover:text-[#e50914]">RAD</span>
+                <span className="text-white transition-colors duration-300 group-hover:text-[#e01921]">RAD</span>
                 <span className="text-white"> {title.slice(4).trim()}</span>
               </>
             ) : (
@@ -70,30 +72,30 @@ function ProductCard({ title, subtitle, lines, image, imageAlt, href }) {
           </ul>
         </div>
 
-        <Link
-          to={href}
-          className="mt-6 inline-flex w-fit items-center justify-center rounded-md border border-white/80 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-white transition-all duration-300 group-hover:border-[#e50914] group-hover:bg-[#e50914] group-hover:text-white group-hover:shadow-[0_0_24px_rgba(229,9,20,0.5)] lg:px-6 lg:py-3.5 lg:text-sm"
-        >
+        <span className="mt-6 inline-flex w-fit items-center justify-center rounded-md border border-white/80 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-white transition-all duration-300 group-hover:border-[#e01921] group-hover:bg-[#e01921] group-hover:text-white group-hover:shadow-[0_0_24px_rgba(224,25,33,0.5)] lg:px-6 lg:py-3.5 lg:text-sm">
           View Details
-        </Link>
+          <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden>
+            →
+          </span>
+        </span>
       </div>
 
-      <div className="relative flex min-h-[200px] shrink-0 items-end justify-end overflow-hidden bg-black/40 transition-colors duration-300 group-hover:bg-[#e50914]/10 sm:min-h-0 sm:w-[44%] lg:w-[46%]">
+      <div className="relative flex min-h-[200px] shrink-0 items-end justify-end overflow-hidden bg-black/40 transition-colors duration-300 group-hover:bg-[#e01921]/10 sm:min-h-0 sm:w-[44%] lg:w-[46%]">
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_70%_50%,rgba(249,115,22,0.12),transparent)] transition-opacity duration-300 group-hover:bg-[radial-gradient(ellipse_80%_80%_at_70%_50%,rgba(229,9,20,0.2),transparent)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_70%_50%,rgba(249,115,22,0.12),transparent)] transition-opacity duration-300 group-hover:bg-[radial-gradient(ellipse_80%_80%_at_70%_50%,rgba(224,25,33,0.2),transparent)]"
           aria-hidden
         />
-        {/* Slightly oversized, half clipped on the right — slides in on hover without edge cut-off */}
         <div className="relative z-[1] flex h-[240px] w-full items-end justify-end overflow-hidden pb-1 pr-1 sm:h-[300px] lg:h-[340px]">
           <img
             src={image}
             alt={imageAlt}
             className="h-[106%] w-[106%] max-w-none origin-bottom-right object-contain object-bottom transition-transform duration-500 ease-out will-change-transform translate-x-[30%] group-hover:translate-x-[5%] sm:h-[108%] sm:w-[108%] sm:translate-x-[34%] sm:group-hover:translate-x-[4%] lg:h-[110%] lg:w-[110%] lg:translate-x-[36%] lg:group-hover:translate-x-[3%]"
             decoding="async"
+            loading="lazy"
           />
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 
@@ -105,7 +107,7 @@ export default function ProductsSection() {
       aria-labelledby="products-section-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_15%_0%,rgba(229,9,20,0.07),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_15%_0%,rgba(224,25,33,0.07),transparent_55%)]"
         aria-hidden
       />
 
@@ -115,7 +117,7 @@ export default function ProductsSection() {
             id="products-section-heading"
             className="site-section-title site-section-title--xl"
           >
-            Our <span className="text-[#e50914]">Products</span>
+            Our <span className="text-[#e01921]">Products</span>
           </h2>
           <p className="site-section-desc">
             Advanced solution for every need

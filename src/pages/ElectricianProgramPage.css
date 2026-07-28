@@ -9,7 +9,7 @@
 }
 
 .ep-accent {
-  color: #e50914;
+  color: #e01921;
 }
 
 .ep-container {
@@ -53,14 +53,14 @@
 }
 
 .ep-btn--primary {
-  background: #e50914;
-  border: 1px solid #e50914;
+  background: #e01921;
+  border: 1px solid #e01921;
   color: #fff;
 }
 
 .ep-btn--primary:hover {
-  background: #c40812;
-  border-color: #c40812;
+  background: #c0151c;
+  border-color: #c0151c;
 }
 
 .ep-btn--outline {
@@ -77,7 +77,7 @@
 .ep-btn--light {
   background: #fff;
   border: 1px solid #fff;
-  color: #e50914;
+  color: #e01921;
 }
 
 .ep-btn--light:hover {
@@ -108,7 +108,7 @@
 }
 
 .ep-breadcrumb a:hover {
-  color: #e50914;
+  color: #e01921;
 }
 
 .ep-breadcrumb__current {
@@ -203,7 +203,7 @@
   --ep-why-title-spacing: 0.06em;
   --ep-why-text-spacing: 0.02em;
   --ep-why-word-spacing: 0.04em;
-  --ep-why-accent: #e51e36;
+  --ep-why-accent: #e01921;
   padding: clamp(3rem, 6vw, 5rem) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -315,6 +315,9 @@
   width: clamp(5rem, 7vw, 6.75rem);
   height: clamp(5rem, 7vw, 6.75rem);
   flex-shrink: 0;
+  margin-inline: auto;
+  overflow: visible;
+  shape-rendering: geometricPrecision;
 }
 
 .ep-how__arrow {
@@ -435,7 +438,7 @@
   width: 1.1rem;
   height: 1.1rem;
   border-radius: 50%;
-  background: #e51e36;
+  background: #e01921;
   color: #fff;
 }
 
@@ -712,7 +715,7 @@
 .ep-story__quote {
   flex-shrink: 0;
   margin-bottom: 0.75rem;
-  color: #e50914;
+  color: #e01921;
 }
 
 .ep-story p {
@@ -760,7 +763,7 @@
   justify-content: center;
   gap: 1rem;
   padding: clamp(1.25rem, 2vw, 1.75rem);
-  background: #e50914;
+  background: #e01921;
   border-radius: 4px;
   min-height: 100%;
 }
@@ -892,7 +895,7 @@
   align-items: center;
   justify-content: center;
   width: 2rem;
-  color: #e50914;
+  color: #e01921;
 }
 
 .ep-cta__trust-text {
@@ -1088,7 +1091,7 @@
   right: 0.35rem;
   bottom: 0.35rem;
   height: 2px;
-  background: #e50914;
+  background: #e01921;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -1118,7 +1121,7 @@
 .electrician-animated .au-header-cta:hover,
 .electrician-animated .au-header-cta:focus-visible {
   transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 0 22px rgba(229, 9, 20, 0.38);
+  box-shadow: 0 0 22px rgba(224, 25, 33, 0.38);
 }
 
 .electrician-animated .au-header-cta:hover span:last-child,
@@ -1145,7 +1148,7 @@
 
 .electrician-animated .ep-btn--primary:hover,
 .electrician-animated .ep-btn--primary:focus-visible {
-  box-shadow: 0 0 24px rgba(229, 9, 20, 0.45);
+  box-shadow: 0 0 24px rgba(224, 25, 33, 0.45);
 }
 
 .electrician-animated .ep-btn--outline:hover,
@@ -1164,7 +1167,7 @@
 }
 
 .electrician-animated .ep-btn:focus-visible {
-  outline: 2px solid rgba(229, 9, 20, 0.85);
+  outline: 2px solid rgba(224, 25, 33, 0.85);
   outline-offset: 3px;
 }
 
@@ -1189,12 +1192,12 @@
 
 .electrician-animated .ep-why__card:hover {
   transform: translateY(-5px);
-  border-color: rgba(229, 9, 20, 0.45);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 16px rgba(229, 9, 20, 0.12);
+  border-color: rgba(224, 25, 33, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 16px rgba(224, 25, 33, 0.12);
 }
 
 .electrician-animated .ep-why__card:hover .ep-why__icon {
-  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.5));
+  filter: drop-shadow(0 0 10px rgba(224, 25, 33, 0.5));
 }
 
 .electrician-animated .ep-why__card:hover h3 {
@@ -1224,7 +1227,7 @@
 }
 
 .electrician-animated .ep-how__step:hover .ep-how__step-icon {
-  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.45));
+  filter: drop-shadow(0 0 10px rgba(224, 25, 33, 0.45));
 }
 
 .electrician-animated .ep-how__step:hover h3 {
@@ -1256,7 +1259,7 @@
 
 .electrician-animated .ep-rewards__card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 18px rgba(229, 9, 20, 0.2);
+  box-shadow: 0 0 18px rgba(224, 25, 33, 0.2);
 }
 
 .electrician-animated .ep-rewards__card:hover .ep-rewards__image {
@@ -1275,7 +1278,7 @@
 
 .electrician-animated .ep-support__panel--cert:hover .ep-support__cert-image {
   transform: scale(1.02);
-  filter: drop-shadow(0 0 14px rgba(229, 9, 20, 0.28));
+  filter: drop-shadow(0 0 14px rgba(224, 25, 33, 0.28));
 }
 
 .electrician-animated .ep-support__list-icon {
@@ -1290,7 +1293,7 @@
 
 .electrician-animated .ep-support__list li:hover .ep-support__list-icon {
   transform: translateY(-3px);
-  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.45));
+  filter: drop-shadow(0 0 10px rgba(224, 25, 33, 0.45));
 }
 
 .electrician-animated .ep-support__list li:hover .ep-support__list-label {
@@ -1322,7 +1325,7 @@
 .is-electrician-page .site-footer__link:hover,
 .is-electrician-page .site-footer__link:focus-visible {
   transform: translateX(3px);
-  color: #e50914;
+  color: #e01921;
 }
 
 .is-electrician-page .site-footer__social {
@@ -1335,7 +1338,7 @@
 .is-electrician-page .site-footer__social:hover,
 .is-electrician-page .site-footer__social:focus-visible {
   transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(229, 9, 20, 0.38);
+  box-shadow: 0 0 18px rgba(224, 25, 33, 0.38);
 }
 
 .is-electrician-page footer .grid > div:last-child .grid > div {

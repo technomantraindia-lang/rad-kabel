@@ -21,7 +21,7 @@
 
 .mission-vision__panel--vision {
   position: relative;
-  min-height: clamp(320px, 34vw, 420px);
+  min-height: clamp(360px, 38vw, 480px);
   isolation: isolate;
 }
 
@@ -38,8 +38,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.2) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.45) 100%);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.48) 55%, rgba(0, 0, 0, 0.18) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.55) 100%);
 }
 
 .mission-vision__vision-copy {
@@ -66,14 +66,14 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #e50914;
+  color: #e01921;
 }
 
 .mission-vision__rule {
   width: 3.5rem;
   height: 3px;
   margin-top: 0.65rem;
-  background: #e50914;
+  background: #e01921;
 }
 
 .mission-vision__text {
@@ -92,6 +92,7 @@
   margin: clamp(1.25rem, 2vw, 1.75rem) 0 0;
   padding: 0;
   list-style: none;
+  align-items: stretch;
 }
 
 .mission-vision__card {
@@ -99,11 +100,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: clamp(280px, 28vw, 340px);
+  min-height: clamp(290px, 30vw, 360px);
   padding: clamp(1.25rem, 2vw, 1.75rem) clamp(0.85rem, 1.4vw, 1.1rem);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 0.875rem;
-  background: rgba(0, 0, 0, 0.35);
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.92) 0%, rgba(0, 0, 0, 0.58) 100%);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .mission-vision__card-icon {
@@ -127,8 +129,14 @@
   margin: clamp(0.65rem, 1vw, 0.85rem) 0 0;
   font-family: Carlito, Calibri, "Segoe UI", Candara, sans-serif;
   font-size: clamp(0.8rem, 0.92vw, 0.9rem);
-  line-height: 1.6;
+  line-height: 1.65;
   color: rgba(255, 255, 255, 0.78);
+}
+
+.mission-vision__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(224, 25, 33, 0.5);
+  box-shadow: 0 0 24px rgba(224, 25, 33, 0.12);
 }
 
 @media (max-width: 1100px) {
@@ -137,7 +145,7 @@
   }
 
   .mission-vision__panel--vision {
-    min-height: 300px;
+    min-height: 340px;
   }
 }
 

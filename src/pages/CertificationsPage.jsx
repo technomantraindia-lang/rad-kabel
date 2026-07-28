@@ -19,6 +19,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 import "./CertificationsPage.css";
+import { handleDownloadBrochure } from "../utils/downloadBrochure.js";
 
 // Assets
 import isiCertifiedLogo from "../assets/certifications/isi-certified.svg";
@@ -219,13 +220,7 @@ export default function CertificationsPage() {
     setDownloadingId(id);
     setTimeout(() => {
       setDownloadingId(null);
-      // Simulate file download
-      const link = document.createElement("a");
-      link.href = "/brochure.pdf";
-      link.download = `${title.replace(/\s+/g, "_")}.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      handleDownloadBrochure();
     }, 1500);
   };
 
@@ -672,10 +667,10 @@ export default function CertificationsPage() {
                 <Download size={15} className="cert-btn__icon" aria-hidden />
                 DOWNLOAD CERTIFICATES
               </a>
-              <a href="#contact" className="cert-bottom-cta__btn cert-bottom-cta__btn--outline cert-btn">
+              <Link to="/contact-us" className="cert-bottom-cta__btn cert-bottom-cta__btn--outline cert-btn">
                 CONTACT TECHNICAL TEAM
                 <ArrowRight size={15} className="cert-btn__icon" aria-hidden />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

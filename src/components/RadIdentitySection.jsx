@@ -5,10 +5,8 @@ const PILLARS = [
     lead: "Reliability",
     body: (
       <>
-        is the foundation of the RAD Kabel identity. For us, being reliable means delivering cables that perform with
-        absolute consistency, no matter the demand or environment. From households to heavy-duty installations, RAD
-        Kabel stands as a brand customers can trust without second thought. When you choose RAD Kabel, you choose peace
-        of mind, steady performance, and the confidence that your wiring will never let you down.
+        is the foundation of the RAD Kabel identity. We build cables that perform with absolute consistency in homes,
+        commercial spaces, and heavy-duty installations, so every connection feels dependable.
       </>
     ),
   },
@@ -18,12 +16,8 @@ const PILLARS = [
     lead: "Being Advanced",
     body: (
       <>
-        is at the heart of RAD Kabel&apos;s commitment to progress. We believe that modern electrical systems deserve
-        modern solutions and that&apos;s why innovation is built into everything we do. From high-quality materials to
-        precise engineering, each RAD Kabel product reflects forward thinking design and industry leading standards.
-        We continuously improve, evolve, and embrace new technologies to ensure that our cables deliver smarter
-        performance, higher safety, and better efficiency. At RAD Kabel, &apos;Advanced&apos; isn&apos;t just a feature,
-        it&apos;s the mindset that keeps us ahead and makes your connections future-ready.
+        is at the heart of RAD Kabel&apos;s commitment to progress. Precise engineering, modern materials, and
+        continuous innovation keep our cables future-ready, efficient, and safer to use.
       </>
     ),
   },
@@ -33,12 +27,8 @@ const PILLARS = [
     lead: "Durability",
     body: (
       <>
-        defines the lasting strength and resilience of RAD Kabel. Our cables are crafted to endure the challenges of
-        everyday use—resisting heat, stress, bending, and long term wear without compromising performance. Every layer,
-        every strand & every finish is engineered to extend the life of the cable and protect what matters most. With
-        RAD Kabel, durability means more than toughness. It means stability, reliability, and the assurance that your
-        wiring will remain strong and safe for years to come. We build products that go the distance because your trust
-        deserves nothing less.
+        defines the lasting strength and resilience of RAD Kabel. Our cables are engineered to resist heat, stress,
+        bending, and long-term wear so they stay strong, stable, and safe for years to come.
       </>
     ),
   },
@@ -46,7 +36,7 @@ const PILLARS = [
 
 function PillarCopy({ lead, body }) {
   return (
-    <p className="rad-identity-copy text-left font-sans text-sm font-normal text-white/90 sm:text-[15px] lg:text-base">
+    <p className="rad-identity-copy text-left font-sans text-[0.92rem] font-normal text-white/90 sm:text-[15px] lg:text-[1rem]">
       <strong className="font-bold text-white">{lead}</strong> {body}
     </p>
   );
@@ -55,13 +45,13 @@ function PillarCopy({ lead, body }) {
 function PillarCard({ letter, label, lead, body }) {
   return (
     <article
-      className="rad-identity-pillar group flex min-w-0 flex-1 flex-row items-stretch overflow-hidden rounded-xl border border-zinc-800/90 bg-black transition-[border-color,box-shadow] duration-300 hover:border-[#e50914]/45 hover:shadow-[0_0_24px_rgba(229,9,20,0.12)]"
+      className="rad-identity-pillar group flex min-w-0 flex-1 flex-row items-stretch overflow-hidden rounded-xl border border-zinc-800/90 bg-black transition-[border-color,box-shadow] duration-300 hover:border-[#e01921]/45 hover:shadow-[0_0_24px_rgba(224,25,33,0.12)]"
       aria-labelledby={`pillar-${letter}`}
     >
-      <div className="flex w-[38%] min-w-[6.5rem] shrink-0 flex-col items-center justify-center border-r border-zinc-800/80 px-3 py-5 text-center sm:w-[40%] sm:min-w-[7rem] sm:px-4 sm:py-7 lg:w-[38%] lg:px-5 lg:py-8">
+      <div className="flex w-[36%] min-w-[6.25rem] shrink-0 flex-col items-center justify-center border-r border-zinc-800/80 px-3 py-5 text-center sm:w-[38%] sm:min-w-[7rem] sm:px-4 sm:py-7 lg:w-[36%] lg:px-5 lg:py-8">
         <span
-          className="rad-identity-letter font-sans font-black leading-none text-[#e50914]"
-          style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)" }}
+          className="rad-identity-letter font-sans font-black leading-none text-[#e01921]"
+          style={{ fontSize: "clamp(3.25rem, 7.5vw, 7.25rem)" }}
           aria-hidden
         >
           {letter}
@@ -91,11 +81,8 @@ export default function RadIdentitySection() {
         <header className="rad-identity-header mx-auto mb-12 max-w-4xl text-center sm:mb-14 lg:mb-16">
           <p className="site-kicker tracking-[0.38em]">Every Connection Matters</p>
 
-          <h2
-            id="rad-identity-heading"
-            className="site-section-title site-section-title--lg mt-5"
-          >
-            <span className="text-[#e50914]">RAD</span> KABEL IDENTITY
+          <h2 id="rad-identity-heading" className="site-section-title site-section-title--lg mt-5">
+            <span className="text-[#e01921]">RAD</span> KABEL IDENTITY
           </h2>
 
           <p className="site-section-desc site-section-desc--center">

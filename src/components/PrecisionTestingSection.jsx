@@ -57,15 +57,15 @@ function useInViewOnce(threshold = 0.08) {
 function StatCard({ value, label, index, animate }) {
   return (
     <article
-      className={`flex min-h-[100px] flex-col items-center justify-center rounded-md border border-zinc-500/50 bg-black/75 px-3 py-6 text-center backdrop-blur-[2px] sm:min-h-[110px] sm:px-4 sm:py-7 lg:min-h-[120px] ${
+      className={`flex min-h-[96px] flex-col items-center justify-center rounded-md border border-zinc-500/50 bg-black/72 px-3 py-4 text-center backdrop-blur-[2px] sm:min-h-[104px] sm:px-4 sm:py-5 lg:min-h-[112px] ${
         animate ? "animate-fade-up" : "opacity-0"
       }`}
       style={animate ? { animationDelay: `${index * 0.08}s`, animationFillMode: "forwards" } : undefined}
     >
-      <p className="text-[1.75rem] font-bold leading-none tabular-nums text-[#e50914] sm:text-4xl lg:text-[2.35rem]">
+      <p className="text-[1.7rem] font-bold leading-none tabular-nums text-[#e01921] sm:text-[2.35rem] lg:text-[2.7rem]">
         {value}
       </p>
-      <p className="mt-3 text-xs font-semibold uppercase leading-snug tracking-[0.18em] text-white sm:mt-3.5 sm:text-sm lg:text-base lg:tracking-[0.2em]">
+      <p className="mt-2.5 text-[0.64rem] font-semibold uppercase leading-snug tracking-[0.18em] text-white sm:mt-3 sm:text-xs lg:text-sm lg:tracking-[0.2em]">
         {label}
       </p>
     </article>
@@ -76,7 +76,7 @@ function TestCard({ title, image, alt, index, animate }) {
   return (
     <article
       tabIndex={0}
-      className={`precision-test-card group overflow-hidden rounded-lg border-2 border-[#d4af37]/70 bg-black outline-none transition-all duration-300 hover:border-[#e50914] hover:shadow-[0_0_28px_rgba(229,9,20,0.35)] focus-visible:border-[#e50914] focus-visible:shadow-[0_0_32px_rgba(229,9,20,0.42),0_0_0_2px_rgba(229,9,20,0.25)] ${
+      className={`precision-test-card group flex h-full flex-col overflow-hidden bg-black outline-none transition-shadow duration-300 hover:shadow-[0_0_28px_rgba(224,25,33,0.28)] focus-visible:shadow-[0_0_32px_rgba(224,25,33,0.35),0_0_0_2px_rgba(224,25,33,0.25)] ${
         animate ? "animate-fade-up" : "opacity-0"
       }`}
       style={animate ? { animationDelay: `${0.1 + index * 0.07}s`, animationFillMode: "forwards" } : undefined}
@@ -85,17 +85,17 @@ function TestCard({ title, image, alt, index, animate }) {
         <img
           src={image}
           alt={alt}
-          className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
+          className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04] group-focus-visible:scale-[1.04]"
           decoding="async"
           loading="lazy"
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
           aria-hidden
         />
       </div>
-      <div className="border-t border-[#d4af37]/25 bg-black px-2 py-3.5 transition-colors duration-300 group-hover:border-[#e50914]/40 group-focus-visible:border-[#e50914]/40 sm:py-4">
-        <p className="text-center text-xs font-bold uppercase leading-snug tracking-[0.12em] text-white sm:text-sm lg:text-[15px]">
+      <div className="mt-auto border-t border-white/10 bg-black px-2 py-3 sm:py-3.5">
+        <p className="text-center text-[0.68rem] font-bold uppercase leading-snug tracking-[0.12em] text-white sm:text-xs lg:text-[14px]">
           {title}
         </p>
       </div>
@@ -129,12 +129,12 @@ export default function PrecisionTestingSection() {
 
       <div ref={factoryBlock.ref} className="precision-factory-bleed mt-8 sm:mt-10">
         <div
-          className="precision-factory relative h-[62vh] min-h-[420px] w-full overflow-hidden"
+          className="precision-factory relative h-[clamp(360px,56vw,620px)] min-h-[360px] w-full overflow-hidden"
           style={{ backgroundImage: `url(${builtFacilityBg})` }}
           role="img"
           aria-label="RAD Kabel manufacturing facility"
         >
-          <div className="relative z-10 flex h-full items-start justify-center px-4 pt-6 sm:px-8 sm:pt-10 lg:px-12 lg:pt-12">
+          <div className="relative z-10 flex h-full items-end justify-center px-4 py-5 sm:px-8 sm:py-8 lg:px-12 lg:py-10">
             <div className="grid w-full max-w-[1280px] grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
               {STATS.map((stat, index) => (
                 <StatCard key={stat.label} {...stat} index={index} animate={factoryBlock.inView} />

@@ -26,10 +26,10 @@ export default function TechnologyBottomCTA() {
             project.
           </p>
           <div className="tech-bottom-cta__actions">
-            <Link to="/#products" className="tech-btn tech-btn--primary">
+            <Link to="/products" className="tech-btn tech-btn--primary">
               Explore Products<span className="tech-btn__arrow" aria-hidden>&rarr;</span>
             </Link>
-            <Link to="/#contact" className="tech-btn tech-btn--outline">
+            <Link to="/dealer-network" className="tech-btn tech-btn--outline">
               Become a Dealer<span className="tech-btn__arrow" aria-hidden>&rarr;</span>
             </Link>
           </div>

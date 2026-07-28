@@ -1,5 +1,5 @@
 import { useState } from "react";
-import factoryImage from "../assets/manufacturing-factory.jpg";
+import factoryImage from "../assets/who-we-are-facility.png";
 import "./ManufacturingExcellenceSection.css";
 
 const STATS = [

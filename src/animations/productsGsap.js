@@ -51,9 +51,9 @@ function setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, 
   if (accents.length) {
     gsap.fromTo(
       accents,
-      { textShadow: "0 0 0 rgba(229, 9, 20, 0)" },
+      { textShadow: "0 0 0 rgba(224, 25, 33, 0)" },
       {
-        textShadow: "0 0 18px rgba(229, 9, 20, 0.5), 0 0 36px rgba(229, 9, 20, 0.2)",
+        textShadow: "0 0 18px rgba(224, 25, 33, 0.5), 0 0 36px rgba(224, 25, 33, 0.2)",
         duration: 0.55,
         yoyo: true,
         repeat: 1,

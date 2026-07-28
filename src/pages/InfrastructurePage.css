@@ -2,7 +2,7 @@
 
 .infrastructure-page {
   --infra-black: #000;
-  --infra-red: #e50914;
+  --infra-red: var(--red, #e01921);
   --infra-green: #22c55e;
   --infra-muted: rgba(255, 255, 255, 0.72);
   --infra-border: rgba(255, 255, 255, 0.12);
@@ -97,14 +97,14 @@
 
 .infra-btn--primary {
   border: 1px solid var(--infra-red);
-  background: linear-gradient(180deg, #ef2330 0%, var(--infra-red) 52%, #c40812 100%);
+  background: linear-gradient(180deg, #ef2a32 0%, var(--infra-red) 52%, #c0151c 100%);
   color: #fff;
-  box-shadow: 0 0 24px rgba(229, 9, 20, 0.35);
+  box-shadow: 0 0 24px rgba(224, 25, 33, 0.35);
 }
 
 .infra-btn--primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 32px rgba(229, 9, 20, 0.5);
+  box-shadow: 0 0 32px rgba(224, 25, 33, 0.5);
 }
 
 .infra-btn--outline {
@@ -265,7 +265,7 @@
 
 .infra-ecosystem__card:hover {
   transform: translateY(-4px);
-  border-color: rgba(229, 9, 20, 0.45);
+  border-color: rgba(224, 25, 33, 0.45);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.42);
 }
 
@@ -571,7 +571,7 @@
   border-radius: 50%;
   color: #fff;
   background: var(--infra-red);
-  box-shadow: 0 0 10px rgba(229, 9, 20, 0.22);
+  box-shadow: 0 0 10px rgba(224, 25, 33, 0.22);
 }
 
 .infra-process__arrow svg {
@@ -1307,7 +1307,7 @@
   right: 0.35rem;
   bottom: 0.35rem;
   height: 2px;
-  background: #e50914;
+  background: #e01921;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -1337,7 +1337,7 @@
 .infrastructure-animated .au-header-cta:hover,
 .infrastructure-animated .au-header-cta:focus-visible {
   transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 0 22px rgba(229, 9, 20, 0.38);
+  box-shadow: 0 0 22px rgba(224, 25, 33, 0.38);
 }
 
 .infrastructure-animated .au-header-cta:hover span:last-child,
@@ -1363,7 +1363,7 @@
 .infrastructure-animated .infra-btn--primary:hover,
 .infrastructure-animated .infra-btn--primary:focus-visible {
   transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 0 32px rgba(229, 9, 20, 0.55);
+  box-shadow: 0 0 32px rgba(224, 25, 33, 0.55);
 }
 
 .infrastructure-animated .infra-btn--outline:hover,
@@ -1378,7 +1378,7 @@
 }
 
 .infrastructure-animated .infra-btn:focus-visible {
-  outline: 2px solid rgba(229, 9, 20, 0.85);
+  outline: 2px solid rgba(224, 25, 33, 0.85);
   outline-offset: 3px;
 }
 
@@ -1392,8 +1392,8 @@
 
 .infrastructure-animated .infra-ecosystem__card:hover {
   transform: translateY(-6px);
-  border-color: rgba(229, 9, 20, 0.55);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(229, 9, 20, 0.12);
+  border-color: rgba(224, 25, 33, 0.55);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(224, 25, 33, 0.12);
 }
 
 .infrastructure-animated .infra-ecosystem__card:hover .infra-ecosystem__media img {
@@ -1402,7 +1402,7 @@
 
 .infrastructure-animated .infra-ecosystem__card:hover .infra-ecosystem__icon-badge {
   transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(229, 9, 20, 0.45);
+  box-shadow: 0 0 18px rgba(224, 25, 33, 0.45);
 }
 
 .infrastructure-animated .infra-ecosystem__card:hover .infra-ecosystem__accent {
@@ -1439,8 +1439,8 @@
 }
 
 .infrastructure-animated .infra-inside__card:hover .infra-inside__icon-wrap {
-  box-shadow: 0 0 16px rgba(229, 9, 20, 0.42);
-  border-color: rgba(229, 9, 20, 0.9);
+  box-shadow: 0 0 16px rgba(224, 25, 33, 0.42);
+  border-color: rgba(224, 25, 33, 0.9);
 }
 
 .infrastructure-animated .infra-inside__card:hover .infra-inside__label {
@@ -1477,7 +1477,7 @@
 }
 
 .infrastructure-animated .infra-process__media:hover .infra-process__num {
-  box-shadow: 0 0 16px rgba(229, 9, 20, 0.5);
+  box-shadow: 0 0 16px rgba(224, 25, 33, 0.5);
 }
 
 .infrastructure-animated .infra-process__track:has(.infra-process__media:nth-child(1):hover) .infra-process__labels .infra-process__title:nth-child(1),
@@ -1509,7 +1509,7 @@
 
 .infrastructure-animated .infra-quality__card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 18px rgba(229, 9, 20, 0.22);
+  box-shadow: 0 0 18px rgba(224, 25, 33, 0.22);
 }
 
 .infrastructure-animated .infra-quality__card:hover .infra-quality__media img {
@@ -1568,7 +1568,7 @@
 
 .infrastructure-animated .infra-dual__panel:first-child:hover .infra-dual__feature-icon {
   transform: translateY(-3px);
-  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.55));
+  filter: drop-shadow(0 0 10px rgba(224, 25, 33, 0.55));
 }
 
 .infrastructure-animated .infra-dual__panel:last-child:hover .infra-dual__panel-bg {
@@ -1591,7 +1591,7 @@
 .is-infrastructure-page .site-footer__link:hover,
 .is-infrastructure-page .site-footer__link:focus-visible {
   transform: translateX(3px);
-  color: #e50914;
+  color: #e01921;
 }
 
 .is-infrastructure-page .site-footer__social {
@@ -1604,7 +1604,7 @@
 .is-infrastructure-page .site-footer__social:hover,
 .is-infrastructure-page .site-footer__social:focus-visible {
   transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(229, 9, 20, 0.38);
+  box-shadow: 0 0 18px rgba(224, 25, 33, 0.38);
 }
 
 .is-infrastructure-page footer .grid > div:last-child .grid > div {

@@ -94,7 +94,7 @@ function Hero() {
   }, [heroSrc]);
 
   return (
-    <section className="hero-shell" aria-label="RAD Kabel">
+    <section className="hero-shell home-hero-shell" aria-label="RAD Kabel">
       <div className="hero-media">
         <video
           ref={heroVideoRef}
@@ -175,7 +175,7 @@ function CableVideos() {
       <div className="mx-auto max-w-[1920px] text-center">
         <p className="site-kicker">Cable in motion</p>
         <h2 className="site-section-title site-section-title--lg mt-4">
-          See the wire up close.
+          SEE THE WIRE UP CLOSE.
         </h2>
       </div>
       <div className="cable-video-grid mx-auto mt-10 max-w-[1920px] sm:mt-12">

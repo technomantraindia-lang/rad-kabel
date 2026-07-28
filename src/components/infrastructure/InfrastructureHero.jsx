@@ -1,5 +1,6 @@
 import heroBg from "../../assets/infrastructure/hero-banner.png";
 import { IconDownload, IconPlay } from "./InfrastructureIcons.jsx";
+import { handleDownloadBrochure } from "../../utils/downloadBrochure.js";
 
 export default function InfrastructureHero() {
   return (
@@ -21,16 +22,6 @@ export default function InfrastructureHero() {
             Modern manufacturing infrastructure designed to ensure quality, consistency and dependable
             production.
           </p>
-          <div className="infra-hero__actions">
-            <a href="/videos/wq.mp4" className="infra-btn infra-btn--primary">
-              <IconPlay className="infra-hero__btn-icon" />
-              Factory Tour
-            </a>
-            <a href="/brochure.pdf" download className="infra-btn infra-btn--outline">
-              <IconDownload className="infra-hero__btn-icon" />
-              Download Profile
-            </a>
-          </div>
         </div>
       </div>
     </section>

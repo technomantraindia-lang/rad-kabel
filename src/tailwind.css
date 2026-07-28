@@ -124,58 +124,28 @@
   .isi-cert-logo {
     display: block;
     width: auto;
-    max-width: min(180px, 100%);
-    height: 104px;
+    max-width: 100%;
+    height: auto;
+    max-height: clamp(55px, 6.5vw, 95px);
     margin-inline: auto;
     object-fit: contain;
     object-position: center;
     filter: none;
     mix-blend-mode: normal;
-  }
-
-  @media (min-width: 640px) {
-    .isi-cert-logo {
-      height: 112px;
-      max-width: min(190px, 100%);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .isi-cert-logo {
-      height: 118px;
-      max-width: min(200px, 100%);
-    }
-  }
-
-  .cert-banner-cell--tagline p {
-    color: #e50914;
-    text-shadow: none;
+    padding: 2px;
   }
 
   .isi-cert-logo--wide {
-    width: 100%;
-    max-width: min(360px, 100%);
-    height: 118px;
-    min-width: 0;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: clamp(60px, 7.5vw, 105px);
     margin-inline: auto;
     object-fit: contain;
     object-position: center center;
     filter: none;
     mix-blend-mode: normal;
-  }
-
-  @media (min-width: 640px) {
-    .isi-cert-logo--wide {
-      max-width: min(400px, 100%);
-      height: 126px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .isi-cert-logo--wide {
-      max-width: min(440px, 100%);
-      height: 132px;
-    }
+    padding: 2px;
   }
 
   .cert-banner-cell--mark-wide {
@@ -183,23 +153,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    min-width: 220px;
-    flex: 1.55;
-    padding-inline: 0.75rem;
-  }
-
-  @media (min-width: 1024px) {
-    .cert-banner-cell--mark-wide {
-      min-width: 280px;
-      flex: 1.65;
-      padding-inline: 1rem;
-    }
-  }
-
-  .cert-banner-cell--tagline:hover,
-  .cert-banner-cell--tagline:focus-visible {
-    background-color: transparent !important;
-    box-shadow: none !important;
+    min-width: 0;
+    flex: 1.3;
+    padding: 0.5rem;
   }
 
   .cert-banner-cell--mark {
@@ -207,8 +163,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    min-width: 148px;
-    min-height: 132px;
+    min-width: 0;
+    flex: 1;
+    padding: 0.5rem;
   }
 
   .cert-banner-shell {
@@ -216,9 +173,8 @@
   }
 
   .cert-banner-cell {
-    @apply relative flex shrink-0 flex-col items-center justify-center px-4 py-5 text-center outline-none md:flex-1 md:px-4 lg:px-6;
-    @apply min-h-[120px] md:min-h-[128px];
-    @apply focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]/60;
+    @apply relative flex shrink-0 flex-col items-center justify-center p-2 text-center outline-none md:flex-1;
+    min-height: auto;
   }
 
   .cert-banner-cell::after {
@@ -260,8 +216,9 @@
   }
 
   .why-rad-feature-card {
-    @apply relative flex w-full min-w-0 flex-col items-center self-start rounded-2xl border border-[#d4af37]/55 bg-[#101010] px-4 py-5 text-center outline-none transition-all duration-300 sm:px-4 sm:py-5 xl:rounded-[1.125rem] xl:px-4 xl:py-5;
-    height: auto;
+    @apply relative flex w-full min-w-0 flex-col items-center self-start rounded-2xl border border-[#d4af37]/55 bg-[#101010] p-3.5 text-center outline-none transition-all duration-300 xl:rounded-[1.125rem];
+    min-height: clamp(190px, 15vw, 240px);
+    height: 100%;
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.05),
       0 8px 24px rgba(0, 0, 0, 0.55);
@@ -269,35 +226,28 @@
 
   .why-rad-card-heading {
     width: 100%;
-    font-size: clamp(0.9375rem, 1.15vw, 1.1875rem);
-    line-height: 1.35;
+    font-size: clamp(0.875rem, 1vw, 1.05rem);
+    line-height: 1.3;
     color: #fff;
     word-spacing: 0.04em;
   }
 
   .why-rad-card-heading-short {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    display: none;
   }
 
   .why-rad-card-heading-full {
-    display: none;
+    display: block;
     overflow: visible;
     white-space: normal;
-    line-height: 1.35;
+    line-height: 1.3;
   }
 
   .why-rad-card-desc {
     @apply text-zinc-200;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    font-size: clamp(0.875rem, 1.05vw, 1.0625rem);
-    line-height: 1.5;
+    display: block;
+    font-size: clamp(0.75rem, 0.9vw, 0.875rem);
+    line-height: 1.45;
     letter-spacing: 0.01em;
     word-spacing: 0.05em;
   }
@@ -323,20 +273,20 @@
 
   .why-rad-feature-card:hover,
   .why-rad-feature-card:focus-visible {
-    @apply z-10 border-2 border-[#e50914] bg-[#140a0a] px-4 py-6 sm:px-5 sm:py-7 xl:px-5 xl:py-8;
+    @apply z-10 border-2 border-[#e01921] bg-[#140a0a] px-4 py-4 sm:px-4 sm:py-5 xl:px-5 xl:py-6;
     box-shadow:
-      0 0 28px rgba(229, 9, 20, 0.28),
-      inset 0 0 20px rgba(229, 9, 20, 0.06);
+      0 0 28px rgba(224, 25, 33, 0.28),
+      inset 0 0 20px rgba(224, 25, 33, 0.06);
   }
 
   .why-rad-feature-card:hover .why-rad-icon-wrap,
   .why-rad-feature-card:focus-visible .why-rad-icon-wrap {
-    margin-bottom: 1.125rem;
+    margin-bottom: 0.85rem;
   }
 
   .why-rad-feature-card:hover .why-rad-card-desc,
   .why-rad-feature-card:focus-visible .why-rad-card-desc {
-    margin-top: 0.875rem;
+    margin-top: 0.65rem;
   }
 
   @media (min-width: 1280px) {
@@ -355,27 +305,41 @@
     --why-rad-cable-h: min(70vh, 680px);
   }
 
+  @media (min-width: 1280px) {
+    .why-rad-cards-desktop.grid-cols-6 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      row-gap: 1rem;
+    }
+  }
+
+  @media (max-width: 1279px) {
+    .why-rad-feature-card {
+      min-height: 0;
+      height: auto;
+    }
+  }
+
   .why-rad-cable-fixed {
     pointer-events: none;
     overflow: visible;
-    top: calc(38% - 0.42 * var(--why-rad-cable-h, 680px));
-    right: 0;
+    top: calc(34% - 0.42 * var(--why-rad-cable-h, 680px));
+    right: -0.5rem;
     width: var(--why-rad-cable-w);
     height: var(--why-rad-cable-h);
   }
 
   @media (min-width: 1280px) {
     .why-rad-cable-fixed {
-      right: 0.5rem;
-      width: min(50vw, 880px);
+      right: -0.25rem;
+      width: min(54vw, 920px);
       height: min(72vh, 700px);
     }
   }
 
   @media (min-width: 1536px) {
     .why-rad-cable-fixed {
-      right: 1rem;
-      width: min(48vw, 920px);
+      right: 0;
+      width: min(52vw, 980px);
       height: min(74vh, 740px);
     }
   }
@@ -393,13 +357,12 @@
 
   .why-rad-cable-img--desktop {
     display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    margin-left: auto;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
     object-fit: contain;
-    object-position: center center;
+    object-position: right center;
     mix-blend-mode: normal;
     image-rendering: auto;
     -webkit-backface-visibility: hidden;
@@ -408,37 +371,29 @@
 
   .why-rad-cable-img--mobile {
     display: block;
-    width: auto;
-    height: auto;
-    max-width: min(100%, 480px);
+    width: 100%;
+    height: 100%;
+    max-width: min(100%, 560px);
+    max-height: 100%;
     margin-inline: auto;
     object-fit: contain;
-    object-position: center center;
+    object-position: center right;
     mix-blend-mode: normal;
     image-rendering: auto;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
 
-  .why-rad-box-img {
+  .why-rad-wire-img {
     filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.85));
   }
 
-  .why-rad-cable-img--desktop.why-rad-box-img {
-    width: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    margin-left: 0;
-    object-fit: contain;
-    object-position: center center;
+  .why-rad-cable-img--desktop.why-rad-wire-img {
+    transform: translateX(4%);
   }
 
-  .why-rad-cable-img--mobile.why-rad-box-img {
-    max-width: min(100%, 520px);
-    width: 100%;
-    object-fit: contain;
-    object-position: center center;
+  .why-rad-cable-img--mobile.why-rad-wire-img {
+    transform: translateX(0.5rem);
   }
 
   .why-rad-cable-stack {
@@ -596,8 +551,8 @@
 
   .why-rad-feature-card:hover .why-rad-icon-wrap,
   .why-rad-feature-card:focus-visible .why-rad-icon-wrap {
-    @apply border-[#e50914] bg-black;
-    box-shadow: 0 0 16px rgba(229, 9, 20, 0.35);
+    @apply border-[#e01921] bg-black;
+    box-shadow: 0 0 16px rgba(224, 25, 33, 0.35);
   }
 
   /* RAD Identity — readable copy + hover zoom on letter inside card */
@@ -645,7 +600,7 @@
     filter: none;
   }
 
-  /* Site-wide red hover for CTA buttons and button-style links */
+  /* Site-wide CTA hover — brand logo red */
   button:not(:disabled)[class*="uppercase"]:hover,
   [type="button"]:not(:disabled)[class*="uppercase"]:hover,
   [type="submit"]:not(:disabled):hover,
@@ -654,10 +609,19 @@
   .primary-btn:hover,
   .more-btn:hover,
   .contact-form button:hover {
-    border-color: #e50914 !important;
-    background-color: #e50914 !important;
+    border-color: var(--red, #e01921) !important;
+    background-color: var(--red, #e01921) !important;
     color: #fff !important;
-    box-shadow: 0 0 24px rgba(229, 9, 20, 0.45);
+    box-shadow: 0 0 24px rgba(var(--red-rgb, 224, 25, 33), 0.45);
+  }
+
+  /* Solid brand-red CTAs darken on hover (match logo system) */
+  a[class*="bg-[#e01921]"]:hover,
+  button[class*="bg-[#e01921]"]:hover,
+  a[class*="bg-[#e01921]"]:focus-visible,
+  button[class*="bg-[#e01921]"]:focus-visible {
+    border-color: var(--red-hover, #c0151c) !important;
+    background-color: var(--red-hover, #c0151c) !important;
   }
 
   button:not(:disabled)[class*="uppercase"]:focus-visible,
@@ -668,7 +632,7 @@
   .primary-btn:focus-visible,
   .more-btn:focus-visible,
   .contact-form button:focus-visible {
-    outline: 2px solid #e50914;
+    outline: 2px solid var(--red, #e01921);
     outline-offset: 2px;
   }
 
@@ -684,7 +648,7 @@
     margin-left: 0;
     background: #000;
     box-shadow:
-      0 0 40px rgba(229, 9, 20, 0.08),
+      0 0 40px rgba(224, 25, 33, 0.08),
       inset 0 0 80px rgba(255, 120, 40, 0.03);
   }
 
@@ -756,7 +720,7 @@
   }
 
   .science-of-safety-title-accent {
-    color: #e50914;
+    color: #e01921;
   }
 
   .science-of-safety-desc {
@@ -776,26 +740,29 @@
     width: fit-content;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(229, 9, 20, 0.8);
-    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: transparent;
     padding: 0.8rem 1.8rem;
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: #fff;
-    backdrop-filter: blur(6px);
+    text-decoration: none;
+    transition:
+      border-color 0.25s ease,
+      background 0.25s ease;
   }
 
   .science-of-safety-cta:hover,
   .science-of-safety-cta:focus-visible {
-    border-color: #ff4520;
-    background: rgba(229, 9, 20, 0.18);
+    border-color: #e01921;
+    background: rgba(224, 25, 33, 0.14);
     outline: none;
   }
 
   .science-of-safety-cta:focus-visible {
-    outline: 2px solid #e50914;
+    outline: 2px solid #e01921;
     outline-offset: 3px;
   }
 
@@ -824,7 +791,7 @@
     background:
       radial-gradient(ellipse 65% 55% at 50% 48%, rgba(255, 130, 45, 0.28) 0%, transparent 68%),
       radial-gradient(ellipse 50% 45% at 44% 52%, rgba(212, 175, 55, 0.16) 0%, transparent 72%),
-      radial-gradient(ellipse 30% 25% at 38% 58%, rgba(229, 9, 20, 0.12) 0%, transparent 80%);
+      radial-gradient(ellipse 30% 25% at 38% 58%, rgba(224, 25, 33, 0.12) 0%, transparent 80%);
     pointer-events: none;
   }
 
@@ -839,7 +806,7 @@
 
   .science-connector-line {
     fill: none;
-    stroke: #e50914;
+    stroke: #e01921;
     stroke-width: 0.6;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -847,7 +814,7 @@
   }
 
   .science-connector-dot {
-    fill: #e50914;
+    fill: #e01921;
     opacity: 0.9;
   }
 
@@ -943,11 +910,11 @@
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    background: linear-gradient(145deg, #ff1a24, #c00810);
+    background: linear-gradient(145deg, #ef2a32, #c0151c);
     font-size: 0.85rem;
     font-weight: 800;
     color: #fff;
-    box-shadow: 0 0 16px rgba(229, 9, 20, 0.6);
+    box-shadow: 0 0 16px rgba(224, 25, 33, 0.6);
   }
 
   @media (min-width: 640px) {

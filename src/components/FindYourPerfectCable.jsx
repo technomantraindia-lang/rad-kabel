@@ -29,11 +29,11 @@ function CategoryCard({ id, label, icon, isActive, onClick }) {
         "rounded-2xl border-2 px-4 py-7 sm:py-8",
         "w-full cursor-pointer outline-none",
         "transition-all duration-300 ease-out",
-        "focus-visible:ring-2 focus-visible:ring-[#e50914] focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+        "focus-visible:ring-2 focus-visible:ring-[#e01921] focus-visible:ring-offset-2 focus-visible:ring-offset-black",
         // active vs idle state
         isActive
-          ? "border-[#e50914] bg-[#1a0204] shadow-[0_0_32px_rgba(229,9,20,0.45),inset_0_0_20px_rgba(229,9,20,0.08)]"
-          : "border-zinc-700 bg-zinc-900/60 hover:border-[#e50914] hover:bg-[#140103] hover:shadow-[0_0_28px_rgba(229,9,20,0.35),inset_0_0_16px_rgba(229,9,20,0.06)]",
+          ? "border-[#e01921] bg-[#1a0204] shadow-[0_0_32px_rgba(224,25,33,0.45),inset_0_0_20px_rgba(224,25,33,0.08)]"
+          : "border-zinc-700 bg-zinc-900/60 hover:border-[#e01921] hover:bg-[#140103] hover:shadow-[0_0_28px_rgba(224,25,33,0.35),inset_0_0_16px_rgba(224,25,33,0.06)]",
       ].join(" ")}
     >
       {/* icon */}
@@ -80,7 +80,7 @@ export default function FindYourPerfectCable() {
     >
       {/* subtle radial glow */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_45%_at_50%_0%,rgba(229,9,20,0.07),transparent_60%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_45%_at_50%_0%,rgba(224,25,33,0.07),transparent_60%)]"
         aria-hidden
       />
 
@@ -94,7 +94,7 @@ export default function FindYourPerfectCable() {
           >
             FIND YOUR{" "}
             <span
-              className="text-[#e50914] drop-shadow-[0_0_18px_rgba(229,9,20,0.4)]"
+              className="text-[#e01921] drop-shadow-[0_0_18px_rgba(224,25,33,0.4)]"
             >
               PERFECT CABLE*
             </span>

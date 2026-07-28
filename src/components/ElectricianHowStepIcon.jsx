@@ -1,6 +1,6 @@
 const FRAME = {
   ring: "#5E5E5E",
-  badge: "#D91F26",
+  badge: "#e01921",
   icon: "#F2F2F2",
 };
 
@@ -14,19 +14,20 @@ function StepFrame({ step, children }) {
       aria-hidden
     >
       <circle cx="128" cy="128" r="86" stroke={FRAME.ring} strokeWidth="4" />
-      <circle cx="52" cy="60" r="24" fill={FRAME.badge} stroke={FRAME.badge} strokeWidth="2" />
+      <circle cx="52" cy="60" r="24" fill={FRAME.badge} />
       <text
         x="52"
-        y="68"
+        y="60"
         fill="#fff"
-        fontSize="28"
+        fontSize="26"
         fontFamily="Montserrat, Arial, Helvetica, sans-serif"
         textAnchor="middle"
+        dominantBaseline="central"
         fontWeight="700"
       >
         {step}
       </text>
-      <g stroke={FRAME.icon} strokeWidth="7" strokeLinecap="round" strokeLinejoin="round">
+      <g stroke={FRAME.icon} strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round">
         {children}
       </g>
     </svg>
@@ -85,12 +86,14 @@ function RedeemRewardsIcon() {
   );
 }
 
+/** Clean geometric award seal — perfectly centered checkmark badge */
 function GetRecognizedIcon() {
   return (
     <StepFrame step={5}>
-      <path d="M128 69l15 10 18-4 10 15 18 3 2 18 15 11-6 17 8 16-12 13 1 18-17 7-8 17-18-1-13 12-16-8-17 7-10-14-18-1-4-18-15-10 5-17-7-16 11-14-3-18 16-8 6-17 18-1 12-12 17 7z" />
-      <circle cx="128" cy="128" r="33" />
-      <path d="M113 128l11 11 21-24" />
+      {/* Clean 16-lobe award seal, centered at 128,128 */}
+      <path d="M128.00 80.00 Q139.32 71.11 146.37 83.65 Q160.22 79.77 161.94 94.06 Q176.23 95.78 172.35 109.63 Q184.89 116.68 176.00 128.00 Q184.89 139.32 172.35 146.37 Q176.23 160.22 161.94 161.94 Q160.22 176.23 146.37 172.35 Q139.32 184.89 128.00 176.00 Q116.68 184.89 109.63 172.35 Q95.78 176.23 94.06 161.94 Q79.77 160.22 83.65 146.37 Q71.11 139.32 80.00 128.00 Q71.11 116.68 83.65 109.63 Q79.77 95.78 94.06 94.06 Q95.78 79.77 109.63 83.65 Q116.68 71.11 128.00 80.00 Z" />
+      <circle cx="128" cy="128" r="28" />
+      <path d="M113 130l10.5 10.5 19.5-21" />
     </StepFrame>
   );
 }

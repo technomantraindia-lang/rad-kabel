@@ -99,9 +99,9 @@ function setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, 
         onStart: () => {
           gsap.fromTo(
             shield,
-            { filter: "drop-shadow(0 0 0 rgba(229, 9, 20, 0))" },
+            { filter: "drop-shadow(0 0 0 rgba(224, 25, 33, 0))" },
             {
-              filter: "drop-shadow(0 0 28px rgba(229, 9, 20, 0.35))",
+              filter: "drop-shadow(0 0 28px rgba(224, 25, 33, 0.35))",
               duration: 0.6,
               yoyo: true,
               repeat: 1,
@@ -115,9 +115,9 @@ function setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, 
 
   gsap.fromTo(
     accents,
-    { textShadow: "0 0 0 rgba(229, 9, 20, 0)" },
+    { textShadow: "0 0 0 rgba(224, 25, 33, 0)" },
     {
-      textShadow: "0 0 16px rgba(229, 9, 20, 0.42), 0 0 32px rgba(229, 9, 20, 0.18)",
+      textShadow: "0 0 16px rgba(224, 25, 33, 0.42), 0 0 32px rgba(224, 25, 33, 0.18)",
       duration: 0.55,
       delay: 0.5,
       yoyo: true,
@@ -589,9 +589,9 @@ function setupBottomCTA(root, reducedMotion, moveX, moveY, stagger, dur) {
         onComplete: () => {
           gsap.fromTo(
             bg,
-            { filter: "drop-shadow(0 0 0 rgba(229, 9, 20, 0))" },
+            { filter: "drop-shadow(0 0 0 rgba(224, 25, 33, 0))" },
             {
-              filter: "drop-shadow(0 0 24px rgba(229, 9, 20, 0.28))",
+              filter: "drop-shadow(0 0 24px rgba(224, 25, 33, 0.28))",
               duration: 0.65,
               yoyo: true,
               repeat: 1,
@@ -609,9 +609,9 @@ function setupBottomCTA(root, reducedMotion, moveX, moveY, stagger, dur) {
         onStart: () => {
           gsap.fromTo(
             icon,
-            { boxShadow: "0 0 0 rgba(229, 9, 20, 0)" },
+            { boxShadow: "0 0 0 rgba(224, 25, 33, 0)" },
             {
-              boxShadow: "0 0 28px rgba(229, 9, 20, 0.4)",
+              boxShadow: "0 0 28px rgba(224, 25, 33, 0.4)",
               duration: 0.55,
               yoyo: true,
               repeat: 1,
@@ -630,9 +630,9 @@ function setupBottomCTA(root, reducedMotion, moveX, moveY, stagger, dur) {
       if (accent) {
         gsap.fromTo(
           accent,
-          { textShadow: "0 0 0 rgba(229, 9, 20, 0)" },
+          { textShadow: "0 0 0 rgba(224, 25, 33, 0)" },
           {
-            textShadow: "0 0 16px rgba(229, 9, 20, 0.42), 0 0 32px rgba(229, 9, 20, 0.18)",
+            textShadow: "0 0 16px rgba(224, 25, 33, 0.42), 0 0 32px rgba(224, 25, 33, 0.18)",
             duration: 0.55,
             delay: 0.45,
             yoyo: true,

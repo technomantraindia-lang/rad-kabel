@@ -62,7 +62,7 @@ function HeatCheckIcon() {
 
 export default function TechnologyScienceGrid() {
   return (
-    <section className="tech-science" aria-label="Technology feature highlights">
+    <section id="tech-science" className="tech-science" aria-label="Technology feature highlights">
       <div className="tech-container tech-science__grid">
         <article className="tech-science__panel tech-science__panel--copper">
           <div className="tech-science__copper-hero">

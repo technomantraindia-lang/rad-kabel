@@ -80,36 +80,34 @@ function setupCableInside(root, reducedMotion) {
   const section = q(root, ".tech-cable");
   if (!section) return;
 
-  const visual = q(section, ".tech-cable__visual-img");
-  const hotspots = qa(section, ".tech-cable__hotspot");
-  const connectorPaths = qa(section, ".tech-cable__connector-line");
-  const cols = qa(section, ".tech-cable__col");
-  const head = q(section, ".tech-cable__head");
+  const copy = q(section, ".science-of-safety-copy");
+  const visual = q(section, ".science-cable-image");
+  const callouts = qa(section, ".science-layer-callout");
+  const connectorPaths = qa(section, ".science-connector-line");
 
   if (reducedMotion) {
-    gsap.set([visual, head, ...hotspots, ...cols], { clearProps: "all", opacity: 1 });
+    gsap.set([copy, visual, ...callouts], { clearProps: "all", opacity: 1, x: 0, y: 0 });
     connectorPaths.forEach((path) => gsap.set(path, { strokeDashoffset: 0 }));
     return;
   }
 
-  gsap.set(visual, { opacity: 0, x: -56, scale: 0.96, transformOrigin: "center left" });
-  gsap.set(hotspots, { opacity: 0, scale: 0.4 });
-  gsap.set(cols, { opacity: 0, y: 36 });
-  gsap.set(head, { opacity: 0, y: 24 });
+  gsap.set(copy, { opacity: 0, x: -36 });
+  gsap.set(visual, { opacity: 0, x: 40, scale: 0.96, transformOrigin: "center right" });
+  gsap.set(callouts, { opacity: 0, y: 20 });
 
   ScrollTrigger.create({
     trigger: section,
     start: "top 72%",
     once: true,
     onEnter: () => {
-      gsap.to(head, { opacity: 1, y: 0, duration: 0.7, ease: EASE_OUT });
-      gsap.to(visual, { opacity: 1, x: 0, scale: 1, duration: 1.05, ease: EASE_OUT });
-      gsap.to(hotspots, {
+      gsap.to(copy, { opacity: 1, x: 0, duration: 0.8, ease: EASE_OUT });
+      gsap.to(visual, { opacity: 1, x: 0, scale: 1, duration: 1.05, ease: EASE_OUT, delay: 0.1 });
+      gsap.to(callouts, {
         opacity: 1,
-        scale: 1,
+        y: 0,
         duration: 0.55,
-        stagger: 0.12,
-        ease: "back.out(2)",
+        stagger: 0.1,
+        ease: EASE_OUT,
         delay: 0.35,
       });
       connectorPaths.forEach((path, index) => {
@@ -119,16 +117,8 @@ function setupCableInside(root, reducedMotion) {
           strokeDashoffset: 0,
           duration: 1,
           ease: EASE_OUT,
-          delay: 0.45 + index * 0.1,
+          delay: 0.4 + index * 0.1,
         });
-      });
-      gsap.to(cols, {
-        opacity: 1,
-        y: 0,
-        duration: 0.75,
-        stagger: 0.1,
-        ease: EASE_OUT,
-        delay: 0.55,
       });
     },
   });

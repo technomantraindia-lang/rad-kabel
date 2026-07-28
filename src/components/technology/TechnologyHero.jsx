@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import technologyBanner from "../../assets/technology-banner.png";
+import { handleDownloadBrochure } from "../../utils/downloadBrochure";
 
 export default function TechnologyHero() {
   return (
@@ -26,14 +27,6 @@ export default function TechnologyHero() {
             Advanced conductor design and precision manufacturing deliver reliable electrical performance
             engineered for safety, efficiency, and long-term durability in every installation.
           </p>
-          <div className="tech-hero__actions">
-            <Link to="/#products" className="tech-btn tech-btn--primary">
-              Explore Products<span className="tech-btn__arrow" aria-hidden>&rarr;</span>
-            </Link>
-            <a href="/brochure.pdf" download className="tech-btn tech-btn--outline">
-              Download Brochure
-            </a>
-          </div>
         </div>
       </div>
     </section>

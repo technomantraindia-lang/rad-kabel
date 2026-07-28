@@ -1,4 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import withoutEbeamImg from "../assets/ebeam-without.png";
 import withEbeamImg from "../assets/with-e-beam.png";
@@ -14,17 +15,15 @@ const WITH_POINTS = [
 
 function ComparisonImage({ src, alt }) {
   return (
-    <div className="mt-6 flex flex-1 items-center justify-center sm:mt-8">
-      <div className="mx-auto w-full max-w-[600px] overflow-hidden rounded-lg bg-black">
-        <div className="aspect-[16/9] w-full">
-          <img
-            src={src}
-            alt={alt}
-            className="h-full w-full object-cover object-center"
-            decoding="async"
-            loading="lazy"
-          />
-        </div>
+    <div className="mt-5 flex-1 overflow-hidden sm:mt-6">
+      <div className="aspect-[16/10] w-full overflow-hidden bg-black">
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover object-center"
+          decoding="async"
+          loading="lazy"
+        />
       </div>
     </div>
   );
@@ -35,15 +34,13 @@ function ComparisonCard({ variant, title, points, withChecks }) {
 
   return (
     <article
-      className={`flex min-h-[320px] flex-1 flex-col rounded-xl border bg-zinc-950/80 p-5 transition-all duration-500 sm:min-h-[360px] sm:p-6 ${
-        isWith
-          ? "group/with-ebeam border-zinc-800/90 shadow-none group-hover/ebeam:border-[#e50914]/40 group-hover/ebeam:shadow-[inset_0_0_20px_rgba(229,9,20,0.06)]"
-          : "border-zinc-800/90"
+      className={`flex min-h-[320px] flex-1 flex-col overflow-hidden bg-black transition-all duration-500 sm:min-h-[360px] ${
+        isWith ? "group/with-ebeam" : ""
       }`}
     >
       <h3
-        className={`text-center text-sm font-bold uppercase tracking-[0.14em] text-white transition-colors duration-500 sm:text-base ${
-          isWith ? "group-hover/with-ebeam:text-[#e50914]" : ""
+        className={`px-4 text-center text-sm font-bold uppercase tracking-[0.14em] text-white transition-colors duration-500 sm:px-5 sm:text-base ${
+          isWith ? "group-hover/with-ebeam:text-[#e01921]" : ""
         }`}
       >
         {title}
@@ -55,12 +52,12 @@ function ComparisonCard({ variant, title, points, withChecks }) {
         <ComparisonImage src={withoutEbeamImg} alt="Wire structure without E-Beam treatment" />
       )}
 
-      <ul className="mt-6 space-y-3 border-t border-zinc-800/80 pt-5 sm:mt-8 sm:pt-6">
+      <ul className="mt-5 space-y-3 border-t border-zinc-800/80 px-4 pt-5 sm:mt-6 sm:px-5 sm:pt-6">
         {points.map((point) => (
           <li key={point} className="flex items-start gap-2.5 text-sm leading-relaxed text-zinc-300 sm:text-[0.9375rem]">
             {withChecks ? (
               <Check
-                className="mt-0.5 size-4 shrink-0 text-zinc-600 transition-colors duration-500 group-hover/ebeam:text-[#e50914]"
+                className="mt-0.5 size-4 shrink-0 text-zinc-600 transition-colors duration-500 group-hover/ebeam:text-[#e01921]"
                 strokeWidth={2.5}
                 aria-hidden
               />
@@ -81,24 +78,29 @@ function VsBadge() {
       className="relative z-10 flex shrink-0 items-center justify-center self-center lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2"
       aria-hidden
     >
-      <div className="absolute hidden h-px w-[120%] bg-gradient-to-r from-transparent via-zinc-700 to-transparent transition-all duration-500 group-hover/ebeam:via-[#e50914]/70 lg:block" />
-      <span className="relative flex size-14 items-center justify-center rounded-full border-2 border-zinc-700 bg-black text-lg font-black text-white shadow-[0_8px_24px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover/ebeam:border-[#e50914] group-hover/ebeam:shadow-[0_0_16px_rgba(229,9,20,0.35)] sm:size-16 sm:text-xl">
+      <div className="absolute hidden h-px w-[120%] bg-gradient-to-r from-transparent via-zinc-700 to-transparent transition-all duration-500 group-hover/ebeam:via-[#e01921]/70 lg:block" />
+      <span className="relative flex size-14 items-center justify-center rounded-full border-2 border-zinc-700 bg-black text-lg font-black text-white shadow-[0_8px_24px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover/ebeam:border-[#e01921] group-hover/ebeam:shadow-[0_0_16px_rgba(224,25,33,0.35)] sm:size-16 sm:text-xl">
         VS
       </span>
     </div>
   );
 }
 
-export default function EBeamTechnology() {
+export default function EBeamTechnology({
+  sectionId = "technology",
+  headingId = "ebeam-technology-heading",
+  showCta = true,
+  ctaHref = "/technology",
+}) {
   return (
     <section
-      id="technology"
+      id={sectionId}
       className="bg-black px-3 py-12 font-sans sm:px-5 sm:py-16 lg:px-6 lg:py-20"
-      aria-labelledby="ebeam-technology-heading"
+      aria-labelledby={headingId}
     >
       <div className="mx-auto w-full max-w-[1920px]">
         <div
-          className="group/ebeam rounded-[1.75rem] border border-zinc-800/90 bg-black p-1 shadow-[0_12px_40px_rgba(0,0,0,0.7)] transition-[border-color,box-shadow] duration-500 ease-out hover:border-[#e50914]/45 hover:shadow-[0_0_20px_rgba(229,9,20,0.22),0_12px_40px_rgba(0,0,0,0.7),inset_0_0_24px_rgba(229,9,20,0.04)] focus-within:border-[#e50914]/45 focus-within:shadow-[0_0_20px_rgba(229,9,20,0.22),0_12px_40px_rgba(0,0,0,0.7),inset_0_0_24px_rgba(229,9,20,0.04)]"
+          className="group/ebeam rounded-[1.75rem] border border-zinc-800/90 bg-black p-1 shadow-[0_12px_40px_rgba(0,0,0,0.7)] transition-[border-color,box-shadow] duration-500 ease-out hover:border-[#e01921]/45 hover:shadow-[0_0_20px_rgba(224,25,33,0.22),0_12px_40px_rgba(0,0,0,0.7),inset_0_0_24px_rgba(224,25,33,0.04)] focus-within:border-[#e01921]/45 focus-within:shadow-[0_0_20px_rgba(224,25,33,0.22),0_12px_40px_rgba(0,0,0,0.7),inset_0_0_24px_rgba(224,25,33,0.04)]"
         >
           <div className="overflow-hidden rounded-[1.6rem] border border-zinc-800/80 bg-black transition-[border-color,background-color] duration-500 ease-out group-hover/ebeam:border-zinc-800/80 group-hover/ebeam:bg-black group-focus-within/ebeam:bg-black">
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,32%)_1fr]">
@@ -108,8 +110,8 @@ export default function EBeamTechnology() {
                   The Science of Safety
                 </p>
                 <h2
-                  id="ebeam-technology-heading"
-                  className="site-section-title mt-3 text-2xl text-[#e50914] sm:text-3xl lg:text-4xl"
+                  id={headingId}
+                  className="site-section-title mt-3 text-2xl text-[#e01921] sm:text-3xl lg:text-4xl"
                 >
                   E-Beam Technology
                 </h2>
@@ -117,13 +119,25 @@ export default function EBeamTechnology() {
                   Our advanced Electron Beam technology creates a 3D cross-linked molecular structure that transforms
                   ordinary wires into fire safe, high-performance solutions.
                 </p>
-                <a
-                  href="#technology"
-                  className="mt-8 inline-flex w-fit items-center gap-2 rounded-md border border-[#e50914]/70 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white transition-all duration-300 ease-out focus-visible:outline-none sm:text-sm"
-                >
-                  Explore Technology
-                  <ArrowRight className="size-4" aria-hidden />
-                </a>
+                {showCta ? (
+                  ctaHref.startsWith("/") && !ctaHref.startsWith("/#") ? (
+                    <Link
+                      to={ctaHref}
+                      className="mt-8 inline-flex w-fit items-center gap-2 rounded-md border border-[#e01921]/70 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white transition-all duration-300 ease-out focus-visible:outline-none sm:text-sm"
+                    >
+                      Explore Technology
+                      <ArrowRight className="size-4" aria-hidden />
+                    </Link>
+                  ) : (
+                    <a
+                      href={ctaHref}
+                      className="mt-8 inline-flex w-fit items-center gap-2 rounded-md border border-[#e01921]/70 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white transition-all duration-300 ease-out focus-visible:outline-none sm:text-sm"
+                    >
+                      Explore Technology
+                      <ArrowRight className="size-4" aria-hidden />
+                    </a>
+                  )
+                ) : null}
               </div>
 
               {/* Comparison area */}

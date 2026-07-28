@@ -26,16 +26,6 @@ export default function CertificationsHero() {
             Every RAD KABEL product is manufactured and tested to meet stringent quality, safety and
             performance standards.
           </p>
-          <div className="cert-hero__actions">
-            <a href="#download-center" className="cert-hero__btn cert-hero__btn--primary cert-btn">
-              DOWNLOAD CERTIFICATES
-              <Download size={15} className="cert-btn__icon" aria-hidden />
-            </a>
-            <a href="#contact" className="cert-hero__btn cert-hero__btn--outline cert-btn">
-              CONTACT TECHNICAL TEAM
-              <ArrowRight size={15} className="cert-btn__icon" aria-hidden />
-            </a>
-          </div>
         </div>
       </div>
     </section>

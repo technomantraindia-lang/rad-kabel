@@ -40,7 +40,7 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #e50914;
+  color: #e01921;
 }
 
 .our-journey__timeline {
@@ -89,11 +89,11 @@
 
 .our-journey__arrow-path {
   fill: none;
-  stroke: #e50914;
+  stroke: #e01921;
   stroke-width: 4;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.55));
+  filter: drop-shadow(0 0 8px rgba(224, 25, 33, 0.55));
 }
 
 .our-journey__icon-wrap {

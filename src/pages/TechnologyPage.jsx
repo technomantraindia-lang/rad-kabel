@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import TechnologyHero from "../components/technology/TechnologyHero.jsx";
 import TechnologyCableInside from "../components/technology/TechnologyCableInside.jsx";
+import EBeamTechnology from "../components/EBeamTechnology.jsx";
 import TechnologyScienceGrid from "../components/technology/TechnologyScienceGrid.jsx";
 import TechnologyManufacturingFlow from "../components/technology/TechnologyManufacturingFlow.jsx";
 import TechnologyPrecisionTesting from "../components/technology/TechnologyPrecisionTesting.jsx";
@@ -33,6 +34,11 @@ export default function TechnologyPage() {
 
       <TechnologyHero />
       <TechnologyCableInside />
+      <EBeamTechnology
+        sectionId="tech-ebeam"
+        headingId="tech-ebeam-heading"
+        ctaHref="#tech-science"
+      />
       <TechnologyScienceGrid />
       <TechnologyManufacturingFlow />
       <TechnologyPrecisionTesting />

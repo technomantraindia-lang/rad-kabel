@@ -129,9 +129,12 @@ function ProjectsPoweredSection() {
           <h2 className="app-projects__title text-2xl md:text-3xl font-bold uppercase tracking-wide [word-spacing:0.12em]">
             PROJECTS POWERED BY <span className="text-red-600">RAD KABEL</span>
           </h2>
-          <button type="button" className="app-btn hidden md:block border border-white/30 hover:border-red-600 text-xs font-bold uppercase tracking-widest px-6 py-2 rounded transition">
+          <Link
+            to="/contact-us"
+            className="app-btn hidden md:inline-flex items-center justify-center border border-white/30 hover:border-red-600 text-xs font-bold uppercase tracking-widest px-6 py-2 rounded transition"
+          >
             VIEW ALL PROJECTS
-          </button>
+          </Link>
         </div>
 
         <div className="relative">
@@ -175,9 +178,12 @@ function ProjectsPoweredSection() {
         </div>
 
         <div className="mt-8 text-center md:hidden">
-          <button type="button" className="border border-white/30 text-xs font-bold uppercase tracking-widest px-6 py-3 rounded w-full">
+          <Link
+            to="/contact-us"
+            className="inline-flex items-center justify-center border border-white/30 text-xs font-bold uppercase tracking-widest px-6 py-3 rounded w-full"
+          >
             VIEW ALL PROJECTS
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -296,17 +302,9 @@ export default function ApplicationsPage() {
               </span>
               <span className="app-hero__title-line block">MATTERS.</span>
             </h1>
-            <p className="app-hero__desc text-gray-200 text-lg mb-8 max-w-md drop-shadow-sm">
+            <p className="app-hero__desc text-gray-300 text-base md:text-lg mb-8 leading-relaxed max-w-xl">
               From homes and hospitals to factories and infrastructure projects, RAD KABEL solutions are engineered for every environment.
             </p>
-            <div className="app-hero__actions flex flex-wrap gap-4">
-              <Link to="/#products" className="app-btn bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded transition flex items-center gap-2 shadow-lg shadow-red-600/20">
-                EXPLORE PRODUCTS <ArrowRight size={16} className="app-btn__icon" />
-              </Link>
-              <Link to="/#contact" className="app-btn border border-white/30 hover:border-red-600 hover:bg-red-600/10 bg-black/20 backdrop-blur-sm text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded transition flex items-center gap-2">
-                CONTACT EXPERT <ArrowRight size={16} className="app-btn__icon" />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -334,7 +332,7 @@ export default function ApplicationsPage() {
                 ))}
 
                 {/* Main Outer Circle Line */}
-                <div className="absolute w-[340px] h-[340px] rounded-full border border-red-600/80 z-0 shadow-[0_0_20px_rgba(229,9,20,0.4)]">
+                <div className="absolute w-[340px] h-[340px] rounded-full border border-red-600/80 z-0 shadow-[0_0_20px_rgba(224,25,33,0.4)]">
                   {/* Orbiting Dots */}
                   <div className="absolute inset-0 animate-orbit flex items-center justify-center">
                     <div className="absolute -top-1.5 w-3 h-3 bg-red-500 rounded-full shadow-[0_0_12px_rgba(239,68,68,1)]"></div>
@@ -348,7 +346,7 @@ export default function ApplicationsPage() {
                 </div>
 
                 {/* Center Circle */}
-                <div className="app-ecosystem__center relative z-20 w-40 h-40 rounded-full border-[3px] border-red-600 flex flex-col items-center justify-center bg-black shadow-[0_0_40px_rgba(229,9,20,0.8)]">
+                <div className="app-ecosystem__center relative z-20 w-40 h-40 rounded-full border-[3px] border-red-600 flex flex-col items-center justify-center bg-black shadow-[0_0_40px_rgba(224,25,33,0.8)]">
                    <div className="w-36 h-36 rounded-full border-2 border-red-600/50 flex flex-col items-center justify-center absolute"></div>
                    <div className="bg-red-600 text-white font-bold text-2xl px-3 py-1 leading-none tracking-widest mt-1">RAD</div>
                    <div className="text-white font-bold text-xl tracking-widest mt-1">KABEL</div>
@@ -505,8 +503,8 @@ export default function ApplicationsPage() {
                       data-app-selector={id}
                       className={`app-cable-finder__btn group flex min-h-[114px] flex-col items-center justify-center gap-3.5 rounded-xl border px-3 py-5 text-center transition-all duration-300 ${
                         isActive
-                          ? "border-white bg-[radial-gradient(circle_at_top,rgba(229,9,20,0.18),rgba(229,9,20,0.04)_45%,rgba(255,255,255,0.01)_100%)] shadow-[0_0_28px_rgba(229,9,20,0.12)] hover:border-red-600 hover:shadow-[0_0_32px_rgba(229,9,20,0.25)]"
-                          : "border-white/12 bg-white/[0.02] hover:border-red-600/60 hover:bg-red-600/[0.03] hover:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
+                          ? "border-white bg-[radial-gradient(circle_at_top,rgba(224,25,33,0.18),rgba(224,25,33,0.04)_45%,rgba(255,255,255,0.01)_100%)] shadow-[0_0_28px_rgba(224,25,33,0.12)] hover:border-red-600 hover:shadow-[0_0_32px_rgba(224,25,33,0.25)]"
+                          : "border-white/12 bg-white/[0.02] hover:border-red-600/60 hover:bg-red-600/[0.03] hover:shadow-[0_0_20px_rgba(224,25,33,0.15)]"
                       }`}
                     >
                       <img
@@ -565,12 +563,13 @@ export default function ApplicationsPage() {
                   </ul>
                 </div>
 
-                <button
-                  type="button"
+                <a
+                  href="/brochure.pdf"
+                  download="RAD_KABEL_BROCHURE.pdf"
                   className="app-recommended__datasheet app-btn inline-flex h-12 items-center justify-center gap-2 self-start rounded-md bg-red-600 px-5 text-[11px] font-bold uppercase tracking-[0.16em] text-white transition hover:bg-red-700 xl:mt-[2.05rem]"
                 >
                   Download Datasheet <Download size={14} className="app-btn__icon" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -603,7 +602,7 @@ export default function ApplicationsPage() {
                 <span className="app-bottom-cta__title-line block">WHATEVER YOU BUILD,</span>
                 <span className="app-bottom-cta__title-line block">
                   BUILD IT WITH{" "}
-                  <span className="app-bottom-cta__accent text-[#e50914]">CONFIDENCE.</span>
+                  <span className="app-bottom-cta__accent text-[#e01921]">CONFIDENCE.</span>
                 </span>
               </h2>
 
@@ -614,14 +613,14 @@ export default function ApplicationsPage() {
 
               <div className="app-bottom-cta__actions mt-6 flex flex-wrap justify-start gap-3 sm:gap-4 lg:mt-8">
                 <Link
-                  to="/#dealers"
-                  className="app-btn inline-flex h-12 items-center justify-center gap-2 bg-[#e50914] px-6 text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#c0070f] sm:h-14 sm:px-8 sm:text-xs"
+                  to="/dealer-network"
+                  className="app-btn inline-flex h-12 items-center justify-center gap-2 bg-[#e01921] px-6 text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#c0151c] sm:h-14 sm:px-8 sm:text-xs"
                 >
                   BECOME A DEALER <ArrowRight size={16} className="app-btn__icon" />
                 </Link>
 
                 <Link
-                  to="/#contact"
+                  to="/contact-us"
                   className="app-btn inline-flex h-12 items-center justify-center gap-2 border border-white/60 bg-transparent px-6 text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:border-white hover:bg-white/10 sm:h-14 sm:px-8 sm:text-xs"
                 >
                   CONTACT EXPERT <ArrowRight size={16} className="app-btn__icon" />

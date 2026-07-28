@@ -107,15 +107,15 @@
 }
 
 .about-cta__btn--primary {
-  border: 1px solid #8b0000;
-  background: #8b0000;
+  border: 1px solid var(--red, #e01921);
+  background: var(--red, #e01921);
   color: #fff;
 }
 
 .about-cta__btn--primary:hover,
 .about-cta__btn--primary:focus-visible {
-  background: #a50000;
-  border-color: #a50000;
+  background: var(--red-hover, #c0151c);
+  border-color: var(--red-hover, #c0151c);
   transform: translateY(-1px);
   outline: none;
 }

@@ -1,5 +1,5 @@
 /** Red line-art icons for Why RAD Kabel — matches circular outline style. */
-const RED = "#e50914";
+const RED = "#e01921";
 
 function SvgIcon({ className, children }) {
   return (

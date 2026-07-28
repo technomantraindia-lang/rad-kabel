@@ -67,7 +67,7 @@ function JourneyArrow({ flip = false, index }) {
           orient="auto"
           markerUnits="userSpaceOnUse"
         >
-          <path d="M0 0 L10 5 L0 10 Z" fill="#e50914" />
+          <path d="M0 0 L10 5 L0 10 Z" fill="#e01921" />
         </marker>
       </defs>
       <path

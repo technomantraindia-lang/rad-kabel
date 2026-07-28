@@ -47,7 +47,7 @@
   font-weight: 800;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #e50914;
+  color: #e01921;
 }
 
 .who-we-are__title {
@@ -67,13 +67,14 @@
 
 .who-we-are__body {
   margin-top: clamp(1.15rem, 2vw, 1.75rem);
+  max-width: 42rem;
 }
 
 .who-we-are__body p {
   margin: 0 0 clamp(1rem, 1.6vw, 1.25rem);
   font-family: Carlito, Calibri, "Segoe UI", Candara, sans-serif;
   font-size: clamp(1rem, 1.25vw, 1.125rem);
-  line-height: 1.7;
+  line-height: 1.8;
   color: rgba(255, 255, 255, 0.86);
 }
 
@@ -94,8 +95,10 @@
   display: flex;
   align-items: center;
   gap: clamp(0.85rem, 1.4vw, 1.15rem);
-  padding: clamp(1rem, 1.6vw, 1.35rem) 0;
+  padding: clamp(1rem, 1.6vw, 1.35rem);
   border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.95rem;
+  background: rgba(10, 10, 10, 0.45);
 }
 
 .who-we-are__highlight--first {
@@ -108,14 +111,14 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
+  width: 68px;
+  height: 68px;
 }
 
 .who-we-are__highlight-icon-img {
   display: block;
-  width: 72px;
-  height: 72px;
+  width: 68px;
+  height: 68px;
   object-fit: contain;
 }
 
@@ -194,6 +197,10 @@
 
   .who-we-are__highlights {
     grid-template-columns: 1fr;
+  }
+
+  .who-we-are__highlight {
+    padding: 0.95rem 1rem;
   }
 
   .who-we-are__highlights .who-we-are__highlight:nth-child(-n + 2) {

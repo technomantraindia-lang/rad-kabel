@@ -159,7 +159,7 @@ function setupHero(root, isMobile, reducedMotion) {
     .to(
       accent,
       {
-        textShadow: "0 0 24px rgba(229,9,20,0.95), 0 0 48px rgba(229,9,20,0.45)",
+        textShadow: "0 0 24px rgba(224,25,33,0.95), 0 0 48px rgba(224,25,33,0.45)",
         duration: 0.35,
         yoyo: true,
         repeat: 1,
@@ -435,7 +435,7 @@ function setupManufacturing(root, isMobile, reducedMotion) {
   });
 
   gsap.to(playIcon, {
-    boxShadow: "0 0 0 12px rgba(229,9,20,0.18), 0 0 32px rgba(229,9,20,0.35)",
+    boxShadow: "0 0 0 12px rgba(224,25,33,0.18), 0 0 32px rgba(224,25,33,0.35)",
     repeat: -1,
     yoyo: true,
     duration: 1.4,

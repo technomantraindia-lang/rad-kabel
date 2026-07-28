@@ -38,6 +38,7 @@ import {
 } from "lucide-react";
 import "./DealerNetworkPage.css";
 import useDealerPageAnimations from "../hooks/useDealerPageAnimations.js";
+import { handleDownloadBrochure } from "../utils/downloadBrochure.js";
 
 import heroBg from "../assets/dealer-network/dealer-hero-bg.png";
 import whoBgWholesalers from "../assets/dealer-network/who-bg-wholesalers.png";
@@ -267,14 +268,6 @@ export default function DealerNetworkPage() {
                 Join our growing network of trusted dealers and become part of a brand committed to
                 quality, innovation and long-term business growth.
               </p>
-              <div className="dn-hero__actions">
-                <a href="#dealer-registration" className="dn-btn dn-btn--primary">
-                  BECOME A DEALER <ArrowRight size={16} aria-hidden />
-                </a>
-                <a href="/brochure.pdf" download className="dn-btn dn-btn--outline">
-                  DOWNLOAD DEALER PROFILE <Download size={16} aria-hidden />
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -475,7 +468,7 @@ export default function DealerNetworkPage() {
                   desc: "Find the nearest authorized RAD KABEL dealer in your area.",
                   cta: "LOCATE NOW",
                   CtaIcon: MapPin,
-                  href: "#",
+                  href: "/contact-us",
                 },
                 {
                   img: supportLogin,
@@ -483,7 +476,7 @@ export default function DealerNetworkPage() {
                   desc: "Access price lists, brochures, invoices, offers and product updates.",
                   cta: "LOGIN NOW",
                   CtaIcon: User,
-                  href: "#",
+                  href: "#dealer-registration",
                 },
                 {
                   img: supportSupport,
@@ -491,7 +484,7 @@ export default function DealerNetworkPage() {
                   desc: "Need help? Our dealer support team is here to assist you.",
                   cta: "CONTACT SUPPORT",
                   CtaIcon: Headset,
-                  href: "/#contact",
+                  href: "/contact-us",
                 },
               ].map(({ img, title, desc, cta, CtaIcon, href }, i) => (
                 <article

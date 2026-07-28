@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useRef } from "react";
 import {
   ArrowRight,
@@ -65,6 +65,7 @@ import whyIconFire from "../assets/product-page/rad-zero-icons/fire_protection.s
 import whyIconThermal from "../assets/product-page/rad-zero-icons/better_thermal_stability.svg";
 import whyIconConductivity from "../assets/product-page/rad-zero-icons/high_conductivity.svg";
 import whyIconLongLife from "../assets/product-page/rad-zero-icons/long_service_life.svg";
+import { handleDownloadBrochure } from "../utils/downloadBrochure";
 
 const BROCHURE_URL = "/brochure.pdf";
 
@@ -268,9 +269,64 @@ function CompareNo() {
   );
 }
 
+const PRODUCTS_CONFIG = {
+  "rad-zero": {
+    name: "RAD ZERO (E-BEAM)",
+    eyebrow: "RAD ZERO",
+    eyebrowSub: "(E-BEAM)",
+    lines: [
+      { accent: "ZERO", text: " SMOKE." },
+      { accent: "ZERO", text: " FIRE." },
+      { accent: "ZERO", text: " COMPROMISE." },
+    ],
+    desc: "Premium fire-safe wire engineered for maximum protection, exceptional conductivity and long-term performance.",
+    whyTitle: "RAD ZERO",
+  },
+  "rad-power": {
+    name: "RAD POWER",
+    eyebrow: "RAD POWER",
+    eyebrowSub: "(HOUSE WIRE)",
+    lines: [
+      { accent: "MAXIMUM", text: " POWER." },
+      { accent: "SUPERIOR", text: " FLEXIBILITY." },
+      { accent: "UNMATCHED", text: " DURABILITY." },
+    ],
+    desc: "High performance house wire engineered for smooth pulling, high current capacity, and everyday electrical reliability.",
+    whyTitle: "RAD POWER",
+  },
+  "rad-flex": {
+    name: "RAD FLEX",
+    eyebrow: "RAD FLEX",
+    eyebrowSub: "(FLEXIBLE CABLE)",
+    lines: [
+      { accent: "INDUSTRIAL", text: " GRADE." },
+      { accent: "HEAVY", text: " DUTY." },
+      { accent: "UNLIMITED", text: " FLEXIBILITY." },
+    ],
+    desc: "Industrial flexible cable engineered for heavy-duty machinery, control panels, and demanding industrial installations.",
+    whyTitle: "RAD FLEX",
+  },
+  "rad-tape-pro": {
+    name: "RAD TAPE PRO",
+    eyebrow: "RAD TAPE PRO",
+    eyebrowSub: "(INSULATION TAPE)",
+    lines: [
+      { accent: "STRONG", text: " ADHESION." },
+      { accent: "FLAME", text: " RETARDANT." },
+      { accent: "PERFECT", text: " PROTECTION." },
+    ],
+    desc: "Professional insulation tape engineered for strong hold, flame-retardant performance, and reliable electrical finishing.",
+    whyTitle: "RAD TAPE PRO",
+  },
+};
+
 export default function ProductDetailsPage() {
   const pageRef = useRef(null);
+  const location = useLocation();
   useProductDetailsPageAnimations(pageRef);
+
+  const pathKey = location.pathname.split("/").pop() || "rad-zero";
+  const product = PRODUCTS_CONFIG[pathKey] || PRODUCTS_CONFIG["rad-zero"];
 
   return (
     <main ref={pageRef} className="pp-page product-details-page">
@@ -287,38 +343,25 @@ export default function ProductDetailsPage() {
             <span className="pp-breadcrumb-sep">›</span>
             <Link to="/products">Products</Link>
             <span className="pp-breadcrumb-sep">›</span>
-            <span className="pp-breadcrumb-current">RAD ZERO (E-BEAM)</span>
+            <span className="pp-breadcrumb-current">{product.name}</span>
           </nav>
 
           <div className="pp-hero__inner">
             <div className="pp-hero__copy">
               <p className="pp-hero__eyebrow">
-                <span className="pp-accent">RAD ZERO</span>{" "}
-                <span className="pp-hero__eyebrow-sub">(E-BEAM)</span>
+                <span className="pp-accent">{product.eyebrow}</span>{" "}
+                <span className="pp-hero__eyebrow-sub">{product.eyebrowSub}</span>
               </p>
               <h1 id="pp-hero-heading" className="pp-hero__title">
-                <span className="pp-hero__title-line">
-                  <span className="pp-accent">ZERO</span> SMOKE.
-                </span>
-                <span className="pp-hero__title-line">
-                  <span className="pp-accent">ZERO</span> FIRE.
-                </span>
-                <span className="pp-hero__title-line">
-                  <span className="pp-accent">ZERO</span> COMPROMISE.
-                </span>
+                {product.lines.map((item, idx) => (
+                  <span key={idx} className="pp-hero__title-line">
+                    <span className="pp-accent">{item.accent}</span>{item.text}
+                  </span>
+                ))}
               </h1>
               <p className="pp-hero__desc">
-                Premium fire-safe wire engineered for maximum protection, exceptional conductivity
-                and long-term performance.
+                {product.desc}
               </p>
-              <div className="pp-hero__actions">
-                <a href={BROCHURE_URL} download className="pp-btn pp-btn--primary">
-                  Download Datasheet <FileText size={16} aria-hidden />
-                </a>
-                <a href="/#contact" className="pp-btn pp-btn--outline">
-                  Request Quote <ArrowRight size={16} aria-hidden />
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -337,11 +380,11 @@ export default function ProductDetailsPage() {
         </div>
       </section>
 
-      {/* Why RAD ZERO */}
+      {/* Why RAD Section */}
       <section className="pp-why" aria-labelledby="pp-why-heading">
         <div className="pp-container">
           <h2 id="pp-why-heading" className="pp-section-title pp-section-title--center">
-            WHY <span className="pp-accent">RAD ZERO</span>?
+            WHY <span className="pp-accent">{product.whyTitle}</span>?
           </h2>
           <ul className="pp-why__grid">
             {WHY_RAD_ZERO.map(({ icon, title, desc }) => (
@@ -588,7 +631,8 @@ export default function ProductDetailsPage() {
                 <li key={line1}>
                   <a
                     href={BROCHURE_URL}
-                    download
+                    download="RAD_KABEL_BROCHURE.pdf"
+                    onClick={handleDownloadBrochure}
                     className="pp-dl__card"
                     aria-label={`Download ${line1} ${line2}`.trim()}
                   >
@@ -629,9 +673,9 @@ export default function ProductDetailsPage() {
               <Link to="/dealer-network" className="pp-btn pp-btn--primary">
                 Become a Dealer <ArrowRight size={16} aria-hidden />
               </Link>
-              <a href="/#contact" className="pp-btn pp-btn--outline">
+              <Link to="/contact-us" className="pp-btn pp-btn--outline">
                 Contact Sales <ArrowRight size={16} aria-hidden />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

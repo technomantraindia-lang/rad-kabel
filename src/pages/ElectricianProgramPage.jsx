@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import "./ElectricianProgramPage.css";
 import useElectricianPageAnimations from "../hooks/useElectricianPageAnimations.js";
+import { handleDownloadBrochure } from "../utils/downloadBrochure.js";
 
 import heroBanner from "../assets/electrician-program/hero-banner.png";
 import whoCanJoinBg from "../assets/electrician-program/who-can-join-bg.png";
@@ -206,14 +207,6 @@ export default function ElectricianProgramPage() {
                 The RAD KABEL Electrician Program is our way of recognizing, rewarding and empowering the electricians
                 who power India every day.
               </p>
-              <div className="ep-hero__actions">
-                <a href="#ep-register" className="ep-btn ep-btn--primary">
-                  JOIN THE PROGRAM <ArrowRight size={16} aria-hidden />
-                </a>
-                <a href="/brochure.pdf" download className="ep-btn ep-btn--outline">
-                  DOWNLOAD BROCHURE <Download size={16} aria-hidden />
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -474,19 +467,6 @@ export default function ElectricianProgramPage() {
               CONTACT SUPPORT <Headset size={16} aria-hidden />
             </a>
           </div>
-          <ul className="ep-cta__trust">
-            {CTA_TRUST.map(({ title, desc }) => (
-              <li key={title}>
-                <span className="ep-cta__trust-icon" aria-hidden>
-                  <HardHat size={30} strokeWidth={1.5} />
-                </span>
-                <span className="ep-cta__trust-text">
-                  <strong>{title}</strong>
-                  <em>{desc}</em>
-                </span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
     </main>

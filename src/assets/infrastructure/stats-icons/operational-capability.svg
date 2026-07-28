@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
   <title>Operational Capability Icon</title>
-  <g stroke="#E50909" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <g stroke="#e01921" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="64" cy="65" r="43"/>
     <path d="M64 65L86 48"/>
     <path d="M64 65L64 38"/>
-    <circle cx="64" cy="65" r="5" fill="#E50909" stroke="#E50909"/>
+    <circle cx="64" cy="65" r="5" fill="#e01921" stroke="#e01921"/>
     <path d="M64 18V28"/>
     <path d="M64 102V112"/>
     <path d="M18 65H28"/>

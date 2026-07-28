@@ -4,6 +4,7 @@ import imgReach from "../assets/certifications/reach.png";
 import imgCpr from "../assets/certifications/cpr.png";
 import imgMadeInIndia from "../assets/certifications/made-in-india.png";
 import imgYearsOfTrust from "../assets/certifications/years-of-trust.png";
+import "./CertificationBanner.css";
 
 /** Vertical divider — inset from top/bottom */
 function SectionDivider() {
@@ -16,7 +17,6 @@ function SectionDivider() {
   );
 }
 
-/** Same gold treatment + dimensions as ISI for every mark */
 function CertMarkCell({ src, alt, wide = false }) {
   return (
     <div
@@ -28,6 +28,7 @@ function CertMarkCell({ src, alt, wide = false }) {
         alt={alt}
         className={`isi-cert-logo ${wide ? "isi-cert-logo--wide" : ""}`}
         decoding="async"
+        loading="lazy"
       />
     </div>
   );
@@ -35,15 +36,14 @@ function CertMarkCell({ src, alt, wide = false }) {
 
 export default function CertificationBanner() {
   return (
-    <section className="relative z-[2] w-full bg-black py-5 font-sans sm:py-6" aria-label="Certifications and trust">
-      <div className="cert-banner-shell w-full">
-        <div className="relative flex w-full items-stretch overflow-x-auto overscroll-x-contain bg-black md:overflow-visible">
-          {/* 1 — Certified / Tested / Trusted (brand red) */}
-          <div
-            className="cert-banner-cell cert-banner-cell--tagline flex min-w-[130px] shrink-0 items-center justify-center md:max-w-[12%]"
-            tabIndex={0}
-          >
-            <p className="font-heading text-base font-black uppercase leading-[1.18] tracking-[0.1em] lg:text-lg">
+    <section
+      className="relative z-[2] w-full border-y border-zinc-800/80 bg-black py-6 font-sans sm:py-8"
+      aria-label="Certifications and trust"
+    >
+      <div className="cert-banner-shell mx-auto w-full max-w-[1800px] px-4 sm:px-6 lg:px-8">
+        <div className="cert-banner-row flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:flex-nowrap md:justify-between md:gap-2">
+          <div className="cert-banner-cell cert-banner-cell--tagline flex min-w-[130px] items-center justify-center px-3 py-2 text-center md:max-w-[14%]">
+            <p className="font-heading text-sm font-black uppercase leading-[1.2] tracking-[0.1em] text-[#e01921] sm:text-base lg:text-lg">
               Certified.
               <br />
               Tested.
@@ -53,7 +53,6 @@ export default function CertificationBanner() {
           </div>
 
           <SectionDivider />
-
           <CertMarkCell src={isiCertifiedLogo} alt="ISI Certified" />
           <SectionDivider />
           <CertMarkCell src={imgRohs} alt="RoHS Compliant" />
@@ -64,7 +63,7 @@ export default function CertificationBanner() {
           <SectionDivider />
           <CertMarkCell src={imgCpr} alt="CPR Compliant" />
           <SectionDivider />
-          <CertMarkCell src={imgYearsOfTrust} alt="50+ Years of Trust" wide />
+          <CertMarkCell src={imgYearsOfTrust} alt="50+ Years of Experience" wide />
         </div>
       </div>
     </section>

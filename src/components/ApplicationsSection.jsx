@@ -1,4 +1,5 @@
 import { Building2, Factory, Home, Hospital, Landmark, Server } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import imgResidential from "../assets/applications/residential.png";
 import imgCommercial from "../assets/applications/commercial.png";
@@ -18,10 +19,11 @@ const APPLICATIONS = [
 
 function ApplicationCard({ label, icon: Icon, image, alt = "" }) {
   return (
-    <article
+    <Link
+      to="/applications"
       tabIndex={0}
-      className="group relative cursor-default overflow-hidden rounded-xl border-2 border-[#d4af37]/55 bg-black outline-none transition-all duration-300 hover:border-[#e50914] hover:shadow-[0_0_44px_rgba(229,9,20,0.38),inset_0_0_24px_rgba(229,9,20,0.06)] focus-visible:border-[#e50914] focus-visible:shadow-[0_0_44px_rgba(229,9,20,0.42),0_0_0_2px_rgba(229,9,20,0.35)]"
-      aria-label={label}
+      className="group relative block overflow-hidden rounded-xl border-2 border-[#d4af37]/55 bg-black no-underline outline-none transition-all duration-300 hover:border-[#e01921] hover:shadow-[0_0_44px_rgba(224,25,33,0.38),inset_0_0_24px_rgba(224,25,33,0.06)] focus-visible:border-[#e01921] focus-visible:shadow-[0_0_44px_rgba(224,25,33,0.42),0_0_0_2px_rgba(224,25,33,0.35)]"
+      aria-label={`Explore ${label} applications`}
     >
       <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[5/4] lg:aspect-[4/3]">
         <img
@@ -29,6 +31,7 @@ function ApplicationCard({ label, icon: Icon, image, alt = "" }) {
           alt={alt}
           className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110 group-focus-visible:scale-110"
           decoding="async"
+          loading="lazy"
         />
         <div
           className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/25 transition-opacity duration-300 group-hover:via-black/70 group-focus-visible:via-black/70"
@@ -36,9 +39,9 @@ function ApplicationCard({ label, icon: Icon, image, alt = "" }) {
         />
       </div>
 
-      <div className="flex items-center justify-center gap-3 border-t-2 border-[#d4af37]/35 bg-black px-5 py-5 transition-colors duration-300 group-hover:border-[#e50914]/70 group-focus-visible:border-[#e50914]/70 sm:gap-3.5 sm:py-6 lg:py-7">
+      <div className="flex items-center justify-center gap-3 border-t-2 border-[#d4af37]/35 bg-black px-5 py-5 transition-colors duration-300 group-hover:border-[#e01921]/70 group-focus-visible:border-[#e01921]/70 sm:gap-3.5 sm:py-6 lg:py-7">
         <Icon
-          className="size-7 shrink-0 text-[#e50914] transition-transform duration-300 group-hover:scale-110 sm:size-8 lg:size-9"
+          className="size-7 shrink-0 text-[#e01921] transition-transform duration-300 group-hover:scale-110 sm:size-8 lg:size-9"
           strokeWidth={2.25}
           aria-hidden
         />
@@ -46,7 +49,7 @@ function ApplicationCard({ label, icon: Icon, image, alt = "" }) {
           {label}
         </span>
       </div>
-    </article>
+    </Link>
   );
 }
 
@@ -58,7 +61,7 @@ export default function ApplicationsSection() {
       aria-labelledby="applications-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(229,9,20,0.08),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(224,25,33,0.08),transparent_55%)]"
         aria-hidden
       />
 
@@ -68,8 +71,8 @@ export default function ApplicationsSection() {
             id="applications-heading"
             className="site-section-title site-section-title--lg mx-auto whitespace-nowrap text-[clamp(0.95rem,3.6vw,3rem)]"
           >
-            Powering What{" "}
-            <span className="text-[#e50914] drop-shadow-[0_0_20px_rgba(229,9,20,0.35)]">Matters Most</span>
+            POWERING WHAT{" "}
+            <span className="text-[#e01921] drop-shadow-[0_0_20px_rgba(224,25,33,0.35)]">MATTERS MOST</span>
           </h2>
           <p className="site-section-desc site-section-desc--center">
             Trusted by industries and institutions across India.

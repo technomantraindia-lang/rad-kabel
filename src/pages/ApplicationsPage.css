@@ -45,7 +45,7 @@
   right: 0.35rem;
   bottom: 0.35rem;
   height: 2px;
-  background: #e50914;
+  background: #e01921;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -75,7 +75,7 @@
 .applications-animated .au-header-cta:hover,
 .applications-animated .au-header-cta:focus-visible {
   transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 0 22px rgba(229, 9, 20, 0.38);
+  box-shadow: 0 0 22px rgba(224, 25, 33, 0.38);
 }
 
 .applications-animated .au-header-cta:hover span:last-child,
@@ -103,11 +103,11 @@
 
 .applications-animated .app-btn.bg-red-600:hover,
 .applications-animated .app-btn.bg-red-600:focus-visible,
-.applications-animated .app-btn.bg-\[\#e50914\]:hover,
-.applications-animated .app-btn.bg-\[\#e50914\]:focus-visible,
+.applications-animated .app-btn.bg-\[\#e01921\]:hover,
+.applications-animated .app-btn.bg-\[\#e01921\]:focus-visible,
 .applications-animated .app-recommended__datasheet:hover,
 .applications-animated .app-recommended__datasheet:focus-visible {
-  box-shadow: 0 0 24px rgba(229, 9, 20, 0.45);
+  box-shadow: 0 0 24px rgba(224, 25, 33, 0.45);
 }
 
 .applications-animated .app-btn.border:hover,
@@ -123,7 +123,7 @@
 }
 
 .applications-animated .app-btn:focus-visible {
-  outline: 2px solid rgba(229, 9, 20, 0.85);
+  outline: 2px solid rgba(224, 25, 33, 0.85);
   outline-offset: 3px;
 }
 
@@ -152,8 +152,8 @@
 
 .applications-animated .app-ecosystem__card:hover {
   transform: translateY(-6px);
-  border-color: rgba(229, 9, 20, 0.5);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), 0 0 18px rgba(229, 9, 20, 0.12);
+  border-color: rgba(224, 25, 33, 0.5);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), 0 0 18px rgba(224, 25, 33, 0.12);
 }
 
 .applications-animated .app-ecosystem__card:hover .app-ecosystem__card-media img {
@@ -161,7 +161,7 @@
 }
 
 .applications-animated .app-ecosystem__card:hover .app-ecosystem__card-icon {
-  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.55));
+  filter: drop-shadow(0 0 10px rgba(224, 25, 33, 0.55));
 }
 
 .applications-animated .app-ecosystem__card:hover .app-ecosystem__card-accent {
@@ -201,7 +201,7 @@
 }
 
 .applications-animated .app-detail-card:hover .app-detail-card__badge {
-  box-shadow: 0 0 16px rgba(229, 9, 20, 0.55);
+  box-shadow: 0 0 16px rgba(224, 25, 33, 0.55);
 }
 
 .applications-animated .app-detail-card:hover .app-detail-card__title {
@@ -210,7 +210,7 @@
 }
 
 .applications-animated .app-detail-card:hover .app-detail-card__bullet-icon {
-  background-color: #dc2626;
+  background-color: #e01921;
   box-shadow: 0 0 10px rgba(220, 38, 38, 0.45);
 }
 
@@ -232,14 +232,14 @@
 .applications-animated .app-cable-finder__btn:hover,
 .applications-animated .app-cable-finder__btn:focus-visible {
   transform: translateY(-3px);
-  border-color: rgba(229, 9, 20, 0.65);
-  background: radial-gradient(circle at top, rgba(229, 9, 20, 0.14), rgba(229, 9, 20, 0.04) 45%, rgba(255, 255, 255, 0.02) 100%);
-  box-shadow: 0 0 22px rgba(229, 9, 20, 0.18);
+  border-color: rgba(224, 25, 33, 0.65);
+  background: radial-gradient(circle at top, rgba(224, 25, 33, 0.14), rgba(224, 25, 33, 0.04) 45%, rgba(255, 255, 255, 0.02) 100%);
+  box-shadow: 0 0 22px rgba(224, 25, 33, 0.18);
 }
 
 .applications-animated .app-cable-finder__btn:hover img,
 .applications-animated .app-cable-finder__btn:focus-visible img {
-  filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.45));
+  filter: drop-shadow(0 0 8px rgba(224, 25, 33, 0.45));
 }
 
 /* Projects slider */
@@ -289,8 +289,8 @@
 
 .applications-animated .app-projects__card:hover {
   transform: translateY(-4px);
-  border-color: rgba(229, 9, 20, 0.45);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 16px rgba(229, 9, 20, 0.15);
+  border-color: rgba(224, 25, 33, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 16px rgba(224, 25, 33, 0.15);
 }
 
 .applications-animated .app-projects__card:hover img {
@@ -321,7 +321,7 @@
 .is-applications-page .site-footer__link:hover,
 .is-applications-page .site-footer__link:focus-visible {
   transform: translateX(3px);
-  color: #e50914;
+  color: #e01921;
 }
 
 .is-applications-page .site-footer__social {
@@ -334,7 +334,7 @@
 .is-applications-page .site-footer__social:hover,
 .is-applications-page .site-footer__social:focus-visible {
   transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(229, 9, 20, 0.38);
+  box-shadow: 0 0 18px rgba(224, 25, 33, 0.38);
 }
 
 .is-applications-page footer .grid > div:last-child .grid > div {

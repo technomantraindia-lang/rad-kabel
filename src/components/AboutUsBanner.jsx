@@ -59,14 +59,6 @@ export default function AboutUsBanner() {
               RAD Kabel manufactures wide range of Wires &amp; Cables that live up to global quality
               standards and are trusted worldwide.
             </p>
-            <div className="about-us-hero__actions">
-              <a href="/#products" className="about-us-hero__btn about-us-hero__btn--primary">
-                Explore Products<span className="about-us-hero__btn-arrow" aria-hidden>→</span>
-              </a>
-              <a href="/#contact" className="about-us-hero__btn about-us-hero__btn--outline">
-                Contact Us<span className="about-us-hero__btn-arrow" aria-hidden>→</span>
-              </a>
-            </div>
           </div>
         </div>
 

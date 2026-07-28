@@ -1,0 +1,801 @@
+.cu-page {
+  --cu-bg: #050505;
+  --cu-bg-soft: #0c0c0c;
+  --cu-panel: #0f0f10;
+  --cu-line: rgba(255, 255, 255, 0.1);
+  --cu-line-strong: rgba(229, 22, 28, 0.45);
+  --cu-text-soft: rgba(255, 255, 255, 0.72);
+  --cu-text-dim: rgba(255, 255, 255, 0.58);
+  --cu-accent: #e01921;
+  background:
+    radial-gradient(circle at top right, rgba(226, 20, 26, 0.16), transparent 28%),
+    linear-gradient(180deg, #080808 0%, #040404 100%);
+  color: #fff;
+  overflow-x: hidden;
+  font-family: Carlito, Calibri, "Segoe UI", Candara, sans-serif;
+  padding-top: var(--site-header-h, 8.5rem);
+}
+
+.cu-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 2vw, 2rem);
+}
+
+.cu-accent {
+  color: var(--cu-accent);
+}
+
+.cu-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 3rem;
+  padding: 0.9rem 1.35rem;
+  border-radius: 0.35rem;
+  border: 1px solid transparent;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cu-btn:hover,
+.cu-btn:focus-visible {
+  transform: translateY(-2px);
+}
+
+.cu-btn--primary {
+  color: #fff;
+  background: linear-gradient(90deg, #c0151c 0%, #e01921 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 28px rgba(192, 21, 28, 0.22);
+}
+
+.cu-btn--primary:hover,
+.cu-btn--primary:focus-visible {
+  box-shadow: 0 18px 34px rgba(192, 21, 28, 0.32);
+}
+
+.cu-btn--outline,
+.cu-btn--outline-light {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cu-btn--outline {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.cu-btn--outline-light {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.cu-btn--outline:hover,
+.cu-btn--outline:focus-visible,
+.cu-btn--outline-light:hover,
+.cu-btn--outline-light:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.cu-section-title,
+.cu-about-card__title,
+.cu-form-panel__title,
+.cu-cta__title,
+.cu-hero__title {
+  margin: 0;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.cu-section-title {
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.35rem, 1.9vw, 1.85rem);
+}
+
+.cu-hero {
+  position: relative;
+  min-height: clamp(340px, 40vw, 520px);
+  background: #000;
+  overflow: hidden;
+}
+
+.cu-hero__bg,
+.cu-hero__shade {
+  position: absolute;
+  inset: 0;
+}
+
+.cu-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cu-hero__shade {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.68) 34%, rgba(0, 0, 0, 0.22) 72%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.cu-hero__layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: inherit;
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  padding-inline: clamp(1rem, 3.5vw, 3rem);
+}
+
+.cu-hero__copy {
+  max-width: min(42rem, 100%);
+}
+
+.cu-hero__title {
+  font-size: clamp(2.35rem, 5vw, 4.15rem);
+  line-height: 0.98;
+}
+
+.cu-hero__title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.cu-hero__underline {
+  width: 2.8rem;
+  height: 0.18rem;
+  margin: 1.1rem 0 1.2rem;
+  background: var(--cu-accent);
+  border-radius: 999px;
+}
+
+.cu-hero__desc {
+  max-width: 25rem;
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cu-utility {
+  position: relative;
+  z-index: 2;
+  margin-top: -0.15rem;
+}
+
+.cu-utility__row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid var(--cu-line);
+  border-radius: 0.4rem;
+  background: rgba(10, 10, 10, 0.96);
+  overflow: hidden;
+  width: 100%;
+}
+
+.cu-utility-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  padding: 1.35rem 1.3rem;
+  color: inherit;
+  text-decoration: none;
+  border-right: 1px solid var(--cu-line);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.cu-utility-card:last-child {
+  border-right: 0;
+}
+
+.cu-utility-card:hover,
+.cu-utility-card:focus-visible {
+  background: rgba(226, 20, 26, 0.08);
+  transform: translateY(-2px);
+}
+
+.cu-utility-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.8rem;
+  height: 3.8rem;
+  flex: 0 0 auto;
+  border: 1px solid rgba(226, 20, 26, 0.55);
+  border-radius: 999px;
+  color: var(--cu-accent);
+}
+
+.cu-utility-card__copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cu-utility-card__title {
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cu-utility-card__value {
+  margin-top: 0.3rem;
+  color: var(--cu-accent);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.cu-utility-card__detail {
+  margin-top: 0.3rem;
+  color: var(--cu-text-soft);
+  font-size: 0.96rem;
+}
+
+.cu-touch {
+  padding: 0.7rem 0 2rem;
+}
+
+.cu-touch__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.24fr) minmax(0, 0.9fr);
+  gap: 1.5rem;
+  align-items: start;
+  width: 100%;
+}
+
+.cu-touch__left,
+.cu-touch__right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  min-width: 0;
+}
+
+.cu-about-card,
+.cu-offices-panel,
+.cu-network,
+.cu-form-panel,
+.cu-quick-links,
+.cu-cta__card {
+  border: 1px solid var(--cu-line);
+  border-radius: 0.45rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01)),
+    var(--cu-panel);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.24);
+  width: 100%;
+}
+
+.cu-about-card,
+.cu-offices-panel,
+.cu-network,
+.cu-form-panel,
+.cu-quick-links {
+  padding: 1.35rem;
+}
+
+.cu-about-card__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.85fr);
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+  align-items: start;
+}
+
+.cu-about-card__title {
+  margin: 0;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(1.55rem, 2.1vw, 2.05rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.cu-about-card__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.cu-about-card__desc,
+.cu-form-panel__desc,
+.cu-network__desc {
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  font-size: 1rem;
+  max-width: 36rem;
+}
+
+.cu-trust-list {
+  display: grid;
+  gap: 1.35rem;
+  margin: 0.15rem 0 0;
+  padding: 0.15rem 0 0.15rem 1.5rem;
+  list-style: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  align-content: start;
+}
+
+.cu-trust-list__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #f5f5f5;
+  font-size: clamp(1.08rem, 1.35vw, 1.22rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+.cu-trust-list__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: rgba(255, 255, 255, 0.92);
+  flex: 0 0 auto;
+}
+
+.cu-trust-list__svg,
+.cu-trust-list__icon svg {
+  width: 1.85rem;
+  height: 1.85rem;
+  display: block;
+}
+
+.cu-quality-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.1rem;
+  width: fit-content;
+  max-width: 19.5rem;
+  padding: 1.05rem 1.15rem;
+  border: 1px solid transparent;
+  border-radius: 0.45rem;
+  background:
+    linear-gradient(#0f0f10, #0f0f10) padding-box,
+    linear-gradient(
+      135deg,
+      rgba(224, 25, 33, 0.55) 0%,
+      rgba(255, 255, 255, 0.18) 48%,
+      rgba(255, 255, 255, 0.1) 100%
+    )
+    border-box;
+  color: #fff;
+}
+
+.cu-quality-box__icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--cu-accent);
+  flex: 0 0 auto;
+}
+
+.cu-quality-box p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  margin: 0;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  text-transform: uppercase;
+}
+
+.cu-quality-box strong,
+.cu-quality-box span {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.cu-quality-box em {
+  color: var(--cu-accent);
+  font-size: 0.92rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.cu-offices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cu-office-card {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cu-office-card img {
+  display: block;
+  width: 100%;
+  height: 10.5rem;
+  object-fit: cover;
+}
+
+.cu-office-card__body {
+  padding: 0.95rem 0.9rem 1rem;
+}
+
+.cu-office-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.7rem;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cu-office-card__title svg {
+  color: var(--cu-accent);
+  flex: 0 0 auto;
+}
+
+.cu-office-card__address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: var(--cu-text-soft);
+  font-style: normal;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.cu-network {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  gap: 1.25rem;
+  align-items: center;
+  background:
+    radial-gradient(circle at right center, rgba(226, 20, 26, 0.1), transparent 28%),
+    #0d0d0d;
+}
+
+.cu-network__copy .cu-btn {
+  margin-top: 1.35rem;
+}
+
+.cu-network__copy {
+  max-width: 26rem;
+}
+
+.cu-network__map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.cu-network__map img {
+  display: block;
+  width: min(100%, 42rem);
+  max-height: 36rem;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px rgba(226, 20, 26, 0.18));
+}
+
+.cu-form-panel__title {
+  font-size: clamp(1.75rem, 2.2vw, 2.2rem);
+  line-height: 1.05;
+}
+
+.cu-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.35rem;
+}
+
+.cu-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.cu-field {
+  position: relative;
+  display: flex;
+  min-width: 0;
+}
+
+.cu-field input,
+.cu-field textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.3rem;
+  background: rgba(9, 9, 9, 0.94);
+  color: #fff;
+  font: inherit;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.cu-field input {
+  min-height: 3.1rem;
+  padding: 0.85rem 1rem 0.85rem 2.85rem;
+}
+
+.cu-field textarea {
+  min-height: 7.8rem;
+  resize: vertical;
+  padding: 1rem 1rem 1rem 2.85rem;
+  line-height: 1.55;
+}
+
+.cu-field input::placeholder,
+.cu-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.cu-field input:focus,
+.cu-field textarea:focus {
+  border-color: rgba(226, 20, 26, 0.75);
+  background: rgba(12, 12, 12, 0.98);
+  box-shadow: 0 0 0 1px rgba(226, 20, 26, 0.28);
+}
+
+.cu-field-icon {
+  position: absolute;
+  top: 0.95rem;
+  left: 0.95rem;
+  color: rgba(255, 255, 255, 0.64);
+  pointer-events: none;
+}
+
+.cu-form__submit {
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+.cu-form__success {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--cu-line-strong);
+  border-radius: 0.3rem;
+  background: rgba(226, 20, 26, 0.08);
+  color: #fff;
+  line-height: 1.55;
+}
+
+.cu-form__secure {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.1rem 0 0;
+  color: #d7c594;
+  font-size: 0.96rem;
+}
+
+.cu-quick-links__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.cu-channel.cu-quick-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 3.5rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.01);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.97rem;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.cu-channel.cu-quick-link:hover,
+.cu-channel.cu-quick-link:focus-visible {
+  border-color: rgba(226, 20, 26, 0.45);
+  background: rgba(226, 20, 26, 0.06);
+  transform: translateY(-2px);
+}
+
+.cu-quick-link__icon {
+  color: var(--cu-accent);
+  flex: 0 0 auto;
+}
+
+.cu-cta {
+  padding: 0 0 2.4rem;
+}
+
+.cu-cta__card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1.45rem 1.4rem;
+  background:
+    radial-gradient(circle at 85% 0%, rgba(226, 20, 26, 0.25), transparent 32%),
+    linear-gradient(90deg, #0d0d0d 0%, #101010 100%);
+}
+
+.cu-cta__bolt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 1px solid rgba(226, 20, 26, 0.6);
+  border-radius: 999px;
+  color: #fff;
+}
+
+.cu-cta__title {
+  font-size: clamp(1.8rem, 2.6vw, 2.55rem);
+  line-height: 1;
+}
+
+.cu-cta__desc {
+  margin: 0.55rem 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.02rem;
+}
+
+.cu-cta__actions {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@media (min-width: 1440px) {
+  .cu-container {
+    padding-inline: clamp(1.5rem, 3vw, 3rem);
+  }
+
+  .cu-touch__layout {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.86fr);
+    gap: 1.75rem;
+  }
+
+  .cu-about-card,
+  .cu-offices-panel,
+  .cu-network,
+  .cu-form-panel,
+  .cu-quick-links {
+    padding: 1.6rem;
+  }
+
+  .cu-office-card img {
+    height: 12rem;
+  }
+
+  .cu-network__map img {
+    width: min(100%, 46rem);
+    max-height: 38rem;
+  }
+}
+
+@media (max-width: 1180px) {
+  .cu-touch__layout,
+  .cu-network,
+  .cu-about-card__top,
+  .cu-cta__card {
+    grid-template-columns: 1fr;
+  }
+
+  .cu-cta__actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .cu-utility__row,
+  .cu-offices-grid,
+  .cu-quick-links__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cu-utility-card:nth-child(2),
+  .cu-utility-card:nth-child(4) {
+    border-right: 0;
+  }
+
+  .cu-utility-card:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--cu-line);
+  }
+}
+
+@media (max-width: 720px) {
+  .cu-page {
+    padding-top: var(--site-header-h, 7.5rem);
+  }
+
+  .cu-hero__title {
+    font-size: clamp(1.85rem, 9.5vw, 2.6rem);
+  }
+
+  .cu-hero__desc {
+    font-size: 1rem;
+  }
+
+  .cu-form__row,
+  .cu-offices-grid,
+  .cu-quick-links__grid,
+  .cu-utility__row {
+    grid-template-columns: 1fr;
+  }
+
+  .cu-utility-card {
+    border-right: 0;
+    border-bottom: 1px solid var(--cu-line);
+  }
+
+  .cu-utility-card:last-child {
+    border-bottom: 0;
+  }
+
+  .cu-about-card,
+  .cu-offices-panel,
+  .cu-network,
+  .cu-form-panel,
+  .cu-quick-links {
+    padding: 1.1rem;
+  }
+
+  .cu-office-card img {
+    height: 12rem;
+  }
+
+  .cu-cta__actions .cu-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-btn,
+  .cu-channel.cu-quick-link,
+  .cu-utility-card,
+  .cu-field input,
+  .cu-field textarea {
+    transition: none !important;
+  }
+
+  .cu-btn:hover,
+  .cu-channel.cu-quick-link:hover,
+  .cu-utility-card:hover {
+    transform: none !important;
+  }
+}

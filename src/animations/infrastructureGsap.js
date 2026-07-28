@@ -90,9 +90,9 @@ function setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, 
 
   gsap.fromTo(
     accents,
-    { textShadow: "0 0 0 rgba(229, 9, 20, 0)" },
+    { textShadow: "0 0 0 rgba(224, 25, 33, 0)" },
     {
-      textShadow: "0 0 16px rgba(229, 9, 20, 0.42), 0 0 32px rgba(229, 9, 20, 0.18)",
+      textShadow: "0 0 16px rgba(224, 25, 33, 0.42), 0 0 32px rgba(224, 25, 33, 0.18)",
       duration: 0.55,
       delay: 0.55,
       yoyo: true,

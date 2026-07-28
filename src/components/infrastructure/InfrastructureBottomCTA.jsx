@@ -17,10 +17,10 @@ export default function InfrastructureBottomCTA() {
             <span className="infra-bottom-cta__title-line">Trust.</span>
           </h2>
           <div className="infra-bottom-cta__actions">
-            <Link to="/#contact" className="infra-btn infra-btn--primary">
+            <Link to="/dealer-network" className="infra-btn infra-btn--primary">
               Become a Dealer<span className="infra-btn__arrow" aria-hidden>&rarr;</span>
             </Link>
-            <Link to="/#contact" className="infra-btn infra-btn--outline">
+            <Link to="/contact-us" className="infra-btn infra-btn--outline">
               Contact Us<span className="infra-btn__arrow" aria-hidden>&rarr;</span>
             </Link>
           </div>

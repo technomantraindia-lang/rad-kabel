@@ -9,7 +9,7 @@
 }
 
 .dn-accent {
-  color: #e50914;
+  color: #e01921;
 }
 
 .dn-hidden {
@@ -57,14 +57,14 @@
 }
 
 .dn-btn--primary {
-  background: #e50914;
-  border: 1px solid #e50914;
+  background: #e01921;
+  border: 1px solid #e01921;
   color: #fff;
 }
 
 .dn-btn--primary:hover {
-  background: #c40812;
-  border-color: #c40812;
+  background: #c0151c;
+  border-color: #c0151c;
 }
 
 .dn-btn--outline {
@@ -101,7 +101,7 @@
 }
 
 .dn-breadcrumb__nav a:hover {
-  color: #e50914;
+  color: #e01921;
 }
 
 .dn-breadcrumb__current {
@@ -236,7 +236,7 @@
   display: block;
   width: 46px;
   height: 46px;
-  color: #e50914;
+  color: #e01921;
   flex-shrink: 0;
 }
 
@@ -268,7 +268,7 @@
   width: 32px;
   height: 2px;
   margin-top: 1rem;
-  background: #e50914;
+  background: #e01921;
   flex-shrink: 0;
 }
 
@@ -346,7 +346,7 @@
   height: 58px;
   margin-top: -29px;
   border-radius: 50%;
-  background: #e50914;
+  background: #e01921;
   color: #fff;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
@@ -426,7 +426,7 @@
 }
 
 .dn-network__states li svg {
-  color: #e50914;
+  color: #e01921;
   flex-shrink: 0;
 }
 
@@ -533,7 +533,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #e50914;
+  background: #e01921;
   color: #fff;
 }
 
@@ -604,7 +604,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #e50914;
+  background: #e01921;
   color: #fff;
   font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
   font-size: 0.7rem;
@@ -635,7 +635,7 @@
   font-size: 0.55rem;
   font-weight: 800;
   letter-spacing: 0.12em;
-  color: #e50914;
+  color: #e01921;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.35);
   padding-bottom: 2px;
   text-align: center;
@@ -772,7 +772,7 @@
 }
 
 .dn-story__quote {
-  color: #e50914;
+  color: #e01921;
 }
 
 .dn-story p {
@@ -841,7 +841,7 @@
 }
 
 .dn-stories__dots button.is-active {
-  background: #e50914;
+  background: #e01921;
 }
 
 /* Support + FAQ (nested in dealer hub) */
@@ -980,7 +980,7 @@
 }
 
 .dn-faq__q svg {
-  color: #e50914;
+  color: #e01921;
   flex-shrink: 0;
 }
 
@@ -1098,7 +1098,7 @@
 }
 
 .dn-trust__icon {
-  color: #e50914;
+  color: #e01921;
   flex-shrink: 0;
 }
 
@@ -1273,7 +1273,7 @@
   right: 0.35rem;
   bottom: 0.35rem;
   height: 2px;
-  background: #e50914;
+  background: #e01921;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -1303,7 +1303,7 @@
 .dealer-animated .au-header-cta:hover,
 .dealer-animated .au-header-cta:focus-visible {
   transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 0 22px rgba(229, 9, 20, 0.38);
+  box-shadow: 0 0 22px rgba(224, 25, 33, 0.38);
 }
 
 .dealer-animated .au-header-cta:hover span:last-child,
@@ -1332,7 +1332,7 @@
 .dealer-animated .dn-btn--primary:focus-visible,
 .dealer-animated .dn-form__submit:hover,
 .dealer-animated .dn-form__submit:focus-visible {
-  box-shadow: 0 0 24px rgba(229, 9, 20, 0.45);
+  box-shadow: 0 0 24px rgba(224, 25, 33, 0.45);
 }
 
 .dealer-animated .dn-btn--outline:hover,
@@ -1346,7 +1346,7 @@
 }
 
 .dealer-animated .dn-btn:focus-visible {
-  outline: 2px solid rgba(229, 9, 20, 0.85);
+  outline: 2px solid rgba(224, 25, 33, 0.85);
   outline-offset: 3px;
 }
 
@@ -1371,12 +1371,12 @@
 
 .dealer-animated .dn-why__card:hover {
   transform: translateY(-5px);
-  border-color: rgba(229, 9, 20, 0.45);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 16px rgba(229, 9, 20, 0.12);
+  border-color: rgba(224, 25, 33, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 16px rgba(224, 25, 33, 0.12);
 }
 
 .dealer-animated .dn-why__card:hover .dn-why__icon-svg {
-  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.5));
+  filter: drop-shadow(0 0 10px rgba(224, 25, 33, 0.5));
 }
 
 .dealer-animated .dn-why__card:hover h3 {
@@ -1408,7 +1408,7 @@
 
 .dealer-animated .dn-who__card:hover {
   transform: translateY(-4px);
-  border-color: rgba(229, 9, 20, 0.4);
+  border-color: rgba(224, 25, 33, 0.4);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
@@ -1435,8 +1435,8 @@
 .dealer-animated .dn-network__cta:hover,
 .dealer-animated .dn-network__cta:focus-visible {
   transform: translateY(-2px) scale(1.015);
-  border-color: #e50914;
-  box-shadow: 0 0 22px rgba(229, 9, 20, 0.38);
+  border-color: #e01921;
+  box-shadow: 0 0 22px rgba(224, 25, 33, 0.38);
 }
 
 .dealer-animated .dn-benefits__media img {
@@ -1466,7 +1466,7 @@
 }
 
 .dealer-animated .dn-process__step:hover .dn-process__icon {
-  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.45));
+  filter: drop-shadow(0 0 10px rgba(224, 25, 33, 0.45));
 }
 
 .dealer-animated .dn-process__step:hover h3 {
@@ -1512,7 +1512,7 @@
 }
 
 .dealer-animated .dn-support__card:hover .dn-support__btn svg {
-  filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.45));
+  filter: drop-shadow(0 0 6px rgba(224, 25, 33, 0.45));
 }
 
 .dealer-animated .dn-faq__q svg {
@@ -1556,7 +1556,7 @@
 }
 
 .dealer-animated .dn-trust__item:hover .dn-trust__icon {
-  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.45));
+  filter: drop-shadow(0 0 10px rgba(224, 25, 33, 0.45));
 }
 
 .dealer-animated .dn-trust__item:hover .dn-trust__copy strong {
@@ -1573,7 +1573,7 @@
 .is-dealer-page .site-footer__link:hover,
 .is-dealer-page .site-footer__link:focus-visible {
   transform: translateX(3px);
-  color: #e50914;
+  color: #e01921;
 }
 
 .is-dealer-page .site-footer__social {
@@ -1586,7 +1586,7 @@
 .is-dealer-page .site-footer__social:hover,
 .is-dealer-page .site-footer__social:focus-visible {
   transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(229, 9, 20, 0.38);
+  box-shadow: 0 0 18px rgba(224, 25, 33, 0.38);
 }
 
 .is-dealer-page footer .grid > div:last-child .grid > div {

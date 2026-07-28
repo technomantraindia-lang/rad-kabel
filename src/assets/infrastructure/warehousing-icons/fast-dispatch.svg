@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
   <title>Fast and Safe Dispatch</title>
-  <g stroke="#E50909" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <g stroke="#e01921" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
     <path d="M20 76H72V44H20V76Z"/>
     <path d="M72 56H94L108 70V76H72V56Z"/>
     <path d="M94 58V70H107"/>

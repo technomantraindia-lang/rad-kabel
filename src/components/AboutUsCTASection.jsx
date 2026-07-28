@@ -39,13 +39,13 @@ export default function AboutUsCTASection() {
           </p>
 
           <div className="about-cta__actions">
-            <Link to="/#contact" className="about-cta__btn about-cta__btn--primary">
+            <Link to="/dealer-network" className="about-cta__btn about-cta__btn--primary">
               Become a Dealer
               <span className="about-cta__btn-arrow" aria-hidden>
                 →
               </span>
             </Link>
-            <Link to="/#contact" className="about-cta__btn about-cta__btn--outline">
+            <Link to="/contact-us" className="about-cta__btn about-cta__btn--outline">
               Contact Us
               <svg
                 className="about-cta__btn-icon"
