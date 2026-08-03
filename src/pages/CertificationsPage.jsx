@@ -22,18 +22,13 @@ import "./CertificationsPage.css";
 import { handleDownloadBrochure } from "../utils/downloadBrochure.js";
 
 // Assets
-import isiCertifiedLogo from "../assets/certifications/isi-certified.svg";
-import imgRohs from "../assets/certifications/rohs-compliant.svg";
-import imgReach from "../assets/certifications/reach-compliant.svg";
-import imgCpr from "../assets/certifications/cpr-compliant.svg";
+import isiCertifiedLogo from "../assets/isi-certified.png";
+import imgRohs from "../assets/certifications/rohs.png";
+import imgReach from "../assets/certifications/reach.png";
+import imgCpr from "../assets/certifications/cpr.png";
 import imgQualityTested from "../assets/certifications/quality-tested.svg";
 import imgMadeInIndia from "../assets/certifications/made-in-india.png";
 import imgYearsOfTrust from "../assets/certifications/years-of-trust.png";
-import iconAdvManufacturing from "../assets/about-icons/who-advanced-manufacturing.png";
-import iconQualityControl from "../assets/about-icons/who-raw-materials.png";
-import iconTestedSafety from "../assets/about-icons/who-quality-control.png";
-import iconCertifiedReliability from "../assets/about-icons/premium-quality.png";
-import iconTrustedPros from "../assets/about-icons/who-customer-focused.png";
 
 // Quality Testing Panel Images
 import panel1Conductor from "../assets/infrastructure/quality-lab/panel-1-conductor-resistance.png";
@@ -46,7 +41,7 @@ import panel4Insulation from "../assets/infrastructure/quality-lab/panel-4-insul
 import gallery7 from "../assets/infrastructure/gallery/gallery-7.png";
 import gallery8 from "../assets/infrastructure/gallery/gallery-8.png";
 import gallery9 from "../assets/infrastructure/gallery/gallery-9.png";
-import qualityControlLabImg from "../assets/infrastructure/inside/quality-control-lab.png";
+import qualityControlLabImg from "../assets/infrastructure/inside/quality-control-lab-new.jpeg";
 
 // Journey Background & SVGs
 import journeyBg from "../assets/journey-background.png";
@@ -533,15 +528,6 @@ export default function CertificationsPage() {
                 </button>
               ))}
             </div>
-
-            <button
-              type="button"
-              onClick={() => handleDownload("all", "All_Certifications")}
-              className="cert-download__all-btn cert-btn"
-            >
-              VIEW ALL DOCUMENTS
-              <ArrowRight size={16} strokeWidth={2.25} className="cert-btn__icon" />
-            </button>
           </div>
 
           <div className="cert-verify">
@@ -673,37 +659,6 @@ export default function CertificationsPage() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Bottom trust bar */}
-      <section className="cert-trust" aria-label="RAD Kabel commitments">
-        <div className="cert-trust__inner">
-          <ul className="cert-trust__grid">
-            {[
-              { icon: iconAdvManufacturing, line1: "Advanced", line2: "Manufacturing" },
-              { icon: iconQualityControl, line1: "Stringent", line2: "Quality Control" },
-              { icon: iconTestedSafety, line1: "Tested for", line2: "Safety" },
-              { icon: iconCertifiedReliability, line1: "Certified for", line2: "Reliability" },
-              { icon: iconTrustedPros, line1: "Trusted by", line2: "Professionals" },
-              { icon: iconTestedSafety, line1: "Committed to", line2: "Better Tomorrow" }
-            ].map((item) => (
-              <li key={`${item.line1}-${item.line2}`} className="cert-trust__item">
-                <img
-                  src={item.icon}
-                  alt=""
-                  className="cert-trust__icon"
-                  decoding="async"
-                  loading="lazy"
-                  aria-hidden
-                />
-                <span className="cert-trust__copy">
-                  <strong>{item.line1}</strong>
-                  <span>{item.line2}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
     </main>

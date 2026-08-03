@@ -1,12 +1,13 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight,
   Download,
   Check,
   Quote,
   Headset,
   HardHat,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import "./ElectricianProgramPage.css";
 import useElectricianPageAnimations from "../hooks/useElectricianPageAnimations.js";
@@ -16,12 +17,11 @@ import heroBanner from "../assets/electrician-program/hero-banner.png";
 import whoCanJoinBg from "../assets/electrician-program/who-can-join-bg.png";
 import joinProduct from "../assets/electrician-program/join-product.png";
 import ctaSectionBg from "../assets/electrician-program/cta-section-bg.png";
-import rewardToolkit from "../assets/electrician-program/rewards/reward-toolkit.png";
-import rewardTools from "../assets/electrician-program/rewards/reward-tools.png";
-import rewardMultimeter from "../assets/electrician-program/rewards/reward-multimeter.png";
-import rewardWatch from "../assets/electrician-program/rewards/reward-watch.png";
-import rewardAppliance from "../assets/electrician-program/rewards/reward-appliance.png";
-import rewardMore from "../assets/electrician-program/rewards/rewards-more.png";
+import rewardBackpack from "../assets/electrician-program/rewards/reward-backpack.png";
+import rewardWaistBag from "../assets/electrician-program/rewards/reward-waist-bag.png";
+import rewardWaterCooler from "../assets/electrician-program/rewards/reward-water-cooler.png";
+import rewardHouseholdSet from "../assets/electrician-program/rewards/reward-household-set.png";
+import rewardPowerTools from "../assets/electrician-program/rewards/reward-power-tools-new.png";
 import avatar1 from "../assets/electrician-program/avatar-1.png";
 import avatar2 from "../assets/electrician-program/avatar-2.png";
 import avatar3 from "../assets/electrician-program/avatar-3.png";
@@ -111,12 +111,11 @@ const WHO_JOIN = [
 ];
 
 const REWARDS = [
-  { img: rewardToolkit, lines: ["TOOL KITS"], imagePosition: "center center" },
-  { img: rewardTools, lines: ["POWER TOOLS"], imagePosition: "center center" },
-  { img: rewardMultimeter, lines: ["MEASURING", "INSTRUMENTS"], imagePosition: "center center" },
-  { img: rewardWatch, lines: ["SMART WATCHES"], imagePosition: "center center" },
-  { img: rewardAppliance, lines: ["HOME APPLIANCES"], imagePosition: "left center" },
-  { img: rewardMore, lines: ["& MORE"], imagePosition: "right center" },
+  { img: rewardBackpack, lines: ["BACKPACK"], alt: "Backpack reward" },
+  { img: rewardWaistBag, lines: ["WAIST BAG"], alt: "Waist bag reward" },
+  { img: rewardWaterCooler, lines: ["WATER COOLER"], alt: "Water cooler reward" },
+  { img: rewardHouseholdSet, lines: ["HOUSEHOLD SET"], alt: "Household product set reward" },
+  { img: rewardPowerTools, lines: ["POWER TOOLS"], alt: "Power tools reward" },
 ];
 
 const TRAINING = [
@@ -174,7 +173,22 @@ const STORIES = [
 
 export default function ElectricianProgramPage() {
   const pageRef = useRef(null);
+  const programVideoRef = useRef(null);
+  const [programVideoMuted, setProgramVideoMuted] = useState(true);
   useElectricianPageAnimations(pageRef);
+
+  const toggleProgramVideoSound = () => {
+    const video = programVideoRef.current;
+    if (!video) return;
+
+    const nextMuted = !video.muted;
+    video.muted = nextMuted;
+    setProgramVideoMuted(nextMuted);
+
+    if (!nextMuted && video.paused) {
+      video.play().catch(() => {});
+    }
+  };
 
   return (
     <main ref={pageRef} className="ep-page">
@@ -208,6 +222,38 @@ export default function ElectricianProgramPage() {
                 who power India every day.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Program Video */}
+      <section className="ep-program-video" aria-label="RAD Kabel Electrician Program video">
+        <div className="ep-container">
+          <div className="ep-program-video__frame">
+            <video
+              ref={programVideoRef}
+              className="ep-program-video__media"
+              src="/videos/electrician-program.MOV"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              controls={false}
+              disablePictureInPicture
+            >
+              Your browser does not support HTML5 video.
+            </video>
+            <button
+              type="button"
+              className="ep-program-video__sound"
+              onClick={toggleProgramVideoSound}
+              aria-label={programVideoMuted ? "Turn video sound on" : "Turn video sound off"}
+              aria-pressed={!programVideoMuted}
+            >
+              {programVideoMuted ? <VolumeX aria-hidden /> : <Volume2 aria-hidden />}
+              <span>{programVideoMuted ? "Sound Off" : "Sound On"}</span>
+            </button>
           </div>
         </div>
       </section>
@@ -313,23 +359,18 @@ export default function ElectricianProgramPage() {
               EXCITING REWARDS
             </h2>
             <p>Redeem your points for amazing gifts.</p>
-            <a href="#ep-register" className="ep-btn ep-btn--primary ep-rewards__cta">
-              VIEW ALL REWARDS <ArrowRight size={16} aria-hidden />
-            </a>
           </div>
           <div className="ep-rewards__carousel">
             <ul className="ep-rewards__grid">
-              {REWARDS.map(({ img, lines, imagePosition }) => (
+              {REWARDS.map(({ img, lines, alt }) => (
                 <li key={lines.join(" ")} className="ep-rewards__card">
                   <div className="ep-rewards__media">
                     <img
                       src={img}
-                      alt=""
+                      alt={alt}
                       className="ep-rewards__image"
-                      style={{ objectPosition: imagePosition }}
                       decoding="async"
                       loading="lazy"
-                      aria-hidden
                     />
                   </div>
                   <span>
@@ -432,9 +473,6 @@ export default function ElectricianProgramPage() {
             <div className="ep-join-band__copy">
               <h2 id="ep-join-heading">JOIN THE PROGRAM TODAY!</h2>
               <p>Be a part of India&apos;s most trusted electrician community.</p>
-              <a href="#ep-register" className="ep-btn ep-btn--light">
-                REGISTER NOW <ArrowRight size={16} aria-hidden />
-              </a>
             </div>
             <img src={joinProduct} alt="" className="ep-join-band__product" decoding="async" loading="lazy" aria-hidden />
           </aside>
@@ -460,9 +498,6 @@ export default function ElectricianProgramPage() {
             </p>
           </div>
           <div className="ep-cta__actions">
-            <a href="#ep-register" className="ep-btn ep-btn--primary">
-              JOIN THE PROGRAM <ArrowRight size={16} aria-hidden />
-            </a>
             <a href="tel:18001237070" className="ep-btn ep-btn--outline">
               CONTACT SUPPORT <Headset size={16} aria-hidden />
             </a>

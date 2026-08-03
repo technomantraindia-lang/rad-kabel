@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react";
 
 import CertificationBanner from "../components/CertificationBanner.jsx";
 import RadIdentitySection from "../components/RadIdentitySection.jsx";
@@ -11,8 +12,13 @@ import ElectricianProgramBanner from "../components/ElectricianProgramBanner.jsx
 import PrecisionTestingSection from "../components/PrecisionTestingSection.jsx";
 import SafeWiringCTA from "../components/SafeWiringCTA.jsx";
 
-/** Hero background — served from `public/videos/` */
-const HERO_BANNER_VIDEO = "banner.mp4";
+/** Home banner videos served from `public/videos/`. */
+const HERO_BANNER_VIDEOS = [
+  { filename: "banner.mp4", label: "RAD Kabel banner video" },
+  { filename: "home-banner-9127.MOV", label: "RAD Kabel showcase video one" },
+  { filename: "home-banner-9158.MOV", label: "RAD Kabel showcase video two" },
+];
+const HERO_SLIDE_DURATION = 8000;
 
 /** Served from `public/videos/` — copy your files with these exact filenames. */
 const cableVideos = [
@@ -61,7 +67,17 @@ function CableVideoTile({ filename, name }) {
 
 function Hero() {
   const heroVideoRef = useRef(null);
-  const heroSrc = `/videos/${encodeURIComponent(HERO_BANNER_VIDEO)}`;
+  const [activeVideo, setActiveVideo] = useState(0);
+  const [muted, setMuted] = useState(true);
+  const currentVideo = HERO_BANNER_VIDEOS[activeVideo];
+  const heroSrc = `/videos/${encodeURIComponent(currentVideo.filename)}`;
+
+  const showVideo = (index) => {
+    setActiveVideo((index + HERO_BANNER_VIDEOS.length) % HERO_BANNER_VIDEOS.length);
+  };
+
+  const showPrevious = () => showVideo(activeVideo - 1);
+  const showNext = () => showVideo(activeVideo + 1);
 
   useEffect(() => {
     const el = heroVideoRef.current;
@@ -71,15 +87,9 @@ function Hero() {
       void el.play().catch(() => {});
     };
 
+    el.load();
     play();
     el.addEventListener("loadeddata", play);
-
-    /** Some browsers/devices skip `loop` on certain encodes — restart explicitly. */
-    const onEnded = () => {
-      el.currentTime = 0;
-      play();
-    };
-    el.addEventListener("ended", onEnded);
 
     const onVisibility = () => {
       if (document.visibilityState === "visible") play();
@@ -88,10 +98,24 @@ function Hero() {
 
     return () => {
       el.removeEventListener("loadeddata", play);
-      el.removeEventListener("ended", onEnded);
       document.removeEventListener("visibilitychange", onVisibility);
     };
   }, [heroSrc]);
+
+  useEffect(() => {
+    const el = heroVideoRef.current;
+    if (!el) return;
+    el.muted = muted;
+    el.defaultMuted = muted;
+  }, [muted, activeVideo]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setActiveVideo((current) => (current + 1) % HERO_BANNER_VIDEOS.length);
+    }, HERO_SLIDE_DURATION);
+
+    return () => window.clearTimeout(timer);
+  }, [activeVideo]);
 
   return (
     <section className="hero-shell home-hero-shell" aria-label="RAD Kabel">
@@ -101,14 +125,59 @@ function Hero() {
           className="hero-bg-video"
           src={heroSrc}
           autoPlay
-          muted
-          loop
+          muted={muted}
           playsInline
           preload="auto"
           disablePictureInPicture
+          onEnded={showNext}
+          onError={showNext}
+          aria-label={currentVideo.label}
         >
           Your browser does not support HTML5 video.
         </video>
+      </div>
+
+      <div className="home-hero-controls" aria-label="Home banner video controls">
+        <button
+          type="button"
+          className="home-hero-control home-hero-control--sound"
+          onClick={() => setMuted((value) => !value)}
+          aria-label={muted ? "Turn banner sound on" : "Turn banner sound off"}
+          title={muted ? "Sound on" : "Sound off"}
+        >
+          {muted ? <VolumeX aria-hidden /> : <Volume2 aria-hidden />}
+        </button>
+
+        <button
+          type="button"
+          className="home-hero-control"
+          onClick={showPrevious}
+          aria-label="Previous banner video"
+        >
+          <ChevronLeft aria-hidden />
+        </button>
+
+        <div className="home-hero-dots" role="group" aria-label="Choose banner video">
+          {HERO_BANNER_VIDEOS.map((video, index) => (
+            <button
+              key={video.filename}
+              type="button"
+              className={`home-hero-dot${index === activeVideo ? " is-active" : ""}`}
+              onClick={() => showVideo(index)}
+              aria-label={`Show banner video ${index + 1}`}
+              aria-current={index === activeVideo ? "true" : undefined}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          className="home-hero-control"
+          onClick={showNext}
+          aria-label="Next banner video"
+        >
+          <ChevronRight aria-hidden />
+        </button>
       </div>
     </section>
   );

@@ -2,7 +2,6 @@ import iconPremiumQuality from "../assets/about-icons/premium-quality.png";
 import iconAdvancedTechnology from "../assets/about-icons/advanced-technology.png";
 import iconTrustedPartner from "../assets/about-icons/trusted-partner.png";
 import iconCustomerSupport from "../assets/about-icons/customer-support.png";
-import AuIconRing from "./AuIconRing.jsx";
 import "./AboutUsBanner.css";
 
 const FEATURES = [
@@ -17,12 +16,14 @@ const FEATURES = [
     iconAlt: "Advanced technology",
     title: "Advanced Technology",
     desc: "Superior Performance",
+    fit: true,
   },
   {
     icon: iconTrustedPartner,
     iconAlt: "Trusted partner",
     title: "Trusted Partner",
     desc: "Across The Globe",
+    zoom: true,
   },
   {
     icon: iconCustomerSupport,
@@ -64,12 +65,23 @@ export default function AboutUsBanner() {
 
         <div className="about-us-hero__features">
           <ul className="about-us-hero__feature-grid">
-            {FEATURES.map(({ icon, iconAlt, title, desc }) => (
+            {FEATURES.map(({ icon, iconAlt, title, desc, zoom, fit }) => (
               <li key={title} className="about-us-hero__feature">
                 <span className="about-us-hero__feature-icon">
-                  <span className="au-icon-pulse" aria-hidden />
-                  <AuIconRing />
-                  <img src={icon} alt={iconAlt} className="about-us-hero__feature-icon-img" decoding="async" />
+                  <img
+                    src={icon}
+                    alt={iconAlt}
+                    className={[
+                      "about-us-hero__feature-icon-img",
+                      zoom ? "about-us-hero__feature-icon-img--zoom" : "",
+                      fit ? "about-us-hero__feature-icon-img--fit" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    width={68}
+                    height={68}
+                    decoding="async"
+                  />
                 </span>
                 <span className="about-us-hero__feature-copy">
                   <strong>{title}</strong>

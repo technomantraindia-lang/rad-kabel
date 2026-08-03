@@ -2,7 +2,6 @@ import iconIntegrity from "../assets/values-icons/integrity.png";
 import iconExcellence from "../assets/values-icons/excellence.png";
 import iconInnovation from "../assets/values-icons/innovation.png";
 import iconResponsibility from "../assets/values-icons/responsibility.png";
-import AuIconRing from "./AuIconRing.jsx";
 import "./OurValuesSection.css";
 
 const VALUES = [
@@ -47,7 +46,6 @@ export default function OurValuesSection() {
           {VALUES.map(({ icon, title, desc, alt }) => (
             <li key={title} className="our-values__card">
               <span className="our-values__card-icon-wrap">
-                <AuIconRing />
                 <img src={icon} alt={alt} className="our-values__card-icon" decoding="async" />
               </span>
               <div className="our-values__card-copy">

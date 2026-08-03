@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import {
   ArrowRight,
   Building2,
-  Headset,
+  Globe2,
   Mail,
   MapPin,
   MessageCircle,
@@ -18,12 +18,15 @@ import {
 
 import "./ContactUsPage.css";
 import useContactUsPageAnimations from "../hooks/useContactUsPageAnimations.js";
+import { sendFormEmails } from "../lib/sendFormEmails.js";
 
 import heroBg from "../assets/contact-us/contact-banner-new.png";
-import networkMap from "../assets/contact-us/indian-map.png";
 import headOfficeImage from "../assets/contact-us/our-offices-1.png";
-import corporateOfficeImage from "../assets/contact-us/our-offices-2.png";
-import warehouseImage from "../assets/contact-us/our-offices-3.png";
+
+const OFFICE_MAP_URL =
+  "https://www.google.com/maps/search/?api=1&query=RAD%20Kabel%20Industries%2C%20FF%20618%2C%20Lokhandwala%20Mahajan%20Building%2C%20New%20Darwaja%20Road%2C%20Old%20City%2C%20Tankshal%2C%20Khadia%2C%20Ahmedabad%2C%20Gujarat%20380001";
+const OFFICE_MAP_EMBED_URL =
+  "https://www.google.com/maps?q=RAD%20Kabel%20Industries%2C%20FF%20618%2C%20Lokhandwala%20Mahajan%20Building%2C%20New%20Darwaja%20Road%2C%20Old%20City%2C%20Tankshal%2C%20Khadia%2C%20Ahmedabad%2C%20Gujarat%20380001&output=embed";
 
 /** Award ribbon / seal — quality callout */
 function IconQualitySeal({ className }) {
@@ -98,30 +101,30 @@ const CONTACT_CARDS = [
   {
     Icon: Phone,
     title: "Call Us",
-    value: "1800 123 7070",
-    detail: "Mon - Sat : 9AM - 7PM",
-    href: "tel:18001237070",
+    value: "+91 799 00 90469",
+    detail: "RAD Kabel Industries",
+    href: "tel:+917990090469",
   },
   {
     Icon: Mail,
     title: "Email Us",
-    value: "info@radkabel.com",
-    detail: "We reply within 24 hours",
-    href: "mailto:info@radkabel.com",
+    value: "Radkabel11@gmail.com",
+    detail: "Send us your enquiry",
+    href: "mailto:Radkabel11@gmail.com",
   },
   {
-    Icon: MessageCircle,
-    title: "WhatsApp Us",
-    value: "+91 98765 43210",
-    detail: "Quick support on WhatsApp",
-    href: "https://wa.me/919876543210",
+    Icon: Globe2,
+    title: "Visit Website",
+    value: "www.radkabel.com",
+    detail: "Official RAD Kabel website",
+    href: "https://www.radkabel.com",
   },
   {
-    Icon: Headset,
-    title: "Customer Support",
-    value: "support@radkabel.com",
-    detail: "For after-sales assistance",
-    href: "mailto:support@radkabel.com",
+    Icon: User,
+    title: "Director",
+    value: "Naqi Merchant",
+    detail: "+91 799 00 90469",
+    href: "tel:+917990090469",
   },
 ];
 
@@ -135,35 +138,13 @@ const TRUST_POINTS = [
 const OFFICE_CARDS = [
   {
     image: headOfficeImage,
-    title: "Head Office",
+    title: "RAD Kabel Industries",
     lines: [
-      "RAD KABEL Private Limited",
-      "Survey No. 123, Near GIDC,",
-      "Phase 2, Dared, Jamnagar,",
-      "Gujarat - 361004, India",
-      "+91 288 359 7171",
-    ],
-  },
-  {
-    image: corporateOfficeImage,
-    title: "Corporate Office",
-    lines: [
-      "B-201, Titanium City Center,",
-      "100 Ft. Anand Nagar Road,",
-      "Satellite, Ahmedabad,",
-      "Gujarat - 380015, India",
-      "+91 79 4005 7171",
-    ],
-  },
-  {
-    image: warehouseImage,
-    title: "Warehouse",
-    lines: [
-      "Plot No. 45, Survey No. 67,",
-      "Near Logistics Park,",
-      "Bavla, Ahmedabad,",
-      "Gujarat - 382220, India",
-      "+91 79 4005 7172",
+      "FF 618, Lokhandwala Mahajan Building,",
+      "New Darwaja Road, Old City, Tankshal, Khadia,",
+      "Ahmedabad, Gujarat 380001",
+      "+91 799 00 90469",
+      "Radkabel11@gmail.com",
     ],
   },
 ];
@@ -199,16 +180,52 @@ export default function ContactUsPage() {
   useContactUsPageAnimations(pageRef);
 
   const [form, setForm] = useState(INITIAL_FORM);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const onField = (key) => (e) => {
     setForm((prev) => ({ ...prev, [key]: e.target.value }));
+    if (status === "error" || status === "success") {
+      setStatus("idle");
+      setErrorMessage("");
+      setSuccessMessage("");
+    }
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setForm(INITIAL_FORM);
+    setStatus("sending");
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    try {
+      const result = await sendFormEmails({
+        formName: "Contact Us",
+        customerEmail: form.email,
+        customerName: form.fullName,
+        fields: {
+          "Full Name": form.fullName,
+          "Company / Organization": form.company,
+          "Mobile Number": form.phone,
+          "Email Address": form.email,
+          Subject: form.subject,
+          Message: form.message,
+        },
+      });
+      setStatus("success");
+      setSuccessMessage(
+        result?.delivery === "formsubmit"
+          ? "Thank you. Your message has been sent successfully and our team will contact you shortly."
+          : "Thank you. Your message has been received and our team will contact you shortly."
+      );
+      setForm(INITIAL_FORM);
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err?.text || err?.message || "Unable to send your message. Please try again."
+      );
+    }
   };
 
   return (
@@ -238,7 +255,13 @@ export default function ContactUsPage() {
         <div className="cu-container">
           <div className="cu-utility__row">
             {CONTACT_CARDS.map(({ Icon, title, value, detail, href }) => (
-              <a key={title} className="cu-utility-card cu-utility__item" href={href}>
+              <a
+                key={title}
+                className="cu-utility-card cu-utility__item"
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noreferrer" : undefined}
+              >
                 <span className="cu-utility-card__icon" aria-hidden>
                   <Icon size={28} strokeWidth={1.75} />
                 </span>
@@ -260,11 +283,10 @@ export default function ContactUsPage() {
               <div className="cu-about-card__top">
                 <div className="cu-about-card__intro">
                   <h2 id="cu-touch-heading" className="cu-about-card__title">
-                    <span className="cu-accent">RAD KABEL</span> PRIVATE LIMITED
+                    <span className="cu-accent">RAD KABEL</span> INDUSTRIES
                   </h2>
                   <p className="cu-about-card__desc">
-                    We are committed to delivering quality products, timely service and
-                    long-term value to our partners and customers across India.
+                    Lalshah Group. Since 1986. Manufacturer of Wire &amp; Cables.
                   </p>
 
                   <div className="cu-quality-box">
@@ -291,8 +313,8 @@ export default function ContactUsPage() {
             </article>
 
             <article className="cu-offices-panel">
-              <h3 className="cu-section-title">OUR OFFICES</h3>
-              <div className="cu-offices-grid">
+              <h3 className="cu-section-title">OUR OFFICE</h3>
+              <div className="cu-offices-grid cu-offices-grid--single">
                 {OFFICE_CARDS.map(({ image, title, lines }) => (
                   <div key={title} className="cu-office-card">
                     <img src={image} alt={title} loading="lazy" decoding="async" />
@@ -314,22 +336,28 @@ export default function ContactUsPage() {
 
             <article className="cu-network">
               <div className="cu-network__copy">
-                <h3 className="cu-section-title">WE ARE ACROSS INDIA</h3>
+                <h3 className="cu-section-title">FIND OUR OFFICE</h3>
                 <p className="cu-network__desc">
-                  Our strong distribution network ensures that RAD KABEL is always
-                  close to you.
+                  RAD Kabel Industries, FF 618, Lokhandwala Mahajan Building, New Darwaja Road,
+                  Old City, Tankshal, Khadia, Ahmedabad, Gujarat 380001.
                 </p>
-                <Link to="/dealer-network" className="cu-btn cu-btn--outline">
-                  Find A Dealer Near You
-                  <MapPin size={15} aria-hidden />
-                </Link>
+                <a
+                  className="cu-btn cu-btn--primary"
+                  href={OFFICE_MAP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open in Google Maps
+                  <ArrowRight size={16} aria-hidden />
+                </a>
               </div>
               <div className="cu-network__map">
-                <img
-                  src={networkMap}
-                  alt="Map of India showing RAD KABEL presence across the country"
+                <iframe
+                  src={OFFICE_MAP_EMBED_URL}
+                  title="RAD Kabel Industries office location"
                   loading="lazy"
-                  decoding="async"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
                 />
               </div>
             </article>
@@ -427,14 +455,24 @@ export default function ContactUsPage() {
                   />
                 </label>
 
-                <button type="submit" className="cu-btn cu-btn--primary cu-form__submit">
-                  Send Message
+                <button
+                  type="submit"
+                  className="cu-btn cu-btn--primary cu-form__submit"
+                  disabled={status === "sending"}
+                >
+                  {status === "sending" ? "Sending…" : "Send Message"}
                   <ArrowRight size={16} aria-hidden />
                 </button>
 
-                {submitted ? (
+                {status === "success" ? (
                   <p className="cu-form__success" role="status">
-                    Thank you. Your message has been received and our team will contact you shortly.
+                    {successMessage}
+                  </p>
+                ) : null}
+
+                {status === "error" ? (
+                  <p className="cu-form__error" role="alert">
+                    {errorMessage}
                   </p>
                 ) : null}
 

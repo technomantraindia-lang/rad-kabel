@@ -1,23 +1,23 @@
 import { Fragment } from "react";
+import stepCopperRod from "../../assets/infrastructure/process/step-1-copper-rod.png";
 import stepCopper from "../../assets/manufacturing-steps/step-1-copper-drawing.png";
-import stepAnnealing from "../../assets/manufacturing-steps/step-2-annealing.png";
 import stepInsulation from "../../assets/manufacturing-steps/step-3-insulation.png";
-import stepTesting from "../../assets/manufacturing-steps/step-4-quality-testing.png";
+import stepTesting from "../../assets/ebeam-testing.png";
 import stepPackaging from "../../assets/manufacturing-steps/step-5-packaging.png";
 import stepDispatch from "../../assets/manufacturing-steps/step-6-dispatch.png";
 
 const STEPS = [
   {
+    title: "Copper Rod",
+    description: ["Electrolytic copper", "raw material stage"],
+    image: stepCopperRod,
+    alt: "Copper rod bundles",
+  },
+  {
     title: "Copper Drawing",
     description: ["High-precision drawing", "for uniform strands"],
     image: stepCopper,
     alt: "Copper drawing process",
-  },
-  {
-    title: "Annealing",
-    description: ["Softening process", "for better ductility"],
-    image: stepAnnealing,
-    alt: "Annealing process",
   },
   {
     title: "Insulation",
@@ -26,10 +26,10 @@ const STEPS = [
     alt: "Cable insulation extrusion",
   },
   {
-    title: "Quality Testing",
+    title: "E-BEAM testing",
     description: ["Multi-level quality", "verification"],
     image: stepTesting,
-    alt: "Quality testing laboratory",
+    alt: "E-BEAM testing",
   },
   {
     title: "Packaging",

@@ -9,7 +9,6 @@ import TechnologyPrecisionTesting from "../components/technology/TechnologyPreci
 import TechnologyWhyMatters from "../components/technology/TechnologyWhyMatters.jsx";
 import TechnologyComparison from "../components/technology/TechnologyComparison.jsx";
 import TechnologyBottomCTA from "../components/technology/TechnologyBottomCTA.jsx";
-import TechnologyStatsStrip from "../components/technology/TechnologyStatsStrip.jsx";
 import useTechnologyPageAnimations from "../hooks/useTechnologyPageAnimations.js";
 import "./TechnologyPage.css";
 import "../styles/technology-animations.css";
@@ -37,7 +36,6 @@ export default function TechnologyPage() {
       <EBeamTechnology
         sectionId="tech-ebeam"
         headingId="tech-ebeam-heading"
-        ctaHref="#tech-science"
       />
       <TechnologyScienceGrid />
       <TechnologyManufacturingFlow />
@@ -45,7 +43,6 @@ export default function TechnologyPage() {
       <TechnologyWhyMatters />
       <TechnologyComparison />
       <TechnologyBottomCTA />
-      <TechnologyStatsStrip />
     </main>
   );
 }

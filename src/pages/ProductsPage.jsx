@@ -1,42 +1,36 @@
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useEffect } from "react";
-import {
-  ArrowRight,
-  Download,
-  ExternalLink,
-  Check,
-  Shield,
-  Flame,
-  Zap,
-  Clock,
-  Activity,
-  Cable,
-  Factory,
-  Wrench,
-  Link2,
-  Home,
-  Building2,
-  School,
-  HardHat,
-  Cog,
-  PanelTop,
-  BicepsFlexed,
-  Droplets,
-  Star,
-} from "lucide-react";
+import { ArrowRight, Download, ExternalLink, Check, Star } from "lucide-react";
 
 import "./ProductsPage.css";
 import useProductsPageAnimations from "../hooks/useProductsPageAnimations.js";
-import tapeBanner from "../assets/rad-tape-pro/tape-pro-banner.png";
-import visualZero from "../assets/rad-tape-pro/visual-zero.png";
+import tapeBanner from "../assets/products-page/product-banner-section.png";
+import visualZero from "../assets/rad-tape-pro/rad-box-both-glow.png";
 import visualPower from "../assets/rad-tape-pro/visual-power.png";
 import visualFlex from "../assets/rad-tape-pro/visual-flex.png";
-import visualTape from "../assets/rad-tape-pro/visual-tape.png";
+import visualTape from "../assets/rad-tape-pro/red-tape-without-background.png";
 import ctaBg from "../assets/rad-tape-pro/cta-bg.png";
-import iconReliable from "../assets/rad-tape-pro/why-icons/reliable.svg";
-import iconAdvanced from "../assets/rad-tape-pro/why-icons/advanced.svg";
-import iconDurable from "../assets/rad-tape-pro/why-icons/durable.svg";
-import iconSafe from "../assets/rad-tape-pro/why-icons/safe.svg";
+import iconReliable from "../assets/why-choose-premium/reliable.png";
+import iconAdvanced from "../assets/why-choose-premium/advanced.png";
+import iconDurable from "../assets/why-choose-premium/durable.png";
+import iconSafe from "../assets/why-choose-premium/safe.png";
+import iconNoFire from "../assets/product-card-icons/3.png";
+import iconFireShield from "../assets/product-card-icons/5.png";
+import iconElectricWarning from "../assets/product-card-icons/6.png";
+import iconPanelMeter from "../assets/product-card-icons/12.png";
+import iconBuildingChecklist from "../assets/product-card-icons/15.png";
+import iconFactoryPlant from "../assets/product-card-icons/16.png";
+import iconPowerFlow from "../assets/product-card-icons/17.png";
+import iconDurabilityBar from "../assets/product-card-icons/18.png";
+import iconQualityLab from "../assets/product-card-icons/24.png";
+import iconWorkerShield from "../assets/product-card-icons/29.png";
+import iconShieldCheck from "../assets/product-card-icons/31.png";
+import iconExtinguisher from "../assets/product-card-icons/32.png";
+import iconSpool from "../assets/product-card-icons/38.png";
+import iconFistShield from "../assets/product-card-icons/50.png";
+import iconGearClock from "../assets/product-card-icons/51.png";
+import iconServiceGrowth from "../assets/product-card-icons/52.png";
+import iconPerformanceGear from "../assets/product-card-icons/53.png";
 import { handleDownloadBrochure } from "../utils/downloadBrochure";
 
 const BROCHURE_URL = "/brochure.pdf";
@@ -69,19 +63,19 @@ const COMPARE_PRODUCTS = ["RAD ZERO", "RAD POWER", "RAD FLEX", "RAD TAPE PRO"];
 const COMPARE_ROWS = [
   {
     feature: "Fire Safety",
-    ratings: [4, 4, 3, 3],
+    ratings: [5, 4, 5, 3],
   },
   {
     feature: "Flexibility",
-    ratings: [4, 4, 5, null],
+    ratings: [5, 4, 5, null],
   },
   {
     feature: "Industrial Use",
-    ratings: [3, 3, 5, 3],
+    ratings: [5, 3, 5, 3],
   },
   {
     feature: "Residential Use",
-    ratings: [5, 5, 2, 5],
+    ratings: [5, 5, 4, 5],
   },
 ];
 
@@ -121,10 +115,10 @@ const PRODUCT_CARDS = [
     imageAlt: "RAD ZERO red cable coil",
     href: "/products/rad-zero",
     highlights: [
-      { icon: Flame, label: "Fire Resistant" },
-      { icon: Droplets, label: "Low Smoke" },
-      { icon: Shield, label: "High Safety" },
-      { icon: Clock, label: "Long Life Durability" },
+      { iconSrc: iconFireShield, label: "Fire Resistant" },
+      { iconSrc: iconNoFire, label: "Low Smoke" },
+      { iconSrc: iconShieldCheck, label: "High Safety" },
+      { iconSrc: iconGearClock, label: "Long Life Durability" },
     ],
     features: [
       "Enhanced Fire Resistance",
@@ -133,10 +127,10 @@ const PRODUCT_CARDS = [
       "Long Service Life",
     ],
     apps: [
-      { icon: Home, label: "Homes" },
-      { icon: Building2, label: "Hospitals" },
-      { icon: School, label: "Schools" },
-      { icon: Building2, label: "Commercial Buildings" },
+      { iconSrc: iconBuildingChecklist, label: "Homes" },
+      { iconSrc: iconQualityLab, label: "Hospitals" },
+      { iconSrc: iconWorkerShield, label: "Schools" },
+      { iconSrc: iconFactoryPlant, label: "Commercial Buildings" },
     ],
   },
   {
@@ -150,10 +144,10 @@ const PRODUCT_CARDS = [
     imageAlt: "RAD POWER yellow cable coil",
     href: "/products/rad-power",
     highlights: [
-      { icon: Activity, label: "High Current Capacity" },
-      { icon: Cable, label: "Smooth Pulling" },
-      { icon: Zap, label: "Flexible Conductor" },
-      { icon: Shield, label: "Stable Performance" },
+      { iconSrc: iconPowerFlow, label: "High Current Capacity" },
+      { iconSrc: iconSpool, label: "Smooth Pulling" },
+      { iconSrc: iconElectricWarning, label: "Flexible Conductor" },
+      { iconSrc: iconShieldCheck, label: "Stable Performance" },
     ],
     features: [
       "High Current Capacity",
@@ -162,10 +156,11 @@ const PRODUCT_CARDS = [
       "Stable Performance",
     ],
     apps: [
-      { icon: Home, label: "Residential" },
-      { icon: Building2, label: "Commercial" },
-      { icon: HardHat, label: "Builders" },
+      { iconSrc: iconBuildingChecklist, label: "Residential" },
+      { iconSrc: iconFactoryPlant, label: "Commercial" },
+      { iconSrc: iconWorkerShield, label: "Builders" },
     ],
+    comingSoon: true,
   },
   {
     id: "flex",
@@ -178,10 +173,10 @@ const PRODUCT_CARDS = [
     imageAlt: "RAD FLEX black cable coil",
     href: "/products/rad-flex",
     highlights: [
-      { icon: Shield, label: "Heavy Duty Usage" },
-      { icon: Factory, label: "Industrial Grade" },
-      { icon: Wrench, label: "Easy Installation" },
-      { icon: Link2, label: "Durable Construction" },
+      { iconSrc: iconFistShield, label: "Heavy Duty Usage" },
+      { iconSrc: iconFactoryPlant, label: "Industrial Grade" },
+      { iconSrc: iconServiceGrowth, label: "Easy Installation" },
+      { iconSrc: iconDurabilityBar, label: "Durable Construction" },
     ],
     features: [
       "Heavy Duty Usage",
@@ -190,10 +185,11 @@ const PRODUCT_CARDS = [
       "Durable Construction",
     ],
     apps: [
-      { icon: Cog, label: "Machines" },
-      { icon: Factory, label: "Factories" },
-      { icon: PanelTop, label: "Panels" },
+      { iconSrc: iconPerformanceGear, label: "Machines" },
+      { iconSrc: iconFactoryPlant, label: "Factories" },
+      { iconSrc: iconPanelMeter, label: "Panels" },
     ],
+    comingSoon: true,
   },
   {
     id: "tape-pro",
@@ -206,10 +202,10 @@ const PRODUCT_CARDS = [
     imageAlt: "RAD TAPE PRO premium insulation tape",
     href: "/products/rad-tape-pro",
     highlights: [
-      { icon: BicepsFlexed, label: "Strong Adhesion" },
-      { icon: Flame, label: "Flame Retardant" },
-      { icon: Shield, label: "Excellent Insulation" },
-      { icon: Link2, label: "Long Lasting Performance" },
+      { iconSrc: iconFistShield, label: "Strong Adhesion" },
+      { iconSrc: iconExtinguisher, label: "Flame Retardant" },
+      { iconSrc: iconShieldCheck, label: "Excellent Insulation" },
+      { iconSrc: iconGearClock, label: "Long Lasting Performance" },
     ],
     features: [
       "Strong Adhesion",
@@ -218,9 +214,9 @@ const PRODUCT_CARDS = [
       "Long Lasting Performance",
     ],
     apps: [
-      { icon: Zap, label: "Electrical Installation" },
-      { icon: Wrench, label: "Maintenance" },
-      { icon: Link2, label: "Repairs" },
+      { iconSrc: iconElectricWarning, label: "Electrical Installation" },
+      { iconSrc: iconServiceGrowth, label: "Maintenance" },
+      { iconSrc: iconPerformanceGear, label: "Repairs" },
     ],
   },
 ];
@@ -237,15 +233,23 @@ function ProductCard({
   highlights,
   features,
   apps,
+  comingSoon = false,
 }) {
-  const cta = (
+  const cta = comingSoon ? (
+    <>Common Soon</>
+  ) : (
     <>
       View Product <ArrowRight size={18} strokeWidth={2.2} aria-hidden />
     </>
   );
 
   return (
-    <article className="rtp-pcard">
+    <article className={`rtp-pcard${comingSoon ? " rtp-pcard--coming-soon" : ""}`}>
+      {comingSoon ? (
+        <div className="rtp-pcard__soon-badge" aria-label={`${brand} ${name} common soon`}>
+          Common Soon
+        </div>
+      ) : null}
       <header className="rtp-pcard__head">
         <span className="rtp-pcard__index" aria-hidden>
           {index}
@@ -265,10 +269,10 @@ function ProductCard({
       </div>
 
       <ul className="rtp-pcard__highlights">
-        {highlights.map(({ icon: Icon, label }) => (
+        {highlights.map(({ iconSrc, label }) => (
           <li key={label}>
             <span className="rtp-pcard__h-icon" aria-hidden>
-              <Icon size={22} strokeWidth={2.1} />
+              <img src={iconSrc} alt="" loading="lazy" decoding="async" />
             </span>
             <span>{label}</span>
           </li>
@@ -292,10 +296,10 @@ function ProductCard({
       <div className="rtp-pcard__block">
         <p className="rtp-pcard__label">Applications</p>
         <ul className="rtp-pcard__apps">
-          {apps.map(({ icon: Icon, label }) => (
+          {apps.map(({ iconSrc, label }) => (
             <li key={label}>
               <span className="rtp-pcard__a-icon" aria-hidden>
-                <Icon size={18} strokeWidth={2.1} />
+                <img src={iconSrc} alt="" loading="lazy" decoding="async" />
               </span>
               <span>{label}</span>
             </li>
@@ -303,7 +307,11 @@ function ProductCard({
         </ul>
       </div>
 
-      {href.startsWith("#") ? (
+      {comingSoon ? (
+        <span className="rtp-pcard__cta rtp-pcard__cta--disabled" aria-disabled="true">
+          {cta}
+        </span>
+      ) : href.startsWith("#") ? (
         <a href={href} className="rtp-pcard__cta">
           {cta}
         </a>

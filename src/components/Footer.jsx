@@ -79,10 +79,14 @@ function FooterColumn({ title, links }) {
 }
 
 function SocialIcon({ href, label, children }) {
+  const isExternal = href.startsWith("http");
+
   return (
     <a
       href={href}
       aria-label={label}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noreferrer" : undefined}
       className="site-footer__social inline-flex size-9 items-center justify-center rounded-full border border-white/20 bg-[#111] text-white/80 transition-all hover:border-[#e01921]/60 hover:text-white hover:shadow-[0_0_16px_rgba(224,25,33,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e01921] sm:size-10"
     >
       {children}
@@ -92,11 +96,11 @@ function SocialIcon({ href, label, children }) {
 
 function CertLogoBadge({ src, alt }) {
   return (
-    <div className="flex min-h-[4.75rem] w-full items-center justify-center rounded-md border border-white/25 bg-black px-3 py-3 sm:min-h-[5.5rem] sm:px-3.5 sm:py-3.5">
+    <div className="flex min-h-[4.75rem] w-full items-center justify-center overflow-hidden rounded-md border border-white/25 bg-black px-2.5 py-2.5 sm:min-h-[5.5rem] sm:px-3 sm:py-3">
       <img
         src={src}
         alt={alt}
-        className="h-11 w-auto max-h-12 max-w-[9.5rem] object-contain object-center brightness-0 invert opacity-100 sm:h-14 sm:max-h-[3.75rem] sm:max-w-[11rem]"
+        className="h-12 w-auto max-h-[3.25rem] max-w-full object-contain object-center sm:h-14 sm:max-h-16"
         decoding="async"
       />
     </div>
@@ -137,6 +141,14 @@ function IconYouTube() {
   );
 }
 
+function IconWhatsApp() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M12.04 2a9.84 9.84 0 0 0-8.43 14.91L2 22l5.22-1.56A9.98 9.98 0 1 0 12.04 2Zm0 17.94a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.1.93.95-3.02-.2-.31a8.08 8.08 0 1 1 6.78 3.71Zm4.43-6.06c-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06-.24-.12-1.02-.38-1.95-1.2a7.28 7.28 0 0 1-1.35-1.68c-.14-.24-.02-.37.1-.49.11-.11.25-.28.37-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.65.3-.22.24-.85.83-.85 2.03s.87 2.36.99 2.52c.12.16 1.72 2.63 4.17 3.69.58.25 1.04.4 1.39.51.59.19 1.12.16 1.54.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <footer
@@ -159,7 +171,7 @@ export default function Footer() {
               <SocialIcon href="#" label="Facebook">
                 <IconFacebook />
               </SocialIcon>
-              <SocialIcon href="#" label="Instagram">
+              <SocialIcon href="https://www.instagram.com/rad_kabel/" label="RAD Kabel on Instagram">
                 <IconInstagram />
               </SocialIcon>
               <SocialIcon href="#" label="LinkedIn">
@@ -167,6 +179,9 @@ export default function Footer() {
               </SocialIcon>
               <SocialIcon href="#" label="YouTube">
                 <IconYouTube />
+              </SocialIcon>
+              <SocialIcon href="https://wa.me/917990090469" label="Contact RAD Kabel on WhatsApp">
+                <IconWhatsApp />
               </SocialIcon>
             </div>
           </div>
@@ -191,11 +206,9 @@ export default function Footer() {
         </div>
 
         <p className="mt-6 border-t border-white/10 px-6 pt-5 pb-1 text-center text-sm text-zinc-400 sm:px-10 sm:text-[0.95rem] lg:px-14">
-          © {new Date().getFullYear()} RAD Kabel. All rights reserved.
+          Manufactured by: RAD Kabel Industries, SIDCUL, Haridwar, 249403, Uttarakhand, India.
         </p>
       </div>
     </footer>
   );
 }
-
-

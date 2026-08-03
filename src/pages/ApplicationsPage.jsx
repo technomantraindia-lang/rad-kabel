@@ -18,27 +18,17 @@ import hospitalImg from "../assets/applications/hospitals.png";
 import infraImg from "../assets/applications/infrastructure.png";
 import dataCenterImg from "../assets/applications/data-centers.png";
 
-import proj1 from "../assets/built-facility.jpg";
-import proj2 from "../assets/precision-factory.jpg";
-import proj3 from "../assets/manufacturing-factory.jpg";
-import proj4 from "../assets/product-boxes.jpg";
-
-import radZero from "../assets/products/1.png";
-import radFlex from "../assets/products/2.png";
-import radFire from "../assets/products/3.png";
+import radZero from "../assets/product-boxes/box-face.png";
+import radFlex from "../assets/product-boxes/box-front.png";
+import radFire from "../assets/product-boxes/box-angle.png";
 import homeSelectorIcon from "../assets/perfect-cable-icons-white-svg/home.svg";
 import commercialSelectorIcon from "../assets/perfect-cable-icons-white-svg/commercial.svg";
 import industrialSelectorIcon from "../assets/perfect-cable-icons-white-svg/industrial.svg";
 import hospitalSelectorIcon from "../assets/perfect-cable-icons-white-svg/hospital.svg";
 import schoolSelectorIcon from "../assets/perfect-cable-icons-white-svg/school.svg";
 import infrastructureSelectorIcon from "../assets/perfect-cable-icons-white-svg/infrastructure.svg";
-import featureAdvancedTechnologyIcon from "../assets/rad-kabel-feature-icons-svg/advanced-technology.svg";
-import featureQualityChecksIcon from "../assets/rad-kabel-feature-icons-svg/quality-checks-25.svg";
-import featurePowerPurityIcon from "../assets/rad-kabel-feature-icons-svg/power-purity-99-97.svg";
-import featureFireSafeIcon from "../assets/rad-kabel-feature-icons-svg/fire-safe-durable.svg";
-import featurePanIndiaIcon from "../assets/rad-kabel-feature-icons-svg/pan-india-presence.svg";
-import featureTrustedIcon from "../assets/rad-kabel-feature-icons-svg/trusted-by-professionals.svg";
 import cableCrossSection from "../assets/cable-cross-section.png";
+import radKabelLogo from "../assets/rad-kabel-logo.png";
 
 const APPLICATIONS = [
   {
@@ -99,97 +89,6 @@ const APPLICATIONS = [
   }
 ];
 
-const PROJECTS = [
-  { img: proj1, name: "Luxury Residences", loc: "Delhi" },
-  { img: proj2, name: "5 Star Hotel", loc: "Mumbai" },
-  { img: proj3, name: "Multi Speciality Hospital", loc: "Bangalore" },
-  { img: proj4, name: "Automotive Plant", loc: "Chennai" },
-  { img: proj1, name: "Metro Rail Project", loc: "Kochi" },
-  { img: proj2, name: "International Airport", loc: "Hyderabad" },
-];
-
-function ProjectsPoweredSection() {
-  const trackRef = useRef(null);
-
-  const scrollProjects = (direction) => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const card = track.querySelector(".app-projects__card");
-    const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "16");
-    const amount = (card?.offsetWidth ?? 320) + gap;
-
-    track.scrollBy({ left: direction * amount, behavior: "smooth" });
-  };
-
-  return (
-    <section className="app-projects py-20 px-6 lg:px-16 overflow-hidden">
-      <div className="w-full">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="app-projects__title text-2xl md:text-3xl font-bold uppercase tracking-wide [word-spacing:0.12em]">
-            PROJECTS POWERED BY <span className="text-red-600">RAD KABEL</span>
-          </h2>
-          <Link
-            to="/contact-us"
-            className="app-btn hidden md:inline-flex items-center justify-center border border-white/30 hover:border-red-600 text-xs font-bold uppercase tracking-widest px-6 py-2 rounded transition"
-          >
-            VIEW ALL PROJECTS
-          </Link>
-        </div>
-
-        <div className="relative">
-          <button
-            type="button"
-            onClick={() => scrollProjects(-1)}
-            aria-label="Previous projects"
-            className="app-projects__arrow app-projects__arrow--prev absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-20 w-8 h-8 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-700 transition"
-          >
-            <ArrowRight size={16} className="rotate-180" />
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollProjects(1)}
-            aria-label="Next projects"
-            className="app-projects__arrow app-projects__arrow--next absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-20 w-8 h-8 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-700 transition"
-          >
-            <ArrowRight size={16} />
-          </button>
-
-          <div
-            ref={trackRef}
-            className="app-projects__track flex gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4 -mx-6 px-6 lg:mx-0 lg:px-0 scroll-smooth"
-          >
-            {PROJECTS.map((proj, i) => (
-              <div
-                key={i}
-                className="app-projects__card min-w-[280px] w-[280px] md:min-w-[320px] md:w-[320px] snap-start relative group cursor-pointer border border-white/10 rounded overflow-hidden"
-              >
-                <div className="aspect-[4/3] overflow-hidden relative">
-                  <img src={proj.img} alt={proj.name} className="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80" />
-                </div>
-                <div className="app-projects__caption absolute bottom-0 left-0 right-0 p-4 pb-5">
-                  <h4 className="app-projects__name font-bold uppercase text-white">{proj.name}</h4>
-                  <p className="app-projects__loc">{proj.loc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-8 text-center md:hidden">
-          <Link
-            to="/contact-us"
-            className="inline-flex items-center justify-center border border-white/30 text-xs font-bold uppercase tracking-widest px-6 py-3 rounded w-full"
-          >
-            VIEW ALL PROJECTS
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const APPLICATION_SELECTOR_ITEMS = [
   {
     id: "home",
@@ -197,7 +96,6 @@ const APPLICATION_SELECTOR_ITEMS = [
     icon: homeSelectorIcon,
     recommendation: "RECOMMENDED FOR HOME PROJECTS",
     products: [
-      { image: radZero, name: "RAD ZERO", description: "FRS Flame Retardant", accent: "text-[#ff5a36]" },
       { image: radFire, name: "RAD FIRE", description: "Enhanced Fire Safety", accent: "text-[#ffb14a]" }
     ],
     specs: ["High Fire Resistance", "Low Smoke Emission", "High Conductivity", "Long Service Life"]
@@ -208,7 +106,6 @@ const APPLICATION_SELECTOR_ITEMS = [
     icon: commercialSelectorIcon,
     recommendation: "RECOMMENDED FOR COMMERCIAL PROJECTS",
     products: [
-      { image: radZero, name: "RAD ZERO", description: "FRS Flame Retardant", accent: "text-[#ff5a36]" },
       { image: radFlex, name: "RAD FLEX", description: "Flexible Commercial Cable", accent: "text-[#ffb14a]" }
     ],
     specs: ["High Fire Resistance", "Stable Power Delivery", "Low Smoke Emission", "Long Service Life"]
@@ -230,7 +127,6 @@ const APPLICATION_SELECTOR_ITEMS = [
     icon: hospitalSelectorIcon,
     recommendation: "RECOMMENDED FOR HOSPITAL PROJECTS",
     products: [
-      { image: radZero, name: "RAD ZERO", description: "FRS Flame Retardant", accent: "text-[#ff5a36]" },
       { image: radFire, name: "RAD FIRE", description: "Low Smoke Safety Cable", accent: "text-[#ffb14a]" }
     ],
     specs: ["High Fire Resistance", "Low Smoke Emission", "High Conductivity", "Long Service Life"]
@@ -241,7 +137,6 @@ const APPLICATION_SELECTOR_ITEMS = [
     icon: schoolSelectorIcon,
     recommendation: "RECOMMENDED FOR SCHOOL PROJECTS",
     products: [
-      { image: radZero, name: "RAD ZERO", description: "FRS Flame Retardant", accent: "text-[#ff5a36]" },
       { image: radFlex, name: "RAD FLEX", description: "Flexible Installation Cable", accent: "text-[#ffb14a]" }
     ],
     specs: ["High Fire Resistance", "Low Smoke Emission", "Easy Installation", "Long Service Life"]
@@ -252,20 +147,10 @@ const APPLICATION_SELECTOR_ITEMS = [
     icon: infrastructureSelectorIcon,
     recommendation: "RECOMMENDED FOR INFRASTRUCTURE PROJECTS",
     products: [
-      { image: radZero, name: "RAD ZERO", description: "FRS Flame Retardant", accent: "text-[#ff5a36]" },
       { image: radFlex, name: "RAD FLEX", description: "Industrial Cable", accent: "text-[#ffb14a]" }
     ],
     specs: ["High Fire Resistance", "Low Smoke Emission", "High Conductivity", "Long Service Life"]
   }
-];
-
-const BOTTOM_FEATURES = [
-  { icon: featureAdvancedTechnologyIcon, alt: "Advanced technology",      label: "Advanced",    sub: "Technology"         },
-  { icon: featureQualityChecksIcon,      alt: "25+ quality checks",       label: "25+",         sub: "Quality Checks"     },
-  { icon: featurePowerPurityIcon,        alt: "99.97% power purity",      label: "99.97%",      sub: "Power Purity"       },
-  { icon: featureFireSafeIcon,           alt: "Fire safe & durable",      label: "Fire Safe",   sub: "& Durable"          },
-  { icon: featurePanIndiaIcon,           alt: "Pan India presence",       label: "Pan India",   sub: "Presence"           },
-  { icon: featureTrustedIcon,            alt: "Trusted by professionals", label: "Trusted by",  sub: "Professionals"      },
 ];
 
 export default function ApplicationsPage() {
@@ -345,11 +230,15 @@ export default function ApplicationsPage() {
                   </div>
                 </div>
 
-                {/* Center Circle */}
-                <div className="app-ecosystem__center relative z-20 w-40 h-40 rounded-full border-[3px] border-red-600 flex flex-col items-center justify-center bg-black shadow-[0_0_40px_rgba(224,25,33,0.8)]">
-                   <div className="w-36 h-36 rounded-full border-2 border-red-600/50 flex flex-col items-center justify-center absolute"></div>
-                   <div className="bg-red-600 text-white font-bold text-2xl px-3 py-1 leading-none tracking-widest mt-1">RAD</div>
-                   <div className="text-white font-bold text-xl tracking-widest mt-1">KABEL</div>
+                {/* Center Circle — real company logo */}
+                <div className="app-ecosystem__center relative z-20 w-40 h-40 rounded-full border-[3px] border-red-600 flex items-center justify-center bg-black shadow-[0_0_40px_rgba(224,25,33,0.8)] overflow-hidden">
+                   <div className="w-36 h-36 rounded-full border-2 border-red-600/50 absolute pointer-events-none" aria-hidden="true" />
+                   <img
+                     src={radKabelLogo}
+                     alt="RAD KABEL"
+                     className="relative z-10 w-[78%] h-auto object-contain select-none"
+                     draggable={false}
+                   />
                 </div>
 
                 {/* The 8 Nodes */}
@@ -576,9 +465,6 @@ export default function ApplicationsPage() {
         </div>
       </section>
 
-      {/* Projects Powered By RAD KABEL */}
-      <ProjectsPoweredSection />
-
       {/* Bottom CTA */}
       <section className="app-bottom-cta relative w-full overflow-hidden bg-black">
         {/* background image layer - full visibility, no overlays */}
@@ -626,30 +512,6 @@ export default function ApplicationsPage() {
                   CONTACT EXPERT <ArrowRight size={16} className="app-btn__icon" />
                 </Link>
               </div>
-            </div>
-          </div>
-
-          {/* bottom feature bar: 6 icons in a row - transparent bg to show background */}
-          <div className="app-bottom-cta__features px-5 py-8 sm:px-8 lg:px-14 lg:py-10">
-            <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6 lg:gap-x-8">
-              {BOTTOM_FEATURES.map((feature) => (
-                <div
-                  key={feature.label}
-                  className="app-bottom-cta__feature flex flex-col items-center text-center"
-                >
-                  <img
-                    src={feature.icon}
-                    alt={feature.alt}
-                    className="mb-3 h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:h-12 sm:w-12"
-                  />
-                  <div className="text-[13px] font-bold uppercase tracking-wide text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:text-sm">
-                    {feature.label}
-                  </div>
-                  <div className="mt-1 text-[11px] uppercase tracking-widest text-gray-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:text-xs">
-                    {feature.sub}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>

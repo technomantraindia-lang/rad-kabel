@@ -433,6 +433,21 @@
   gap: 1rem;
 }
 
+.cu-offices-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cu-offices-grid--single .cu-office-card {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
+  align-items: stretch;
+}
+
+.cu-offices-grid--single .cu-office-card img {
+  height: 100%;
+  min-height: 13rem;
+}
+
 .cu-office-card {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -500,15 +515,18 @@
   align-items: center;
   justify-content: center;
   min-height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.4rem;
+  background: #080808;
 }
 
-.cu-network__map img {
+.cu-network__map iframe {
   display: block;
-  width: min(100%, 42rem);
-  max-height: 36rem;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 24px rgba(226, 20, 26, 0.18));
+  width: 100%;
+  min-height: 22rem;
+  height: 100%;
+  border: 0;
 }
 
 .cu-form-panel__title {
@@ -592,6 +610,21 @@
   background: rgba(226, 20, 26, 0.08);
   color: #fff;
   line-height: 1.55;
+}
+
+.cu-form__error {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(224, 25, 33, 0.65);
+  border-radius: 0.3rem;
+  background: rgba(224, 25, 33, 0.12);
+  color: #ffb4b7;
+  line-height: 1.55;
+}
+
+.cu-form__submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
 }
 
 .cu-form__secure {
@@ -702,9 +735,8 @@
     height: 12rem;
   }
 
-  .cu-network__map img {
-    width: min(100%, 46rem);
-    max-height: 38rem;
+  .cu-network__map iframe {
+    min-height: 24rem;
   }
 }
 
@@ -777,6 +809,15 @@
 
   .cu-office-card img {
     height: 12rem;
+  }
+
+  .cu-offices-grid--single .cu-office-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cu-offices-grid--single .cu-office-card img {
+    height: 12rem;
+    min-height: 0;
   }
 
   .cu-cta__actions .cu-btn {

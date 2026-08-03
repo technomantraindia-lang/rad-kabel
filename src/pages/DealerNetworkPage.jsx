@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -38,6 +38,7 @@ import {
 } from "lucide-react";
 import "./DealerNetworkPage.css";
 import useDealerPageAnimations from "../hooks/useDealerPageAnimations.js";
+import { sendFormEmails } from "../lib/sendFormEmails.js";
 import { handleDownloadBrochure } from "../utils/downloadBrochure.js";
 
 import heroBg from "../assets/dealer-network/dealer-hero-bg.png";
@@ -45,7 +46,7 @@ import whoBgWholesalers from "../assets/dealer-network/who-bg-wholesalers.png";
 import whoBgRetailers from "../assets/dealer-network/who-bg-retailers.png";
 import whoBgSuppliers from "../assets/dealer-network/who-bg-suppliers.png";
 import whoBgDistributors from "../assets/dealer-network/who-bg-distributors.png";
-import mapIndia from "../assets/dealer-network/dealer-network-map.png";
+import mapIndia from "../assets/dealer-network/indian-map.png";
 import benefitsHandshake from "../assets/dealer-network/benefits-handshake.png";
 import supportLocator from "../assets/dealer-network/support-locator.png";
 import supportLogin from "../assets/dealer-network/support-login.png";
@@ -214,18 +215,175 @@ const emptyForm = {
   message: "",
 };
 
+const BUSINESS_TYPE_OPTIONS = [
+  "Wholesaler",
+  "Retailer",
+  "Distributor",
+  "Building Material Supplier",
+];
+
+const YEARS_OPTIONS = ["0–2 years", "2–5 years", "5–10 years", "10+ years"];
+
+const MONTHLY_OPTIONS = ["Under ₹2 Lakh", "₹2–5 Lakh", "₹5–10 Lakh", "Above ₹10 Lakh"];
+
+function DnSelect({
+  Icon,
+  value,
+  onChange,
+  placeholder,
+  options,
+  required = false,
+  className = "",
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onPointerDown = (e) => {
+      if (!rootRef.current?.contains(e.target)) setOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const label = value || placeholder;
+
+  return (
+    <div
+      ref={rootRef}
+      className={`dn-field dn-field--select ${className}`.trim()}
+      data-open={open ? "true" : "false"}
+    >
+      <Icon size={16} aria-hidden />
+      <button
+        type="button"
+        className={`dn-select__trigger${value ? "" : " dn-select__trigger--placeholder"}`}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+      >
+        {label}
+      </button>
+      <ChevronDown size={16} className="dn-field__chevron" aria-hidden />
+      {open ? (
+        <ul className="dn-select__menu" role="listbox" aria-label={placeholder.replace(/\*$/, "")}>
+          {options.map((option) => (
+            <li key={option} role="option" aria-selected={value === option}>
+              <button
+                type="button"
+                className={`dn-select__option${value === option ? " is-active" : ""}`}
+                onClick={() => {
+                  onChange(option);
+                  setOpen(false);
+                }}
+              >
+                {option}
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {/* Keep native select for form required validation / progressive enhancement */}
+      <select
+        className="dn-select__native"
+        required={required}
+        tabIndex={-1}
+        aria-hidden
+        value={value}
+        onChange={() => {}}
+      >
+        <option value="">{placeholder}</option>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 export default function DealerNetworkPage() {
   const pageRef = useRef(null);
   const [openFaq, setOpenFaq] = useState(null);
   const [storyIndex, setStoryIndex] = useState(0);
   const [form, setForm] = useState(emptyForm);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useDealerPageAnimations(pageRef);
 
-  const onField = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
+  const onField = (key) => (e) => {
+    setForm((f) => ({ ...f, [key]: e.target.value }));
+    if (status === "error" || status === "success") {
+      setStatus("idle");
+      setErrorMessage("");
+      setSuccessMessage("");
+    }
+  };
 
-  const onSubmit = (e) => {
+  const onSelectField = (key) => (value) => {
+    setForm((f) => ({ ...f, [key]: value }));
+    if (status === "error" || status === "success") {
+      setStatus("idle");
+      setErrorMessage("");
+      setSuccessMessage("");
+    }
+  };
+
+  const onSubmit = async (e) => {
     e.preventDefault();
+
+    if (!form.businessType || !form.years || !form.monthly) {
+      setStatus("error");
+      setErrorMessage("Please complete Business Type, Years in Business, and Monthly Purchase Requirement.");
+      return;
+    }
+
+    setStatus("sending");
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    try {
+      const result = await sendFormEmails({
+        formName: "Dealer Registration",
+        customerEmail: form.email,
+        customerName: form.fullName,
+        fields: {
+          "Full Name": form.fullName,
+          "Company / Shop Name": form.company,
+          City: form.city,
+          State: form.state,
+          "Mobile Number": form.phone,
+          "Email Address": form.email,
+          "Business Type": form.businessType,
+          "Years in Business": form.years,
+          "Monthly Purchase Requirement": form.monthly,
+          "Message / Additional Information": form.message || "—",
+        },
+      });
+      setStatus("success");
+      setSuccessMessage(
+        result?.delivery === "formsubmit"
+          ? "Thank you. Your dealer registration has been submitted successfully. We will contact you shortly."
+          : "Thank you. Your dealer registration has been received. We will contact you shortly."
+      );
+      setForm(emptyForm);
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err?.text || err?.message || "Unable to submit registration. Please try again."
+      );
+    }
   };
 
   const visibleStories = [
@@ -341,9 +499,6 @@ export default function DealerNetworkPage() {
                   decoding="async"
                   loading="eager"
                 />
-                <a href="#dealer-locator" className="dn-btn dn-btn--outline dn-network__cta">
-                  FIND DEALER NEAR YOU <MapPin size={15} aria-hidden />
-                </a>
               </div>
               <ul className="dn-network__states">
                 {STATES.map((state) => (
@@ -466,17 +621,11 @@ export default function DealerNetworkPage() {
                   img: supportLocator,
                   title: "DEALER LOCATOR",
                   desc: "Find the nearest authorized RAD KABEL dealer in your area.",
-                  cta: "LOCATE NOW",
-                  CtaIcon: MapPin,
-                  href: "/contact-us",
                 },
                 {
                   img: supportLogin,
                   title: "DEALER LOGIN",
                   desc: "Access price lists, brochures, invoices, offers and product updates.",
-                  cta: "LOGIN NOW",
-                  CtaIcon: User,
-                  href: "#dealer-registration",
                 },
                 {
                   img: supportSupport,
@@ -497,9 +646,11 @@ export default function DealerNetworkPage() {
                       <h3>{title}</h3>
                       <p>{desc}</p>
                     </div>
-                    <a href={href} className="dn-btn dn-btn--outline dn-support__btn">
-                      {cta} <CtaIcon size={14} aria-hidden />
-                    </a>
+                    {cta && CtaIcon && href ? (
+                      <a href={href} className="dn-btn dn-btn--outline dn-support__btn">
+                        {cta} <CtaIcon size={14} aria-hidden />
+                      </a>
+                    ) : null}
                   </div>
                 </article>
               ))}
@@ -570,44 +721,32 @@ export default function DealerNetworkPage() {
                   </label>
                 </div>
                 <div className="dn-form__row">
-                  <label className="dn-field dn-field--select">
-                    <Briefcase size={16} aria-hidden />
-                    <select
-                      required
-                      value={form.businessType}
-                      onChange={onField("businessType")}
-                    >
-                      <option value="">Business Type*</option>
-                      <option>Wholesaler</option>
-                      <option>Retailer</option>
-                      <option>Distributor</option>
-                      <option>Building Material Supplier</option>
-                    </select>
-                    <ChevronDown size={16} className="dn-field__chevron" aria-hidden />
-                  </label>
-                  <label className="dn-field dn-field--select">
-                    <Briefcase size={16} aria-hidden />
-                    <select required value={form.years} onChange={onField("years")}>
-                      <option value="">Years in Business*</option>
-                      <option>0–2 years</option>
-                      <option>2–5 years</option>
-                      <option>5–10 years</option>
-                      <option>10+ years</option>
-                    </select>
-                    <ChevronDown size={16} className="dn-field__chevron" aria-hidden />
-                  </label>
+                  <DnSelect
+                    Icon={Briefcase}
+                    required
+                    value={form.businessType}
+                    onChange={onSelectField("businessType")}
+                    placeholder="Business Type*"
+                    options={BUSINESS_TYPE_OPTIONS}
+                  />
+                  <DnSelect
+                    Icon={Briefcase}
+                    required
+                    value={form.years}
+                    onChange={onSelectField("years")}
+                    placeholder="Years in Business*"
+                    options={YEARS_OPTIONS}
+                  />
                 </div>
-                <label className="dn-field dn-field--select dn-field--full">
-                  <Building2 size={16} aria-hidden />
-                  <select required value={form.monthly} onChange={onField("monthly")}>
-                    <option value="">Monthly Purchase Requirement*</option>
-                    <option>Under ₹2 Lakh</option>
-                    <option>₹2–5 Lakh</option>
-                    <option>₹5–10 Lakh</option>
-                    <option>Above ₹10 Lakh</option>
-                  </select>
-                  <ChevronDown size={16} className="dn-field__chevron" aria-hidden />
-                </label>
+                <DnSelect
+                  Icon={Building2}
+                  required
+                  className="dn-field--full"
+                  value={form.monthly}
+                  onChange={onSelectField("monthly")}
+                  placeholder="Monthly Purchase Requirement*"
+                  options={MONTHLY_OPTIONS}
+                />
                 <label className="dn-field dn-field--full dn-field--textarea">
                   <MessageSquare size={16} aria-hidden />
                   <textarea
@@ -617,9 +756,24 @@ export default function DealerNetworkPage() {
                     onChange={onField("message")}
                   />
                 </label>
-                <button type="submit" className="dn-btn dn-btn--primary dn-form__submit">
-                  BECOME AN AUTHORIZED DEALER <ArrowRight size={16} aria-hidden />
+                <button
+                  type="submit"
+                  className="dn-btn dn-btn--primary dn-form__submit"
+                  disabled={status === "sending"}
+                >
+                  {status === "sending" ? "SUBMITTING…" : "BECOME AN AUTHORIZED DEALER"}{" "}
+                  <ArrowRight size={16} aria-hidden />
                 </button>
+                {status === "success" ? (
+                  <p className="dn-form__success" role="status">
+                    {successMessage}
+                  </p>
+                ) : null}
+                {status === "error" ? (
+                  <p className="dn-form__error" role="alert">
+                    {errorMessage}
+                  </p>
+                ) : null}
                 <p className="dn-form__secure">
                   <Lock size={14} aria-hidden />
                   Your information is secure and will not be shared.

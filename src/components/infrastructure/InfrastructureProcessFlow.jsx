@@ -1,8 +1,7 @@
 import { Fragment } from "react";
 import step1 from "../../assets/infrastructure/process/step-1-copper-rod.png";
 import step2 from "../../assets/infrastructure/process/step-2-wire-drawing.png";
-import step3 from "../../assets/infrastructure/process/step-3-annealing.png";
-import step4 from "../../assets/infrastructure/process/step-4-insulation.png";
+import step4 from "../../assets/ebeam-testing.png";
 import step5 from "../../assets/infrastructure/process/step-5-testing.png";
 import step6 from "../../assets/infrastructure/process/step-6-packaging.png";
 import step7 from "../../assets/infrastructure/process/step-7-dispatch.png";
@@ -10,11 +9,10 @@ import step7 from "../../assets/infrastructure/process/step-7-dispatch.png";
 const STEPS = [
   { num: "01", title: "Copper Rod", image: step1 },
   { num: "02", title: "Wire Drawing", image: step2 },
-  { num: "03", title: "Annealing", image: step3 },
-  { num: "04", title: "Insulation", image: step4 },
-  { num: "05", title: "Testing", image: step5 },
-  { num: "06", title: "Packaging", image: step6 },
-  { num: "07", title: "Dispatch", image: step7 },
+  { num: "03", title: "E-BEAM testing", image: step4 },
+  { num: "04", title: "Testing", image: step5 },
+  { num: "05", title: "Packaging", image: step6 },
+  { num: "06", title: "Dispatch", image: step7 },
 ];
 
 function FlowArrow() {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import factoryImage from "../assets/who-we-are-facility.png";
+import factoryImage from "../assets/factory-exterior.png";
 import "./ManufacturingExcellenceSection.css";
 
 const STATS = [
@@ -9,7 +9,7 @@ const STATS = [
   { value: "1000+", label: "Satisfied Customers" },
 ];
 
-const FACTORY_TOUR_VIDEO = "/videos/wq.mp4";
+const FACTORY_TOUR_VIDEO = "/videos/company-tour.MOV";
 
 export default function ManufacturingExcellenceSection() {
   const [videoOpen, setVideoOpen] = useState(false);

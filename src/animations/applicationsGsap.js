@@ -310,49 +310,6 @@ function setupRecommended(root, reducedMotion, moveY, stagger, dur) {
   });
 }
 
-function setupProjects(root, reducedMotion, moveX, dur, stagger) {
-  const section = q(root, ".app-projects");
-  if (!section) return;
-
-  const title = q(section, ".app-projects__title");
-  const arrows = qa(section, ".app-projects__arrow");
-  const cards = qa(section, ".app-projects__card");
-
-  if (reducedMotion) {
-    resetVisible([title, ...arrows, ...cards]);
-    return;
-  }
-
-  gsap.set(title, { opacity: 0, x: -moveX });
-  gsap.set(arrows, { opacity: 0, scale: 0.85 });
-  gsap.set(cards, { opacity: 0, x: moveX });
-
-  ScrollTrigger.create({
-    trigger: section,
-    start: ST_START,
-    once: true,
-    onEnter: () => {
-      gsap.to(title, { opacity: 1, x: 0, duration: dur, ease: EASE });
-      gsap.to(arrows, {
-        opacity: 1,
-        scale: 1,
-        duration: dur * 0.85,
-        stagger: 0.1,
-        ease: EASE,
-        delay: 0.1,
-      });
-      gsap.to(cards, {
-        opacity: 1,
-        x: 0,
-        duration: dur,
-        stagger,
-        ease: EASE,
-        delay: 0.15,
-      });
-    },
-  });
-}
-
 function setupBottomCTA(root, reducedMotion, moveX, moveY, stagger, dur) {
   const section = q(root, ".app-bottom-cta");
   if (!section) return;
@@ -518,7 +475,6 @@ export function initApplicationsAnimations(root) {
     setupDetailCards(root, reducedMotion, moveX, moveY, stagger, dur);
     setupCableFinder(root, reducedMotion, moveX, moveY, stagger, dur);
     setupRecommended(root, reducedMotion, moveY, stagger, dur);
-    setupProjects(root, reducedMotion, moveX, dur, stagger);
     setupBottomCTA(root, reducedMotion, moveX, moveY, stagger, dur);
     setupFooter(reducedMotion, moveY, stagger, dur);
 

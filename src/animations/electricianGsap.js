@@ -271,16 +271,15 @@ function setupRewards(root, reducedMotion, moveX, moveY, stagger, dur) {
   const intro = q(section, ".ep-rewards__intro");
   const title = q(intro, ".ep-rewards__title");
   const text = q(intro, "p");
-  const cta = q(intro, ".ep-rewards__cta");
   const cards = qa(section, ".ep-rewards__card");
   const dots = q(section, ".ep-rewards__dots");
 
   if (reducedMotion) {
-    resetVisible([title, text, cta, ...cards, dots]);
+    resetVisible([title, text, ...cards, dots]);
     return;
   }
 
-  gsap.set([title, text, cta], { opacity: 0, x: -moveX });
+  gsap.set([title, text], { opacity: 0, x: -moveX });
   gsap.set(cards, { opacity: 0, x: moveX });
   gsap.set(dots, { opacity: 0 });
 
@@ -291,7 +290,6 @@ function setupRewards(root, reducedMotion, moveX, moveY, stagger, dur) {
     onEnter: () => {
       gsap.to(title, { opacity: 1, x: 0, duration: dur, ease: EASE });
       gsap.to(text, { opacity: 1, x: 0, duration: dur, ease: EASE, delay: 0.08 });
-      gsap.to(cta, { opacity: 1, x: 0, duration: dur, ease: EASE, delay: 0.14 });
       gsap.to(cards, {
         opacity: 1,
         x: 0,

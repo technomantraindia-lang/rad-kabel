@@ -248,6 +248,7 @@
 }
 
 .rtp-pcard {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -261,6 +262,58 @@
     box-shadow 0.3s ease,
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     background 0.3s ease;
+}
+
+.rtp-pcard--coming-soon > *:not(.rtp-pcard__soon-badge) {
+  filter: blur(9px);
+  opacity: 0.3;
+  pointer-events: none;
+  user-select: none;
+}
+
+.rtp-pcard--coming-soon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at center, rgba(224, 25, 33, 0.14), transparent 48%),
+    rgba(0, 0, 0, 0.62);
+  pointer-events: none;
+}
+
+.rtp-pcard--coming-soon:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: #050505;
+  box-shadow: none;
+  transform: none;
+}
+
+.rtp-pcard__soon-badge {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(78%, 14rem);
+  padding: 0.95rem 1.35rem;
+  border: 1.5px solid rgba(224, 25, 33, 0.92);
+  border-radius: 999px;
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.12rem);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow:
+    0 0 24px rgba(224, 25, 33, 0.22),
+    0 16px 30px rgba(0, 0, 0, 0.42);
+  text-align: center;
 }
 
 .rtp-pcard:hover {
@@ -388,29 +441,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   text-align: center;
-  font-size: clamp(0.68rem, 0.85vw, 0.78rem);
+  font-size: clamp(0.7rem, 0.9vw, 0.8rem);
   font-weight: 600;
   line-height: 1.25;
   color: #fff;
 }
 
-.rtp-pcard__h-icon {
+.rtp-pcard__h-icon,
+.rtp-pcard__a-icon {
+  flex-shrink: 0;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.55rem;
-  height: 2.55rem;
+  width: 2.85rem;
+  height: 2.85rem;
+  aspect-ratio: 1;
   border: 1.5px solid rgba(255, 255, 255, 0.85);
   border-radius: 50%;
   color: #fff;
   background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
   transition:
     border-color 0.25s ease,
     color 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.25s ease;
+}
+
+.rtp-pcard__h-icon img,
+.rtp-pcard__a-icon img {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+  object-position: center;
 }
 
 .rtp-pcard__block {
@@ -462,8 +529,8 @@
 
 .rtp-pcard__apps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(4.2rem, 1fr));
-  gap: 0.55rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -473,29 +540,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
   text-align: center;
-  font-size: clamp(0.68rem, 0.85vw, 0.78rem);
+  font-size: clamp(0.7rem, 0.9vw, 0.8rem);
   font-weight: 600;
   line-height: 1.25;
   color: #fff;
-}
-
-.rtp-pcard__a-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.15rem;
-  height: 2.15rem;
-  border: 1.5px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.04);
-  transition:
-    border-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
 }
 
 .rtp-pcard__cta {
@@ -531,6 +581,17 @@
   transform: translateY(-2px);
   box-shadow: 0 0 18px rgba(224, 25, 33, 0.4);
   outline: none;
+}
+
+.rtp-pcard__cta--disabled,
+.rtp-pcard__cta--disabled:hover,
+.rtp-pcard__cta--disabled:focus-visible {
+  cursor: not-allowed;
+  background: rgba(224, 25, 33, 0.16);
+  color: #fff;
+  border-color: rgba(224, 25, 33, 0.55);
+  box-shadow: none;
+  transform: none;
 }
 
 /* Why Choose RAD Kabel — single line */
@@ -1113,6 +1174,23 @@
   .rtp-pcard__highlights {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
+  }
+
+  .rtp-pcard__apps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .rtp-pcard__h-icon,
+  .rtp-pcard__a-icon {
+    width: 3.1rem;
+    height: 3.1rem;
+  }
+
+  .rtp-pcard__h-icon img,
+  .rtp-pcard__a-icon img {
+    width: 1.65rem;
+    height: 1.65rem;
   }
 
   .rtp-pcard__highlights li,

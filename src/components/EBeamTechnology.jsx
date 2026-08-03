@@ -1,5 +1,4 @@
-import { ArrowRight, Check } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check } from "lucide-react";
 
 import withoutEbeamImg from "../assets/ebeam-without.png";
 import withEbeamImg from "../assets/with-e-beam.png";
@@ -89,8 +88,6 @@ function VsBadge() {
 export default function EBeamTechnology({
   sectionId = "technology",
   headingId = "ebeam-technology-heading",
-  showCta = true,
-  ctaHref = "/technology",
 }) {
   return (
     <section
@@ -119,25 +116,6 @@ export default function EBeamTechnology({
                   Our advanced Electron Beam technology creates a 3D cross-linked molecular structure that transforms
                   ordinary wires into fire safe, high-performance solutions.
                 </p>
-                {showCta ? (
-                  ctaHref.startsWith("/") && !ctaHref.startsWith("/#") ? (
-                    <Link
-                      to={ctaHref}
-                      className="mt-8 inline-flex w-fit items-center gap-2 rounded-md border border-[#e01921]/70 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white transition-all duration-300 ease-out focus-visible:outline-none sm:text-sm"
-                    >
-                      Explore Technology
-                      <ArrowRight className="size-4" aria-hidden />
-                    </Link>
-                  ) : (
-                    <a
-                      href={ctaHref}
-                      className="mt-8 inline-flex w-fit items-center gap-2 rounded-md border border-[#e01921]/70 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white transition-all duration-300 ease-out focus-visible:outline-none sm:text-sm"
-                    >
-                      Explore Technology
-                      <ArrowRight className="size-4" aria-hidden />
-                    </a>
-                  )
-                ) : null}
               </div>
 
               {/* Comparison area */}

@@ -8,11 +8,10 @@ export default function SafeWiringCTA() {
   return (
     <section className="bg-black font-sans">
       <div className="safe-wiring-cta__stage relative isolate w-full overflow-hidden border-y border-white/10 bg-black">
-        <div className="safe-wiring-cta__wire-glow pointer-events-none absolute inset-0 z-0" aria-hidden />
         <img
           src={ctaImg}
-          alt="RAD Kabel safe wiring hero visual"
-          className="safe-wiring-cta__wire-img pointer-events-none absolute inset-0 z-[1] h-full w-full object-cover object-[72%_center] sm:object-[78%_center] lg:object-[80%_center]"
+          alt=""
+          className="safe-wiring-cta__wire-img pointer-events-none absolute inset-0 z-[1] h-full w-full object-cover object-[78%_center] sm:object-[82%_center] lg:object-right"
           decoding="async"
           aria-hidden
         />

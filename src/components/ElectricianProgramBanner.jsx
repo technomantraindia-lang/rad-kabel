@@ -31,7 +31,7 @@ export default function ElectricianProgramBanner() {
                 Stable performance under every load condition.
               </p>
               <Link
-                to="/electrician-program"
+                to="/dealer-network"
                 className="mt-9 inline-block rounded-md border border-[#e01921] bg-[#e01921] px-10 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-white no-underline shadow-[0_8px_32px_rgba(224,25,33,0.35)] transition-all duration-300 hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#e01921] sm:mt-10 sm:px-12 sm:py-5 sm:text-base md:mt-12"
               >
                 Join RAD Partner Network

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ctaBackground from "../assets/about-cta-background.png";
+import ctaBackground from "../assets/about-us-cta-section.png";
 import "./AboutUsCTASection.css";
 
 const CTA_TITLE = "Let's Build Safer Connections Together";

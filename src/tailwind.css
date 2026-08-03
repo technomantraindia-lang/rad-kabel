@@ -216,99 +216,103 @@
   }
 
   .why-rad-feature-card {
-    @apply relative flex w-full min-w-0 flex-col items-center self-start rounded-2xl border border-[#d4af37]/55 bg-[#101010] p-3.5 text-center outline-none transition-all duration-300 xl:rounded-[1.125rem];
-    min-height: clamp(190px, 15vw, 240px);
+    @apply relative flex w-full min-w-0 flex-row items-start gap-3 self-stretch rounded-2xl border border-white/15 bg-[#101010] p-3.5 text-left outline-none transition-all duration-300 xl:rounded-[0.875rem] xl:gap-3.5 xl:p-4;
+    min-height: clamp(138px, 12.5vw, 182px);
     height: 100%;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(0, 0, 0, 0.72) 100%);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.05),
       0 8px 24px rgba(0, 0, 0, 0.55);
   }
 
-  .why-rad-card-heading {
-    width: 100%;
-    font-size: clamp(0.875rem, 1vw, 1.05rem);
-    line-height: 1.3;
-    color: #fff;
-    word-spacing: 0.04em;
+  .why-rad-icon-wrap {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    width: clamp(68px, 6.8vw, 88px);
+    height: clamp(68px, 6.8vw, 88px);
+    overflow: hidden;
   }
 
-  .why-rad-card-heading-short {
-    display: none;
+  .why-rad-icon-wrap .au-icon-ring {
+    position: absolute;
+    inset: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    pointer-events: none;
   }
 
-  .why-rad-card-heading-full {
+  .why-rad-icon-wrap .au-icon-ring__path {
+    fill: none;
+    stroke: #e01921;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.85;
+  }
+
+  .why-rad-card-icon {
     display: block;
-    overflow: visible;
-    white-space: normal;
-    line-height: 1.3;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    position: relative;
+    z-index: 1;
+    transform: scale(var(--icon-scale, 1));
+    transform-origin: center center;
+  }
+
+  .why-rad-card-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .why-rad-card-heading {
+    margin: 0;
+    width: 100%;
+    font-size: clamp(0.72rem, 0.9vw, 0.92rem);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #fff;
+    overflow-wrap: break-word;
   }
 
   .why-rad-card-desc {
-    @apply text-zinc-200;
+    margin: 0.4rem 0 0;
     display: block;
-    font-size: clamp(0.75rem, 0.9vw, 0.875rem);
+    font-size: clamp(0.78rem, 0.88vw, 0.9rem);
     line-height: 1.45;
     letter-spacing: 0.01em;
-    word-spacing: 0.05em;
-  }
-
-  .why-rad-feature-card:hover .why-rad-card-heading-short,
-  .why-rad-feature-card:focus-visible .why-rad-card-heading-short {
-    display: none;
-  }
-
-  .why-rad-feature-card:hover .why-rad-card-heading-full,
-  .why-rad-feature-card:focus-visible .why-rad-card-heading-full {
-    display: block;
-  }
-
-  .why-rad-feature-card:hover .why-rad-card-desc,
-  .why-rad-feature-card:focus-visible .why-rad-card-desc {
-    display: block;
-    overflow: visible;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-    -webkit-box-orient: unset;
+    color: rgba(255, 255, 255, 0.78);
+    overflow-wrap: break-word;
   }
 
   .why-rad-feature-card:hover,
   .why-rad-feature-card:focus-visible {
-    @apply z-10 border-2 border-[#e01921] bg-[#140a0a] px-4 py-4 sm:px-4 sm:py-5 xl:px-5 xl:py-6;
-    box-shadow:
-      0 0 28px rgba(224, 25, 33, 0.28),
-      inset 0 0 20px rgba(224, 25, 33, 0.06);
-  }
-
-  .why-rad-feature-card:hover .why-rad-icon-wrap,
-  .why-rad-feature-card:focus-visible .why-rad-icon-wrap {
-    margin-bottom: 0.85rem;
-  }
-
-  .why-rad-feature-card:hover .why-rad-card-desc,
-  .why-rad-feature-card:focus-visible .why-rad-card-desc {
-    margin-top: 0.65rem;
+    @apply z-10 border-[#e01921]/45;
+    transform: translateY(-4px);
+    background: linear-gradient(180deg, rgba(16, 7, 7, 0.96) 0%, rgba(0, 0, 0, 0.82) 100%);
+    box-shadow: 0 0 24px rgba(224, 25, 33, 0.12);
   }
 
   @media (min-width: 1280px) {
+    .why-rad-cards-desktop {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      row-gap: 1rem;
+    }
+
     .why-rad-cards-desktop .why-rad-card-heading {
-      font-size: clamp(1rem, 1.05vw, 1.25rem);
+      font-size: clamp(0.8rem, 0.95vw, 0.95rem);
     }
 
     .why-rad-cards-desktop .why-rad-card-desc {
-      font-size: clamp(0.9375rem, 0.95vw, 1.125rem);
-      line-height: 1.5;
-    }
-  }
-
-  .why-rad-section {
-    --why-rad-cable-w: min(50vw, 860px);
-    --why-rad-cable-h: min(70vh, 680px);
-  }
-
-  @media (min-width: 1280px) {
-    .why-rad-cards-desktop.grid-cols-6 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      row-gap: 1rem;
+      font-size: clamp(0.82rem, 0.9vw, 0.95rem);
+      line-height: 1.45;
     }
   }
 
@@ -317,6 +321,24 @@
       min-height: 0;
       height: auto;
     }
+
+    .why-rad-icon-wrap {
+      width: clamp(66px, 14vw, 84px);
+      height: clamp(66px, 14vw, 84px);
+    }
+
+    .why-rad-card-heading {
+      font-size: clamp(0.88rem, 1.15vw, 1rem);
+    }
+
+    .why-rad-card-desc {
+      font-size: clamp(0.86rem, 1vw, 0.95rem);
+    }
+  }
+
+  .why-rad-section {
+    --why-rad-cable-w: min(50vw, 860px);
+    --why-rad-cable-h: min(70vh, 680px);
   }
 
   .why-rad-cable-fixed {

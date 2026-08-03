@@ -288,7 +288,7 @@ function setupStats(root, reducedMotion, moveY, stagger, dur) {
 
   const panel = q(section, ".infra-stats__panel");
   const items = qa(section, ".infra-stats__item");
-  const icons = qa(section, ".infra-stats__icon");
+  const icons = qa(section, ".infra-stats__icon-wrap");
   const values = qa(section, ".infra-stats__value");
 
   if (reducedMotion) {

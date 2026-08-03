@@ -14,25 +14,23 @@ import {
 import "./ProductDetailsPage.css";
 import useProductDetailsPageAnimations from "../hooks/useProductDetailsPageAnimations.js";
 
-import productBanner from "../assets/product-page/product-banner.png";
-import zeroCables from "../assets/product-page/zero-cables.png";
+import zeroCables from "../assets/product-page/wire-single-so-make.png";
 import ctaSectionProduct from "../assets/product-page/cta-section-product.png";
-
-import {
-  IconStripConductivity,
-  IconStripFireResistant,
-  IconStripLongLife,
-  IconStripPremiumCopper,
-  IconStripThermal,
-} from "../components/ProductHeroFeatureIcons";
-import uniqueIconFire from "../assets/product-page/unique-feature-icons/high_fire_resistance.svg";
-import uniqueIconNoMelt from "../assets/product-page/unique-feature-icons/no_melt_no_drip.svg";
-import uniqueIconLowSmoke from "../assets/product-page/unique-feature-icons/low_smoke_emission.svg";
-import uniqueIconAntiRodent from "../assets/product-page/unique-feature-icons/anti_rodent_anti_termite.svg";
-import uniqueIconCopper from "../assets/product-page/unique-feature-icons/premium_copper.svg";
-import uniqueIconLongLife from "../assets/product-page/unique-feature-icons/long_service_life.svg";
-import uniqueIconSelfExtinguish from "../assets/product-page/unique-feature-icons/self_extinguishing.svg";
-import uniqueIconPowerEfficiency from "../assets/product-page/unique-feature-icons/better_power_efficiency.svg";
+import ebeamWithout from "../assets/ebeam-without.png";
+import ebeamWith from "../assets/with-e-beam.png";
+import stripFireResistant from "../assets/product-page/hero-strip-icons/fire-resistant.png";
+import stripThermal from "../assets/product-page/hero-strip-icons/thermal-stability.png";
+import stripLongLife from "../assets/product-page/hero-strip-icons/long-life.png";
+import stripPremiumCopper from "../assets/product-page/hero-strip-icons/premium-copper.png";
+import stripConductivity from "../assets/product-page/hero-strip-icons/high-conductivity.png";
+import uniqueIconFire from "../assets/product-page/unique-feature-icons/high-fire-resistance.png";
+import uniqueIconNoMelt from "../assets/product-page/unique-feature-icons/no-melt-no-drip.png";
+import uniqueIconLowSmoke from "../assets/product-page/unique-feature-icons/low-smoke-emission.png";
+import uniqueIconAntiRodent from "../assets/product-page/unique-feature-icons/anti-rodent-protection.png";
+import uniqueIconCopper from "../assets/product-page/unique-feature-icons/premium-copper.png";
+import uniqueIconLongLife from "../assets/product-page/unique-feature-icons/long-service-life.png";
+import uniqueIconSelfExtinguish from "../assets/product-page/unique-feature-icons/self-extinguishing.png";
+import uniqueIconPowerEfficiency from "../assets/product-page/unique-feature-icons/better-power-efficiency.png";
 
 import safetyImgHomes from "../assets/product-page/safety-matters/safety-1.png";
 import safetyImgHospitals from "../assets/product-page/safety-matters/safety-2.png";
@@ -48,55 +46,65 @@ import safetyIconHotels from "../assets/product-page/safety-matters/icons/hotels
 import safetyIconStadiums from "../assets/product-page/safety-matters/icons/stadiums.svg";
 import safetyIconCommercial from "../assets/product-page/safety-matters/icons/commercial_buildings.svg";
 
-import certIsi from "../assets/product-page/cert-dl-icons/isi_certified.svg";
-import certRohs from "../assets/product-page/cert-dl-icons/rohs_compliant.svg";
-import certReach from "../assets/product-page/cert-dl-icons/reach_compliant.svg";
+import certIsi from "../assets/certifications/isi-certified.svg";
+import certRohs from "../assets/certifications/rohs.png";
+import certReach from "../assets/certifications/reach.png";
 import certCe from "../assets/product-page/cert-dl-icons/ce_certified.svg";
-import certQuality from "../assets/product-page/cert-dl-icons/quality_tested.svg";
+import certQuality from "../assets/certifications/quality-tested.svg";
 import dlBrochure from "../assets/product-page/cert-dl-icons/product_brochure_pdf.svg";
 import dlDatasheet from "../assets/product-page/cert-dl-icons/technical_datasheet_pdf.svg";
 import dlInstall from "../assets/product-page/cert-dl-icons/installation_guide_pdf.svg";
 import dlCerts from "../assets/product-page/cert-dl-icons/certifications_pdf.svg";
 
-import relatedPower from "../assets/product-page/related/rad-power.png";
-import relatedFlex from "../assets/product-page/related/rad-flex.png";
 
-import whyIconFire from "../assets/product-page/rad-zero-icons/fire_protection.svg";
-import whyIconThermal from "../assets/product-page/rad-zero-icons/better_thermal_stability.svg";
-import whyIconConductivity from "../assets/product-page/rad-zero-icons/high_conductivity.svg";
-import whyIconLongLife from "../assets/product-page/rad-zero-icons/long_service_life.svg";
+import whyCardPremiumCopper from "../assets/product-page/why-rad-zero-cards/premium-copper.png";
+import whyCardQualityControl from "../assets/product-page/why-rad-zero-cards/quality-control.png";
+import whyCardManufacturing from "../assets/product-page/why-rad-zero-cards/manufacturing-excellence.png";
+import whyCardSafety from "../assets/product-page/why-rad-zero-cards/safety-focused.png";
+import whyCardPerformance from "../assets/product-page/why-rad-zero-cards/consistent-performance.png";
+import whyCardPartnerships from "../assets/product-page/why-rad-zero-cards/trusted-partnerships.png";
 import { handleDownloadBrochure } from "../utils/downloadBrochure";
 
 const BROCHURE_URL = "/brochure.pdf";
 
 const HERO_FEATURES = [
-  { Icon: IconStripFireResistant, label: "Fire Resistant" },
-  { Icon: IconStripThermal, label: "Better Thermal Stability" },
-  { Icon: IconStripLongLife, label: "Long Life" },
-  { Icon: IconStripPremiumCopper, label: "Premium Copper" },
-  { Icon: IconStripConductivity, label: "High Conductivity" },
+  { icon: stripFireResistant, label: "Fire Resistant" },
+  { icon: stripThermal, label: "Better Thermal Stability" },
+  { icon: stripLongLife, label: "Long Life" },
+  { icon: stripPremiumCopper, label: "Premium Copper" },
+  { icon: stripConductivity, label: "High Conductivity" },
 ];
 
 const WHY_RAD_ZERO = [
   {
-    icon: whyIconFire,
-    title: "Fire Protection",
-    desc: "Enhanced resistance against flame propagation for greater safety.",
+    icon: whyCardPremiumCopper,
+    title: "PREMIUM COPPER",
+    desc: "High-quality copper conductors for efficient and dependable power transmission.",
   },
   {
-    icon: whyIconThermal,
-    title: "Better Thermal Stability",
-    desc: "Insulation designed to withstand high temperatures without performance loss.",
+    icon: whyCardQualityControl,
+    title: "STRINGENT QUALITY CONTROL",
+    desc: "Multiple rigorous testing stages at every step to ensure lasting reliability.",
   },
   {
-    icon: whyIconConductivity,
-    title: "High Conductivity",
-    desc: "Premium electrolytic copper ensures efficient power transmission.",
+    icon: whyCardManufacturing,
+    title: "MANUFACTURING EXCELLENCE",
+    desc: "Precision-driven production systems built for consistent manufacturing quality.",
   },
   {
-    icon: whyIconLongLife,
-    title: "Long Service Life",
-    desc: "Engineered for long-lasting performance and peace of mind.",
+    icon: whyCardSafety,
+    title: "SAFETY FOCUSED",
+    desc: "Engineered and designed with uncompromising electrical safety at every stage.",
+  },
+  {
+    icon: whyCardPerformance,
+    title: "CONSISTENT PERFORMANCE",
+    desc: "Stable and dependable operation you can trust across every installation.",
+  },
+  {
+    icon: whyCardPartnerships,
+    title: "TRUSTED PARTNERSHIPS",
+    desc: "A growing network of trusted dealers and professional partners nationwide.",
   },
 ];
 
@@ -130,7 +138,7 @@ const SAFETY_PLACES = [
 const TECH_SPECS = [
   { icon: Zap, label: "Voltage Grade", value: "Up to and including 1100V" },
   { icon: Cable, label: "Conductor", value: "Electrolytic Copper" },
-  { icon: Layers, label: "Insulation", value: "Premium FR Grade" },
+  { icon: Layers, label: "Insulation", value: "ZHFR Grade" },
   {
     icon: Palette,
     label: "Colour Options",
@@ -158,58 +166,89 @@ const CAPACITY_ROWS = [
 
 const COMPARE_ROWS = [
   {
+    icon: uniqueIconFire,
     feature: "High Fire Resistance",
     rad: "High fire-resistance due to E-Beam cross-linked insulation.",
     competitor: "Standard PVC, lower fire resistance.",
   },
   {
+    icon: uniqueIconNoMelt,
     feature: "No Melt No Drip",
     rad: "Insulation does not melt or drip when exposed to flame.",
     competitor: "PVC insulation melts, drips, and can spread fire.",
   },
   {
+    icon: uniqueIconLowSmoke,
     feature: "Smoke Emission",
     rad: "Produces negligible, transparent, non-toxic smoke.",
     competitor: "Thick black toxic smoke common in PVC wires.",
   },
   {
+    icon: uniqueIconSelfExtinguish,
     feature: "Self Extinguishing",
     rad: "Insulation is self-extinguishing and flame-retardant.",
     competitor: "Many wires continue burning after ignition.",
   },
   {
+    icon: whyCardSafety,
     feature: "Safety for Fire Victims",
     rad: "Low smoke + non-toxicity reduces suffocation risk.",
     competitor: "High smoke + toxic gases create escape difficulty.",
   },
   {
+    icon: uniqueIconCopper,
     feature: "Copper Quality",
     rad: "100% electrolytic copper with high conductivity.",
     competitor: "Often mixed or lower grade copper causing conductivity.",
   },
   {
+    icon: uniqueIconPowerEfficiency,
     feature: "Power Savings",
     rad: "Higher conductivity = lower power loss = energy saving.",
     competitor: "Higher resistivity = more power loss and heating.",
   },
   {
+    icon: uniqueIconLongLife,
     feature: "Service Life",
     rad: "Extended life due to E-Beam cross-linking.",
     competitor: "Shorter lifespan due to PVC degradation over years.",
   },
   {
+    icon: stripThermal,
     feature: "Thermal Stability",
     rad: "Stable under high temperatures without degradation.",
     competitor: "PVC softens and deteriorates under heat.",
   },
 ];
 
+const EBEAM_COMPARE = {
+  kicker: "THE SCIENCE OF SAFETY",
+  title: "E-BEAM TECHNOLOGY",
+  desc:
+    "Our advanced Electron Beam technology creates a 3D cross-linked molecular structure that transforms ordinary wires into fire safe, high-performance solutions.",
+  without: {
+    title: "WITHOUT E-BEAM",
+    image: ebeamWithout,
+    points: ["Weak molecular bonding", "Low heat resistance", "Higher fire risk"],
+  },
+  with: {
+    title: "WITH E-BEAM",
+    image: ebeamWith,
+    points: [
+      "Stronger molecular bonding",
+      "Higher heat resistance",
+      "Zero smoke & zero fire",
+      "Maximum safety",
+    ],
+  },
+};
+
 const CERTIFICATIONS = [
-  { icon: certIsi, line1: "ISI", line2: "Certified" },
-  { icon: certRohs, line1: "RoHS", line2: "Compliant" },
-  { icon: certReach, line1: "REACH", line2: "Compliant" },
-  { icon: certCe, line1: "CE", line2: "Certified" },
-  { icon: certQuality, line1: "Quality", line2: "Tested" },
+  { icon: certIsi, line1: "ISI", line2: "Certified", alt: "ISI certification mark" },
+  { icon: certRohs, line1: "RoHS", line2: "Compliant", alt: "RoHS compliance mark" },
+  { icon: certReach, line1: "REACH", line2: "Compliant", alt: "REACH compliance mark" },
+  { icon: certCe, line1: "CE", line2: "Certified", alt: "CE conformity mark" },
+  { icon: certQuality, line1: "Quality", line2: "Tested", alt: "Quality tested mark" },
 ];
 
 const DOWNLOADS = [
@@ -219,31 +258,16 @@ const DOWNLOADS = [
   { icon: dlCerts, line1: "Certifications", line2: "" },
 ];
 
-const RELATED = [
-  {
-    image: relatedPower,
-    suffix: "POWER",
-    subtitle: "Premium House Wire",
-    href: "/products",
-  },
-  {
-    image: relatedFlex,
-    suffix: "FLEX",
-    subtitle: "Industrial Flexible Cable",
-    href: "/products",
-  },
-];
-
 function CompareYes() {
   return (
-    <span className="pp-compare__mark pp-compare__mark--yes" aria-hidden>
-      <svg viewBox="0 0 24 24" width="22" height="22">
-        <circle cx="12" cy="12" r="11" fill="currentColor" />
+    <span className="pp-compare-table__mark pp-compare-table__mark--yes" aria-hidden>
+      <svg viewBox="0 0 24 24" width="18" height="18">
+        <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="2" />
         <path
-          d="M7.4 12.1 L10.4 15.1 L16.7 8.7"
+          d="M7.2 12.2 10.3 15.2 16.8 8.8"
           fill="none"
-          stroke="#fff"
-          strokeWidth="2"
+          stroke="currentColor"
+          strokeWidth="2.2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -254,14 +278,14 @@ function CompareYes() {
 
 function CompareNo() {
   return (
-    <span className="pp-compare__mark pp-compare__mark--no" aria-hidden>
-      <svg viewBox="0 0 24 24" width="22" height="22">
-        <circle cx="12" cy="12" r="11" fill="currentColor" />
+    <span className="pp-compare-table__mark pp-compare-table__mark--no" aria-hidden>
+      <svg viewBox="0 0 24 24" width="18" height="18">
+        <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="2" />
         <path
-          d="M9.1 9.1 L14.9 14.9 M14.9 9.1 L9.1 14.9"
+          d="M8.5 8.5 15.5 15.5 M15.5 8.5 8.5 15.5"
           fill="none"
-          stroke="#fff"
-          strokeWidth="2"
+          stroke="currentColor"
+          strokeWidth="2.1"
           strokeLinecap="round"
         />
       </svg>
@@ -333,7 +357,15 @@ export default function ProductDetailsPage() {
       {/* Hero */}
       <section className="pp-hero" aria-labelledby="pp-hero-heading">
         <div className="pp-hero__bg" aria-hidden>
-          <img src={productBanner} alt="" decoding="async" fetchPriority="high" />
+          <video
+            className="pp-hero__bg-video"
+            src="/videos/ebeam-banner-section.mp4?v=20260803-1340"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          />
         </div>
         <div className="pp-hero__shade" aria-hidden />
 
@@ -368,10 +400,10 @@ export default function ProductDetailsPage() {
 
         <div className="pp-hero__strip">
           <ul className="pp-hero__strip-list">
-            {HERO_FEATURES.map(({ Icon, label }) => (
+            {HERO_FEATURES.map(({ icon, label }) => (
               <li key={label} className="pp-hero__strip-item">
                 <span className="pp-hero__strip-icon">
-                  <Icon />
+                  <img src={icon} alt="" className="pp-hero__strip-img" loading="lazy" decoding="async" />
                 </span>
                 <span className="pp-hero__strip-label">{label}</span>
               </li>
@@ -392,11 +424,74 @@ export default function ProductDetailsPage() {
                 <div className="pp-why__icon">
                   <img src={icon} alt="" decoding="async" loading="lazy" />
                 </div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
+                <div className="pp-why__content">
+                  <h3>{title}</h3>
+                  <p>{desc}</p>
+                </div>
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="pp-ebeam-section" aria-labelledby="pp-ebeam-heading">
+        <div className="pp-container">
+          <h2 id="pp-ebeam-heading" className="pp-sr-only">
+            E-Beam technology comparison
+          </h2>
+          <div className="pp-datasheet__panel">
+            <div className="pp-datasheet__compare">
+              <div className="pp-ebeam">
+                <div className="pp-ebeam__intro">
+                  <p className="pp-ebeam__kicker">{EBEAM_COMPARE.kicker}</p>
+                  <h3 className="pp-ebeam__title">{EBEAM_COMPARE.title}</h3>
+                  <p className="pp-ebeam__desc">{EBEAM_COMPARE.desc}</p>
+                </div>
+
+                <div className="pp-ebeam__compare">
+                  <div className="pp-ebeam__panel">
+                    <p className="pp-ebeam__panel-title">{EBEAM_COMPARE.without.title}</p>
+                    <div className="pp-ebeam__image-frame">
+                      <img
+                        src={EBEAM_COMPARE.without.image}
+                        alt="Molecular structure without E-Beam treatment"
+                        className="pp-ebeam__image"
+                        decoding="async"
+                        loading="lazy"
+                      />
+                    </div>
+                    <ul className="pp-ebeam__points">
+                      {EBEAM_COMPARE.without.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pp-ebeam__vs" aria-hidden>
+                    VS
+                  </div>
+
+                  <div className="pp-ebeam__panel">
+                    <p className="pp-ebeam__panel-title">{EBEAM_COMPARE.with.title}</p>
+                    <div className="pp-ebeam__image-frame">
+                      <img
+                        src={EBEAM_COMPARE.with.image}
+                        alt="Cross-linked molecular structure with E-Beam treatment"
+                        className="pp-ebeam__image"
+                        decoding="async"
+                        loading="lazy"
+                      />
+                    </div>
+                    <ul className="pp-ebeam__points pp-ebeam__points--accent">
+                      {EBEAM_COMPARE.with.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -406,7 +501,7 @@ export default function ProductDetailsPage() {
           <div className="pp-features__visual-wrap">
             <img
               src={zeroCables}
-              alt="RAD ZERO multi-core copper cables"
+              alt="RAD ZERO single cable"
               className="pp-features__visual"
               decoding="async"
               loading="lazy"
@@ -568,37 +663,59 @@ export default function ProductDetailsPage() {
             </div>
 
             <div className="pp-datasheet__compare">
-              <h3 className="pp-datasheet__compare-title">
-                Comparison, Why <span className="pp-accent">RAD KABEL</span> Is a Better Choice?
-              </h3>
-              <table className="pp-datasheet__table pp-compare__table">
-                <thead>
-                  <tr>
-                    <th>Features</th>
-                    <th className="pp-compare__head-rad">RAD ZERO (E-BEAM)</th>
-                    <th className="pp-compare__head-other">Other Competitors</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {COMPARE_ROWS.map(({ feature, rad, competitor }) => (
-                    <tr key={feature}>
-                      <td className="pp-compare__feature">{feature}</td>
-                      <td>
-                        <div className="pp-compare__cell">
-                          <CompareYes />
-                          <span>{rad}</span>
-                        </div>
-                      </td>
-                      <td>
-                        <div className="pp-compare__cell">
-                          <CompareNo />
-                          <span>{competitor}</span>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <div className="pp-compare-table">
+                <h3 className="pp-compare-table__title">
+                  COMPARISON, <span className="pp-accent">WHY RAD KABEL</span> IS A BETTER CHOICE?
+                </h3>
+
+                <div className="pp-compare-table__frame">
+                  <table className="pp-compare-table__table">
+                    <thead>
+                      <tr>
+                        <th className="pp-compare-table__head pp-compare-table__head--feature">
+                          FEATURES
+                        </th>
+                        <th className="pp-compare-table__head pp-compare-table__head--rad">
+                          <span className="pp-compare-table__head-inner">
+                            <CompareYes />
+                            <span>RAD ZERO (E-BEAM)</span>
+                          </span>
+                        </th>
+                        <th className="pp-compare-table__head pp-compare-table__head--other">
+                          <span className="pp-compare-table__head-inner">
+                            <CompareNo />
+                            <span>OTHER COMPETITORS</span>
+                          </span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {COMPARE_ROWS.map(({ icon, feature, rad, competitor }) => (
+                        <tr key={feature}>
+                          <td className="pp-compare-table__feature">
+                            <span className="pp-compare-table__feature-icon">
+                              <img src={icon} alt="" decoding="async" loading="lazy" />
+                            </span>
+                            <span className="pp-compare-table__feature-text">{feature}</span>
+                          </td>
+                          <td className="pp-compare-table__value">
+                            <div className="pp-compare-table__value-inner">
+                              <CompareYes />
+                              <span>{rad}</span>
+                            </div>
+                          </td>
+                          <td className="pp-compare-table__value">
+                            <div className="pp-compare-table__value-inner">
+                              <CompareNo />
+                              <span>{competitor}</span>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -610,10 +727,10 @@ export default function ProductDetailsPage() {
           <div className="pp-cert-dl__panel">
             <h2 className="pp-cert-dl__heading">Certifications</h2>
             <ul className="pp-cert__list">
-              {CERTIFICATIONS.map(({ icon, line1, line2 }) => (
+              {CERTIFICATIONS.map(({ icon, line1, line2, alt }) => (
                 <li key={`${line1}-${line2}`} className="pp-cert__item">
                   <span className="pp-cert__icon">
-                    <img src={icon} alt="" decoding="async" loading="lazy" />
+                    <img src={icon} alt={alt} decoding="async" loading="lazy" />
                   </span>
                   <span className="pp-cert__label">
                     <span className="pp-cert__label-line">{line1}</span>
@@ -681,32 +798,6 @@ export default function ProductDetailsPage() {
         </div>
       </section>
 
-      {/* Related Products */}
-      <section className="pp-related" aria-labelledby="pp-related-heading">
-        <div className="pp-container">
-          <h2 id="pp-related-heading" className="pp-related__title">
-            <span className="pp-accent">R</span>ELATED PRODUCTS
-          </h2>
-          <ul className="pp-related__grid">
-            {RELATED.map(({ image, suffix, subtitle, href }) => (
-              <li key={suffix} className="pp-related__card">
-                <div className="pp-related__image">
-                  <img src={image} alt={`RAD ${suffix}`} decoding="async" loading="lazy" />
-                </div>
-                <div className="pp-related__body">
-                  <h3 className="pp-related__name">
-                    R<span className="pp-accent">AD</span> {suffix}
-                  </h3>
-                  <p className="pp-related__subtitle">{subtitle}</p>
-                  <Link to={href} className="pp-related__link">
-                    View Product <ArrowRight size={14} aria-hidden />
-                  </Link>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
     </main>
   );
 }

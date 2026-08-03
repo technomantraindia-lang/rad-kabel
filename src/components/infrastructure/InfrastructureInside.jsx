@@ -1,23 +1,23 @@
-import imgFloor from "../../assets/infrastructure/inside/manufacturing-floor.png";
-import imgLines from "../../assets/infrastructure/inside/production-lines.png";
-import imgLab from "../../assets/infrastructure/inside/quality-control-lab.png";
-import imgPackaging from "../../assets/infrastructure/inside/packaging-unit.png";
-import imgDispatch from "../../assets/infrastructure/inside/dispatch-area.png";
-import imgAdmin from "../../assets/infrastructure/inside/administration.png";
-import iconFloor from "../../assets/infrastructure/inside-icons/manufacturing-floor.svg";
-import iconLines from "../../assets/infrastructure/inside-icons/production-lines.svg";
-import iconLab from "../../assets/infrastructure/inside-icons/quality-control-lab.svg";
-import iconPackaging from "../../assets/infrastructure/inside-icons/packaging-unit.svg";
-import iconDispatch from "../../assets/infrastructure/inside-icons/dispatch-area.svg";
-import iconAdmin from "../../assets/infrastructure/inside-icons/administration.svg";
+import imgFloor from "../../assets/infrastructure/inside/manufacturing-floor-new.jpeg";
+import imgLines from "../../assets/infrastructure/inside/production-lines-new.jpeg";
+import imgLab from "../../assets/infrastructure/inside/quality-control-lab-new.jpeg";
+import imgPackaging from "../../assets/infrastructure/inside/packaging-unit-new.png";
+import imgDispatch from "../../assets/infrastructure/inside/dispatch-area-new.png";
+import imgAdmin from "../../assets/infrastructure/inside/administration-new.jpeg";
+import iconFloor from "../../assets/infrastructure/inside-icons/manufacturing-floor.png";
+import iconLines from "../../assets/infrastructure/inside-icons/production-lines.png";
+import iconLab from "../../assets/infrastructure/inside-icons/quality-control-lab.png";
+import iconPackaging from "../../assets/infrastructure/inside-icons/packaging-unit.png";
+import iconDispatch from "../../assets/infrastructure/inside-icons/dispatch-area.png";
+import iconAdmin from "../../assets/infrastructure/inside-icons/administration.png";
 
 const ITEMS = [
-  { label: "Manufacturing Floor", image: imgFloor, icon: iconFloor },
-  { label: "Production Lines", image: imgLines, icon: iconLines },
-  { label: "Quality Control Lab", image: imgLab, icon: iconLab },
-  { label: "Packaging Unit", image: imgPackaging, icon: iconPackaging },
-  { label: "Dispatch Area", image: imgDispatch, icon: iconDispatch },
-  { label: "Administration", image: imgAdmin, icon: iconAdmin },
+  { label: "Manufacturing Floor", image: imgFloor, icon: iconFloor, iconScale: 0.85 },
+  { label: "Production Lines", image: imgLines, icon: iconLines, iconScale: 0.82 },
+  { label: "Quality Control Lab", image: imgLab, icon: iconLab, iconScale: 0.92 },
+  { label: "Packaging Unit", image: imgPackaging, icon: iconPackaging, iconScale: 0.8 },
+  { label: "Dispatch Area", image: imgDispatch, icon: iconDispatch, iconScale: 0.9 },
+  { label: "Administration", image: imgAdmin, icon: iconAdmin, iconScale: 0.8 },
 ];
 
 export default function InfrastructureInside() {
@@ -31,13 +31,19 @@ export default function InfrastructureInside() {
         </header>
 
         <ul className="infra-inside__grid">
-          {ITEMS.map(({ label, image, icon }) => (
+          {ITEMS.map(({ label, image, icon, iconScale = 1 }) => (
             <li key={label} className="infra-inside__card">
               <img src={image} alt="" className="infra-inside__bg" decoding="async" loading="lazy" aria-hidden />
               <div className="infra-inside__overlay" aria-hidden />
               <div className="infra-inside__content">
                 <span className="infra-inside__icon-wrap" aria-hidden>
-                  <img src={icon} alt="" className="infra-inside__icon" decoding="async" />
+                  <img
+                    src={icon}
+                    alt=""
+                    className="infra-inside__icon"
+                    style={{ "--icon-scale": iconScale }}
+                    decoding="async"
+                  />
                 </span>
                 <span className="infra-inside__label">{label}</span>
               </div>

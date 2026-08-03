@@ -131,8 +131,6 @@ function setupHero(root, isMobile, reducedMotion) {
   const desc = q(section, ".about-us-hero__desc");
   const actions = q(section, ".about-us-hero__actions");
   const features = qa(section, ".about-us-hero__feature");
-  const featureRings = qa(section, ".au-icon-ring__path");
-  const featurePulses = qa(section, ".au-icon-pulse");
 
   setupButtonShine(".about-us-hero__btn");
 
@@ -148,8 +146,6 @@ function setupHero(root, isMobile, reducedMotion) {
   gsap.set(divider, { scaleX: 0, transformOrigin: "left center" });
   gsap.set(actions, { y: 28 });
   gsap.set(features, { opacity: 0, y: 24 });
-  gsap.set(featureRings, { strokeDashoffset: (i, el) => el.getTotalLength?.() ?? 160 });
-  gsap.set(featurePulses, { scale: 0.6, opacity: 0 });
 
   const loadTl = gsap.timeline({ defaults: { ease: EASE_EXPO } });
   loadTl
@@ -193,19 +189,6 @@ function setupHero(root, isMobile, reducedMotion) {
         opacity: 1,
         y: 0,
         duration: 0.75,
-        stagger: 0.12,
-        ease: EASE_OUT,
-      });
-      gsap.to(featurePulses, {
-        scale: 1,
-        opacity: 0.35,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: EASE_OUT,
-      });
-      gsap.to(featureRings, {
-        strokeDashoffset: 0,
-        duration: 1,
         stagger: 0.12,
         ease: EASE_OUT,
       });
@@ -450,7 +433,6 @@ function setupValues(root, reducedMotion) {
 
   const header = q(section, ".our-values__header");
   const cards = qa(section, ".our-values__card");
-  const rings = qa(section, ".our-values__card .au-icon-ring__path");
 
   if (reducedMotion) return;
 
@@ -458,7 +440,6 @@ function setupValues(root, reducedMotion) {
   gsap.set(cards, { opacity: 0, y: 36 });
   gsap.set(qa(section, ".our-values__card-icon"), { opacity: 0, scale: 0.85 });
   gsap.set(qa(section, ".our-values__card-copy"), { opacity: 0, y: 12 });
-  gsap.set(rings, { strokeDashoffset: (i, el) => el.getTotalLength?.() ?? 160 });
 
   gsap.to(header, {
     opacity: 1,
@@ -468,10 +449,9 @@ function setupValues(root, reducedMotion) {
     scrollTrigger: { trigger: section, start: "top 78%", once: true },
   });
 
-  cards.forEach((card, index) => {
+  cards.forEach((card) => {
     const icon = q(card, ".our-values__card-icon");
     const copy = q(card, ".our-values__card-copy");
-    const ring = rings[index];
 
     ScrollTrigger.create({
       trigger: card,
@@ -479,7 +459,6 @@ function setupValues(root, reducedMotion) {
       once: true,
       onEnter: () => {
         gsap.to(card, { opacity: 1, y: 0, duration: 0.75, ease: EASE_OUT });
-        gsap.to(ring, { strokeDashoffset: 0, duration: 0.95, ease: EASE_OUT });
         gsap.to(icon, { opacity: 1, scale: 1, duration: 0.65, delay: 0.08, ease: EASE_OUT });
         gsap.to(copy, { opacity: 1, y: 0, duration: 0.65, delay: 0.2, ease: EASE_OUT });
       },

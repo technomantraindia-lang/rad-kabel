@@ -210,7 +210,7 @@ export default function Header() {
               </a>
 
               <Link
-                to="/electrician-program"
+                to="/dealer-network"
                 onClick={() => setMobileOpen(false)}
                 className="au-header-cta inline-flex w-full shrink-0 items-center justify-center gap-2.5 rounded-md border border-white/80 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-[#e01921] hover:bg-[#e01921] sm:w-auto lg:px-6 lg:py-3 lg:text-[12px]"
               >
@@ -318,7 +318,7 @@ export default function Header() {
               </a>
 
               <Link
-                to="/electrician-program"
+                to="/dealer-network"
                 onClick={() => setMobileOpen(false)}
                 className="au-header-cta inline-flex w-full items-center justify-center gap-2.5 rounded-md border border-white/80 bg-transparent px-4 py-3 text-[11px] font-bold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-[#e01921] hover:bg-[#e01921]"
               >

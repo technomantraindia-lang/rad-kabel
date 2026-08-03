@@ -49,31 +49,23 @@ const MILESTONES = [
   },
 ];
 
-function JourneyArrow({ flip = false, index }) {
-  const markerId = `journey-arrow-${index}`;
-  const path = flip
-    ? "M 6 30 C 34 6, 66 54, 94 30"
-    : "M 6 30 C 34 54, 66 6, 94 30";
+function JourneyArrow({ flip = false }) {
+  /* Curve ends just before the tip so the filled head stays crisp */
+  const curve = flip
+    ? "M 4 30 C 30 8, 58 52, 78 30"
+    : "M 4 30 C 30 52, 58 8, 78 30";
 
   return (
-    <svg className="our-journey__arrow" viewBox="0 0 100 60" aria-hidden>
-      <defs>
-        <marker
-          id={markerId}
-          markerWidth="10"
-          markerHeight="10"
-          refX="9"
-          refY="5"
-          orient="auto"
-          markerUnits="userSpaceOnUse"
-        >
-          <path d="M0 0 L10 5 L0 10 Z" fill="#e01921" />
-        </marker>
-      </defs>
+    <svg
+      className="our-journey__arrow"
+      viewBox="0 0 100 60"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden
+    >
+      <path className="our-journey__arrow-path" d={curve} />
       <path
-        className="our-journey__arrow-path"
-        d={path}
-        markerEnd={`url(#${markerId})`}
+        className="our-journey__arrow-head"
+        d="M 78 23 L 94 30 L 78 37 Z"
       />
     </svg>
   );
@@ -115,7 +107,7 @@ export default function OurJourneySection() {
 
                 {index < MILESTONES.length - 1 && (
                   <div className="our-journey__connector" aria-hidden>
-                    <JourneyArrow flip={index % 2 === 1} index={index} />
+                    <JourneyArrow flip={index % 2 === 1} />
                   </div>
                 )}
               </div>

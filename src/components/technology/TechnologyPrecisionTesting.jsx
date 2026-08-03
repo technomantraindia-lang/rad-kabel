@@ -1,9 +1,9 @@
-import iconConductor from "../../assets/precision-testing-icons/01_conductor_resistance_test.svg";
-import iconSpark from "../../assets/precision-testing-icons/02_spark_test.svg";
-import iconHighVoltage from "../../assets/precision-testing-icons/03_high_voltage_test.svg";
-import iconInsulation from "../../assets/precision-testing-icons/04_insulation_test.svg";
-import iconHeat from "../../assets/precision-testing-icons/05_heat_resistance_test.svg";
-import iconMechanical from "../../assets/precision-testing-icons/06_mechanical_strength_test.svg";
+import iconConductor from "../../assets/precision-testing-icons/conductor-resistance.png";
+import iconSpark from "../../assets/precision-testing-icons/spark-test.png";
+import iconHighVoltage from "../../assets/precision-testing-icons/high-voltage.png";
+import iconInsulation from "../../assets/precision-testing-icons/insulation.png";
+import iconHeat from "../../assets/precision-testing-icons/heat-resistance.png";
+import iconMechanical from "../../assets/precision-testing-icons/mechanical-strength.png";
 import panelConductor from "../../assets/precision-testing-panels/panel-1-conductor-resistance.png";
 import panelSpark from "../../assets/precision-testing-panels/panel-2-spark-test.png";
 import panelHighVoltage from "../../assets/precision-testing-panels/panel-3-high-voltage.png";
@@ -18,6 +18,7 @@ const TESTS = [
     image: panelConductor,
     icon: iconConductor,
     alt: "Conductor resistance testing equipment",
+    iconScale: 1.05,
   },
   {
     title: "Spark Test",
@@ -25,6 +26,7 @@ const TESTS = [
     image: panelSpark,
     icon: iconSpark,
     alt: "Spark testing on cable insulation",
+    iconScale: 0.82,
   },
   {
     title: "High Voltage Test",
@@ -32,6 +34,7 @@ const TESTS = [
     image: panelHighVoltage,
     icon: iconHighVoltage,
     alt: "High voltage withstand test",
+    iconScale: 0.78,
   },
   {
     title: "Insulation Test",
@@ -39,6 +42,7 @@ const TESTS = [
     image: panelInsulation,
     icon: iconInsulation,
     alt: "Insulation quality testing",
+    iconScale: 1.08,
   },
   {
     title: "Heat Resistance Test",
@@ -46,6 +50,7 @@ const TESTS = [
     image: panelHeat,
     icon: iconHeat,
     alt: "Heat resistance testing chamber",
+    iconScale: 1.22,
   },
   {
     title: "Mechanical Strength Test",
@@ -53,6 +58,7 @@ const TESTS = [
     image: panelMechanical,
     icon: iconMechanical,
     alt: "Mechanical strength testing rig",
+    iconScale: 1.18,
   },
 ];
 
@@ -67,13 +73,22 @@ export default function TechnologyPrecisionTesting() {
         </header>
 
         <ul className="tech-testing__grid">
-          {TESTS.map(({ title, description, image, icon, alt }) => (
+          {TESTS.map(({ title, description, image, icon, alt, iconScale = 1 }) => (
             <li key={title} className="tech-testing__card">
               <div className="tech-testing__media">
                 <img src={image} alt={alt} decoding="async" loading="lazy" />
               </div>
               <div className="tech-testing__meta">
-                <img src={icon} alt="" className="tech-testing__icon" aria-hidden decoding="async" />
+                <span className="tech-testing__icon-wrap">
+                  <img
+                    src={icon}
+                    alt=""
+                    className="tech-testing__icon"
+                    style={{ "--icon-scale": iconScale }}
+                    aria-hidden
+                    decoding="async"
+                  />
+                </span>
                 <h3 className="tech-testing__title">{title}</h3>
               </div>
               <p className="tech-testing__desc">

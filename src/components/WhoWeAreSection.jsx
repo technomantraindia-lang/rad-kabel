@@ -3,7 +3,7 @@ import iconRawMaterials from "../assets/about-icons/who-raw-materials.png";
 import iconQualityControl from "../assets/about-icons/who-quality-control.png";
 import iconPanIndia from "../assets/about-icons/who-pan-india.png";
 import iconCustomerFocused from "../assets/about-icons/who-customer-focused.png";
-import whoWeAreFacility from "../assets/who-we-are-facility.png";
+import whoWeAreFacility from "../assets/factory-exterior.png";
 import "./WhoWeAreSection.css";
 
 const HIGHLIGHTS = [
@@ -56,17 +56,12 @@ export default function WhoWeAreSection() {
           </h2>
           <div className="who-we-are__body">
             <p>
-              RAD Kabel is a modern wire and cable manufacturing company committed to delivering
-              high-performance electrical solutions built around safety, reliability and innovation.
-            </p>
-            <p>
-              Driven by advanced manufacturing practices and stringent quality standards, we develop
-              products designed to meet the evolving demands of homes, commercial spaces, industries
-              and infrastructure projects.
-            </p>
-            <p>
-              Every meter of RAD Kabel represents our commitment to quality, performance and
-              long-term trust.
+              RAD Kabel state of the art plant infrastructure situated in Haridwar and designed to
+              deliver consistent quality, efficiency, and innovation. Equipped with modern machinery,
+              streamlined production systems, and strict quality-control measures, our facility
+              ensures that every product meets the highest standards. With sustainable practices and
+              a skilled workforce, RAD Kabel continues to set new benchmarks in reliability and
+              manufacturing excellence.
             </p>
           </div>
         </div>

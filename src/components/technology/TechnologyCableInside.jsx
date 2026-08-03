@@ -4,7 +4,6 @@ import ScienceOfSafety from "../ScienceOfSafety.jsx";
 export default function TechnologyCableInside() {
   return (
     <ScienceOfSafety
-      className="tech-cable"
       headingId="tech-cable-heading"
       title={
         <>

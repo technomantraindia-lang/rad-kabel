@@ -111,15 +111,20 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 68px;
-  height: 68px;
+  position: relative;
+  width: clamp(88px, 7vw, 104px);
+  height: clamp(88px, 7vw, 104px);
 }
 
 .who-we-are__highlight-icon-img {
   display: block;
-  width: 68px;
-  height: 68px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  object-position: center;
+  filter: brightness(1.15) contrast(1.08);
+  position: relative;
+  z-index: 1;
 }
 
 .who-we-are__highlight-label {
@@ -135,10 +140,9 @@
     padding-inline: clamp(2rem, 4vw, 5rem);
   }
 
-  .who-we-are__highlight-icon,
-  .who-we-are__highlight-icon-img {
-    width: 80px;
-    height: 80px;
+  .who-we-are__highlight-icon {
+    width: 112px;
+    height: 112px;
   }
 }
 
@@ -201,6 +205,11 @@
 
   .who-we-are__highlight {
     padding: 0.95rem 1rem;
+  }
+
+  .who-we-are__highlight-icon {
+    width: 88px;
+    height: 88px;
   }
 
   .who-we-are__highlights .who-we-are__highlight:nth-child(-n + 2) {

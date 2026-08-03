@@ -1,51 +1,5 @@
 import whyChooseWireImage from "../assets/home-page-why-choose-image.png";
-import {
-  IconConductivity,
-  IconEbeam,
-  IconFireResistance,
-  IconLifeSpan,
-  IconLowSmoke,
-  IconNoMeltDrip,
-} from "./WhyRadFeatureIcons.jsx";
-
-const FEATURES = [
-  {
-    Icon: IconEbeam,
-    title: "E-BEAM TECHNOLOGY",
-    shortTitle: "E-BEAM…",
-    description: "Molecular level insulation strengthening for maximum safety.",
-  },
-  {
-    Icon: IconConductivity,
-    title: "101% CONDUCTIVITY",
-    shortTitle: "101%…",
-    description: "High purity copper for efficient power transmission.",
-  },
-  {
-    Icon: IconNoMeltDrip,
-    title: "NO MELT NO DRIP",
-    shortTitle: "NO MELT…",
-    description: "Specially formulated insulation that doesn't melt or drip.",
-  },
-  {
-    Icon: IconFireResistance,
-    title: "HIGH FIRE RESISTANCE",
-    shortTitle: "HIGH FIRE…",
-    description: "Prevents fire spread even under extreme conditions.",
-  },
-  {
-    Icon: IconLowSmoke,
-    title: "LOW SMOKE ZERO HALOGEN",
-    shortTitle: "LOW SMOKE…",
-    description: "Ensures safe environment with minimal smoke emission.",
-  },
-  {
-    Icon: IconLifeSpan,
-    title: "50 YEARS LIFE SPAN",
-    shortTitle: "50 YEARS…",
-    description: "Built for long life, performance that lasts for decades.",
-  },
-];
+import { WHY_CHOOSE_ITEMS } from "./WhyChooseSection.jsx";
 
 const WHY_RAD_ORBIT_RINGS = [
   { scale: 0.17, opacity: 0.72, duration: 20 },
@@ -112,21 +66,26 @@ function CableVisual({ fixed = false }) {
   );
 }
 
-function FeatureCard({ Icon, title, shortTitle, description }) {
+function FeatureCard({ icon, title, desc, alt, iconScale = 1 }) {
   return (
-    <article tabIndex={0} className="why-rad-feature-card group" aria-label={`${title}. ${description}`}>
-      <div className="why-rad-icon-wrap mb-3 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#e01921] bg-transparent sm:h-16 sm:w-16 xl:mb-3 xl:h-[4.25rem] xl:w-[4.25rem]">
-        <Icon className="why-rad-icon h-7 w-7 sm:h-8 sm:w-8 xl:h-9 xl:w-9" />
+    <article
+      tabIndex={0}
+      className="why-rad-feature-card group"
+      aria-label={`${title}. ${desc}`}
+    >
+      <span className="why-rad-icon-wrap">
+        <img
+          src={icon}
+          alt={alt}
+          className="why-rad-card-icon"
+          style={{ "--icon-scale": iconScale }}
+          decoding="async"
+        />
+      </span>
+      <div className="why-rad-card-copy">
+        <h3 className="why-rad-card-heading">{title}</h3>
+        <p className="why-rad-card-desc">{desc}</p>
       </div>
-      <h3 className="why-rad-card-heading font-heading w-full font-bold uppercase tracking-wide text-white">
-        <span className="why-rad-card-heading-short">{shortTitle}</span>
-        <span className="why-rad-card-heading-full" aria-hidden="true">
-          {title}
-        </span>
-      </h3>
-      <p className="why-rad-card-desc mt-2 w-full font-normal text-zinc-200 sm:mt-2.5">
-        {description}
-      </p>
     </article>
   );
 }
@@ -155,15 +114,15 @@ export default function WhyRadKabel() {
           </p>
         </header>
 
-        <div className="why-rad-cards-desktop hidden grid-cols-6 items-start gap-2 xl:grid 2xl:gap-2.5">
-          {FEATURES.map((feature) => (
+        <div className="why-rad-cards-desktop hidden grid-cols-3 items-stretch gap-3 xl:grid 2xl:gap-4">
+          {WHY_CHOOSE_ITEMS.map((feature) => (
             <FeatureCard key={feature.title} {...feature} />
           ))}
         </div>
 
         <div className="flex flex-col gap-8 lg:gap-10 xl:hidden">
-          <div className="grid grid-cols-1 items-start gap-5 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 md:gap-5 lg:gap-6">
-            {FEATURES.map((feature) => (
+          <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 md:gap-4">
+            {WHY_CHOOSE_ITEMS.map((feature) => (
               <FeatureCard key={feature.title} {...feature} />
             ))}
           </div>

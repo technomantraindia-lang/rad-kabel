@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true">
+  <!-- Segmented red ring (matches other Who We Are icons) -->
+  <g stroke="#e01921" stroke-width="5.5" stroke-linecap="butt">
+    <path d="M100 18 A82 82 0 0 1 172.5 67.5" />
+    <path d="M182 100 A82 82 0 0 1 132.5 172.5" />
+    <path d="M100 182 A82 82 0 0 1 27.5 132.5" />
+    <path d="M18 100 A82 82 0 0 1 67.5 27.5" />
+  </g>
+  <g stroke="#e01921" stroke-width="5.5" stroke-linecap="round">
+    <path d="M100 12v10" />
+    <path d="M188 100h-10" />
+    <path d="M100 188v-10" />
+    <path d="M12 100h10" />
+  </g>
+
+  <!-- Larger shield + check visual weight matched to siblings -->
+  <g transform="translate(100 102)" stroke="#fff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <!-- Outer shield -->
+    <path d="M0 -52 L42 -36 V2 C42 28 22 48 0 58 C-22 48 -42 28 -42 2 V-36 Z" />
+    <!-- Inner shield -->
+    <path d="M0 -36 L28 -25 V0 C28 18 14 34 0 42 C-14 34 -28 18 -28 0 V-25 Z" />
+    <!-- Check circle -->
+    <circle cx="0" cy="2" r="16" />
+    <!-- Checkmark -->
+    <path d="M-8 2 L-2 9 L10 -5" />
+  </g>
+</svg>

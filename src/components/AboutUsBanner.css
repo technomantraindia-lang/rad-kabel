@@ -204,7 +204,7 @@
 .about-us-hero__feature {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   min-width: 0;
   padding: 0.95rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -217,18 +217,31 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 54px;
-  height: 54px;
+  width: clamp(58px, 5vw, 68px);
+  height: clamp(58px, 5vw, 68px);
   overflow: hidden;
 }
 
 .about-us-hero__feature-icon-img {
   display: block;
-  width: 54px;
-  height: 54px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  transform: scale(1.15);
+  object-position: center;
+  transform: scale(1.35);
   transform-origin: center center;
+  filter: brightness(1.12) contrast(1.18) saturate(1.15);
+}
+
+/* Handshake asset has extra padding — zoom further so it matches the others */
+.about-us-hero__feature-icon-img--zoom {
+  transform: scale(1.85);
+  filter: brightness(1.2) contrast(1.25) saturate(1.2);
+}
+
+/* Gear fills the frame — keep smaller so teeth are not clipped */
+.about-us-hero__feature-icon-img--fit {
+  transform: scale(1.05);
 }
 
 .about-us-hero__feature-copy {

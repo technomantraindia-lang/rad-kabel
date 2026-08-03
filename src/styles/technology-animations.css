@@ -248,11 +248,11 @@
   filter: brightness(1) saturate(1.05);
 }
 
-.tech-testing__icon {
+.tech-testing__icon-wrap {
   transition: transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.technology-animated .tech-testing__card:hover .tech-testing__icon {
+.technology-animated .tech-testing__card:hover .tech-testing__icon-wrap {
   animation: tech-icon-pulse 1.6s ease-in-out infinite;
 }
 
@@ -396,7 +396,7 @@
   .technology-animated .tech-cable__col:hover,
   .technology-animated .tech-flow__media:hover,
   .technology-animated .tech-matters__card:hover,
-  .technology-animated .tech-testing__card:hover .tech-testing__icon {
+  .technology-animated .tech-testing__card:hover .tech-testing__icon-wrap {
     transform: none;
     animation: none;
   }
