@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setupSiteHeaderLikeAboutUs } from "./siteHeaderGsap.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,63 +60,6 @@ function setupButtonShine(selector) {
     shine.setAttribute("aria-hidden", "true");
     btn.classList.add("au-btn-shine-wrap");
     btn.appendChild(shine);
-  });
-}
-
-function setupHeaderAnimations(isMobile) {
-  const header = document.querySelector(".site-header");
-  if (!header) return;
-
-  header.classList.add("site-header--about-au");
-  setupButtonShine(".about-us-hero__btn");
-
-  const topRow = header.querySelector(".w-full > .flex");
-  const logo = header.querySelector("img[alt='RAD Kabel']");
-  const navBar = header.querySelector("nav");
-
-  gsap.set(header, { clearProps: "all" });
-
-  ScrollTrigger.create({
-    start: "top top",
-    end: "max",
-    onUpdate: () => {
-      const y = window.scrollY;
-      const t = Math.min(y / 140, 1);
-      gsap.to(header, {
-        duration: 0.35,
-        ease: EASE_OUT,
-        backgroundColor: `rgba(0,0,0,${0.72 + t * 0.22})`,
-        backdropFilter: t > 0.05 ? "blur(12px)" : "blur(0px)",
-        boxShadow: t > 0.05 ? "0 8px 32px rgba(0,0,0,0.75)" : "0 1px 0 rgba(255,255,255,0.06)",
-        overwrite: "auto",
-      });
-      if (topRow && !isMobile) {
-        gsap.to(topRow, {
-          duration: 0.35,
-          ease: EASE_OUT,
-          paddingTop: `${14 - t * 4}px`,
-          paddingBottom: `${14 - t * 4}px`,
-          overwrite: "auto",
-        });
-      }
-      if (logo && !isMobile) {
-        gsap.to(logo, {
-          duration: 0.35,
-          ease: EASE_OUT,
-          height: `${72 - t * 12}px`,
-          overwrite: "auto",
-        });
-      }
-      if (navBar && !isMobile) {
-        gsap.to(navBar, {
-          duration: 0.35,
-          ease: EASE_OUT,
-          paddingTop: `${14 - t * 6}px`,
-          paddingBottom: `${14 - t * 6}px`,
-          overwrite: "auto",
-        });
-      }
-    },
   });
 }
 
@@ -520,8 +464,10 @@ export function initAboutUsAnimations(root) {
 
   document.documentElement.classList.add("about-us-animated");
 
-  let cleanupHeader = () => {
-    document.querySelector(".site-header")?.classList.remove("site-header--about-au");
+  let headerCleanup = () => {};
+
+  const cleanupPage = () => {
+    headerCleanup();
     document.documentElement.classList.remove("about-us-animated");
   };
 
@@ -537,7 +483,12 @@ export function initAboutUsAnimations(root) {
       (context) => {
         const { isMobile } = context.conditions;
 
-        setupHeaderAnimations(isMobile);
+        headerCleanup = setupSiteHeaderLikeAboutUs({
+          className: "site-header--about-au",
+          isMobile,
+          reducedMotion,
+        });
+        setupButtonShine(".about-us-hero__btn");
         setupButtonShine(".au-header-cta");
         setupHero(root, isMobile, reducedMotion);
         setupWhoWeAre(root, isMobile, reducedMotion);
@@ -548,7 +499,8 @@ export function initAboutUsAnimations(root) {
         setupCTA(root, isMobile, reducedMotion);
 
         return () => {
-          cleanupHeader();
+          headerCleanup();
+          headerCleanup = () => {};
         };
       },
     );
@@ -557,12 +509,12 @@ export function initAboutUsAnimations(root) {
 
     return () => {
       mm.revert();
-      cleanupHeader();
+      cleanupPage();
     };
   }, root);
 
   return () => {
     ctx.revert();
-    cleanupHeader();
+    cleanupPage();
   };
 }

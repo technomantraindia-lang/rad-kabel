@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setupSiteHeaderLikeAboutUs } from "./siteHeaderGsap.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -280,8 +281,14 @@ export function initProductsAnimations(root) {
 
   let heroCleanup = () => {};
   let ctaCleanup = () => {};
+  let headerCleanup = () => {};
 
   const ctx = gsap.context(() => {
+    headerCleanup = setupSiteHeaderLikeAboutUs({
+      className: "site-header--products-page",
+      isMobile,
+      reducedMotion,
+    });
     heroCleanup = setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, dur);
     setupProductCards(root, reducedMotion, moveY, stagger, dur);
     setupChoose(root, reducedMotion, moveY, stagger, dur);
@@ -293,6 +300,7 @@ export function initProductsAnimations(root) {
   return () => {
     heroCleanup();
     ctaCleanup();
+    headerCleanup();
     ctx.revert();
     document.documentElement.classList.remove("products-animated");
   };

@@ -26,10 +26,10 @@ const STEPS = [
     alt: "Cable insulation extrusion",
   },
   {
-    title: "E-BEAM testing",
+    title: "E-Beam Irradiation",
     description: ["Multi-level quality", "verification"],
     image: stepTesting,
-    alt: "E-BEAM testing",
+    alt: "E-Beam Irradiation",
   },
   {
     title: "Packaging",

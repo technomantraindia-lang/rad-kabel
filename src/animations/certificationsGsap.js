@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setupSiteHeaderLikeAboutUs } from "./siteHeaderGsap.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,24 +41,6 @@ function animateCounter(el, raw, duration = 1.1) {
       el.textContent = `${state.val.toFixed(decimals)}${suffix}`;
     },
   });
-}
-
-function setupHeader(reducedMotion, moveY) {
-  const header = document.querySelector(".site-header");
-  if (!header) return;
-
-  header.classList.add("site-header--certifications-page");
-
-  if (reducedMotion) {
-    gsap.set(header, { clearProps: "all", opacity: 1, y: 0 });
-    return;
-  }
-
-  gsap.fromTo(
-    header,
-    { y: -moveY, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.85, ease: EASE, delay: 0.05 },
-  );
 }
 
 function setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, dur) {
@@ -761,9 +744,14 @@ export function initCertificationsAnimations(root) {
 
   let heroParallaxCleanup = () => {};
   let verifyObserverCleanup = () => {};
+  let headerCleanup = () => {};
 
   const ctx = gsap.context(() => {
-    setupHeader(reducedMotion, moveY);
+    headerCleanup = setupSiteHeaderLikeAboutUs({
+      className: "site-header--certifications-page",
+      isMobile,
+      reducedMotion,
+    });
     heroParallaxCleanup = setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, dur);
     setupOurCertifications(root, reducedMotion, moveX, moveY, stagger, dur);
     setupJourney(root, reducedMotion, moveX, moveY, dur);
@@ -783,9 +771,9 @@ export function initCertificationsAnimations(root) {
   return () => {
     heroParallaxCleanup();
     verifyObserverCleanup();
+    headerCleanup();
     ctx.revert();
     document.documentElement.classList.remove("certifications-animated");
     document.body.classList.remove("is-certifications-page");
-    document.querySelector(".site-header")?.classList.remove("site-header--certifications-page");
   };
 }

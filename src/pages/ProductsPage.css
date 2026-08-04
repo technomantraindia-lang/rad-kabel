@@ -265,8 +265,8 @@
 }
 
 .rtp-pcard--coming-soon > *:not(.rtp-pcard__soon-badge) {
-  filter: blur(9px);
-  opacity: 0.3;
+  filter: blur(2px);
+  opacity: 0.62;
   pointer-events: none;
   user-select: none;
 }
@@ -277,8 +277,8 @@
   inset: 0;
   border-radius: inherit;
   background:
-    radial-gradient(circle at center, rgba(224, 25, 33, 0.14), transparent 48%),
-    rgba(0, 0, 0, 0.62);
+    radial-gradient(circle at center, rgba(224, 25, 33, 0.08), transparent 55%),
+    rgba(0, 0, 0, 0.28);
   pointer-events: none;
 }
 
@@ -301,9 +301,9 @@
   padding: 0.95rem 1.35rem;
   border: 1.5px solid rgba(224, 25, 33, 0.92);
   border-radius: 999px;
-  background: rgba(8, 8, 8, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(8, 8, 8, 0.78);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
   font-size: clamp(0.95rem, 1.2vw, 1.12rem);
   font-weight: 900;
@@ -1000,7 +1000,7 @@
   overflow: hidden;
   border-top: 1px solid #1a1a1a;
   background: #000;
-  min-height: clamp(18rem, 32vw, 26rem);
+  min-height: max(clamp(20rem, 34vw, 32rem), calc(100vw * 731 / 2152));
 }
 
 .rtp-cta__bg {
@@ -1010,9 +1010,10 @@
 }
 
 .rtp-cta__bg img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: right center;
 }
 
@@ -1114,11 +1115,11 @@
   }
 
   .rtp-cta {
-    min-height: clamp(20rem, 52vw, 28rem);
+    min-height: max(clamp(22rem, 72vw, 34rem), calc(100vw * 731 / 2152));
   }
 
   .rtp-cta__bg img {
-    object-position: 72% center;
+    object-position: right center;
   }
 
   .rtp-cta__shade {

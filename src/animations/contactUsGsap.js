@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setupSiteHeaderLikeAboutUs } from "./siteHeaderGsap.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,8 +183,14 @@ export function initContactUsAnimations(root) {
   const dur = reducedMotion ? 0.35 : 0.8;
 
   let heroCleanup = () => {};
+  let headerCleanup = () => {};
 
   const ctx = gsap.context(() => {
+    headerCleanup = setupSiteHeaderLikeAboutUs({
+      className: "site-header--contact-page",
+      isMobile,
+      reducedMotion,
+    });
     heroCleanup = setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, dur);
     setupTouch(root, reducedMotion, moveX, moveY, stagger, dur);
     setupUtility(root, reducedMotion, moveY, stagger, dur);
@@ -193,6 +200,7 @@ export function initContactUsAnimations(root) {
 
   return () => {
     heroCleanup();
+    headerCleanup();
     ctx.revert();
     document.documentElement.classList.remove("contact-us-animated");
   };

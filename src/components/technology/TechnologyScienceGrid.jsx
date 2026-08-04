@@ -113,12 +113,12 @@ export default function TechnologyScienceGrid() {
             <h2 className="tech-science__title tech-science__title--heat">
               Built to Handle Demanding Conditions
             </h2>
-            <div className="tech-science__heat-wire tech-science__heat-wire--standard">
-              <span className="tech-science__heat-wire-name">Standard Wire</span>
-              <span className="tech-science__heat-wire-temp">98&deg;C</span>
-            </div>
             <div className="tech-science__heat-wire tech-science__heat-wire--rad">
               <span className="tech-science__heat-wire-name">RAD Kabel Wire</span>
+              <span className="tech-science__heat-wire-temp">98&deg;C</span>
+            </div>
+            <div className="tech-science__heat-wire tech-science__heat-wire--standard">
+              <span className="tech-science__heat-wire-name">Standard Wire</span>
               <span className="tech-science__heat-wire-temp">68&deg;C</span>
             </div>
             <ul className="tech-science__heat-checks">

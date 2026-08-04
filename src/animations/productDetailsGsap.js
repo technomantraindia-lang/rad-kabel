@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setupSiteHeaderLikeAboutUs } from "./siteHeaderGsap.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -202,6 +203,40 @@ function setupFeatures(root, reducedMotion, moveX, moveY, stagger, dur) {
         stagger: stagger * 0.75,
         ease: EASE,
         delay: 0.32,
+      });
+    },
+  });
+}
+
+function setupFeatureCards(root, reducedMotion, moveY, stagger, dur) {
+  const section = q(root, ".pp-feature-cards");
+  if (!section) return;
+
+  const title = q(section, ".pp-feature-cards__title");
+  const cards = qa(section, ".pp-feature-cards__card");
+
+  if (reducedMotion) {
+    resetVisible([title, ...cards]);
+    return;
+  }
+
+  gsap.set(title, { opacity: 0, y: moveY * 0.55 });
+  gsap.set(cards, { opacity: 0, y: moveY * 0.8, scale: 0.97 });
+
+  ScrollTrigger.create({
+    trigger: section,
+    start: ST_START,
+    once: true,
+    onEnter: () => {
+      gsap.to(title, { opacity: 1, y: 0, duration: dur, ease: EASE });
+      gsap.to(cards, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: dur,
+        stagger: stagger * 0.7,
+        ease: EASE,
+        delay: 0.1,
       });
     },
   });
@@ -442,11 +477,18 @@ export function initProductDetailsAnimations(root) {
 
   let heroCleanup = () => {};
   let ctaCleanup = () => {};
+  let headerCleanup = () => {};
 
   const ctx = gsap.context(() => {
+    headerCleanup = setupSiteHeaderLikeAboutUs({
+      className: "site-header--product-details-page",
+      isMobile,
+      reducedMotion,
+    });
     heroCleanup = setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, dur);
     setupWhy(root, reducedMotion, moveY, stagger, dur);
     setupFeatures(root, reducedMotion, moveX, moveY, stagger, dur);
+    setupFeatureCards(root, reducedMotion, moveY, stagger, dur);
     setupSafety(root, reducedMotion, moveY, stagger, dur);
     setupDatasheet(root, reducedMotion, moveY, stagger, dur);
     setupCertDl(root, reducedMotion, moveY, stagger, dur);
@@ -458,6 +500,7 @@ export function initProductDetailsAnimations(root) {
   return () => {
     heroCleanup();
     ctaCleanup();
+    headerCleanup();
     ctx.revert();
     document.documentElement.classList.remove("product-details-animated");
   };

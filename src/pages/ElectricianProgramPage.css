@@ -825,14 +825,53 @@
 }
 
 .ep-join-band {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
   padding: clamp(1.25rem, 2vw, 1.75rem);
   background: #e01921;
   border-radius: 4px;
-  min-height: 100%;
+  min-height: clamp(12.5rem, 18vw, 17.5rem);
+}
+
+.ep-join-band__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ep-join-band__bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+
+.ep-join-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #e01921 0%,
+    #e01921 38%,
+    rgba(224, 25, 33, 0.92) 48%,
+    rgba(224, 25, 33, 0.35) 62%,
+    transparent 78%
+  );
+}
+
+.ep-join-band__copy {
+  position: relative;
+  z-index: 2;
+  max-width: min(52%, 15rem);
+  padding-right: 0.5rem;
 }
 
 .ep-join-band__copy h2 {
@@ -842,23 +881,14 @@
   font-weight: 900;
   letter-spacing: 0.08em;
   line-height: 1.2;
+  color: #fff;
 }
 
 .ep-join-band__copy p {
-  margin: 0 0 1.25rem;
+  margin: 0;
   font-size: clamp(0.78rem, 0.95vw, 0.88rem);
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.92);
-}
-
-.ep-join-band__product {
-  display: block;
-  width: 100%;
-  max-width: 16.5rem;
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
-  background: transparent;
 }
 
 /* Bottom CTA */
@@ -1061,16 +1091,6 @@
   .ep-stories__grid {
     grid-template-columns: 1fr;
   }
-
-  .ep-join-band {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .ep-join-band__product {
-    max-width: 8rem;
-    margin: 0;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1125,8 +1145,17 @@
     height: clamp(3.85rem, 16vw, 4.75rem);
   }
 
-  .ep-join-band {
-    flex-direction: column;
+  .ep-join-band__copy {
+    max-width: 100%;
+  }
+
+  .ep-join-band::after {
+    background: linear-gradient(
+      180deg,
+      rgba(224, 25, 33, 0.15) 0%,
+      rgba(224, 25, 33, 0.72) 42%,
+      rgba(224, 25, 33, 0.92) 100%
+    );
   }
 
   .ep-cta__copy {

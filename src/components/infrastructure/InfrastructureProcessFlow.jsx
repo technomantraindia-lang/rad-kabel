@@ -9,7 +9,7 @@ import step7 from "../../assets/infrastructure/process/step-7-dispatch.png";
 const STEPS = [
   { num: "01", title: "Copper Rod", image: step1 },
   { num: "02", title: "Wire Drawing", image: step2 },
-  { num: "03", title: "E-BEAM testing", image: step4 },
+  { num: "03", title: "E-Beam Irradiation", image: step4 },
   { num: "04", title: "Testing", image: step5 },
   { num: "05", title: "Packaging", image: step6 },
   { num: "06", title: "Dispatch", image: step7 },

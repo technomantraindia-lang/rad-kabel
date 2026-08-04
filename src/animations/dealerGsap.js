@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setupSiteHeaderLikeAboutUs } from "./siteHeaderGsap.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,24 +31,6 @@ function accentGlow(targets) {
       repeat: 1,
       onComplete: () => gsap.set(targets, { clearProps: "textShadow" }),
     },
-  );
-}
-
-function setupHeader(reducedMotion, moveY) {
-  const header = document.querySelector(".site-header");
-  if (!header) return;
-
-  header.classList.add("site-header--dealer-page");
-
-  if (reducedMotion) {
-    gsap.set(header, { clearProps: "all", opacity: 1, y: 0 });
-    return;
-  }
-
-  gsap.fromTo(
-    header,
-    { y: -moveY, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.85, ease: EASE, delay: 0.05 },
   );
 }
 
@@ -669,9 +652,14 @@ export function initDealerAnimations(root) {
 
   let heroParallaxCleanup = () => {};
   let ctaParallaxCleanup = () => {};
+  let headerCleanup = () => {};
 
   const ctx = gsap.context(() => {
-    setupHeader(reducedMotion, moveY);
+    headerCleanup = setupSiteHeaderLikeAboutUs({
+      className: "site-header--dealer-page",
+      isMobile,
+      reducedMotion,
+    });
     heroParallaxCleanup = setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, dur);
     setupWhy(root, reducedMotion, moveY, stagger, dur);
     setupWho(root, reducedMotion, moveX, moveY, stagger, dur);
@@ -692,9 +680,9 @@ export function initDealerAnimations(root) {
   return () => {
     heroParallaxCleanup();
     ctaParallaxCleanup();
+    headerCleanup();
     ctx.revert();
     document.documentElement.classList.remove("dealer-animated");
     document.body.classList.remove("is-dealer-page");
-    document.querySelector(".site-header")?.classList.remove("site-header--dealer-page");
   };
 }

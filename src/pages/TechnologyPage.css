@@ -658,8 +658,8 @@
 
 .tech-science__overlay--heat {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.76fr);
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(11.5rem, 0.85fr);
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
   gap: 0;
   min-height: clamp(420px, 38vw, 540px);
   padding: clamp(1.35rem, 2.1vw, 1.85rem) clamp(1.15rem, 1.75vw, 1.5rem);
@@ -670,7 +670,7 @@
 .tech-science__title--heat {
   grid-column: 1 / 3;
   grid-row: 1;
-  margin: 0 0 clamp(0.75rem, 1.2vw, 1rem);
+  margin: 0 0 clamp(0.55rem, 1vw, 0.8rem);
   padding-right: clamp(0.5rem, 1vw, 0.85rem);
   font-size: clamp(1.12rem, 1.4vw, 1.45rem);
   font-weight: 800;
@@ -681,9 +681,13 @@
   color: #fff;
 }
 
+.tech-science__panel--heat .tech-science__media {
+  right: clamp(11.5rem, 28%, 15.5rem);
+}
+
 .tech-science__panel--heat .tech-science__media img {
-  object-fit: cover;
-  object-position: center 42%;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .tech-science__heat-compare {
@@ -691,36 +695,68 @@
 }
 
 .tech-science__heat-wire {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  min-height: clamp(250px, 26vw, 340px);
-  padding: clamp(0.15rem, 0.45vw, 0.35rem) clamp(0.35rem, 0.7vw, 0.55rem)
-    clamp(0.85rem, 1.35vw, 1.15rem);
-  text-align: center;
+  display: contents;
 }
 
-.tech-science__heat-wire--standard {
+.tech-science__heat-wire-name {
+  z-index: 2;
+  padding: 0.2rem 0.45rem;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(0.82rem, 1vw, 0.96rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.1em;
+  word-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.tech-science__heat-wire--rad .tech-science__heat-wire-name {
   grid-column: 1;
   grid-row: 2;
+  color: var(--tech-red);
 }
 
-.tech-science__heat-wire--rad {
+.tech-science__heat-wire--standard .tech-science__heat-wire-name {
   position: relative;
   grid-column: 2;
   grid-row: 2;
-  border-left: 1px solid rgba(255, 255, 255, 0.32);
+  color: #fff;
 }
 
-.tech-science__heat-wire--rad::before {
+.tech-science__heat-wire-temp {
+  z-index: 2;
+  padding: clamp(0.35rem, 0.7vw, 0.55rem) 0.35rem 0;
+  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(1.85rem, 2.75vw, 2.45rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+.tech-science__heat-wire--rad .tech-science__heat-wire-temp {
+  grid-column: 1;
+  grid-row: 4;
+  color: #fff;
+}
+
+.tech-science__heat-wire--standard .tech-science__heat-wire-temp {
+  grid-column: 2;
+  grid-row: 4;
+  color: #ffd24a;
+}
+
+.tech-science__heat-wire--standard .tech-science__heat-wire-name::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 50%;
+  top: calc(100% + clamp(2.5rem, 8vw, 5.5rem));
   width: 1px;
-  height: 38%;
-  transform: translate(-50%, -50%);
+  height: clamp(4.5rem, 12vw, 7.5rem);
+  transform: translateX(-50%);
   background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.95) 48%, transparent 100%);
   box-shadow:
     0 0 10px 2px rgba(255, 255, 255, 0.55),
@@ -729,72 +765,46 @@
   pointer-events: none;
 }
 
-.tech-science__heat-wire-name {
-  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
-  font-size: clamp(0.82rem, 1vw, 0.96rem);
-  font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: 0.1em;
-  word-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.tech-science__heat-wire--standard .tech-science__heat-wire-name {
-  color: #fff;
-}
-
-.tech-science__heat-wire--rad .tech-science__heat-wire-name {
-  color: var(--tech-red);
-}
-
-.tech-science__heat-wire-temp {
-  font-family: Montserrat, "Segoe UI", system-ui, sans-serif;
-  font-size: clamp(1.85rem, 2.75vw, 2.45rem);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: 0.01em;
-}
-
-.tech-science__heat-wire--standard .tech-science__heat-wire-temp {
-  color: #fff;
-}
-
-.tech-science__heat-wire--rad .tech-science__heat-wire-temp {
-  color: #ffd24a;
-}
-
 .tech-science__heat-checks {
   grid-column: 3;
   grid-row: 1 / -1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(0.9rem, 1.25vw, 1.1rem);
+  gap: clamp(1rem, 1.4vw, 1.25rem);
   margin: 0;
-  padding: clamp(0.35rem, 0.7vw, 0.55rem) 0 clamp(0.35rem, 0.7vw, 0.55rem)
-    clamp(0.7rem, 1.15vw, 1rem);
+  padding: clamp(0.85rem, 1.4vw, 1.15rem) clamp(0.65rem, 1.1vw, 0.9rem)
+    clamp(0.85rem, 1.4vw, 1.15rem) clamp(1rem, 1.5vw, 1.35rem);
   list-style: none;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  border-radius: 0 0.35rem 0.35rem 0;
 }
 
 .tech-science__heat-checks li {
   display: flex;
   align-items: flex-start;
-  gap: 0.65rem;
+  gap: 0.75rem;
   font-family: Carlito, Calibri, "Segoe UI", Candara, sans-serif;
-  font-size: clamp(0.9rem, 1.05vw, 1rem);
-  font-weight: 400;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  font-weight: 600;
   line-height: 1.45;
-  letter-spacing: 0.03em;
-  word-spacing: 0.12em;
+  letter-spacing: 0.02em;
+  word-spacing: 0.1em;
   color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
 }
 
 .tech-science__heat-check {
   flex-shrink: 0;
-  width: clamp(18px, 1.35vw, 21px);
-  height: clamp(18px, 1.35vw, 21px);
-  margin-top: 0.06rem;
+  width: clamp(22px, 1.6vw, 26px);
+  height: clamp(22px, 1.6vw, 26px);
+  margin-top: 0.04rem;
   color: var(--tech-red);
   filter: drop-shadow(0 0 2px rgba(224, 25, 33, 0.9)) drop-shadow(0 0 5px rgba(224, 25, 33, 0.45));
 }
@@ -910,7 +920,7 @@
 }
 
 .tech-science__title-accent {
-  color: var(--tech-red);
+  color: #fff;
 }
 
 .tech-science__fire-desc {
@@ -1658,7 +1668,7 @@
 
   .tech-science__overlay--heat {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto;
   }
 
   .tech-science__title--heat {
@@ -1666,24 +1676,41 @@
     margin-bottom: clamp(0.65rem, 1.2vw, 0.9rem);
   }
 
-  .tech-science__heat-wire--standard {
-    grid-column: 1;
-    grid-row: 2;
-    min-height: clamp(220px, 34vw, 300px);
+  .tech-science__panel--heat .tech-science__media {
+    right: 0;
   }
 
-  .tech-science__heat-wire--rad {
+  .tech-science__heat-wire--rad .tech-science__heat-wire-name {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .tech-science__heat-wire--standard .tech-science__heat-wire-name {
     grid-column: 2;
     grid-row: 2;
-    min-height: clamp(220px, 34vw, 300px);
+  }
+
+  .tech-science__heat-wire--rad .tech-science__heat-wire-temp {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .tech-science__heat-wire--standard .tech-science__heat-wire-temp {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .tech-science__heat-wire--standard .tech-science__heat-wire-name::before {
+    display: none;
   }
 
   .tech-science__heat-checks {
     grid-column: 1 / -1;
-    grid-row: 3;
+    grid-row: 5;
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: clamp(0.85rem, 1.4vw, 1.1rem) 0 0;
+    background: none;
   }
 
   .tech-matters__grid {

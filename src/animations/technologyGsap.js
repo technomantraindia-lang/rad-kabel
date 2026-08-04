@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setupSiteHeaderLikeAboutUs } from "./siteHeaderGsap.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -402,9 +403,17 @@ export function initTechnologyAnimations(root) {
 
   document.documentElement.classList.add("technology-animated");
 
+  let headerCleanup = () => {};
+
   const ctx = gsap.context(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
+    headerCleanup = setupSiteHeaderLikeAboutUs({
+      className: "site-header--technology-page",
+      isMobile,
+      reducedMotion,
+    });
     setupButtonShine(".technology-page .tech-btn");
     setupHero(root, reducedMotion);
     setupCableInside(root, reducedMotion);
@@ -420,6 +429,7 @@ export function initTechnologyAnimations(root) {
   }, root);
 
   return () => {
+    headerCleanup();
     ctx.revert();
     document.documentElement.classList.remove("technology-animated");
   };

@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setupSiteHeaderLikeAboutUs } from "./siteHeaderGsap.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,24 +31,6 @@ function accentGlow(targets) {
       repeat: 1,
       onComplete: () => gsap.set(targets, { clearProps: "textShadow" }),
     },
-  );
-}
-
-function setupHeader(reducedMotion, moveY) {
-  const header = document.querySelector(".site-header");
-  if (!header) return;
-
-  header.classList.add("site-header--electrician-page");
-
-  if (reducedMotion) {
-    gsap.set(header, { clearProps: "all", opacity: 1, y: 0 });
-    return;
-  }
-
-  gsap.fromTo(
-    header,
-    { y: -moveY, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.85, ease: EASE, delay: 0.05 },
   );
 }
 
@@ -579,9 +562,14 @@ export function initElectricianAnimations(root) {
   const dur = reducedMotion ? 0.35 : 0.8;
 
   let heroParallaxCleanup = () => {};
+  let headerCleanup = () => {};
 
   const ctx = gsap.context(() => {
-    setupHeader(reducedMotion, moveY);
+    headerCleanup = setupSiteHeaderLikeAboutUs({
+      className: "site-header--electrician-page",
+      isMobile,
+      reducedMotion,
+    });
     heroParallaxCleanup = setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, dur);
     setupWhy(root, reducedMotion, moveY, stagger, dur);
     setupHow(root, reducedMotion, moveX, moveY, dur);
@@ -598,9 +586,9 @@ export function initElectricianAnimations(root) {
 
   return () => {
     heroParallaxCleanup();
+    headerCleanup();
     ctx.revert();
     document.documentElement.classList.remove("electrician-animated");
     document.body.classList.remove("is-electrician-page");
-    document.querySelector(".site-header")?.classList.remove("site-header--electrician-page");
   };
 }

@@ -73,28 +73,21 @@ img{max-width:100%;display:block}
 @media(min-width:1024px) and (max-width:1279px){.home-showcase-copy p{font-size:var(--site-body-desktop);line-height:1.38}}
 @media(min-width:1280px){.home-showcase-copy p{font-size:var(--site-body-wide);line-height:1.35}}@keyframes home-showcase-orbit-spin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}@media (prefers-reduced-motion:reduce){.home-showcase-ring-orbit{animation:none;will-change:auto}}
 
-/* Home cable videos: hide burned-in title strip; keep video playing */
+/* Home cable videos: keep each clip neatly framed at a consistent widescreen ratio. */
 .cable-video-wrap--clean {
   position: relative;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  background: #080808;
 }
 .cable-video-wrap--clean video {
-  transform: scale(1.06);
-  transform-origin: center 40%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   pointer-events: none;
   -webkit-user-select: none;
   user-select: none;
-}
-.cable-video-wrap--clean::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 12%;
-  background: #000;
-  pointer-events: none;
-  z-index: 2;
 }
 
 @media (max-width: 768px) {

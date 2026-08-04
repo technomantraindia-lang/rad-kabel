@@ -1,5 +1,5 @@
 import isiCertifiedLogo from "../assets/isi-certified.png";
-import imgRohs from "../assets/certifications/rohs.png";
+import imgRohs from "../assets/certifications/rohs-white.png";
 import imgReach from "../assets/certifications/reach.png";
 import imgCpr from "../assets/certifications/cpr.png";
 import imgMadeInIndia from "../assets/certifications/made-in-india.png";
@@ -17,7 +17,7 @@ function SectionDivider() {
   );
 }
 
-function CertMarkCell({ src, alt, wide = false }) {
+function CertMarkCell({ src, alt, wide = false, rohs = false }) {
   return (
     <div
       className={`cert-banner-cell cert-banner-cell--mark flex-1 md:min-w-0 ${wide ? "cert-banner-cell--mark-wide" : ""}`}
@@ -26,7 +26,7 @@ function CertMarkCell({ src, alt, wide = false }) {
       <img
         src={src}
         alt={alt}
-        className={`isi-cert-logo ${wide ? "isi-cert-logo--wide" : ""}`}
+        className={`isi-cert-logo ${wide ? "isi-cert-logo--wide" : ""}${rohs ? " isi-cert-logo--rohs" : ""}`}
         decoding="async"
         loading="lazy"
       />
@@ -55,7 +55,7 @@ export default function CertificationBanner() {
           <SectionDivider />
           <CertMarkCell src={isiCertifiedLogo} alt="ISI Certified" />
           <SectionDivider />
-          <CertMarkCell src={imgRohs} alt="RoHS Compliant" />
+          <CertMarkCell src={imgRohs} alt="RoHS Compliant" rohs />
           <SectionDivider />
           <CertMarkCell src={imgReach} alt="REACH Compliant" />
           <SectionDivider />

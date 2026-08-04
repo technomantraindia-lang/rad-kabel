@@ -1,7 +1,19 @@
-Place your cable MP4 files here (exact names):
+Place video files in this folder (exact names used by the site):
 
-  wq.mp4
-  WhatsApp Video 2026-05-14 at 7.18.48 PM.mp4
-  c_e_ec_a_ba_f_f_cmp_.mp4
+Home hero:
+  banner.mp4
+  home-banner-9127.MOV
+  home-banner-9158.MOV
 
-They are loaded as /videos/wq.mp4 and /videos/<WhatsApp filename>.
+Cable videos (Home + RAD ZERO):
+  fire-testing.MOV
+  machine-testing.MOV
+
+Product / pages:
+  ebeam-banner-section.mp4
+  electrician-program.MOV
+  company-tour.MOV
+  dealer-network.MOV
+
+Note: Prefer .mp4 (H.264) for best browser support. .MOV may not play in Chrome.
+Large .MOV files are stored with Git LFS.

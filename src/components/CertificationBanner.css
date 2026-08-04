@@ -16,13 +16,19 @@
 .cert-banner-row .isi-cert-logo,
 .cert-banner-row .isi-cert-logo--wide {
   display: block;
-  width: 100%;
-  height: clamp(62px, 6.2vw, 94px);
+  width: auto;
   max-width: 100%;
-  max-height: none;
+  height: clamp(62px, 6.2vw, 94px);
+  margin-inline: auto;
   padding: 0.25rem;
   object-fit: contain;
   object-position: center;
+}
+
+.cert-banner-row .isi-cert-logo--rohs {
+  height: clamp(68px, 6.8vw, 100px);
+  transform: scale(1.28);
+  transform-origin: center;
 }
 
 .cert-banner-row .cert-banner-cell--tagline {

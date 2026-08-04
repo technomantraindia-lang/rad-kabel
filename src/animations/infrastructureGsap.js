@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setupSiteHeaderLikeAboutUs } from "./siteHeaderGsap.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,24 +41,6 @@ function animateCounter(el, raw, duration = 1.1) {
 
 function resetVisible(targets) {
   gsap.set(targets, { clearProps: "all", opacity: 1, scale: 1, x: 0, y: 0 });
-}
-
-function setupHeader(reducedMotion, moveY) {
-  const header = document.querySelector(".site-header");
-  if (!header) return;
-
-  header.classList.add("site-header--infra-page");
-
-  if (reducedMotion) {
-    gsap.set(header, { clearProps: "all", opacity: 1, y: 0 });
-    return;
-  }
-
-  gsap.fromTo(
-    header,
-    { y: -moveY, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.85, ease: EASE, delay: 0.05 },
-  );
 }
 
 function setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, dur) {
@@ -630,9 +613,14 @@ export function initInfrastructureAnimations(root) {
 
   let heroParallaxCleanup = () => {};
   let ctaFloatCleanup = () => {};
+  let headerCleanup = () => {};
 
   const ctx = gsap.context(() => {
-    setupHeader(reducedMotion, moveY);
+    headerCleanup = setupSiteHeaderLikeAboutUs({
+      className: "site-header--infra-page",
+      isMobile,
+      reducedMotion,
+    });
     heroParallaxCleanup = setupHero(root, reducedMotion, disableParallax, moveX, moveY, stagger, dur);
     setupEcosystem(root, reducedMotion, moveX, moveY, stagger, dur);
     setupInside(root, reducedMotion, moveX, moveY, stagger, dur);
@@ -650,9 +638,9 @@ export function initInfrastructureAnimations(root) {
   return () => {
     heroParallaxCleanup();
     ctaFloatCleanup();
+    headerCleanup();
     ctx.revert();
     document.documentElement.classList.remove("infrastructure-animated");
     document.body.classList.remove("is-infrastructure-page");
-    document.querySelector(".site-header")?.classList.remove("site-header--infra-page");
   };
 }

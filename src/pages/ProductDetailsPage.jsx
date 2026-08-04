@@ -46,10 +46,15 @@ import safetyIconHotels from "../assets/product-page/safety-matters/icons/hotels
 import safetyIconStadiums from "../assets/product-page/safety-matters/icons/stadiums.svg";
 import safetyIconCommercial from "../assets/product-page/safety-matters/icons/commercial_buildings.svg";
 
-import certIsi from "../assets/certifications/isi-certified.svg";
-import certRohs from "../assets/certifications/rohs.png";
+import featureIconHeat from "../assets/product-page/feature-cards/heat-resistance.png";
+import featureIconCopper from "../assets/product-page/feature-cards/pure-copper.png";
+import featureIconFire from "../assets/product-page/feature-cards/fire-retardant.png";
+import featureIconLongLife from "../assets/product-page/feature-cards/long-life.png";
+
+import certIsi from "../assets/certifications/white-icons/isi-certified.png";
+import certRohs from "../assets/certifications/white-icons/rohs-compliant.png";
 import certReach from "../assets/certifications/reach.png";
-import certCe from "../assets/product-page/cert-dl-icons/ce_certified.svg";
+import certCe from "../assets/certifications/white-icons/ce-certified.png";
 import certQuality from "../assets/certifications/quality-tested.svg";
 import dlBrochure from "../assets/product-page/cert-dl-icons/product_brochure_pdf.svg";
 import dlDatasheet from "../assets/product-page/cert-dl-icons/technical_datasheet_pdf.svg";
@@ -63,6 +68,7 @@ import whyCardManufacturing from "../assets/product-page/why-rad-zero-cards/manu
 import whyCardSafety from "../assets/product-page/why-rad-zero-cards/safety-focused.png";
 import whyCardPerformance from "../assets/product-page/why-rad-zero-cards/consistent-performance.png";
 import whyCardPartnerships from "../assets/product-page/why-rad-zero-cards/trusted-partnerships.png";
+import CableVideosSection from "../components/CableVideosSection.jsx";
 import { handleDownloadBrochure } from "../utils/downloadBrochure";
 
 const BROCHURE_URL = "/brochure.pdf";
@@ -113,6 +119,33 @@ const FEATURE_CHECKS = [
   "Mechanical Strength",
   "Fire Resistance",
   "Extended Insulation Life",
+];
+
+const FEATURE_CARDS = [
+  {
+    icon: featureIconHeat,
+    value: "350°C",
+    title: "DOES NOT MELT",
+    desc: "Insulation does not melt upto 350°C",
+  },
+  {
+    icon: featureIconCopper,
+    value: "99.9%",
+    title: "PURE COPPER",
+    desc: "100% Electrolytic Copper for maximum conductivity",
+  },
+  {
+    icon: featureIconFire,
+    value: "120°C",
+    title: "FIRE RETARDANT",
+    desc: "High Temperature Safe upto 120°C",
+  },
+  {
+    icon: featureIconLongLife,
+    value: "LONG LIFE",
+    title: "DURABILITY",
+    desc: "50 Years of trusted performance",
+  },
 ];
 
 const UNIQUE_FEATURES = [
@@ -565,6 +598,27 @@ export default function ProductDetailsPage() {
         </div>
       </section>
 
+      {/* Product feature highlights — RAD ZERO */}
+      {pathKey === "rad-zero" ? (
+        <section className="pp-feature-cards" aria-labelledby="pp-feature-cards-heading">
+          <h2 id="pp-feature-cards-heading" className="pp-feature-cards__title">
+            FEATURES
+          </h2>
+          <ul className="pp-feature-cards__grid">
+            {FEATURE_CARDS.map(({ icon, value, title, desc }) => (
+              <li key={title} className="pp-feature-cards__card">
+                <div className="pp-feature-cards__icon-wrap">
+                  <img src={icon} alt="" decoding="async" loading="lazy" />
+                </div>
+                <p className="pp-feature-cards__value">{value}</p>
+                <h3 className="pp-feature-cards__heading">{title}</h3>
+                <p className="pp-feature-cards__desc">{desc}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {/* Where Safety Matters */}
       <section className="pp-safety" aria-labelledby="pp-safety-heading">
         <h2 id="pp-safety-heading" className="pp-safety__title">
@@ -771,6 +825,8 @@ export default function ProductDetailsPage() {
           </div>
         </div>
       </section>
+
+      {pathKey === "rad-zero" ? <CableVideosSection id="pp-cable-video" /> : null}
 
       {/* Bottom CTA */}
       <section className="pp-cta" aria-labelledby="pp-cta-heading">

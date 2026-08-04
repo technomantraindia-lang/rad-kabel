@@ -15,13 +15,14 @@ import { handleDownloadBrochure } from "../utils/downloadBrochure.js";
 
 import heroBanner from "../assets/electrician-program/hero-banner.png";
 import whoCanJoinBg from "../assets/electrician-program/who-can-join-bg.png";
-import joinProduct from "../assets/electrician-program/join-product.png";
+import joinProgramBanner from "../assets/electrician-program/join-program-banner.png";
 import ctaSectionBg from "../assets/electrician-program/cta-section-bg.png";
 import rewardBackpack from "../assets/electrician-program/rewards/reward-backpack.png";
 import rewardWaistBag from "../assets/electrician-program/rewards/reward-waist-bag.png";
 import rewardWaterCooler from "../assets/electrician-program/rewards/reward-water-cooler.png";
 import rewardHouseholdSet from "../assets/electrician-program/rewards/reward-household-set.png";
-import rewardPowerTools from "../assets/electrician-program/rewards/reward-power-tools-new.png";
+import rewardHammerDrill from "../assets/electrician-program/rewards/reward-hammer-drill.png";
+import rewardAngleGrinder from "../assets/electrician-program/rewards/reward-angle-grinder.png";
 import avatar1 from "../assets/electrician-program/avatar-1.png";
 import avatar2 from "../assets/electrician-program/avatar-2.png";
 import avatar3 from "../assets/electrician-program/avatar-3.png";
@@ -115,7 +116,8 @@ const REWARDS = [
   { img: rewardWaistBag, lines: ["WAIST BAG"], alt: "Waist bag reward" },
   { img: rewardWaterCooler, lines: ["WATER COOLER"], alt: "Water cooler reward" },
   { img: rewardHouseholdSet, lines: ["HOUSEHOLD SET"], alt: "Household product set reward" },
-  { img: rewardPowerTools, lines: ["POWER TOOLS"], alt: "Power tools reward" },
+  { img: rewardHammerDrill, lines: ["HAMMER DRILL"], alt: "Hammer drill reward" },
+  { img: rewardAngleGrinder, lines: ["ANGLE GRINDER"], alt: "Angle grinder reward" },
 ];
 
 const TRAINING = [
@@ -470,11 +472,13 @@ export default function ElectricianProgramPage() {
             </div>
           </div>
           <aside className="ep-join-band" id="ep-register" aria-labelledby="ep-join-heading">
+            <div className="ep-join-band__bg" aria-hidden>
+              <img src={joinProgramBanner} alt="" decoding="async" loading="lazy" />
+            </div>
             <div className="ep-join-band__copy">
               <h2 id="ep-join-heading">JOIN THE PROGRAM TODAY!</h2>
               <p>Be a part of India&apos;s most trusted electrician community.</p>
             </div>
-            <img src={joinProduct} alt="" className="ep-join-band__product" decoding="async" loading="lazy" aria-hidden />
           </aside>
         </div>
       </section>

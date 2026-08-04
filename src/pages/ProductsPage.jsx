@@ -63,15 +63,15 @@ const COMPARE_PRODUCTS = ["RAD ZERO", "RAD POWER", "RAD FLEX", "RAD TAPE PRO"];
 const COMPARE_ROWS = [
   {
     feature: "Fire Safety",
-    ratings: [5, 4, 5, 3],
+    ratings: [5, 4, 5, 5],
   },
   {
     feature: "Flexibility",
-    ratings: [5, 4, 5, null],
+    ratings: [5, 4, 5, 5],
   },
   {
     feature: "Industrial Use",
-    ratings: [5, 3, 5, 3],
+    ratings: [5, 3, 5, 5],
   },
   {
     feature: "Residential Use",
@@ -236,7 +236,7 @@ function ProductCard({
   comingSoon = false,
 }) {
   const cta = comingSoon ? (
-    <>Common Soon</>
+    <>Launch Soon</>
   ) : (
     <>
       View Product <ArrowRight size={18} strokeWidth={2.2} aria-hidden />
@@ -246,8 +246,8 @@ function ProductCard({
   return (
     <article className={`rtp-pcard${comingSoon ? " rtp-pcard--coming-soon" : ""}`}>
       {comingSoon ? (
-        <div className="rtp-pcard__soon-badge" aria-label={`${brand} ${name} common soon`}>
-          Common Soon
+        <div className="rtp-pcard__soon-badge" aria-label={`${brand} ${name} launch soon`}>
+          Launch Soon
         </div>
       ) : null}
       <header className="rtp-pcard__head">
@@ -324,6 +324,31 @@ function ProductCard({
   );
 }
 
+export function ProductCardsSection() {
+  return (
+    <section id="rtp-cards" className="rtp-cards" aria-labelledby="rtp-cards-heading">
+      <div className="rtp-container">
+        <header className="rtp-cards__header">
+          <h2 id="rtp-cards-heading" className="rtp-section-title">
+            OUR <span className="rtp-accent">PRODUCTS</span>
+          </h2>
+          <p className="rtp-cards__desc">
+            Complete wiring solutions engineered for performance, safety, and reliability.
+          </p>
+        </header>
+
+        <ul className="rtp-cards__grid">
+          {PRODUCT_CARDS.map((card) => (
+            <li key={card.id} id={card.id} className="rtp-cards__item">
+              <ProductCard {...card} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 export default function ProductsPage() {
   const pageRef = useRef(null);
   const location = useLocation();
@@ -378,26 +403,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Product cards — coded to match design */}
-      <section id="rtp-cards" className="rtp-cards" aria-labelledby="rtp-cards-heading">
-        <div className="rtp-container">
-          <header className="rtp-cards__header">
-            <h2 id="rtp-cards-heading" className="rtp-section-title">
-              OUR <span className="rtp-accent">PRODUCTS</span>
-            </h2>
-            <p className="rtp-cards__desc">
-              Complete wiring solutions engineered for performance, safety, and reliability.
-            </p>
-          </header>
-
-          <ul className="rtp-cards__grid">
-            {PRODUCT_CARDS.map((card) => (
-              <li key={card.id} id={card.id} className="rtp-cards__item">
-                <ProductCard {...card} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ProductCardsSection />
 
       {/* Why Choose RAD Kabel — single-row strip */}
       <section className="rtp-choose" aria-labelledby="rtp-choose-heading">

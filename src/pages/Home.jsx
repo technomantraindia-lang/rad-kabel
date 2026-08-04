@@ -6,11 +6,12 @@ import RadIdentitySection from "../components/RadIdentitySection.jsx";
 import WhyRadKabel from "../components/WhyRadKabel.jsx";
 import ScienceOfSafety from "../components/ScienceOfSafety.jsx";
 import EBeamTechnology from "../components/EBeamTechnology.jsx";
-import ProductsSection from "../components/ProductsSection.jsx";
 import ApplicationsSection from "../components/ApplicationsSection.jsx";
 import ElectricianProgramBanner from "../components/ElectricianProgramBanner.jsx";
 import PrecisionTestingSection from "../components/PrecisionTestingSection.jsx";
 import SafeWiringCTA from "../components/SafeWiringCTA.jsx";
+import CableVideosSection from "../components/CableVideosSection.jsx";
+import { ProductCardsSection } from "./ProductsPage.jsx";
 
 /** Home banner videos served from `public/videos/`. */
 const HERO_BANNER_VIDEOS = [
@@ -19,51 +20,6 @@ const HERO_BANNER_VIDEOS = [
   { filename: "home-banner-9158.MOV", label: "RAD Kabel showcase video two" },
 ];
 const HERO_SLIDE_DURATION = 8000;
-
-/** Served from `public/videos/` — copy your files with these exact filenames. */
-const cableVideos = [
-  { filename: "wq.mp4", name: "Wire Testing" },
-  { filename: "th.mp4", name: "Machine Testing" },
-];
-
-/** Muted autoplay + loop satisfies browser policies; viewers can enable sound via the player. */
-function CableVideoTile({ filename, name }) {
-  const src = `/videos/${encodeURIComponent(filename)}`;
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    const el = videoRef.current;
-    if (!el) return;
-    const kick = () => {
-      void el.play().catch(() => {});
-    };
-    kick();
-    el.addEventListener("loadeddata", kick);
-    return () => el.removeEventListener("loadeddata", kick);
-  }, [src]);
-
-  return (
-    <article className="cable-video-card">
-      <div className="cable-video-wrap cable-video-wrap--clean">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          controls={false}
-          disablePictureInPicture
-          controlsList="nodownload nofullscreen noremoteplayback"
-          src={src}
-        >
-          Sorry — your browser can’t play this video.
-        </video>
-      </div>
-      <p className="cable-video-caption">{name}</p>
-    </article>
-  );
-}
 
 function Hero() {
   const heroVideoRef = useRef(null);
@@ -238,24 +194,6 @@ function FullWidthHomeImage() {
   );
 }
 
-function CableVideos() {
-  return (
-    <section className="section cable-videos-section bg-black px-5 py-16 font-sans sm:px-10 sm:py-20 lg:px-14 lg:py-24" id="cable-video">
-      <div className="mx-auto max-w-[1920px] text-center">
-        <p className="site-kicker">Cable in motion</p>
-        <h2 className="site-section-title site-section-title--lg mt-4">
-          SEE THE WIRE UP CLOSE.
-        </h2>
-      </div>
-      <div className="cable-video-grid mx-auto mt-10 max-w-[1920px] sm:mt-12">
-        {cableVideos.map(({ filename, name }) => (
-          <CableVideoTile key={filename} filename={filename} name={name} />
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export default function Home() {
   return (
     <main className="site-main relative z-0 font-sans">
@@ -265,12 +203,12 @@ export default function Home() {
       <RadIdentitySection />
       <WhyRadKabel />
       <ScienceOfSafety />
+      <ProductCardsSection />
       <EBeamTechnology />
-      <ProductsSection />
       <ApplicationsSection />
       <PrecisionTestingSection />
       <ElectricianProgramBanner />
-      <CableVideos />
+      <CableVideosSection />
       <SafeWiringCTA />
     </main>
   );

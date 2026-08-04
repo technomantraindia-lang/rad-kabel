@@ -1,5 +1,5 @@
 import isiCertifiedLogo from "../assets/isi-certified.png";
-import imgRohs from "../assets/certifications/rohs.png";
+import imgRohs from "../assets/certifications/rohs-white.png";
 import imgReach from "../assets/certifications/reach.png";
 import imgCpr from "../assets/certifications/cpr.png";
 import footerLogo from "../assets/rad-footer-logo.png";
@@ -94,13 +94,17 @@ function SocialIcon({ href, label, children }) {
   );
 }
 
-function CertLogoBadge({ src, alt }) {
+function CertLogoBadge({ src, alt, id }) {
   return (
     <div className="flex min-h-[4.75rem] w-full items-center justify-center overflow-hidden rounded-md border border-white/25 bg-black px-2.5 py-2.5 sm:min-h-[5.5rem] sm:px-3 sm:py-3">
       <img
         src={src}
         alt={alt}
-        className="h-12 w-auto max-h-[3.25rem] max-w-full object-contain object-center sm:h-14 sm:max-h-16"
+        className={`w-auto max-w-full object-contain object-center ${
+          id === "rohs"
+            ? "h-[3.75rem] max-h-[4.25rem] scale-[1.28] sm:h-[4.25rem] sm:max-h-[4.75rem] sm:scale-[1.32]"
+            : "h-12 max-h-[3.25rem] sm:h-14 sm:max-h-16"
+        }`}
         decoding="async"
       />
     </div>
@@ -198,7 +202,7 @@ export default function Footer() {
             <div className="w-full max-w-[420px] lg:max-w-none">
               <div className="grid grid-cols-2 gap-3 sm:gap-3.5">
                 {CERT_MARKS.map((mark) => (
-                  <CertLogoBadge key={mark.id} src={mark.src} alt={mark.alt} />
+                  <CertLogoBadge key={mark.id} src={mark.src} alt={mark.alt} id={mark.id} />
                 ))}
               </div>
             </div>
